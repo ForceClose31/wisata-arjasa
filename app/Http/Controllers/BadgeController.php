@@ -16,16 +16,14 @@ class BadgeController extends Controller
     {
         $user = Auth::user();
 
-        $user->loadMissing('badgeLevel');
-
-        $badgeLevel = $user->badgeLevel;
+        $badgeLevel = 2;
 
 
-        $quizCompleted = $badgeLevel ? $badgeLevel->quiz_completed : false;
-        $quizScore = $badgeLevel ? $badgeLevel->quiz_score : 0;
+        $quizCompleted = $badgeLevel;
+        $quizScore = $badgeLevel;
 
 
-        $this->updateUserBadgeLevel($user->id);
+        $this->updateUserBadgeLevel(1);
 
         $topUsers = Akun::with('badgeLevel')
             ->join('badge_levels', 'akun.id', '=', 'badge_levels.akun_id')
@@ -34,7 +32,7 @@ class BadgeController extends Controller
             ->get();
 
 
-        $topContents = Konten::where('akun_id', $user->id)
+        $topContents = Konten::where('akun_id', 1)
             ->where('status', 'approved')
             ->orderByDesc('views_count')
             ->take(10)
@@ -43,7 +41,7 @@ class BadgeController extends Controller
         $userBadge = $badgeLevel;
         $usersekarang = Auth::user();
 
-        $badgeInfo = $this->getBadgeInfo($userBadge ? $userBadge->poin : 0);
+        $badgeInfo = $this->getBadgeInfo($userBadge ? 100 : 0);
 
         return view('user.badge.index', compact('topUsers', 'topContents', 'userBadge', 'badgeInfo', 'quizCompleted', 'quizScore', 'usersekarang'));
     }

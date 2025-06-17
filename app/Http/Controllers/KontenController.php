@@ -57,11 +57,6 @@ class KontenController extends Controller
         return view('user.konten.histori', compact('contents'));
     }
 
-    public function create()
-    {
-        return view('user.konten.create');
-    }
-
     public function store(Request $request)
     {
         $request->validate([
@@ -145,55 +140,6 @@ class KontenController extends Controller
 
         return view('user.konten.edit', compact('konten'));
     }
-
-    public function update(Request $request, $id)
-    {
-        $konten = Konten::findOrFail($id);
-
-        $validated = $request->validate([
-            'judul' => 'required|max:255',
-            'kategori' => 'required|in:tarian,musik,kuliner,upacara,kerajinan',
-            'asal' => 'required',
-            'isi' => 'required',
-            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
-
-        if ($request->hasFile('thumbnail')) {
-            // Delete old thumbnail if exists
-            if ($konten->thumbnail) {
-                Storage::delete('public/' . $konten->thumbnail);
-            }
-
-            $validated['thumbnail'] = $request->file('thumbnail')->store('konten-thumbnails', 'public');
-        }
-
-        $konten->update($validated);
-
-        Alert::success('Sukses', 'Konten budaya berhasil diperbarui!');
-        return redirect()->route('konten.histori');
-    }
-
-    public function destroy($id)
-    {
-        $konten = Konten::findOrFail($id);
-
-        if ($konten->akun_id !== Auth::id()) {
-            return redirect()->back()->with('error', 'Tidak diizinkan menghapus konten ini.');
-        }
-
-        if ($konten->status !== 'pending') {
-            return redirect()->back()->with('error', 'Konten hanya bisa dihapus saat masih pending.');
-        }
-
-        if ($konten->thumbnail) {
-            Storage::delete('public/' . $konten->thumbnail);
-        }
-
-        $konten->delete();
-
-        return redirect()->back()->with('success', 'Konten berhasil dihapus.');
-    }
-
 
 
 }
