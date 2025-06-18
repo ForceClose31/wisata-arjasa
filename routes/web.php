@@ -21,7 +21,16 @@ Route::get('badge/quiz', [BadgeController::class, 'quiz'])->name('badge.quiz');
 Route::post('/submit-quiz', [BadgeController::class, 'submitQuiz'])->name('badge.submit-quiz');
 
 Route::get('/user/konten', [KontenController::class, 'index'])->name('konten.index');
-Route::get('/about', [KontenController::class, 'index'])->name('about.index');
+// Route::get('/about', [KontenController::class, 'index'])->name('about.index');
+Route::get('/about', function () {
+    return view('user.event');
+})->name('about');
+Route::get('/about', function () {
+    return view('user.event');
+})->name('about.index');
+Route::get('/tour-package', function () {
+    return view('user.event');
+})->name('tour-package');
 Route::get('/konten-detail/{id}', [KontenController::class, 'show'])->name('kontenbudaya.show');
 
 Route::get('/user/event', [EventController::class, 'index'])->name('event.index');
