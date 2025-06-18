@@ -2,26 +2,21 @@
 
 namespace Database\Seeders;
 
-use App\Models\Akun;
-use App\Models\Role;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
-
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
-    public function run(): void
+    public function run()
     {
         $this->call([
-            RoleSeeder::class,
-            AkunSeeder::class,
-            // KontenSeeder::class,
-            BadgeLevelSeeder::class,
+            AdminSeeder::class,
             TagSeeder::class,
             ArticleSeeder::class,
+            CottageSeeder::class,
+            TourPackageSeeder::class,
+            TestimonialSeeder::class,
+            EventSeeder::class,
+            ContentSeeder::class,
         ]);
     }
 }

@@ -2,29 +2,25 @@
 
 namespace Database\Seeders;
 
-use App\Models\Tag;
 use Illuminate\Database\Seeder;
+use App\Models\Tag;
 
 class TagSeeder extends Seeder
 {
     public function run()
     {
         $tags = [
-            'Wisata Alam',
-            'Budaya',
-            'Kuliner',
-            'Akomodasi',
-            'Transportasi',
-            'Tips',
-            'Event',
-            'Sejarah'
+            ['name' => 'Wisata Alam', 'slug' => 'wisata-alam'],
+            ['name' => 'Petualangan', 'slug' => 'petualangan'],
+            ['name' => 'Keluarga', 'slug' => 'keluarga'],
+            ['name' => 'Romantis', 'slug' => 'romantis'],
+            ['name' => 'Budaya', 'slug' => 'budaya'],
         ];
 
         foreach ($tags as $tag) {
-            Tag::create([
-                'name' => $tag,
-                'slug' => \Illuminate\Support\Str::slug($tag)
-            ]);
+            Tag::create($tag);
         }
+
+        $this->command->info('Tags seeded successfully!');
     }
 }
