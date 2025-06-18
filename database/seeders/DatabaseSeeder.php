@@ -22,7 +22,6 @@ class DatabaseSeeder extends Seeder
             BadgeLevelSeeder::class,
             TagSeeder::class,
             ArticleSeeder::class,
-            CommentSeeder::class,
         ]);
     }
 }
