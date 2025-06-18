@@ -22,15 +22,22 @@ Route::post('/submit-quiz', [BadgeController::class, 'submitQuiz'])->name('badge
 
 Route::get('/user/konten', [KontenController::class, 'index'])->name('konten.index');
 // Route::get('/about', [KontenController::class, 'index'])->name('about.index');
+Route::get('/contact', function () {
+    return view('user.about.about');
+})->name('contact');
+
+Route::get('/paket', function () {
+    return view('user.about.about');
+})->name('paket.index');
+
 Route::get('/about', function () {
-    return view('user.event');
-})->name('about');
-Route::get('/about', function () {
-    return view('user.event');
+    return view('user.about.about');
 })->name('about.index');
+
 Route::get('/tour-package', function () {
     return view('user.event');
 })->name('tour-package');
+
 Route::get('/konten-detail/{id}', [KontenController::class, 'show'])->name('kontenbudaya.show');
 
 Route::get('/user/event', [EventController::class, 'index'])->name('event.index');
@@ -83,4 +90,3 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::post('/content/{id}/reject', [AdminController::class, 'rejectContent'])->name('content.reject');
     Route::post('/recalculate-badges', [BadgeController::class, 'recalculateAllBadges'])->name('recalculate.badges');
 });
-

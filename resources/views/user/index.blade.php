@@ -73,7 +73,7 @@
     </section>
 
     {{-- Information Section with Animated Counter --}}
-    <section class="py-20 bg-gray-50">
+    <section class="py-20 bg-gray-50" data-aos="fade-up">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-5xl font-bold text-gray-800 mb-6 font-montserrat relative inline-block">
@@ -166,7 +166,7 @@
         <div class="container mx-auto px-4">
             <div class="flex flex-col lg:flex-row items-center gap-12">
                 <div class="lg:w-1/2">
-                    <div class="relative rounded-xl overflow-hidden shadow-2xl">
+                    <div class="relative rounded-xl overflow-hidden shadow-2xl" data-aos="fade-right">
                         <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
                             alt="About Us" class="w-full h-auto object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-gray-900/70 to-transparent"></div>
@@ -176,7 +176,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="lg:w-1/2">
+                <div class="lg:w-1/2" data-aos="fade-left">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 font-montserrat">
                         <span class="relative">
                             Discover Arjasa with Us
