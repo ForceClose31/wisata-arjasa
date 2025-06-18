@@ -11,37 +11,56 @@ class TourPackageSeeder extends Seeder
     {
         $packages = [
             [
-                'name' => 'Paket Wisata 1 Hari',
-                'slug' => 'paket-wisata-1-hari',
-                'description' => 'Nikmati wisata alam selama sehari penuh dengan berbagai aktivitas seru.',
-                'price' => 250000,
-                'duration' => 1,
-                'itinerary' => [
-                    ['time' => '08:00', 'activity' => 'Penjemputan di titik kumpul'],
-                    ['time' => '09:00', 'activity' => 'Trekking ke air terjun'],
-                    ['time' => '12:00', 'activity' => 'Makan siang'],
-                    ['time' => '13:00', 'activity' => 'Bersepeda keliling desa'],
-                    ['time' => '16:00', 'activity' => 'Kembali ke titik kumpul'],
+                'name' => 'Kei Island',
+                'subtitle' => 'The Hidden Paradise',
+                'slug' => 'kei-island-tes',
+                'description' => 'Paket wisata lengkap ke pulau Kei dengan destinasi terbaik...',
+                'price' => 3500000,
+                'duration' => '3 Hari 2 Malam',
+                'min_person' => 2,
+                'highlights' => [
+                    'Pantai Ngurbloat',
+                    'Pulau Bair',
+                    'Goa Hawang',
+                    'Tanjung Verenang'
                 ],
-                'includes' => ['Transportasi', 'Pemandu', 'Tiket masuk', 'Makan siang', 'Air mineral'],
-                'excludes' => ['Pengeluaran pribadi', 'Asuransi perjalanan'],
-                'images' => ['tours/1hari1.jpg', 'tours/1hari2.jpg'],
-                'is_available' => true,
+                'includes' => [
+                    'Hotel/Penginapan di Pantai',
+                    'Makan + Snack + Air Mineral',
+                    'Mobil + Speed Boat',
+                    'Karcis Lokasi Wisata',
+                    'Guide + Dokumentasi'
+                ],
+                'images' => ['tour-packages/kei-island.jpg'],
+                'website_url' => 'https://www.mtckeitourandtravel.com',
+                'phone_numbers' => ['0311477719', '082196644495'],
+                'is_featured' => true
             ],
             [
-                'name' => 'Paket Wisata 2 Hari 1 Malam',
-                'slug' => 'paket-wisata-2-hari-1-malam',
-                'description' => 'Pengalaman menginap di alam dengan berbagai aktivitas petualangan.',
-                'price' => 750000,
-                'duration' => 2,
-                'itinerary' => [
-                    ['time' => 'Day 1', 'activity' => 'Aktivitas hari pertama'],
-                    ['time' => 'Day 2', 'activity' => 'Aktivitas hari kedua'],
+                'name' => 'Kei Island',
+                'subtitle' => 'The Hidden Paradise',
+                'slug' => 'kei-island',
+                'description' => 'Paket wisata lengkap ke pulau Kei dengan destinasi terbaik...',
+                'price' => 3500000,
+                'duration' => '3 Hari 2 Malam',
+                'min_person' => 2,
+                'highlights' => [
+                    'Pantai Ngurbloat',
+                    'Pulau Bair',
+                    'Goa Hawang',
+                    'Tanjung Verenang'
                 ],
-                'includes' => ['Penginapan 1 malam', 'Makan 3x', 'Pemandu', 'Aktivitas'],
-                'excludes' => ['Transportasi dari kota asal', 'Pengeluaran pribadi'],
-                'images' => ['tours/2hari1.jpg', 'tours/2hari2.jpg'],
-                'is_available' => true,
+                'includes' => [
+                    'Hotel/Penginapan di Pantai',
+                    'Makan + Snack + Air Mineral',
+                    'Mobil + Speed Boat',
+                    'Karcis Lokasi Wisata',
+                    'Guide + Dokumentasi'
+                ],
+                'images' => ['tour-packages/kei-island.jpg'],
+                'website_url' => 'https://www.mtckeitourandtravel.com',
+                'phone_numbers' => ['0311477719', '082196644495'],
+                'is_featured' => true
             ],
         ];
 

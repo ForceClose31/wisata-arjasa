@@ -365,176 +365,157 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Tour Package Card -->
-                <div
-                    class="bg-white rounded-xl shadow-lg overflow-hidden border-b-4 border-teal-500 hover:shadow-xl transition duration-300">
-                    <!-- Header with Image -->
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                            alt="Kei Island" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/70 to-transparent"></div>
-                        <div class="absolute bottom-0 left-0 p-6 text-white">
-                            <h3 class="text-2xl font-bold">Kei Island</h3>
-                            <p class="text-gray-200">The Hidden Paradise</p>
-                        </div>
-                    </div>
-
-                    <!-- Destination Highlights -->
-                    <div class="p-6">
-                        <div class="mb-6">
-                            <h4 class="font-bold text-gray-800 mb-3 flex items-center">
-                                <i class="fas fa-map-marker-alt text-teal-600 mr-2"></i>
-                                DESTINASI
-                            </h4>
-                            <ul class="grid grid-cols-2 gap-2 text-sm text-gray-600">
-                                <li class="flex items-center">
-                                    <i class="fas fa-circle text-teal-500 text-xs mr-2"></i>
-                                    Pantai Ngurbloat
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-circle text-teal-500 text-xs mr-2"></i>
-                                    Pulau Bair
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-circle text-teal-500 text-xs mr-2"></i>
-                                    Goa Hawang
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-circle text-teal-500 text-xs mr-2"></i>
-                                    Tanjung Verenang
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!-- Package Includes -->
-                        <div class="mb-6">
-                            <h4 class="font-bold text-gray-800 mb-3 flex items-center">
-                                <i class="fas fa-check-circle text-teal-600 mr-2"></i>
-                                INCLUDE
-                            </h4>
-                            <ul class="space-y-2 text-sm text-gray-600">
-                                <li class="flex items-start">
-                                    <i class="fas fa-hotel text-teal-500 mt-1 mr-2 text-xs"></i>
-                                    <span>Hotel/Penginapan di Pantai</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-utensils text-teal-500 mt-1 mr-2 text-xs"></i>
-                                    <span>Makan + Snack + Air Mineral</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-car text-teal-500 mt-1 mr-2 text-xs"></i>
-                                    <span>Mobil + Speed Boat</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-ticket-alt text-teal-500 mt-1 mr-2 text-xs"></i>
-                                    <span>Karcis Lokasi Wisata</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-camera text-teal-500 mt-1 mr-2 text-xs"></i>
-                                    <span>Guide + Dokumentasi</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!-- Price and CTA -->
-                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-t pt-4">
-                            <div class="mb-4 sm:mb-0">
-                                <div class="text-sm font-semibold text-gray-500">3 Day 2 Night</div>
-                                <div class="text-2xl font-bold text-teal-600">Rp 3.500.000 <span
-                                        class="text-sm font-normal text-gray-500">/person</span></div>
+                @foreach ($featuredPackages as $package)
+                    <div
+                        class="bg-white rounded-xl shadow-lg overflow-hidden border-b-4 border-{{ $loop->index % 2 == 0 ? 'teal' : 'indigo' }}-500 hover:shadow-xl transition duration-300">
+                        <!-- Header with Image -->
+                        <div class="relative h-64 overflow-hidden">
+                            @if ($package->images && count($package->images) > 0)
+                                <img src="{{ asset('storage/' . $package->images[0]) }}" alt="{{ $package->name }}"
+                                    class="w-full h-full object-cover">
+                            @else
+                                <img src="https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="{{ $package->name }}" class="w-full h-full object-cover">
+                            @endif
+                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/70 to-transparent"></div>
+                            <div class="absolute bottom-0 left-0 p-6 text-white">
+                                <h3 class="text-2xl font-bold">{{ $package->name }}</h3>
+                                <p class="text-gray-200">{{ $package->subtitle ?? 'Paket Wisata Eksklusif' }}</p>
                             </div>
-                            <a href="#"
-                                class="px-6 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition duration-300 font-medium text-sm">
-                                Pesan Sekarang
-                            </a>
                         </div>
-                    </div>
 
-                    <!-- Footer -->
-                    <div class="bg-gray-50 px-6 py-4 border-t">
-                        <div class="flex flex-col sm:flex-row justify-between items-center text-sm">
-                            <div class="mb-2 sm:mb-0">
-                                <a href="tel:0311477719"
-                                    class="text-gray-600 hover:text-teal-600 transition duration-300">
-                                    <i class="fas fa-phone-alt mr-1"></i> 0311-4777-19
+                        <!-- Package Content -->
+                        <div class="p-6">
+                            @if ($loop->index % 2 == 0)
+                                <!-- First Card Style -->
+                                <div class="mb-6">
+                                    <h4 class="font-bold text-gray-800 mb-3 flex items-center">
+                                        <i class="fas fa-map-marker-alt text-teal-600 mr-2"></i>
+                                        DESTINASI
+                                    </h4>
+                                    <ul class="grid grid-cols-2 gap-2 text-sm text-gray-600">
+                                        @if ($package->highlights)
+                                            @foreach ($package->highlights as $highlight)
+                                                @if ($loop->index < 4)
+                                                    <li class="flex items-center">
+                                                        <i class="fas fa-circle text-teal-500 text-xs mr-2"></i>
+                                                        {{ $highlight }}
+                                                    </li>
+                                                @endif
+                                            @endforeach
+                                        @endif
+                                    </ul>
+                                </div>
+
+                                <div class="mb-6">
+                                    <h4 class="font-bold text-gray-800 mb-3 flex items-center">
+                                        <i class="fas fa-check-circle text-teal-600 mr-2"></i>
+                                        INCLUDE
+                                    </h4>
+                                    <ul class="space-y-2 text-sm text-gray-600">
+                                        @if ($package->includes)
+                                            @foreach ($package->includes as $include)
+                                                @if ($loop->index < 5)
+                                                    <li class="flex items-start">
+                                                        <i class="fas fa-check-circle text-teal-500 mt-1 mr-2 text-xs"></i>
+                                                        <span>{{ $include }}</span>
+                                                    </li>
+                                                @endif
+                                            @endforeach
+                                        @endif
+                                    </ul>
+                                </div>
+                            @else
+                                <!-- Second Card Style -->
+                                <div class="mb-6">
+                                    <h4 class="font-bold text-gray-800 mb-3 flex items-center">
+                                        <i class="fas fa-info-circle text-indigo-600 mr-2"></i>
+                                        DETAIL PAKET
+                                    </h4>
+                                    <div class="space-y-4">
+                                        <div class="flex justify-between items-center border-b pb-2">
+                                            <span class="text-gray-600">Harga Paket</span>
+                                            <span class="font-bold text-indigo-600">Rp
+                                                {{ number_format($package->price) }} /pax</span>
+                                        </div>
+                                        <div class="flex justify-between items-center border-b pb-2">
+                                            <span class="text-gray-600">Durasi</span>
+                                            <span class="font-medium">{{ $package->duration ?? '3 Hari 2 Malam' }}</span>
+                                        </div>
+                                        <div class="flex justify-between items-center border-b pb-2">
+                                            <span class="text-gray-600">Minimal Peserta</span>
+                                            <span class="font-medium">{{ $package->min_person ?? 2 }} Orang</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @if ($package->highlights && count($package->highlights) > 0)
+                                    <div class="mb-6">
+                                        <h4 class="font-bold text-gray-800 mb-3">{{ $package->highlights[0] }}</h4>
+                                        <p class="text-gray-600 text-sm">{{ Str::limit($package->description, 150) }}</p>
+                                    </div>
+                                @endif
+                            @endif
+
+                            <!-- Price and CTA -->
+                            <div
+                                class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-t pt-4">
+                                <div class="mb-4 sm:mb-0">
+                                    <div class="text-sm font-semibold text-gray-500">
+                                        {{ $package->duration ?? '3 Day 2 Night' }}</div>
+                                    <div
+                                        class="text-2xl font-bold text-{{ $loop->index % 2 == 0 ? 'teal' : 'indigo' }}-600">
+                                        Rp {{ number_format($package->price) }}
+                                        <span class="text-sm font-normal text-gray-500">/person</span>
+                                    </div>
+                                </div>
+                                <a href="{{ $package->website_url ?? route('tour-packages.show', $package->slug) }}"
+                                    class="px-6 py-2 bg-{{ $loop->index % 2 == 0 ? 'teal' : 'indigo' }}-600 text-white rounded-lg hover:bg-{{ $loop->index % 2 == 0 ? 'teal' : 'indigo' }}-700 transition duration-300 font-medium text-sm">
+                                    {{ $loop->index % 2 == 0 ? 'Pesan Sekarang' : 'Kunjungi Website Kami' }}
                                 </a>
-                                <span class="mx-2 text-gray-300">|</span>
-                                <a href="tel:082196644495"
-                                    class="text-gray-600 hover:text-teal-600 transition duration-300">
-                                    0821 9664 4495
-                                </a>
-                            </div>
-                            <a href="https://www.mtckeitourandtravel.com" target="_blank"
-                                class="text-teal-600 hover:text-teal-800 transition duration-300 font-medium">
-                                www.mtckeitourandtravel.com
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Second Tour Package Card (duplicate and modify as needed) -->
-                <div
-                    class="bg-white rounded-xl shadow-lg overflow-hidden border-b-4 border-indigo-500 hover:shadow-xl transition duration-300">
-                    <!-- Header with Image -->
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                            alt="Kepulauan Kei" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/70 to-transparent"></div>
-                        <div class="absolute bottom-0 left-0 p-6 text-white">
-                            <h3 class="text-2xl font-bold">Tour Kei Island 3D2N</h3>
-                            <p class="text-gray-200">Kepulauan Kei</p>
-                        </div>
-                    </div>
-
-                    <!-- Package Details -->
-                    <div class="p-6">
-                        <div class="mb-6">
-                            <h4 class="font-bold text-gray-800 mb-3 flex items-center">
-                                <i class="fas fa-info-circle text-indigo-600 mr-2"></i>
-                                DETAIL PAKET
-                            </h4>
-                            <div class="space-y-4">
-                                <div class="flex justify-between items-center border-b pb-2">
-                                    <span class="text-gray-600">Harga Paket</span>
-                                    <span class="font-bold text-indigo-600">Rp 3.500.000 /pax</span>
-                                </div>
-                                <div class="flex justify-between items-center border-b pb-2">
-                                    <span class="text-gray-600">Durasi</span>
-                                    <span class="font-medium">3 Hari 2 Malam</span>
-                                </div>
-                                <div class="flex justify-between items-center border-b pb-2">
-                                    <span class="text-gray-600">Minimal Peserta</span>
-                                    <span class="font-medium">2 Orang</span>
-                                </div>
                             </div>
                         </div>
 
-                        <!-- Highlights -->
-                        <div class="mb-6">
-                            <h4 class="font-bold text-gray-800 mb-3">Pantai Ngurbloat</h4>
-                            <p class="text-gray-600 text-sm">Pasir terhalus di dunia dengan pemandangan laut yang memukau.
-                                Nikmati sunset terbaik di Kepulauan Kei.</p>
-                        </div>
-
-                        <!-- CTA -->
-                        <div class="text-center">
-                            <a href="https://www.kepualauankei.com" target="_blank"
-                                class="inline-block px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition duration-300 font-medium">
-                                Kunjungi Website Kami
-                            </a>
+                        <!-- Footer -->
+                        <div class="bg-gray-50 px-6 py-4 border-t">
+                            @if ($loop->index % 2 == 0)
+                                <div class="flex flex-col sm:flex-row justify-between items-center text-sm">
+                                    <div class="mb-2 sm:mb-0">
+                                        @if ($package->phone_numbers)
+                                            @foreach ($package->phone_numbers as $phone)
+                                                @if ($loop->index < 2)
+                                                    <a href="tel:{{ $phone }}"
+                                                        class="text-gray-600 hover:text-teal-600 transition duration-300">
+                                                        @if ($loop->index == 0)
+                                                            <i class="fas fa-phone-alt mr-1"></i>
+                                                        @endif
+                                                        {{ $phone }}
+                                                    </a>
+                                                    @if (!$loop->last && count($package->phone_numbers) > 1)
+                                                        <span class="mx-2 text-gray-300">|</span>
+                                                    @endif
+                                                @endif
+                                            @endforeach
+                                        @endif
+                                    </div>
+                                    <a href="{{ $package->website_url ?? '#' }}" target="_blank"
+                                        class="text-teal-600 hover:text-teal-800 transition duration-300 font-medium">
+                                        {{ $package->website_url ? parse_url($package->website_url, PHP_URL_HOST) : 'www.example.com' }}
+                                    </a>
+                                </div>
+                            @else
+                                <div class="text-center">
+                                    <p class="text-sm text-gray-600">*Harga dapat berubah sesuai musim dan ketersediaan</p>
+                                </div>
+                            @endif
                         </div>
                     </div>
-
-                    <!-- Footer -->
-                    <div class="bg-gray-50 px-6 py-4 border-t text-center">
-                        <p class="text-sm text-gray-600">*Harga dapat berubah sesuai musim dan ketersediaan</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
 
             <!-- View All Button -->
             <div class="text-center mt-12">
-                <a href="#"
+                <a href="{{ route('tour-packages.index') }}"
                     class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-teal-600 hover:bg-teal-700 transition duration-300">
                     Lihat Semua Paket <i class="fas fa-arrow-right ml-2"></i>
                 </a>

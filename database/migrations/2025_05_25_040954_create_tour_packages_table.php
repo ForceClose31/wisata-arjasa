@@ -14,7 +14,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->text('description');
             $table->decimal('price', 10, 2);
-            $table->integer('duration');
+            $table->string('duration');
             $table->json('itinerary')->nullable();
             $table->json('includes')->nullable();
             $table->json('excludes')->nullable();

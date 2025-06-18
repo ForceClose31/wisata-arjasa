@@ -14,6 +14,11 @@ class HomeController extends Controller
             ->take(2)
             ->get();
 
-        return view('user.index', compact('tourPackages'));
+        $featuredPackages = TourPackage::where('is_available', true)
+            ->orderBy('created_at', 'desc')
+            ->take(2)
+            ->get();
+
+        return view('user.index', compact('tourPackages', 'featuredPackages'));
     }
 }

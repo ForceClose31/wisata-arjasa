@@ -12,20 +12,28 @@ class TourPackage extends Model
     protected $fillable = [
         'name',
         'slug',
+        'subtitle',
         'description',
         'price',
         'duration',
+        'min_person',
         'itinerary',
         'includes',
         'excludes',
+        'highlights',
         'images',
-        'is_available'
+        'is_available',
+        'is_featured',
+        'website_url',
+        'phone_numbers'
     ];
 
     protected $casts = [
         'itinerary' => 'array',
         'includes' => 'array',
         'excludes' => 'array',
-        'images' => 'array'
+        'highlights' => 'array',
+        'images' => 'array',
+        'phone_numbers' => 'array'
     ];
 }
