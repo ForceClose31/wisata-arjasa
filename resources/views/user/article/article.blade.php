@@ -123,11 +123,11 @@
                                 <div class="flex-shrink-0 mr-4">
                                     <div
                                         class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-bold">
-                                        {{ substr($comment->user->name, 0, 1) }}
+                                        {{ substr($comment->user->username, 0, 1) }}
                                     </div>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-gray-800">{{ $comment->user->name }}</h4>
+                                    <h4 class="font-semibold text-gray-800">{{ $comment->user->username }}</h4>
                                     <p class="text-sm text-gray-500">{{ $comment->created_at->diffForHumans() }}</p>
                                 </div>
                             </div>

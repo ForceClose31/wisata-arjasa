@@ -7,9 +7,11 @@ use App\Http\Controllers\KontenController;
 use App\Http\Controllers\BadgeController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PetaBudayaController;
 
 Route::get('/', [AuthController::class, 'home'])->name('welcome');
@@ -49,6 +51,14 @@ Route::get('/home', [AuthController::class, 'home'])->name('home');
 Route::get('/peta-budaya', [PetaBudayaController::class, 'index'])->name('peta-budaya');
 
 Route::get('/konten/{id}', [PetaBudayaController::class, 'show'])->name('konten.show');
+
+// Articles
+Route::get('/artikel/{slug}', [ArticleController::class, 'show'])->name('articles.show');
+Route::get('/artikel/tag/{slug}', [ArticleController::class, 'byTag'])->name('articles.byTag');
+
+// Comments
+Route::post('/artikel/{article}/komentar', [CommentController::class, 'store'])->name('comments.store')->middleware('auth');
+Route::delete('/komentar/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy')->middleware('auth');
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/user/regis', function () {

@@ -28,6 +28,11 @@ class Akun extends Authenticatable
         'password' => 'hashed',
     ];
 
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class, 'akun_id');
+    }
+
     public function role()
     {
         return $this->belongsTo(Role::class, 'id_role', 'id');
@@ -66,4 +71,3 @@ class Akun extends Authenticatable
         return $this->badgeLevel ? $this->badgeLevel->status : 'Abdi';
     }
 }
-

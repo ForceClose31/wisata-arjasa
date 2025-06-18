@@ -20,6 +20,9 @@ class DatabaseSeeder extends Seeder
             AkunSeeder::class,
             // KontenSeeder::class,
             BadgeLevelSeeder::class,
+            TagSeeder::class,
+            ArticleSeeder::class,
+            CommentSeeder::class,
         ]);
     }
 }
