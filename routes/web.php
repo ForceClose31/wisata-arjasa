@@ -37,6 +37,21 @@ Route::get('/about', function () {
     return view('user.about.about');
 })->name('about.index');
 
+Route::get('/tour-package', function () {
+    return view('user.tour-package.tour-package');
+})->name('tour-package.index');
+
+Route::get('/cottage', function () {
+    return view('user.cottage.cottage');
+})->name('cottage.index');
+
+Route::get('/gallery', function () {
+    return view('user.gallery.gallery');
+})->name('gallery.index');
+
+Route::get('/event-budaya', function () {
+    return view('user.event-budaya.event-budaya');
+})->name('event-budaya.index');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/tour-packages', [HomeController::class, 'index'])->name('tour-packages.index');

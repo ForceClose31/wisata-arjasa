@@ -19,13 +19,12 @@
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="{{route('home')}}" class="menu-item font-bold transition duration-200 hover:text-budanes">HOME</a>
                     <a href="{{route('about.index')}}" class="menu-item font-bold transition duration-200 hover:text-budanes">ABOUT US</a>
-                    <a href="{{route('about.index')}}"  class="menu-item font-bold transition duration-200 hover:text-budanes">TOUR PACKAGE</a>
+                    <a href="{{route('tour-package.index')}}"  class="menu-item font-bold transition duration-200 hover:text-budanes">TOUR PACKAGE</a>
                     <a href="{{route('about.index')}}"  class="menu-item font-bold transition duration-200 hover:text-budanes">TRANSPORT</a>
-                    <a href="{{route('about.index')}}"  class="menu-item font-bold transition duration-200 hover:text-budanes">COTTAGE</a>
-                    <a href="{{route('about.index')}}"  class="menu-item font-bold transition duration-200 hover:text-budanes">GALLERY</a>
+                    <a href="{{route('cottage.index')}}"  class="menu-item font-bold transition duration-200 hover:text-budanes">COTTAGE</a>
+                    <a href="{{route('gallery.index')}}"  class="menu-item font-bold transition duration-200 hover:text-budanes">GALLERY</a>
                     <a href="{{route('about.index')}}"  class="menu-item font-bold transition duration-200 hover:text-budanes">ARTICLE</a>
-                    <a href="{{route('about.index')}}" class="menu-item font-bold transition duration-200 hover:text-budanes">KONTEN BUDAYA</a>
-                    <a href="{{route('about.index')}}"  class="menu-item font-bold transition duration-200 hover:text-budanes">EVENT BUDAYA</a>
+                    <a href="{{route('event-budaya.index')}}"  class="menu-item font-bold transition duration-200 hover:text-budanes">EVENT BUDAYA</a>
                 </div>
             </div>
         </nav>
