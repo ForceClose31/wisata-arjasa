@@ -24,6 +24,36 @@ class ContentSeeder extends Seeder
                 'page_type' => 'contact',
                 'is_published' => true,
             ],
+            [
+                'title' => 'Welcome to Arjasa',
+                'subtitle' => 'Discover the hidden gem of East Java',
+                'slug' => 'tes',
+                'cta' => 'Explore Now',
+                'image' => 'slider/slide1.jpg',
+                'content' => '',
+                'page_type' => 'home_slider',
+                'is_published' => true,
+            ],
+            [
+                'title' => 'Cultural Heritage',
+                'subtitle' => 'Experience rich traditions and history',
+                'slug' => 'tes2',
+                'cta' => 'Learn More',
+                'image' => 'slider/slide2.jpg',
+                'content' => '',
+                'page_type' => 'home_slider',
+                'is_published' => true,
+            ],
+            [
+                'title' => 'Natural Wonders',
+                'subtitle' => 'Explore breathtaking landscapes',
+                'slug' => 'tes3',
+                'cta' => 'Discover Now',
+                'image' => 'slider/slide3.jpg',
+                'content' => '',
+                'page_type' => 'home_slider',
+                'is_published' => true,
+            ],
         ];
 
         foreach ($contents as $content) {

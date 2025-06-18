@@ -1,30 +1,6 @@
 @extends('layouts.appCus')
 
 @section('content')
-    @auth
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                @if (session('alert_tampil'))
-                    const username = "{{ session('nama_login') }}";
-                    Swal.fire({
-                        title: 'Login Berhasil!',
-                        text: `Selamat datang, ${username}!`,
-                        icon: 'success',
-                        confirmButtonText: 'OK',
-                        customClass: {
-                            confirmButton: 'confirm',
-                        },
-                        buttonsStyling: false,
-                    });
-                    @php
-                        session()->forget('alert_tampil');
-                        session()->forget('nama_login');
-                    @endphp
-                @endif
-            });
-        </script>
-    @endauth
-
     <!-- Hero Section with Gradient Background -->
     <section class="relative h-screen max-h-[800px] overflow-hidden bg-gradient-to-br from-teal-600 to-indigo-700">
         <div class="absolute inset-0 bg-black/20 z-10"></div>
@@ -44,7 +20,7 @@
                         class="text-4xl md:text-6xl font-bold mb-4 font-montserrat animate-fade-in"></h1>
                     <p x-text="slides[currentSlide].subtitle"
                         class="text-xl md:text-2xl mb-8 text-gray-100 animate-fade-in animate-delay-100"></p>
-                    <a href="{{ route('konten.index') }}"
+                    <a href="{{ route('about.index') }}"
                         class="px-8 py-4 bg-white text-teal-700 font-bold rounded-lg hover:bg-gray-100 hover:text-teal-800 transition duration-300 animate-fade-in animate-delay-200 inline-flex items-center shadow-lg">
                         <span x-text="slides[currentSlide].cta"></span>
                         <i class="fas fa-arrow-right ml-2"></i>
@@ -228,7 +204,7 @@
     {{-- Tour Packages Section --}}
     <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
-            <div class="flex flex-col lg:flex-row gap-12">
+            <div class="flex flex-col lg:flex-row gap-40">
                 <div class="lg:w-1/2">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 font-montserrat">
                         <span class="relative">
@@ -242,76 +218,46 @@
                     </p>
 
                     <div class="space-y-6">
-                        <div
-                            class="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300 border-l-4 border-teal-500">
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Cultural Heritage Tour</h3>
-                            <p class="text-gray-600 mb-4">Explore ancient temples, traditional villages, and local artisans
-                                in this immersive cultural journey.</p>
-                            <div class="flex justify-between items-center">
-                                <span class="text-teal-600 font-semibold">IDR 450K / person</span>
-                                <a href="#"
-                                    class="text-sm font-medium text-teal-600 hover:text-teal-800 transition duration-300">
-                                    View Details <i class="fas fa-arrow-right ml-1"></i>
-                                </a>
+                        @foreach ($tourPackages->take(2) as $package)
+                            <div
+                                class="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300 border-l-4 border-{{ $loop->index % 2 == 0 ? 'teal' : 'indigo' }}-500 h-full">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">{{ $package->name }}</h3>
+                                <p class="text-gray-600 mb-4">{{ Str::limit($package->description, 120) }}</p>
+                                <div class="flex justify-between items-center">
+                                    <span
+                                        class="text-{{ $loop->index % 2 == 0 ? 'teal' : 'indigo' }}-600 font-semibold">IDR
+                                        {{ number_format($package->price) }} / person</span>
+                                    <a href="{{ route('tour-packages.show', $package->slug) }}"
+                                        class="text-sm font-medium text-{{ $loop->index % 2 == 0 ? 'teal' : 'indigo' }}-600 hover:text-{{ $loop->index % 2 == 0 ? 'teal' : 'indigo' }}-800 transition duration-300">
+                                        View Details <i class="fas fa-arrow-right ml-1"></i>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-
-                        <div
-                            class="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300 border-l-4 border-indigo-500">
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Nature Adventure Package</h3>
-                            <p class="text-gray-600 mb-4">Trek through lush forests, discover hidden waterfalls, and
-                                experience Arjasa's breathtaking landscapes.</p>
-                            <div class="flex justify-between items-center">
-                                <span class="text-indigo-600 font-semibold">IDR 650K / person</span>
-                                <a href="#"
-                                    class="text-sm font-medium text-indigo-600 hover:text-indigo-800 transition duration-300">
-                                    View Details <i class="fas fa-arrow-right ml-1"></i>
-                                </a>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
 
-                    <a href="{{ route('konten.index') }}"
+                    <a href="{{ route('tour-packages.index') }}"
                         class="mt-8 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 transition duration-300">
                         View All Packages
                     </a>
                 </div>
 
-                <div class="lg:w-1/2">
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="relative rounded-xl overflow-hidden shadow-lg h-64">
-                            <img src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                                alt="Tour Package" class="w-full h-full object-cover">
+                <div class="lg:w-1/3 flex flex-col gap-4 h-full">
+                    @foreach ($tourPackages->take(2) as $package)
+                        <div class="relative rounded-xl overflow-hidden shadow-lg flex-1">
+                            @if ($package->images && count($package->images) > 0)
+                                <img src="{{ asset('storage/' . $package->images[0]) }}" alt="{{ $package->name }}"
+                                    class="w-full h-full object-cover">
+                            @else
+                                <img src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="Tour Package" class="w-full h-full object-cover">
+                            @endif
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent flex items-end p-4">
-                                <h3 class="text-white font-semibold">Traditional Village Visit</h3>
+                                <h3 class="text-white font-semibold">{{ $package->name }}</h3>
                             </div>
                         </div>
-                        <div class="relative rounded-xl overflow-hidden shadow-lg h-64">
-                            <img src="https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                                alt="Tour Package" class="w-full h-full object-cover">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent flex items-end p-4">
-                                <h3 class="text-white font-semibold">Waterfall Exploration</h3>
-                            </div>
-                        </div>
-                        <div class="relative rounded-xl overflow-hidden shadow-lg h-64">
-                            <img src="https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                                alt="Tour Package" class="w-full h-full object-cover">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent flex items-end p-4">
-                                <h3 class="text-white font-semibold">Sunset at Pura Luhur</h3>
-                            </div>
-                        </div>
-                        <div class="relative rounded-xl overflow-hidden shadow-lg h-64">
-                            <img src="https://images.unsplash.com/photo-1533107862482-0e6974b06ec4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                                alt="Tour Package" class="w-full h-full object-cover">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent flex items-end p-4">
-                                <h3 class="text-white font-semibold">Cultural Performance</h3>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -908,131 +854,6 @@
         </div>
     </section>
 
-    {{-- Popular Content Section --}}
-    <section class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-montserrat">Featured <span
-                        class="relative">
-                        Cultural Highlights
-                        <span class="absolute bottom-0 left-0 w-full h-2 bg-indigo-400 opacity-30 -z-1"></span>
-                    </span></h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Discover the most engaging cultural content from our
-                    community</p>
-            </div>
-
-            @if ($popularContents->count() > 0)
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    @foreach ($popularContents as $content)
-                        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
-                            @if ($content->thumbnail)
-                                <img src="{{ asset('storage/' . $content->thumbnail) }}" alt="{{ $content->judul }}"
-                                    class="w-full h-48 object-cover">
-                            @else
-                                <img src="https://via.placeholder.com/400x200?text=No+Thumbnail" alt="No Thumbnail"
-                                    class="w-full h-48 object-cover">
-                            @endif
-                            <div class="p-6">
-                                <div class="flex items-center mb-3">
-                                    <span
-                                        class="px-3 py-1 bg-teal-100 text-teal-800 text-xs font-semibold rounded-full">{{ $content->kategori }}</span>
-                                    <span class="ml-2 text-xs text-gray-500">{{ $content->views_count }} views</span>
-                                </div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-2">{{ $content->judul }}</h3>
-                                <p class="text-gray-600 mb-4">{{ Str::limit($content->isi, 100) }}</p>
-                                <a href="{{ route('kontenbudaya.show', $content->id) }}"
-                                    class="text-teal-600 font-semibold hover:text-teal-800 transition duration-300 flex items-center">
-                                    Read More <i class="fas fa-arrow-right ml-2"></i>
-                                </a>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            @else
-                <div class="text-center py-8">
-                    <p class="text-gray-500">No content available at the moment</p>
-                </div>
-            @endif
-
-            <div class="text-center mt-12">
-                <a href="{{ route('konten.index') }}"
-                    class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 transition duration-300">
-                    Explore All Content <i class="fas fa-arrow-right ml-2"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    {{-- Upcoming Events Section --}}
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-montserrat">Upcoming <span
-                        class="relative">
-                        Cultural Events
-                        <span class="absolute bottom-0 left-0 w-full h-2 bg-amber-400 opacity-30 -z-1"></span>
-                    </span></h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Mark your calendar for these exciting cultural events in
-                    Arjasa</p>
-            </div>
-
-            @if ($upcomingEvents->count() > 0)
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    @foreach ($upcomingEvents as $event)
-                        <div
-                            class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300 flex flex-col md:flex-row">
-                            <div class="md:w-1/3 relative">
-                                @if ($event->thumbnail)
-                                    <img src="{{ asset('storage/' . $event->thumbnail) }}" alt="{{ $event->judul }}"
-                                        class="w-full h-full object-cover">
-                                @else
-                                    <img src="https://via.placeholder.com/400x200?text=No+Thumbnail" alt="No Thumbnail"
-                                        class="w-full h-full object-cover">
-                                @endif
-                                <div class="absolute top-4 left-4 bg-white/90 px-3 py-1 rounded-lg shadow-sm">
-                                    <div class="text-sm font-bold text-gray-800">{{ $event->jadwal->format('d') }}</div>
-                                    <div class="text-xs text-gray-600">{{ $event->jadwal->format('M') }}</div>
-                                </div>
-                            </div>
-                            <div class="p-6 md:w-2/3">
-                                <div class="flex items-center mb-2">
-                                    <span
-                                        class="px-2 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded">{{ $event->tempat }}</span>
-                                </div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-2">{{ $event->judul }}</h3>
-                                <p class="text-gray-600 mb-4">{{ Str::limit($event->isi, 100) }}</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-sm font-semibold text-gray-700">
-                                        @if ($event->harga > 0)
-                                            Rp {{ number_format($event->harga, 0, ',', '.') }}
-                                        @else
-                                            Free Admission
-                                        @endif
-                                    </span>
-                                    <a href="{{ route('event.show', $event->id) }}"
-                                        class="text-sm font-semibold text-teal-600 hover:text-teal-800 transition duration-300 flex items-center">
-                                        Details <i class="fas fa-arrow-right ml-1"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            @else
-                <div class="text-center py-8">
-                    <p class="text-gray-500">No upcoming events scheduled</p>
-                </div>
-            @endif
-
-            <div class="text-center mt-12">
-                <a href="{{ route('event.index') }}"
-                    class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-amber-600 hover:bg-amber-700 transition duration-300">
-                    View All Events <i class="fas fa-arrow-right ml-2"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
     <!-- Testimonials -->
     <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
@@ -1132,5 +953,4 @@
             </div>
         </section>
     @endauth
-
 @endsection

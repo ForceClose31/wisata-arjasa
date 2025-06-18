@@ -11,12 +11,13 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PetaBudayaController;
 
-Route::get('/', [AuthController::class, 'home'])->name('welcome');
+// Route::get('/', [AuthController::class, 'home'])->name('welcome');
 
-Route::get('/user', [AuthController::class, 'home']);
+// Route::get('/user', [AuthController::class, 'home']);
 
 // Route::get('/badge', [BadgeController::class, 'index'])->name('badge.index');
 // Route::get('badge/quiz', [BadgeController::class, 'quiz'])->name('badge.quiz');
@@ -35,6 +36,11 @@ Route::get('/paket', function () {
 Route::get('/about', function () {
     return view('user.about.about');
 })->name('about.index');
+
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/tour-packages', [HomeController::class, 'index'])->name('tour-packages.index');
+Route::get('/tour-packages/{slug}', [HomeController::class, 'show'])->name('tour-packages.show');
 
 // Route::get('/tour-package', function () {
 //     return view('user.event');

@@ -15,6 +15,9 @@ return new class extends Migration
             $table->text('content');
             $table->string('page_type');
             $table->boolean('is_published')->default(false);
+            $table->string('subtitle')->nullable();
+            $table->string('cta')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
