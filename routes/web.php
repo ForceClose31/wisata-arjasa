@@ -53,6 +53,14 @@ Route::get('/event-budaya', function () {
     return view('user.event-budaya.event-budaya');
 })->name('event-budaya.index');
 
+Route::get('/transport', function () {
+    return view('user.transport.transport');
+})->name('transport.index');
+
+Route::get('/article', function () {
+    return view('user.article.article');
+})->name('article.index');
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/tour-packages', [HomeController::class, 'index'])->name('tour-packages.index');
 Route::get('/tour-packages/{slug}', [HomeController::class, 'show'])->name('tour-packages.show');
