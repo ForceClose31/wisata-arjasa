@@ -19,7 +19,8 @@
                         ['label' => 'Transportation', 'route' => 'transport.index'],
                         ['label' => 'Cottage', 'route' => 'cottage.index'],
                         ['label' => 'Gallery', 'route' => 'gallery.index'],
-                        ['label' => 'Blog', 'route' => 'article.index'],
+                        ['label' => 'Article', 'route' => 'article.index'],
+                        ['label' => 'Event Budaya', 'route' => 'event-budaya.index'],
                     ];
                 @endphp
 
