@@ -29,7 +29,7 @@
             <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="100">
                 <div class="relative">
                     {{-- Header Gambar Utama --}}
-                    <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                    <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
                          alt="Kei Islands Tour Package"
                          class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105">
 
@@ -49,35 +49,25 @@
 
                 {{-- Bagian Informasi Atas Paket --}}
                 <div class="p-6">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="bg-blue-500 text-white text-sm font-bold px-4 py-2 rounded-full shadow-md">
-                            3 Day 2 Night
-                        </div>
-                        <div class="text-right">
-                            <span class="text-gray-500 text-sm block">STARTING PRICE</span>
-                            <span class="text-blue-600 font-bold text-xl block">Rp 3.500.000</span>
-                            <span class="text-gray-500 text-sm">/ person</span>
-                        </div>
-                    </div>
-
+                 
                     {{-- Detail DESTINASI dan INCLUDE --}}
-                    <div class="grid grid-cols-2 gap-4 text-sm mb-6">
+                    <div class="grid grid-cols-2 gap-4 text-sm mb-3">
                         <div>
                             <p class="font-bold text-gray-700 mb-2 border-b border-gray-200 pb-1">DESTINASI</p>
                             <ul class="space-y-1 text-gray-600">
-                                <li class="flex items-center"><i class="fas fa-map-marker-alt text-teal-500 mr-2"></i>Pantai Ngurbloat</li>
-                                <li class="flex items-center"><i class="fas fa-map-marker-alt text-teal-500 mr-2"></i>Pulau Adranan</li>
-                                <li class="flex items-center"><i class="fas fa-map-marker-alt text-teal-500 mr-2"></i>Waan Mas El Evu</li>
-                                <li class="flex items-center"><i class="fas fa-map-marker-alt text-teal-500 mr-2"></i>Tanjung Ngurbloat</li>
+                                <li class="flex items-center"><i class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Pantai Ngurbloat</li>
+                                <li class="flex items-center"><i class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Pulau Adranan</li>
+                                <li class="flex items-center"><i class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Waan Mas El Evu</li>
+                                <li class="flex items-center"><i class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Tanjung Ngurbloat</li>
                             </ul>
                         </div>
                         <div>
                             <p class="font-bold text-gray-700 mb-2 border-b border-gray-200 pb-1">INCLUDE</p>
                             <ul class="space-y-1 text-gray-600">
-                                <li class="flex items-center"><i class="fas fa-hotel text-indigo-500 mr-2"></i>Hotel di Pantai</li>
-                                <li class="flex items-center"><i class="fas fa-utensils text-indigo-500 mr-2"></i>Makan + Air</li>
-                                <li class="flex items-center"><i class="fas fa-car text-indigo-500 mr-2"></i>Speed Boat</li>
-                                <li class="flex items-center"><i class="fas fa-users text-indigo-500 mr-2"></i>Dokumentasi</li>
+                                <li class="flex items-center"><i class="fas fa-hotel text-blue-800 mr-2"></i>Hotel di Pantai</li>
+                                <li class="flex items-center"><i class="fas fa-utensils text-blue-800  mr-2"></i>Makan + Air</li>
+                                <li class="flex items-center"><i class="fas fa-car text-blue-800 mr-2"></i>Speed Boat</li>
+                                <li class="flex items-center"><i class="fas fa-users text-blue-800  mr-2"></i>Dokumentasi</li>
                             </ul>
                         </div>
                     </div>
@@ -112,7 +102,7 @@
 
             <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="200">
                 <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                    <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
                          alt="Another Tour Package"
                          class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex flex-col justify-between p-4 text-white">
@@ -128,33 +118,24 @@
                 </div>
 
                 <div class="p-6">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="bg-blue-500 text-white text-sm font-bold px-4 py-2 rounded-full shadow-md">
-                            5 Day 4 Night
-                        </div>
-                        <div class="text-right">
-                            <span class="text-gray-500 text-sm block">STARTING PRICE</span>
-                            <span class="text-blue-600 font-bold text-xl block">Rp 8.000.000</span>
-                            <span class="text-gray-500 text-sm">/ person</span>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4 text-sm mb-6">
+                   
+                    <div class="grid grid-cols-2 gap-4 text-sm mb-3">
                         <div>
                             <p class="font-bold text-gray-700 mb-2 border-b border-gray-200 pb-1">DESTINASI</p>
                             <ul class="space-y-1 text-gray-600">
-                                <li class="flex items-center"><i class="fas fa-map-marker-alt text-teal-500 mr-2"></i>Wayag Viewpoint</li>
-                                <li class="flex items-center"><i class="fas fa-map-marker-alt text-teal-500 mr-2"></i>Piaynemo Karst</li>
-                                <li class="flex items-center"><i class="fas fa-map-marker-alt text-teal-500 mr-2"></i>Teluk Kabui Pasir</li>
-                                <li class="flex items-center"><i class="fas fa-map-marker-alt text-teal-500 mr-2"></i>Arborek Village</li>
+                                <li class="flex items-center"><i class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Wayag Viewpoint</li>
+                                <li class="flex items-center"><i class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Piaynemo Karst</li>
+                                <li class="flex items-center"><i class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Teluk Kabui Pasir</li>
+                                <li class="flex items-center"><i class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Arborek Village</li>
                             </ul>
                         </div>
                         <div>
                             <p class="font-bold text-gray-700 mb-2 border-b border-gray-200 pb-1">INCLUDE</p>
                             <ul class="space-y-1 text-gray-600">
-                                <li class="flex items-center"><i class="fas fa-hotel text-indigo-500 mr-2"></i>Floating Homestay</li>
-                                <li class="flex items-center"><i class="fas fa-utensils text-indigo-500 mr-2"></i>Full Meals</li>
-                                <li class="flex items-center"><i class="fas fa-ship text-indigo-500 mr-2"></i>Island Boat</li>
-                                <li class="flex items-center"><i class="fas fa-users text-indigo-500 mr-2"></i>Certified Dive</li>
+                                <li class="flex items-center"><i class="fas fa-hotel text-blue-800 mr-2"></i>Floating Homestay</li>
+                                <li class="flex items-center"><i class="fas fa-utensils text-blue-800 mr-2"></i>Full Meals</li>
+                                <li class="flex items-center"><i class="fas fa-ship text-blue-800 mr-2"></i>Island Boat</li>
+                                <li class="flex items-center"><i class="fas fa-users text-blue-800 mr-2"></i>Certified Dive</li>
                             </ul>
                         </div>
                     </div>
@@ -188,7 +169,7 @@
 
             <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="300">
                 <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                    <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
                          alt="Mount Bromo Sunrise Tour"
                          class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex flex-col justify-between p-4 text-white">
@@ -204,33 +185,24 @@
                 </div>
 
                 <div class="p-6">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="bg-blue-500 text-white text-sm font-bold px-4 py-2 rounded-full shadow-md">
-                            2 Day 1 Night
-                        </div>
-                        <div class="text-right">
-                            <span class="text-gray-500 text-sm block">STARTING PRICE</span>
-                            <span class="text-blue-600 font-bold text-xl block">Rp 1.800.000</span>
-                            <span class="text-gray-500 text-sm">/ person</span>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4 text-sm mb-6">
+                    
+                    <div class="grid grid-cols-2 gap-4 text-sm mb-3">
                         <div>
                             <p class="font-bold text-gray-700 mb-2 border-b border-gray-200 pb-1">DESTINASI</p>
                             <ul class="space-y-1 text-gray-600">
-                                <li class="flex items-center"><i class="fas fa-map-marker-alt text-teal-500 mr-2"></i>Bromo Sunrise Point</li>
-                                <li class="flex items-center"><i class="fas fa-map-marker-alt text-teal-500 mr-2"></i>Kawah Bromo</li>
-                                <li class="flex items-center"><i class="fas fa-map-marker-alt text-teal-500 mr-2"></i>Pasir Berbisik</li>
-                                <li class="flex items-center"><i class="fas fa-map-marker-alt text-teal-500 mr-2"></i>Savana Teletubbies</li>
+                                <li class="flex items-center"><i class="fas fa-map-marker-alt text-blue-400  mr-2"></i>Bromo Sunrise Point</li>
+                                <li class="flex items-center"><i class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Kawah Bromo</li>
+                                <li class="flex items-center"><i class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Pasir Berbisik</li>
+                                <li class="flex items-center"><i class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Savana Teletubbies</li>
                             </ul>
                         </div>
                         <div>
                             <p class="font-bold text-gray-700 mb-2 border-b border-gray-200 pb-1">INCLUDE</p>
                             <ul class="space-y-1 text-gray-600">
-                                <li class="flex items-center"><i class="fas fa-hotel text-indigo-500 mr-2"></i>Hotel/Guesthouse</li>
-                                <li class="flex items-center"><i class="fas fa-utensils text-indigo-500 mr-2"></i>Breakfast</li>
-                                <li class="flex items-center"><i class="fas fa-car text-indigo-500 mr-2"></i>Jeep Bromo</li>
-                                <li class="flex items-center"><i class="fas fa-users text-indigo-500 mr-2"></i>Local Guide</li>
+                                <li class="flex items-center"><i class="fas fa-hotel text-blue-800  mr-2"></i>Hotel/Guesthouse</li>
+                                <li class="flex items-center"><i class="fas fa-utensils text-blue-800 mr-2"></i>Breakfast</li>
+                                <li class="flex items-center"><i class="fas fa-car text-blue-800 mr-2"></i>Jeep Bromo</li>
+                                <li class="flex items-center"><i class="fas fa-users text-blue-800 mr-2"></i>Local Guide</li>
                             </ul>
                         </div>
                     </div>
