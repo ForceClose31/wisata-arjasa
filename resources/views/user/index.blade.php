@@ -21,7 +21,7 @@
                     <p x-text="slides[currentSlide].subtitle"
                         class="text-xl md:text-2xl mb-8 text-gray-100 animate-fade-in animate-delay-100"></p>
                     <a href="{{ route('about.index') }}"
-                        class="px-8 py-4 bg-white text-teal-700 font-bold rounded-lg hover:bg-gray-100 hover:text-teal-800 transition duration-300 animate-fade-in animate-delay-200 inline-flex items-center shadow-lg">
+                        class="px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-gray-100 hover:text-blue-800 transition duration-300 animate-fade-in animate-delay-200 inline-flex items-center shadow-lg">
                         <span x-text="slides[currentSlide].cta"></span>
                         <i class="fas fa-arrow-right ml-2"></i>
                     </a>
@@ -310,9 +310,9 @@
     {{-- Tour Packages Section --}}
     <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-4 max-w-screen-xl">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-montserrat">
-                    <span class="relative inline-block">
+                    <span class="relative inline-block text-underline-animated-package-heading"> {{-- Tambahkan kelas baru untuk garis bawah --}}
                         Paket Wisata Unggulan
                         <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 opacity-30 -z-1"></span>
                     </span>
@@ -321,22 +321,23 @@
                     eksklusif kami</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                @foreach ($featuredPackages as $package)
+            {{-- Perubahan di sini: grid-cols-1 md:grid-cols-2 lg:grid-cols-3 --}}
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                @foreach ($featuredPackages as $index => $package)
                     <div x-data="{
-                        activeTab: 'itinerary',
-                        contentExpanded: false,
-                        pricingExpanded: false
-                    }"
-                        class="group relative bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-                        <!-- Package Header with Image -->
-                        <div class="relative h-64 overflow-hidden">
+                            activeTab: 'itinerary',
+                            contentExpanded: false,
+                            pricingExpanded: false
+                        }"
+                        class="group relative bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+                        data-aos="fade-up" data-aos-delay="{{ $index * 100 }}"> {{-- Tambahkan AOS dengan delay --}}
+                        <div class="relative h-56 overflow-hidden"> {{-- Mengurangi tinggi gambar dari h-64 menjadi h-56 --}}
                             @if ($package->images && count(json_decode($package->images)) > 0)
                                 <img src="{{ asset('storage/' . json_decode($package->images)[0]) }}"
                                     alt="{{ $package->name }}"
                                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                             @else
-                                <img src="https://source.unsplash.com/random/600x400?indonesia,tour"
+                                <img src="https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&fit=crop&w=800&q=80"
                                     alt="{{ $package->name }}"
                                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                             @endif
@@ -354,50 +355,47 @@
                             </div>
                         </div>
 
-                        <!-- Package Body -->
-                        <div class="p-6">
-                            <!-- Package Title -->
-                            <h3 class="text-xl font-bold text-gray-800 mb-2 font-serif">{{ $package->name }}</h3>
+                        <div class="p-5"> {{-- Mengurangi padding dari p-6 menjadi p-5 --}}
+                            <h3 class="text-lg font-bold text-gray-800 mb-2 font-serif"> {{-- Mengurangi ukuran teks dari text-xl menjadi text-lg --}}
+                                {{ $package->name }}</h3>
 
-                            <!-- Short Description -->
-                            <p class="text-gray-600 mb-4 line-clamp-2">{{ $package->description }}</p>
+                            <p class="text-sm text-gray-600 mb-3 line-clamp-2">{{ $package->description }}</p> {{-- Mengurangi ukuran teks dari text-base menjadi text-sm dan mb-4 menjadi mb-3 --}}
 
-                            <!-- Highlights -->
                             @if (isset($package->highlights) && count($package->highlights) > 0)
-                                <div class="mb-4">
-                                    <h4 class="text-sm font-semibold text-gray-500 mb-2 flex items-center">
+                                <div class="mb-3"> {{-- Mengurangi mb-4 menjadi mb-3 --}}
+                                    <h4 class="text-xs font-semibold text-gray-500 mb-1 flex items-center"> {{-- Mengurangi ukuran teks dari text-sm menjadi text-xs dan mb-2 menjadi mb-1 --}}
                                         <i class="fas fa-sparkles text-amber-400 mr-2"></i> Highlights
                                     </h4>
-                                    <div class="flex flex-wrap gap-2">
+                                    <div class="flex flex-wrap gap-1"> {{-- Mengurangi gap dari gap-2 menjadi gap-1 --}}
                                         @foreach (array_slice($package->highlights, 0, 3) as $highlight)
                                             <span
-                                                class="bg-amber-50 text-amber-800 text-xs px-3 py-1 rounded-full border border-amber-100">{{ $highlight }}</span>
+                                                class="bg-amber-50 text-amber-800 text-xs px-2 py-0.5 rounded-full border border-amber-100"> {{-- Mengurangi padding dan ukuran teks --}}
+                                                {{ $highlight }}</span>
                                         @endforeach
                                     </div>
                                 </div>
                             @endif
 
-                            <!-- Pricing -->
-                            <div class="mb-6 bg-blue-50/50 p-4 rounded-lg border border-blue-100">
-                                <h4 class="font-bold text-gray-800 mb-3 flex items-center">
+                            <div class="mb-4 bg-blue-50/50 p-3 rounded-lg border border-blue-100"> {{-- Mengurangi mb-6 menjadi mb-4 dan p-4 menjadi p-3 --}}
+                                <h4 class="font-bold text-gray-800 mb-2 flex items-center text-sm"> {{-- Mengurangi mb-3 menjadi mb-2 dan menambahkan text-sm --}}
                                     <i class="fas fa-tag text-blue-500 mr-2"></i> Harga Paket
                                 </h4>
-                                <div class="space-y-2">
+                                <div class="space-y-1"> {{-- Mengurangi space-y-2 menjadi space-y-1 --}}
                                     @foreach ($package->pricings->sortBy('price')->take(2) as $pricing)
                                         <div class="flex justify-between items-center">
-                                            <span class="text-sm text-gray-700">
+                                            <span class="text-xs text-gray-700"> {{-- Mengurangi ukuran teks dari text-sm menjadi text-xs --}}
                                                 {{ $pricing->group_size }}
                                                 @if ($pricing->variant)
                                                     <span class="text-gray-500 text-xs">({{ $pricing->variant }})</span>
                                                 @endif
                                             </span>
-                                            <span class="font-bold text-blue-600">Rp
-                                                {{ number_format($pricing->price, 0, ',', '.') }}</span>
+                                            <span class="font-bold text-blue-600 text-sm">Rp
+                                                {{ number_format($pricing->price, 0, ',', '.') }}</span> {{-- Mengurangi ukuran teks dari text-base menjadi text-sm --}}
                                         </div>
                                     @endforeach
 
                                     @if ($package->pricings->count() > 2)
-                                        <div class="pt-2">
+                                        <div class="pt-1"> {{-- Mengurangi pt-2 menjadi pt-1 --}}
                                             <button @click="pricingExpanded = !pricingExpanded"
                                                 class="text-xs text-blue-500 hover:text-blue-700 flex items-center">
                                                 <span
@@ -406,17 +404,17 @@
                                                     :class="pricingExpanded ? 'fa-chevron-up' : 'fa-chevron-down'"
                                                     class="ml-1 text-xs"></i>
                                             </button>
-                                            <div x-show="pricingExpanded" x-collapse class="space-y-2 mt-2">
+                                            <div x-show="pricingExpanded" x-collapse class="space-y-1 mt-1"> {{-- Mengurangi space-y-2 menjadi space-y-1 dan mt-2 menjadi mt-1 --}}
                                                 @foreach ($package->pricings->sortBy('price')->slice(2) as $pricing)
                                                     <div class="flex justify-between items-center">
-                                                        <span class="text-sm text-gray-700">
+                                                        <span class="text-xs text-gray-700">
                                                             {{ $pricing->group_size }}
                                                             @if ($pricing->variant)
                                                                 <span
                                                                     class="text-gray-500 text-xs">({{ $pricing->variant }})</span>
                                                             @endif
                                                         </span>
-                                                        <span class="font-bold text-blue-600">Rp
+                                                        <span class="font-bold text-blue-600 text-sm">Rp
                                                             {{ number_format($pricing->price, 0, ',', '.') }}</span>
                                                     </div>
                                                 @endforeach
@@ -426,33 +424,31 @@
                                 </div>
                             </div>
 
-                            <!-- Tabs for Package Details -->
                             <div>
                                 <div class="flex border-b border-gray-200">
                                     <button @click="activeTab = 'itinerary'"
                                         :class="{ 'text-blue-600 border-blue-600': activeTab === 'itinerary', 'text-gray-500 hover:text-gray-700': activeTab !== 'itinerary' }"
-                                        class="py-2 px-4 font-medium text-sm border-b-2 -mb-px transition duration-150">
+                                        class="py-1.5 px-3 font-medium text-xs border-b-2 -mb-px transition duration-150"> {{-- Mengurangi padding dan ukuran teks --}}
                                         Itinerary
                                     </button>
                                     <button @click="activeTab = 'includes'"
                                         :class="{ 'text-blue-600 border-blue-600': activeTab === 'includes', 'text-gray-500 hover:text-gray-700': activeTab !== 'includes' }"
-                                        class="py-2 px-4 font-medium text-sm border-b-2 -mb-px transition duration-150">
+                                        class="py-1.5 px-3 font-medium text-xs border-b-2 -mb-px transition duration-150"> {{-- Mengurangi padding dan ukuran teks --}}
                                         Includes
                                     </button>
                                     <button @click="activeTab = 'excludes'"
                                         :class="{ 'text-blue-600 border-blue-600': activeTab === 'excludes', 'text-gray-500 hover:text-gray-700': activeTab !== 'excludes' }"
-                                        class="py-2 px-4 font-medium text-sm border-b-2 -mb-px transition duration-150">
+                                        class="py-1.5 px-3 font-medium text-xs border-b-2 -mb-px transition duration-150"> {{-- Mengurangi padding dan ukuran teks --}}
                                         Excludes
                                     </button>
                                 </div>
 
-                                <div class="mt-4 relative">
-                                    <!-- Itinerary Tab -->
-                                    <div x-show="activeTab === 'itinerary'" class="space-y-3">
+                                <div class="mt-3 relative"> {{-- Mengurangi mt-4 menjadi mt-3 --}}
+                                    <div x-show="activeTab === 'itinerary'" class="space-y-2 text-sm"> {{-- Mengurangi space-y-3 menjadi space-y-2 dan menambahkan text-sm --}}
                                         @if (isset($package->itinerary) && count($package->itinerary) > 0)
-                                            <div :class="{ 'max-h-48 overflow-hidden': !contentExpanded }">
+                                            <div :class="{ 'max-h-40 overflow-hidden': !contentExpanded }"> {{-- Mengurangi max-h-48 menjadi max-h-40 --}}
                                                 @foreach ($package->itinerary as $index => $item)
-                                                    <div class="flex items-start pb-2">
+                                                    <div class="flex items-start pb-1"> {{-- Mengurangi pb-2 menjadi pb-1 --}}
                                                         <span
                                                             class="text-blue-500 font-bold mr-2">{{ $index + 1 }}.</span>
                                                         <span class="text-gray-700">{{ $item }}</span>
@@ -461,7 +457,7 @@
                                             </div>
                                             @if (count($package->itinerary) > 4)
                                                 <button @click="contentExpanded = !contentExpanded"
-                                                    class="text-sm text-blue-500 hover:text-blue-700 mt-2 flex items-center">
+                                                    class="text-xs text-blue-500 hover:text-blue-700 mt-1 flex items-center"> {{-- Mengurangi mt-2 menjadi mt-1 --}}
                                                     <span
                                                         x-text="contentExpanded ? 'Tampilkan lebih sedikit' : 'Lihat itinerary lengkap (' + {{ count($package->itinerary) }} + ')'"></span>
                                                     <i class="fas"
@@ -470,14 +466,13 @@
                                                 </button>
                                             @endif
                                         @else
-                                            <p class="text-gray-500">No itinerary available</p>
+                                            <p class="text-gray-500 text-sm">No itinerary available</p>
                                         @endif
                                     </div>
 
-                                    <!-- Includes Tab -->
-                                    <div x-show="activeTab === 'includes'" class="space-y-3">
+                                    <div x-show="activeTab === 'includes'" class="space-y-2 text-sm"> {{-- Mengurangi space-y-3 menjadi space-y-2 dan menambahkan text-sm --}}
                                         @if (isset($package->includes) && count($package->includes) > 0)
-                                            <div :class="{ 'max-h-48 overflow-hidden': !contentExpanded }">
+                                            <div :class="{ 'max-h-40 overflow-hidden': !contentExpanded }"> {{-- Mengurangi max-h-48 menjadi max-h-40 --}}
                                                 @foreach ($package->includes as $item)
                                                     <div class="flex items-start">
                                                         <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
@@ -487,7 +482,7 @@
                                             </div>
                                             @if (count($package->includes) > 4)
                                                 <button @click="contentExpanded = !contentExpanded"
-                                                    class="text-sm text-blue-500 hover:text-blue-700 mt-2 flex items-center">
+                                                    class="text-xs text-blue-500 hover:text-blue-700 mt-1 flex items-center"> {{-- Mengurangi mt-2 menjadi mt-1 --}}
                                                     <span
                                                         x-text="contentExpanded ? 'Tampilkan lebih sedikit' : 'Lihat semua includes (' + {{ count($package->includes) }} + ')'"></span>
                                                     <i class="fas"
@@ -496,14 +491,13 @@
                                                 </button>
                                             @endif
                                         @else
-                                            <p class="text-gray-500">No includes information</p>
+                                            <p class="text-gray-500 text-sm">No includes information</p>
                                         @endif
                                     </div>
 
-                                    <!-- Excludes Tab -->
-                                    <div x-show="activeTab === 'excludes'" class="space-y-3">
+                                    <div x-show="activeTab === 'excludes'" class="space-y-2 text-sm"> {{-- Mengurangi space-y-3 menjadi space-y-2 dan menambahkan text-sm --}}
                                         @if (isset($package->excludes) && count($package->excludes) > 0)
-                                            <div :class="{ 'max-h-48 overflow-hidden': !contentExpanded }">
+                                            <div :class="{ 'max-h-40 overflow-hidden': !contentExpanded }"> {{-- Mengurangi max-h-48 menjadi max-h-40 --}}
                                                 @foreach ($package->excludes as $item)
                                                     <div class="flex items-start">
                                                         <i class="fas fa-times-circle text-red-500 mt-1 mr-2"></i>
@@ -513,7 +507,7 @@
                                             </div>
                                             @if (count($package->excludes) > 4)
                                                 <button @click="contentExpanded = !contentExpanded"
-                                                    class="text-sm text-blue-500 hover:text-blue-700 mt-2 flex items-center">
+                                                    class="text-xs text-blue-500 hover:text-blue-700 mt-1 flex items-center"> {{-- Mengurangi mt-2 menjadi mt-1 --}}
                                                     <span
                                                         x-text="contentExpanded ? 'Tampilkan lebih sedikit' : 'Lihat semua excludes (' + {{ count($package->excludes) }} + ')'"></span>
                                                     <i class="fas"
@@ -522,18 +516,17 @@
                                                 </button>
                                             @endif
                                         @else
-                                            <p class="text-gray-500">No excludes information</p>
+                                            <p class="text-gray-500 text-sm">No excludes information</p>
                                         @endif
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Action Button -->
-                            <div class="mt-6 text-center">
+                            <div class="mt-4 text-center"> {{-- Mengurangi mt-6 menjadi mt-4 --}}
                                 <a href="{{ route('tour-packages.show', $package->slug) }}"
-                                    class="inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-blue-400 to-blue-500 text-white rounded-lg hover:from-blue-500 hover:to-blue-600 transition-all duration-300 shadow-md hover:shadow-lg">
+                                    class="inline-flex items-center px-5 py-2 bg-gradient-to-r from-blue-400 to-blue-500 text-white rounded-lg hover:from-blue-500 hover:to-blue-600 transition-all duration-300 shadow-md hover:shadow-lg text-sm"> {{-- Mengurangi padding dan menambahkan text-sm --}}
                                     Detail Paket
-                                    <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                                    <i class="fas fa-arrow-right ml-2 text-xs"></i> {{-- Mengurangi ukuran ikon --}}
                                 </a>
                             </div>
                         </div>
@@ -541,7 +534,7 @@
                 @endforeach
             </div>
 
-            <div class="text-center mt-12">
+            <div class="text-center mt-12" data-aos="fade-up">
                 <a href="{{ route('packages.by-type', ['packageType' => 'all']) }}"
                     class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-500 hover:bg-blue-600 transition duration-300">
                     Lihat Semua Paket <i class="fas fa-arrow-right ml-2"></i>
@@ -887,23 +880,25 @@
 
     <!-- Testimonials -->
     <section class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-montserrat">Traveler <span
-                        class="relative">
-                        Experiences
-                        <span class="absolute bottom-0 left-0 w-full h-2 bg-teal-400 opacity-30 -z-1"></span>
-                    </span></h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Hear what our visitors say about their Arjasa adventures
+        {{-- Menyesuaikan jarak kanan-kiri ke px-4 agar konsisten dengan Article Section --}}
+        <div class="container mx-auto px-4 max-w-screen-xl">
+            <div class="text-center mb-16" data-aos="fade-up"> {{-- Menambahkan AOS ke header --}}
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-montserrat">
+                    <span class="relative text-underline-animated-article-heading"> {{-- Tambahkan kelas baru untuk garis bawah --}}
+                        Testimoni Traveler
+                        {{-- Ubah warna garis bawah dari teal-400 menjadi blue-400 --}}
+                        <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 opacity-70 -z-1"></span>
+                    </span>
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Dengarkan apa kata pengunjung kami tentang petualangan mereka di Arjasa
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300" data-aos="fade-up" data-aos-delay="100"> {{-- Menambahkan AOS --}}
                     <div class="flex items-center mb-4">
                         <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="User"
-                            class="w-12 h-12 rounded-full mr-4">
+                            class="w-12 h-12 rounded-full mr-4 object-cover"> {{-- Menambahkan object-cover --}}
                         <div>
                             <h4 class="font-bold text-gray-800">Sarah Wijaya</h4>
                             <div class="flex text-amber-400">
@@ -919,11 +914,10 @@
                         knowledgeable and showed us hidden gems we would never have found on our own."</p>
                 </div>
 
-                <!-- Testimonial 2 -->
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300" data-aos="fade-up" data-aos-delay="200"> {{-- Menambahkan AOS --}}
                     <div class="flex items-center mb-4">
                         <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="User"
-                            class="w-12 h-12 rounded-full mr-4">
+                            class="w-12 h-12 rounded-full mr-4 object-cover"> {{-- Menambahkan object-cover --}}
                         <div>
                             <h4 class="font-bold text-gray-800">Budi Santoso</h4>
                             <div class="flex text-amber-400">
@@ -939,11 +933,10 @@
                         professional and made sure everyone was safe while having an unforgettable experience."</p>
                 </div>
 
-                <!-- Testimonial 3 -->
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300" data-aos="fade-up" data-aos-delay="300"> {{-- Menambahkan AOS --}}
                     <div class="flex items-center mb-4">
                         <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="User"
-                            class="w-12 h-12 rounded-full mr-4">
+                            class="w-12 h-12 rounded-full mr-4 object-cover"> {{-- Menambahkan object-cover --}}
                         <div>
                             <h4 class="font-bold text-gray-800">Dewi Lestari</h4>
                             <div class="flex text-amber-400">
@@ -966,19 +959,18 @@
     <!-- CTA Section -->
     @auth
     @else
-        <section class="py-20 bg-gradient-to-r from-teal-600 to-indigo-700 text-white">
+        <section class="py-20 bg-gray-50 text-gray-800">
             <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6 font-montserrat">Ready to Explore Arjasa?</h2>
-                <p class="text-xl mb-8 max-w-2xl mx-auto">Join our community of cultural explorers and start your Arjasa
-                    adventure today</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 font-montserrat">Siap Jelajahi Arjasa?</h2>
+                <p class="text-xl mb-8 max-w-2xl mx-auto">Bergabunglah dengan komunitas penjelajah budaya kami dan mulai petualangan Anda di Arjasa hari ini</p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
                     <a href="{{ 'login' }}"
-                        class="px-8 py-3 bg-white text-teal-700 font-bold rounded-lg hover:bg-gray-100 hover:text-teal-800 transition duration-300 shadow-lg">
-                        Create Account
+                        class="px-8 py-3 bg-white text-blue-400 font-bold rounded-lg hover:bg-gray-100 hover:text-teal-800 transition duration-300 shadow-lg">
+                        Buat Akun
                     </a>
                     <a href="/about"
-                        class="px-8 py-3 border-2 border-white text-white font-bold rounded-lg hover:bg-white hover:text-teal-700 transition duration-300">
-                        Learn More
+                        class="px-8 py-3 border-2 border-blue-400 bg-blue-400 text-white font-bold rounded-lg hover:bg-white hover:text-teal-700 transition duration-300">
+                        Pelajari Lebih Lanjut
                     </a>
                 </div>
             </div>
