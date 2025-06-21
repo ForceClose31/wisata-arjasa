@@ -859,12 +859,14 @@
 
     {{-- Articles Section --}}
     <section class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
+        {{-- Tambahkan max-w-screen-xl pada container --}}
+        <div class="container mx-auto px-4 max-w-screen-xl">
+            <div class="text-center mb-16" data-aos="fade-up"> {{-- Tambahkan AOS ke header --}}
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-montserrat">
-                    <span class="relative">
+                    <span class="relative text-underline-animated-article-heading"> {{-- Tambahkan kelas baru untuk garis bawah --}}
                         Artikel Terbaru
-                        <span class="absolute bottom-0 left-0 w-full h-2 bg-teal-400 opacity-30 -z-1"></span>
+                        {{-- Ubah warna garis bawah dari teal-400 menjadi blue-400 --}}
+                        <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 opacity-70 -z-1"></span>
                     </span>
                 </h2>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">Temukan tips wisata dan informasi terbaru seputar
@@ -872,14 +874,14 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Article 1 -->
-                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300" data-aos="fade-up" data-aos-delay="100"> {{-- Tambahkan AOS --}}
                     <div class="relative h-48 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1503917988258-f87a78e3c995?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
                             alt="Panduan Wisata Kei"
                             class="w-full h-full object-cover transition duration-300 hover:scale-105">
                         <div class="absolute top-4 left-4">
-                            <span class="px-3 py-1 bg-teal-600 text-white text-xs font-semibold rounded-full">Tips
+                            {{-- Ubah warna badge dari teal-600 menjadi blue-400 --}}
+                            <span class="px-3 py-1 bg-blue-400 text-white text-xs font-semibold rounded-full">Tips
                                 Wisata</span>
                         </div>
                     </div>
@@ -891,26 +893,28 @@
                             <i class="far fa-eye mr-1"></i>
                             <span>1.2k</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-3 hover:text-teal-600 transition duration-300">
+                        {{-- Ubah hover:text-teal-600 menjadi hover:text-blue-600 --}}
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 hover:text-blue-600 transition duration-300">
                             <a href="#">Panduan Lengkap Wisata ke Kepulauan Kei untuk Pemula</a>
                         </h3>
                         <p class="text-gray-600 mb-4">Temukan semua yang perlu Anda ketahui sebelum mengunjungi surga
                             tersembunyi di Maluku Tenggara ini.</p>
+                        {{-- Ubah text-teal-600 dan hover:text-teal-800 menjadi text-blue-600 dan hover:text-blue-800 --}}
                         <a href="#"
-                            class="text-teal-600 font-medium hover:text-teal-800 transition duration-300 flex items-center">
+                            class="text-blue-600 font-medium hover:text-blue-800 transition duration-300 flex items-center">
                             Baca Selengkapnya <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
                 </article>
 
-                <!-- Article 2 -->
-                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300" data-aos="fade-up" data-aos-delay="200"> {{-- Tambahkan AOS --}}
                     <div class="relative h-48 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
                             alt="Kuliner Kei" class="w-full h-full object-cover transition duration-300 hover:scale-105">
                         <div class="absolute top-4 left-4">
+                            {{-- Ubah warna badge dari indigo-600 menjadi blue-400 --}}
                             <span
-                                class="px-3 py-1 bg-indigo-600 text-white text-xs font-semibold rounded-full">Kuliner</span>
+                                class="px-3 py-1 bg-blue-400 text-white text-xs font-semibold rounded-full">Kuliner</span>
                         </div>
                     </div>
                     <div class="p-6">
@@ -921,27 +925,29 @@
                             <i class="far fa-eye mr-1"></i>
                             <span>890</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-3 hover:text-indigo-600 transition duration-300">
+                        {{-- Ubah hover:text-indigo-600 menjadi hover:text-blue-600 --}}
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 hover:text-blue-600 transition duration-300">
                             <a href="#">5 Makanan Khas Kei yang Wajib Dicoba Saat Berkunjung</a>
                         </h3>
                         <p class="text-gray-600 mb-4">Jelajahi kekayaan kuliner Kepulauan Kei mulai dari ikan bakar hingga
                             papeda yang lezat.</p>
+                        {{-- Ubah text-indigo-600 dan hover:text-indigo-800 menjadi text-blue-600 dan hover:text-blue-800 --}}
                         <a href="#"
-                            class="text-indigo-600 font-medium hover:text-indigo-800 transition duration-300 flex items-center">
+                            class="text-blue-600 font-medium hover:text-blue-800 transition duration-300 flex items-center">
                             Baca Selengkapnya <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
                 </article>
 
-                <!-- Article 3 -->
-                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300" data-aos="fade-up" data-aos-delay="300"> {{-- Tambahkan AOS --}}
                     <div class="relative h-48 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
                             alt="Spot Foto Kei"
                             class="w-full h-full object-cover transition duration-300 hover:scale-105">
                         <div class="absolute top-4 left-4">
+                            {{-- Ubah warna badge dari amber-600 menjadi blue-400 --}}
                             <span
-                                class="px-3 py-1 bg-amber-600 text-white text-xs font-semibold rounded-full">Fotografi</span>
+                                class="px-3 py-1 bg-blue-400 text-white text-xs font-semibold rounded-full">Fotografi</span>
                         </div>
                     </div>
                     <div class="p-6">
@@ -952,22 +958,25 @@
                             <i class="far fa-eye mr-1"></i>
                             <span>1.5k</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-3 hover:text-amber-600 transition duration-300">
+                        {{-- Ubah hover:text-amber-600 menjadi hover:text-blue-600 --}}
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 hover:text-blue-600 transition duration-300">
                             <a href="#">10 Spot Foto Instagramable di Kepulauan Kei</a>
                         </h3>
                         <p class="text-gray-600 mb-4">Catat lokasi-lokasi terbaik untuk mengabadikan momen indah Anda di
                             Kei dengan pemandangan memukau.</p>
+                        {{-- Ubah text-amber-600 dan hover:text-amber-800 menjadi text-blue-600 dan hover:text-blue-800 --}}
                         <a href="#"
-                            class="text-amber-600 font-medium hover:text-amber-800 transition duration-300 flex items-center">
+                            class="text-blue-600 font-medium hover:text-blue-800 transition duration-300 flex items-center">
                             Baca Selengkapnya <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
                 </article>
             </div>
 
-            <div class="text-center mt-12">
-                <a href="#"
-                    class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-teal-600 hover:bg-teal-700 transition duration-300">
+            <div class="text-center mt-12" data-aos="fade-up"> {{-- Tambahkan AOS ke tombol --}}
+                <a href="/event-budaya"
+                    {{-- Ubah bg-teal-600 dan hover:bg-teal-700 menjadi bg-blue-400 dan hover:bg-blue-500 --}}
+                    class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-400 hover:bg-blue-500 transition duration-300">
                     Lihat Semua Artikel <i class="fas fa-arrow-right ml-2"></i>
                 </a>
             </div>
