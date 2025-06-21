@@ -2,6 +2,7 @@
 
 @section('content')
     <section class="relative h-screen max-h-[500px] overflow-hidden bg-gradient-to-br from-teal-600 to-indigo-700">
+        <!-- Hero Slider (unchanged from your original) -->
         <div class="absolute inset-0 bg-black/20 z-10"></div>
         <template x-for="(slide, index) in slides" :key="index">
             <div x-show="currentSlide === index" x-transition:enter="transition ease-out duration-1000"
@@ -41,135 +42,249 @@
             </template>
         </div>
     </section>
+
     <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-4 max-w-screen-xl">
-            <div class="mb-10 text-center" data-aos="fade-up" data-aos-duration="1000">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-2 font-montserrat relative inline-block">
+            <!-- Section Header (unchanged) -->
+            <div class="mb-12 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4 font-serif">
                     Paket Tour
-                    <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 opacity-70 -z-1"></span>
+                    <span class="block w-24 h-1.5 bg-gradient-to-r from-blue-400 to-teal-400 mx-auto mt-4"></span>
                 </h2>
-                <p class="text-lg text-gray-700">Jelajahi keindahan destinasi kami dengan beragam pilihan paket tour.</p>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Jelajahi keindahan destinasi kami dengan beragam pilihan paket tour eksklusif
+                </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @forelse ($featuredPackages as $package)
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
-                        data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
-                        <div class="relative">
+                    <div x-data="{
+                        activeTab: 'itinerary',
+                        contentExpanded: false,
+                        pricingExpanded: false
+                    }"
+                        class="group relative bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                        <!-- Package Image with Badges -->
+                        <div class="relative h-64 overflow-hidden">
                             @if (isset($package->images) && count($package->images) > 0)
                                 <img src="{{ $package->images[0] }}" alt="{{ $package->name }}"
-                                    class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105">
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                             @else
-                                <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                <img src="https://source.unsplash.com/random/600x400?indonesia,tour"
                                     alt="{{ $package->name }}"
-                                    class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105">
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            @endif
+                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent">
+                            </div>
+                            <div class="absolute top-4 right-4 flex flex-col space-y-2">
+                                <span
+                                    class="bg-white/90 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full shadow-sm backdrop-blur-sm">
+                                    {{ $package->duration }}
+                                </span>
+                                <span
+                                    class="bg-blue-500/90 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-sm backdrop-blur-sm">
+                                    {{ $package->packageType->name }}
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Package Content -->
+                        <div class="p-6">
+                            <!-- Package Title -->
+                            <h3 class="text-xl font-bold text-gray-800 mb-2 font-serif">{{ $package->name }}</h3>
+
+                            <!-- Short Description -->
+                            <p class="text-gray-600 mb-4 line-clamp-2">{{ $package->description }}</p>
+
+                            <!-- Highlights -->
+                            @if (isset($package->highlights) && count($package->highlights) > 0)
+                                <div class="mb-4">
+                                    <h4 class="text-sm font-semibold text-gray-500 mb-2 flex items-center">
+                                        <i class="fas fa-sparkles text-amber-400 mr-2"></i> Highlights
+                                    </h4>
+                                    <div class="flex flex-wrap gap-2">
+                                        @foreach (array_slice($package->highlights, 0, 3) as $highlight)
+                                            <span
+                                                class="bg-amber-50 text-amber-800 text-xs px-3 py-1 rounded-full border border-amber-100">{{ $highlight }}</span>
+                                        @endforeach
+                                    </div>
+                                </div>
                             @endif
 
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex flex-col justify-between p-4 text-white">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center space-x-2">
-                                        <span class="font-bold text-lg">{{ $package->packageType->name }}</span>
-                                    </div>
-                                    <span class="text-sm opacity-90">{{ $package->duration }}</span>
-                                </div>
-                                <div class="text-right text-sm opacity-90">
-                                    @if (isset($package->highlights) && count($package->highlights) > 0)
-                                        {{ $package->highlights[0] }}
+                            <!-- Pricing with Expandable Section -->
+                            <div class="mb-6 bg-blue-50/50 p-4 rounded-lg border border-blue-100">
+                                <h4 class="font-bold text-gray-800 mb-3 flex items-center">
+                                    <i class="fas fa-tag text-blue-500 mr-2"></i> Harga Paket
+                                </h4>
+                                <div class="space-y-2">
+                                    @foreach ($package->pricings->sortBy('price')->take(2) as $pricing)
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm text-gray-700">
+                                                {{ $pricing->group_size }}
+                                                @if ($pricing->variant)
+                                                    <span class="text-gray-500 text-xs">({{ $pricing->variant }})</span>
+                                                @endif
+                                            </span>
+                                            <span class="font-bold text-blue-600">Rp
+                                                {{ number_format($pricing->price, 0, ',', '.') }}</span>
+                                        </div>
+                                    @endforeach
+
+                                    @if ($package->pricings->count() > 2)
+                                        <div class="pt-2">
+                                            <button @click="pricingExpanded = !pricingExpanded"
+                                                class="text-xs text-blue-500 hover:text-blue-700 flex items-center">
+                                                <span
+                                                    x-text="pricingExpanded ? 'Tampilkan lebih sedikit' : 'Lihat semua harga (' + ({{ $package->pricings->count() }} - 2) + ')'"></span>
+                                                <i class="fas"
+                                                    :class="pricingExpanded ? 'fa-chevron-up' : 'fa-chevron-down'"
+                                                    class="ml-1 text-xs"></i>
+                                            </button>
+                                            <div x-show="pricingExpanded" x-collapse class="space-y-2 mt-2">
+                                                @foreach ($package->pricings->sortBy('price')->slice(2) as $pricing)
+                                                    <div class="flex justify-between items-center">
+                                                        <span class="text-sm text-gray-700">
+                                                            {{ $pricing->group_size }}
+                                                            @if ($pricing->variant)
+                                                                <span
+                                                                    class="text-gray-500 text-xs">({{ $pricing->variant }})</span>
+                                                            @endif
+                                                        </span>
+                                                        <span class="font-bold text-blue-600">Rp
+                                                            {{ number_format($pricing->price, 0, ',', '.') }}</span>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
                                     @endif
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="p-6">
-                            <div class="grid grid-cols-2 gap-4 text-sm mb-3">
-                                <div>
-                                    <p class="font-bold text-gray-700 mb-2 border-b border-gray-200 pb-1">DESTINASI</p>
-                                    <ul class="space-y-1 text-gray-600">
+                            <!-- Expandable Content Tabs -->
+                            <div>
+                                <div class="flex border-b border-gray-200">
+                                    <button @click="activeTab = 'itinerary'"
+                                        :class="{ 'text-blue-600 border-blue-600': activeTab === 'itinerary', 'text-gray-500 hover:text-gray-700': activeTab !== 'itinerary' }"
+                                        class="py-2 px-4 font-medium text-sm border-b-2 -mb-px transition duration-150">
+                                        Itinerary
+                                    </button>
+                                    <button @click="activeTab = 'includes'"
+                                        :class="{ 'text-blue-600 border-blue-600': activeTab === 'includes', 'text-gray-500 hover:text-gray-700': activeTab !== 'includes' }"
+                                        class="py-2 px-4 font-medium text-sm border-b-2 -mb-px transition duration-150">
+                                        Includes
+                                    </button>
+                                    <button @click="activeTab = 'excludes'"
+                                        :class="{ 'text-blue-600 border-blue-600': activeTab === 'excludes', 'text-gray-500 hover:text-gray-700': activeTab !== 'excludes' }"
+                                        class="py-2 px-4 font-medium text-sm border-b-2 -mb-px transition duration-150">
+                                        Excludes
+                                    </button>
+                                </div>
+
+                                <div class="mt-4 relative">
+                                    <!-- Itinerary Tab -->
+                                    <div x-show="activeTab === 'itinerary'" class="space-y-3">
                                         @if (isset($package->itinerary) && count($package->itinerary) > 0)
-                                            @foreach (array_slice($package->itinerary, 0, 4) as $item)
-                                                <li class="flex items-center"><i
-                                                        class="fas fa-map-marker-alt text-blue-400 mr-2"></i>{{ $item }}
-                                                </li>
-                                            @endforeach
+                                            <div :class="{ 'max-h-48 overflow-hidden': !contentExpanded }">
+                                                @foreach ($package->itinerary as $index => $item)
+                                                    <div class="flex items-start pb-2">
+                                                        <span
+                                                            class="text-blue-500 font-bold mr-2">{{ $index + 1 }}.</span>
+                                                        <span class="text-gray-700">{{ $item }}</span>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                            @if (count($package->itinerary) > 4)
+                                                <button @click="contentExpanded = !contentExpanded"
+                                                    class="text-sm text-blue-500 hover:text-blue-700 mt-2 flex items-center">
+                                                    <span
+                                                        x-text="contentExpanded ? 'Tampilkan lebih sedikit' : 'Lihat itinerary lengkap (' + {{ count($package->itinerary) }} + ')'"></span>
+                                                    <i class="fas"
+                                                        :class="contentExpanded ? 'fa-chevron-up' : 'fa-chevron-down'"
+                                                        class="ml-1 text-xs"></i>
+                                                </button>
+                                            @endif
                                         @else
-                                            <li class="flex items-center"><i
-                                                    class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Destinasi Wisata
-                                            </li>
-                                            <li class="flex items-center"><i
-                                                    class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Lokasi Menarik</li>
-                                            <li class="flex items-center"><i
-                                                    class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Tempat Bersejarah
-                                            </li>
-                                            <li class="flex items-center"><i
-                                                    class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Spot Foto</li>
+                                            <p class="text-gray-500">No itinerary available</p>
                                         @endif
-                                    </ul>
-                                </div>
-                                <div>
-                                    <p class="font-bold text-gray-700 mb-2 border-b border-gray-200 pb-1">INCLUDE</p>
-                                    <ul class="space-y-1 text-gray-600">
+                                    </div>
+
+                                    <!-- Includes Tab -->
+                                    <div x-show="activeTab === 'includes'" class="space-y-3">
                                         @if (isset($package->includes) && count($package->includes) > 0)
-                                            @foreach (array_slice($package->includes, 0, 4) as $item)
-                                                <li class="flex items-center"><i
-                                                        class="fas fa-check-circle text-blue-800 mr-2"></i>{{ $item }}
-                                                </li>
-                                            @endforeach
+                                            <div :class="{ 'max-h-48 overflow-hidden': !contentExpanded }">
+                                                @foreach ($package->includes as $item)
+                                                    <div class="flex items-start">
+                                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                                        <span class="text-gray-700">{{ $item }}</span>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                            @if (count($package->includes) > 4)
+                                                <button @click="contentExpanded = !contentExpanded"
+                                                    class="text-sm text-blue-500 hover:text-blue-700 mt-2 flex items-center">
+                                                    <span
+                                                        x-text="contentExpanded ? 'Tampilkan lebih sedikit' : 'Lihat semua includes (' + {{ count($package->includes) }} + ')'"></span>
+                                                    <i class="fas"
+                                                        :class="contentExpanded ? 'fa-chevron-up' : 'fa-chevron-down'"
+                                                        class="ml-1 text-xs"></i>
+                                                </button>
+                                            @endif
                                         @else
-                                            <li class="flex items-center"><i
-                                                    class="fas fa-check-circle text-blue-800 mr-2"></i>Transportasi</li>
-                                            <li class="flex items-center"><i
-                                                    class="fas fa-check-circle text-blue-800 mr-2"></i>Makanan</li>
-                                            <li class="flex items-center"><i
-                                                    class="fas fa-check-circle text-blue-800 mr-2"></i>Pemandu Wisata</li>
-                                            <li class="flex items-center"><i
-                                                    class="fas fa-check-circle text-blue-800 mr-2"></i>Dokumentasi</li>
+                                            <p class="text-gray-500">No includes information</p>
                                         @endif
-                                    </ul>
+                                    </div>
+
+                                    <!-- Excludes Tab -->
+                                    <div x-show="activeTab === 'excludes'" class="space-y-3">
+                                        @if (isset($package->excludes) && count($package->excludes) > 0)
+                                            <div :class="{ 'max-h-48 overflow-hidden': !contentExpanded }">
+                                                @foreach ($package->excludes as $item)
+                                                    <div class="flex items-start">
+                                                        <i class="fas fa-times-circle text-red-500 mt-1 mr-2"></i>
+                                                        <span class="text-gray-700">{{ $item }}</span>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                            @if (count($package->excludes) > 4)
+                                                <button @click="contentExpanded = !contentExpanded"
+                                                    class="text-sm text-blue-500 hover:text-blue-700 mt-2 flex items-center">
+                                                    <span
+                                                        x-text="contentExpanded ? 'Tampilkan lebih sedikit' : 'Lihat semua excludes (' + {{ count($package->excludes) }} + ')'"></span>
+                                                    <i class="fas"
+                                                        :class="contentExpanded ? 'fa-chevron-up' : 'fa-chevron-down'"
+                                                        class="ml-1 text-xs"></i>
+                                                </button>
+                                            @endif
+                                        @else
+                                            <p class="text-gray-500">No excludes information</p>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="p-6 bg-white border-t border-gray-100">
-                            <h3 class="text-xl font-bold text-gray-800 mb-1">{{ $package->name }}</h3>
-                            <p class="text-gray-600 text-sm mb-3"><i
-                                    class="fas fa-map-marker-alt text-gray-400 mr-1"></i>Desa Arjasa, Jember</p>
-                            <div class="flex items-center mb-4">
-                                <div class="flex text-amber-400 text-sm">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
-                                </div>
-                                <span class="text-gray-500 text-xs ml-2">(4.5/5)</span>
-                            </div>
-
-                            <div class="flex justify-between items-center mt-4">
+                            <!-- Action Button -->
+                            <div class="mt-6 text-center">
                                 <a href="{{ route('tour-packages.show', $package->slug) }}"
-                                    class="bg-blue-400 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
-                                    DETAIL PAKET
+                                    class="inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-blue-500 to-teal-500 text-white rounded-lg hover:from-blue-600 hover:to-teal-600 transition-all duration-300 shadow-md hover:shadow-lg">
+                                    Detail Paket
+                                    <i class="fas fa-arrow-right ml-2 text-sm"></i>
                                 </a>
-                                <div class="text-right">
-                                    <span class="text-gray-500 text-sm">Mulai dari</span>
-                                    <span class="block text-xl font-bold text-gray-800">
-                                        Rp
-                                        {{ number_format($package->pricings->sortBy('price')->first()->price, 0, ',', '.') }}
-                                        <span class="text-base text-gray-600">/Pax</span>
-                                    </span>
-                                </div>
                             </div>
                         </div>
                     </div>
                 @empty
                     <div class="col-span-3 text-center py-10">
-                        <p class="text-gray-500">Tidak ada paket tour yang tersedia saat ini.</p>
+                        <div class="bg-white p-8 rounded-xl shadow-md max-w-md mx-auto">
+                            <i class="fas fa-compass text-4xl text-gray-300 mb-4"></i>
+                            <h3 class="text-xl font-medium text-gray-700">Belum ada paket tersedia</h3>
+                            <p class="text-gray-500 mt-2">Kami sedang mempersiapkan paket wisata terbaik untuk Anda.</p>
+                        </div>
                     </div>
                 @endforelse
             </div>
 
             <!-- Pagination -->
-            <div class="mt-10">
+            <div class="mt-12">
                 {{ $featuredPackages->links() }}
             </div>
         </div>

@@ -57,6 +57,7 @@ Route::get('/tour-package', [HomeController::class, 'tourPackage'])->name('tour-
 // Route::get('/tour-packages/{slug}', [HomeController::class, 'show'])->name('tour-packages.show');
 Route::get('/packages/{tourPackage}', [HomeController::class, 'show'])->name('tour-packages.show');
 Route::get('/packages/all', [HomeController::class, 'show'])->name('packages.show');
+Route::get('/packages/', [HomeController::class, 'show'])->name('tour-package.all');
 Route::get('/packages/type/{packageType}', [HomeController::class, 'byType'])->name('packages.by-type');
 
 // Articles
