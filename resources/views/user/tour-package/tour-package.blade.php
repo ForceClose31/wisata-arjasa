@@ -94,7 +94,7 @@
                         </a>
                         <div class="text-right">
                             <span class="text-gray-500 text-sm">Harga</span>
-                            <span class="block text-xl font-bold text-blue-500">Rp 3.500.000<span class="text-base text-gray-600">/Pax</span></span>
+                            <span class="block text-xl font-bold text-gray-800">Rp 3.500.000<span class="text-base text-gray-600">/Pax</span></span>
                         </div>
                     </div>
                 </div>
@@ -161,7 +161,7 @@
                         </a>
                         <div class="text-right">
                             <span class="text-gray-500 text-sm">Harga</span>
-                            <span class="block text-xl font-bold text-blue-500">Rp 8.000.000<span class="text-base text-gray-600">/Pax</span></span>
+                            <span class="block text-xl font-bold text-gray-800">Rp 8.000.000<span class="text-base text-gray-600">/Pax</span></span>
                         </div>
                     </div>
                 </div>
@@ -228,7 +228,7 @@
                         </a>
                         <div class="text-right">
                             <span class="text-gray-500 text-sm">Harga</span>
-                            <span class="block text-xl font-bold text-blue-500">Rp 1.800.000<span class="text-base text-gray-600">/Pax</span></span>
+                            <span class="block text-xl font-bold text-gray-800">Rp 1.800.000<span class="text-base text-gray-600">/Pax</span></span>
                         </div>
                     </div>
                 </div>

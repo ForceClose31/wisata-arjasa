@@ -22,7 +22,7 @@
         {{-- Ini adalah bagian yang direvisi untuk menambahkan rating di samping judul --}}
         <div class="mb-10 flex justify-between items-center" data-aos="fade-up" data-aos-duration="1000">
             <div>
-                <h2 class="text-4xl md:text-5xl font-extrabold text-blue-500 mb-2 font-montserrat">Pilihan Cottage</h2>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-blue-500 mb-2 font-montserrat">Cottage</h2>
                 <p class="text-lg text-gray-700">Kami menyediakan pilihan Cottage dengan fasilitas lengkap.</p>
             </div>
             {{-- Bagian rating 5/5 --}}
@@ -37,7 +37,7 @@
             {{-- Tria Maria Cottages Ngurbloat --}}
             <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="100">
                 <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
+                    <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=400&q=80"
                                  alt="Tria Maria Cottages"
                                  class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
                 </div>
@@ -69,7 +69,7 @@
                             BOOKING
                         </a>
                         <div class="text-right">
-                            <span class="block text-sm font-bold text-blue-500">Rp 500.000<span class="text-base text-gray-600">/Night</span></span>
+                            <span class="block text-sm font-bold text-gray-800">Rp 500.000<span class="text-sm text-gray-600">/Night</span></span>
                         </div>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
             {{-- Noel Cottages Ngurbloat --}}
             <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="200">
                 <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
+                    <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=400&q=80"
                                  alt="Noel Cottages"
                                  class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
                 </div>
@@ -110,7 +110,7 @@
                             BOOKING
                         </a>
                         <div class="text-right">
-                            <span class="block text-sm font-bold text-blue-500">Rp 450.000<span class="text-base text-gray-600">/Night</span></span>
+                            <span class="block text-sm font-bold text-gray-800">Rp 450.000<span class="text-sm text-gray-600">/Night</span></span>
                         </div>
                     </div>
                 </div>
@@ -119,7 +119,7 @@
             {{-- Tria Maria Cottages (another one) --}}
             <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="300">
                 <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
+                    <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=400&q=80"
                                  alt="Tria Maria Cottages 2"
                                  class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
                 </div>
@@ -151,7 +151,7 @@
                             BOOKING
                         </a>
                         <div class="text-right">
-                            <span class="block text-sm font-bold text-blue-500">Rp 550.000<span class="text-base text-gray-600">/Night</span></span>
+                            <span class="block text-sm font-bold text-gray-800">Rp 550.000<span class="text-sm text-gray-600">/Night</span></span>
                         </div>
                     </div>
                 </div>
@@ -160,7 +160,7 @@
             {{-- Stella Villa Cottages --}}
             <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="400">
                 <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
+                    <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=400&q=80"
                                  alt="Stella Villa Cottages"
                                  class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
                 </div>
@@ -192,7 +192,7 @@
                             BOOKING
                         </a>
                         <div class="text-right">
-                            <span class="block text-sm font-bold text-blue-500">Rp 600.000<span class="text-base text-gray-600">/Night</span></span>
+                            <span class="block text-sm font-bold text-gray-800">Rp 600.000<span class="text-sm text-gray-600">/Night</span></span>
                         </div>
                     </div>
                 </div>

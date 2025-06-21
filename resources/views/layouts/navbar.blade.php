@@ -16,7 +16,7 @@
                         ['label' => 'Home', 'route' => 'home'],
                         ['label' => 'About Us', 'route' => 'about.index'],
                         ['label' => 'Tour Package', 'route' => 'tour-package.index'],
-                        ['label' => 'Transportation', 'route' => 'transport.index'],
+                        ['label' => 'Komotra', 'route' => 'transport.index'],
                         ['label' => 'Cottage', 'route' => 'cottage.index'],
                         ['label' => 'Gallery', 'route' => 'gallery.index'],
                         ['label' => 'Article', 'route' => 'article.index'],
