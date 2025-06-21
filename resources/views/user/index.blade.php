@@ -52,7 +52,8 @@
     <section class="py-20 bg-gray-50" data-aos="fade-up">
         <div class="container mx-auto px-4 max-w-screen-xl"> {{-- Tambahkan max-w-screen-xl di sini --}}
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold text-gray-800 mb-6 font-montserrat relative inline-block text-underline-animated-explore">
+                <h2
+                    class="text-3xl md:text-5xl font-bold text-gray-800 mb-6 font-montserrat relative inline-block text-underline-animated-explore">
                     {{-- Tambahkan kelas baru untuk menargetkan CSS garis bawah ini --}}
                     <span class="relative z-10">Explore Arjasa's Wonders</span>
                     <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 z-0 opacity-30"></span>
@@ -61,7 +62,7 @@
                     Arjasa through our curated experiences</p>
             </div>
 
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8"> 
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
 
                 {{-- Cultural Sites --}}
                 <div class="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300">
@@ -187,10 +188,16 @@
                             <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 opacity-70 -z-1"></span>
                         </h2>
                         <p class="text-lg text-gray-600 mb-6 leading-relaxed font-lato">
-                            Berawal dari kecintaan mendalam terhadap kekayaan budaya dan pesona alam Arjasa, <span class="text-blue-500 font-bold">Dewa Arjasa</span> didirikan pada tahun 2010 dengan misi mulia untuk memperkenalkan keindahan tersembunyi ini kepada dunia. Kami memulai perjalanan ini dengan semangat untuk berbagi keunikan Arjasa.
+                            Berawal dari kecintaan mendalam terhadap kekayaan budaya dan pesona alam Arjasa, <span
+                                class="text-blue-500 font-bold">Dewa Arjasa</span> didirikan pada tahun 2010 dengan misi
+                            mulia untuk memperkenalkan keindahan tersembunyi ini kepada dunia. Kami memulai perjalanan ini
+                            dengan semangat untuk berbagi keunikan Arjasa.
                         </p>
                         <p class="text-lg text-gray-600 mb-8 leading-relaxed font-lato">
-                            Dari sebuah tim kecil yang berdedikasi, kami telah tumbuh menjadi penyedia layanan wisata terpercaya, dikenal luas dengan pendekatan personal dan pengetahuan mendalam tentang setiap sudut Arjasa. Kami bangga dapat menjadi jembatan antara Anda dan pengalaman tak terlupakan di destinasi ini.
+                            Dari sebuah tim kecil yang berdedikasi, kami telah tumbuh menjadi penyedia layanan wisata
+                            terpercaya, dikenal luas dengan pendekatan personal dan pengetahuan mendalam tentang setiap
+                            sudut Arjasa. Kami bangga dapat menjadi jembatan antara Anda dan pengalaman tak terlupakan di
+                            destinasi ini.
                         </p>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
                             <div class="text-center p-4 bg-teal-50 rounded-lg shadow-sm animate-fade-in delay-100">
@@ -211,67 +218,6 @@
             </div>
         </div>
     </section>
-
-    {{-- Tour Packages Section --}}
-    
-
-    @if ($specialPackages->count() > 0)
-        {{-- Special Packages Section --}}
-        <section class="py-16 bg-gray-100">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold text-gray-800 mb-2 font-montserrat">Special Events</h2>
-                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Unique experiences for unforgettable memories</p>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8">
-                    @foreach ($specialPackages as $package)
-                        @php
-                            $basePrice = $package->pricings->sortBy('price')->first();
-                        @endphp
-
-                        <div class="bg-white rounded-xl shadow-lg overflow-hidden border-t-4 border-purple-500">
-                            <div class="relative h-48 overflow-hidden">
-                                @if ($package->images && count(json_decode($package->images)) > 0)
-                                    <img src="{{ asset('storage/' . json_decode($package->images)[0]) }}"
-                                        alt="{{ $package->name }}"
-                                        class="w-full h-full object-cover hover:scale-105 transition duration-500">
-                                @else
-                                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                                        alt="{{ $package->name }}"
-                                        class="w-full h-full object-cover hover:scale-105 transition duration-500">
-                                @endif
-                                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/70 to-transparent"></div>
-                                <div class="absolute bottom-0 left-0 p-6 text-white">
-                                    <h3 class="text-xl font-bold">{{ $package->name }}</h3>
-                                    <p class="text-sm text-gray-200">{{ $package->duration }}</p>
-                                </div>
-                            </div>
-
-                            <div class="p-6">
-                                <div class="flex justify-between items-center mb-4">
-                                    <div>
-                                        <p class="text-sm text-gray-500">Starting from</p>
-                                        <p class="text-xl font-bold text-purple-600">
-                                            IDR {{ number_format($basePrice->price) }}
-                                        </p>
-                                    </div>
-                                    <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">
-                                        {{ $package->pricings->first()->variant ?? 'Standard' }}
-                                    </span>
-                                </div>
-
-                                <a href="{{ route('packages.show', $package->slug) }}"
-                                    class="w-full block text-center px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">
-                                    Book Now
-                                </a>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </section>
-    @endif
     {{-- Keunggulan Section --}}
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4 max-w-screen-xl">
@@ -295,7 +241,8 @@
                         <i class="fas fa-box-open text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-center text-gray-800 mb-3">Paket Lengkap</h3>
-                    <p class="text-gray-600 text-center text-sm">Kami menyediakan berbagai pilihan paket wisata terlengkap di
+                    <p class="text-gray-600 text-center text-sm">Kami menyediakan berbagai pilihan paket wisata terlengkap
+                        di
                         Arjasa.</p>
                 </div>
 
@@ -306,7 +253,8 @@
                         <i class="fas fa-car text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-center text-gray-800 mb-3">All in One</h3>
-                    <p class="text-gray-600 text-center text-sm">Tersedia juga sewa motor, mobil, dan cottage untuk kenyamanan
+                    <p class="text-gray-600 text-center text-sm">Tersedia juga sewa motor, mobil, dan cottage untuk
+                        kenyamanan
                         Anda.</p>
                 </div>
 
@@ -317,7 +265,8 @@
                         <i class="fas fa-user-tie text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-center text-gray-800 mb-3">Professional</h3>
-                    <p class="text-gray-600 text-center text-sm">Dengan dukungan tour guide profesional dan berpengalaman.</p>
+                    <p class="text-gray-600 text-center text-sm">Dengan dukungan tour guide profesional dan berpengalaman.
+                    </p>
                 </div>
 
                 <div data-aos="fade-up" data-aos-delay="400"
@@ -360,12 +309,10 @@
 
     {{-- Tour Packages Section --}}
     <section class="py-20 bg-gray-50">
-        {{-- Tambahkan max-w-screen-xl pada div.container --}}
         <div class="container mx-auto px-4 max-w-screen-xl">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-montserrat">
-                    {{-- Tambahkan kelas baru untuk menargetkan CSS garis bawah ini --}}
-                    <span class="relative inline-block text-underline-animated-featured-packages">
+                    <span class="relative inline-block">
                         Paket Wisata Unggulan
                         <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 opacity-30 -z-1"></span>
                     </span>
@@ -374,303 +321,234 @@
                     eksklusif kami</p>
             </div>
 
-            {{-- Pastikan grid-cols-1 untuk mobile dan lg:grid-cols-2 untuk desktop --}}
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8"> {{-- Diubah dari lg:grid-cols-2 menjadi md:grid-cols-2 --}}
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 @foreach ($featuredPackages as $package)
-                    @php
-                        $basePrice = $package->pricings->sortBy('price')->first();
-                        $colors = ['teal', 'indigo', 'amber', 'emerald'];
-                        $color = $colors[$loop->index % count($colors)];
-                        $variantPrices = $package->pricings->groupBy('variant');
-                    @endphp
-
-                    <div
-                        class="bg-white rounded-xl shadow-lg overflow-hidden border-b-4 border-{{ $color }}-500 hover:shadow-xl transition duration-300">
+                    <div x-data="{
+                        activeTab: 'itinerary',
+                        contentExpanded: false,
+                        pricingExpanded: false
+                    }"
+                        class="group relative bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                        <!-- Package Header with Image -->
                         <div class="relative h-64 overflow-hidden">
                             @if ($package->images && count(json_decode($package->images)) > 0)
                                 <img src="{{ asset('storage/' . json_decode($package->images)[0]) }}"
-                                    alt="{{ $package->name }}" class="w-full h-full object-cover">
+                                    alt="{{ $package->name }}"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                             @else
-                                <img src="https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                                    alt="{{ $package->name }}" class="w-full h-full object-cover">
+                                <img src="https://source.unsplash.com/random/600x400?indonesia,tour"
+                                    alt="{{ $package->name }}"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                             @endif
-                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/70 to-transparent"></div>
-                            <div class="absolute bottom-0 left-0 p-6 text-white">
-                                <span class="text-xs bg-{{ $color }}-500 px-2 py-1 rounded-full mb-2 inline-block">
+                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent">
+                            </div>
+                            <div class="absolute top-4 right-4 flex flex-col space-y-2">
+                                <span
+                                    class="bg-white/90 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full shadow-sm backdrop-blur-sm">
+                                    {{ $package->duration }}
+                                </span>
+                                <span
+                                    class="bg-blue-400/90 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-sm backdrop-blur-sm">
                                     {{ $package->packageType->name }}
                                 </span>
-                                <h3 class="text-2xl font-bold">{{ $package->name }}</h3>
-                                <p class="text-gray-200">{{ $package->duration }}</p>
                             </div>
                         </div>
 
+                        <!-- Package Body -->
                         <div class="p-6">
-                            @if ($package->packageType->slug === 'one-day-tour')
-                                <div class="mb-6">
-                                    <h4 class="font-bold text-gray-800 mb-3 flex items-center">
-                                        <i class="fas fa-map-marker-alt text-{{ $color }}-600 mr-2"></i>
-                                        ITINERARY
+                            <!-- Package Title -->
+                            <h3 class="text-xl font-bold text-gray-800 mb-2 font-serif">{{ $package->name }}</h3>
+
+                            <!-- Short Description -->
+                            <p class="text-gray-600 mb-4 line-clamp-2">{{ $package->description }}</p>
+
+                            <!-- Highlights -->
+                            @if (isset($package->highlights) && count($package->highlights) > 0)
+                                <div class="mb-4">
+                                    <h4 class="text-sm font-semibold text-gray-500 mb-2 flex items-center">
+                                        <i class="fas fa-sparkles text-amber-400 mr-2"></i> Highlights
                                     </h4>
-                                    <ul class="space-y-2 text-sm text-gray-600">
-                                        @foreach (array_slice($package->itinerary, 0, 5) as $item)
-                                            <li class="flex items-start">
-                                                <i
-                                                    class="fas fa-circle text-{{ $color }}-500 text-xs mt-1 mr-2"></i>
-                                                <span>{{ $item }}</span>
-                                            </li>
+                                    <div class="flex flex-wrap gap-2">
+                                        @foreach (array_slice($package->highlights, 0, 3) as $highlight)
+                                            <span
+                                                class="bg-amber-50 text-amber-800 text-xs px-3 py-1 rounded-full border border-amber-100">{{ $highlight }}</span>
                                         @endforeach
-                                    </ul>
-                                </div>
-                            @elseif($package->packageType->slug === 'heritage-art-camp')
-                                <div class="mb-6">
-                                    <h4 class="font-bold text-gray-800 mb-3 flex items-center">
-                                        <i class="fas fa-route text-{{ $color }}-600 mr-2"></i>
-                                        RUTE PERJALANAN
-                                    </h4>
-                                    <div class="flex items-start">
-                                        <div class="flex flex-col items-center mr-4">
-                                            <div
-                                                class="w-8 h-8 bg-{{ $color }}-500 rounded-full flex items-center justify-center text-white">
-                                                1
-                                            </div>
-                                            <div class="h-16 w-px bg-gray-300 my-1"></div>
-                                            <div
-                                                class="w-8 h-8 bg-{{ $color }}-500 rounded-full flex items-center justify-center text-white">
-                                                2
-                                            </div>
-                                        </div>
-                                        <div class="flex-1">
-                                            <p class="font-medium">Hari 1: {{ $package->itinerary[0] ?? 'Penjemputan' }}
-                                            </p>
-                                            <p class="text-sm text-gray-600 mb-4">
-                                                {{ Str::limit($package->itinerary[1] ?? 'Aktivitas hari pertama', 100) }}
-                                            </p>
-                                            <p class="font-medium">Hari 2:
-                                                {{ $package->itinerary[2] ?? 'Aktivitas pagi' }}</p>
-                                            <p class="text-sm text-gray-600">
-                                                {{ Str::limit($package->itinerary[3] ?? 'Aktivitas hari kedua', 100) }}</p>
-                                        </div>
                                     </div>
-                                </div>
-                            @elseif($package->packageType->slug === 'hyang-argopuro-festival')
-                                <div class="mb-6">
-                                    <h4 class="font-bold text-gray-800 mb-3 flex items-center">
-                                        <i class="fas fa-calendar-day text-{{ $color }}-600 mr-2"></i>
-                                        JADWAL ACARA
-                                    </h4>
-                                    <ul class="space-y-3">
-                                        @foreach (array_slice($package->itinerary, 0, 3) as $item)
-                                            <li class="flex items-start">
-                                                <i class="fas fa-star text-{{ $color }}-500 text-xs mt-1 mr-2"></i>
-                                                <span class="text-sm">{{ $item }}</span>
-                                            </li>
-                                        @endforeach
-                                    </ul>
                                 </div>
                             @endif
 
-                            <div class="mb-6">
+                            <!-- Pricing -->
+                            <div class="mb-6 bg-blue-50/50 p-4 rounded-lg border border-blue-100">
                                 <h4 class="font-bold text-gray-800 mb-3 flex items-center">
-                                    <i class="fas fa-tags text-{{ $color }}-600 mr-2"></i>
-                                    HARGA PAKET
+                                    <i class="fas fa-tag text-blue-500 mr-2"></i> Harga Paket
                                 </h4>
+                                <div class="space-y-2">
+                                    @foreach ($package->pricings->sortBy('price')->take(2) as $pricing)
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm text-gray-700">
+                                                {{ $pricing->group_size }}
+                                                @if ($pricing->variant)
+                                                    <span class="text-gray-500 text-xs">({{ $pricing->variant }})</span>
+                                                @endif
+                                            </span>
+                                            <span class="font-bold text-blue-600">Rp
+                                                {{ number_format($pricing->price, 0, ',', '.') }}</span>
+                                        </div>
+                                    @endforeach
 
-                                @if (count($variantPrices) > 1)
-                                    <div class="space-y-3">
-                                        @foreach ($variantPrices as $variant => $pricings)
-                                            <div>
-                                                <p class="font-medium text-sm text-gray-700">{{ $variant ?? 'Standar' }}
-                                                </p>
-                                                <div class="grid grid-cols-2 gap-2 mt-1">
-                                                    @foreach ($pricings->sortBy('price')->take(2) as $pricing)
-                                                        <div class="bg-gray-50 p-2 rounded">
-                                                            <p class="text-xs text-gray-500">{{ $pricing->group_size }}
-                                                            </p>
-                                                            <p class="font-bold text-{{ $color }}-600">Rp
-                                                                {{ number_format($pricing->price) }}</p>
-                                                        </div>
-                                                    @endforeach
-                                                </div>
+                                    @if ($package->pricings->count() > 2)
+                                        <div class="pt-2">
+                                            <button @click="pricingExpanded = !pricingExpanded"
+                                                class="text-xs text-blue-500 hover:text-blue-700 flex items-center">
+                                                <span
+                                                    x-text="pricingExpanded ? 'Tampilkan lebih sedikit' : 'Lihat semua harga (' + ({{ $package->pricings->count() }} - 2) + ')'"></span>
+                                                <i class="fas"
+                                                    :class="pricingExpanded ? 'fa-chevron-up' : 'fa-chevron-down'"
+                                                    class="ml-1 text-xs"></i>
+                                            </button>
+                                            <div x-show="pricingExpanded" x-collapse class="space-y-2 mt-2">
+                                                @foreach ($package->pricings->sortBy('price')->slice(2) as $pricing)
+                                                    <div class="flex justify-between items-center">
+                                                        <span class="text-sm text-gray-700">
+                                                            {{ $pricing->group_size }}
+                                                            @if ($pricing->variant)
+                                                                <span
+                                                                    class="text-gray-500 text-xs">({{ $pricing->variant }})</span>
+                                                            @endif
+                                                        </span>
+                                                        <span class="font-bold text-blue-600">Rp
+                                                            {{ number_format($pricing->price, 0, ',', '.') }}</span>
+                                                    </div>
+                                                @endforeach
                                             </div>
-                                        @endforeach
-                                    </div>
-                                @else
-                                    <div class="grid grid-cols-3 gap-2">
-                                        @foreach ($package->pricings->sortBy('price')->take(3) as $pricing)
-                                            <div class="bg-gray-50 p-2 rounded text-center">
-                                                <p class="text-xs text-gray-500">{{ $pricing->group_size }}</p>
-                                                <p class="font-bold text-{{ $color }}-600">Rp
-                                                    {{ number_format($pricing->price) }}</p>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                @endif
+                                        </div>
+                                    @endif
+                                </div>
                             </div>
 
-                            <div
-                                class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-t pt-4">
-                                <div class="mb-4 sm:mb-0">
-                                    <div class="text-sm font-semibold text-gray-500">{{ $package->duration }}</div>
-                                    <div class="text-2xl font-bold text-{{ $color }}-600">
-                                        @if ($basePrice)
-                                            Mulai Rp {{ number_format($basePrice->price) }}
-                                            <span class="text-sm font-normal text-gray-500">/orang</span>
+                            <!-- Tabs for Package Details -->
+                            <div>
+                                <div class="flex border-b border-gray-200">
+                                    <button @click="activeTab = 'itinerary'"
+                                        :class="{ 'text-blue-600 border-blue-600': activeTab === 'itinerary', 'text-gray-500 hover:text-gray-700': activeTab !== 'itinerary' }"
+                                        class="py-2 px-4 font-medium text-sm border-b-2 -mb-px transition duration-150">
+                                        Itinerary
+                                    </button>
+                                    <button @click="activeTab = 'includes'"
+                                        :class="{ 'text-blue-600 border-blue-600': activeTab === 'includes', 'text-gray-500 hover:text-gray-700': activeTab !== 'includes' }"
+                                        class="py-2 px-4 font-medium text-sm border-b-2 -mb-px transition duration-150">
+                                        Includes
+                                    </button>
+                                    <button @click="activeTab = 'excludes'"
+                                        :class="{ 'text-blue-600 border-blue-600': activeTab === 'excludes', 'text-gray-500 hover:text-gray-700': activeTab !== 'excludes' }"
+                                        class="py-2 px-4 font-medium text-sm border-b-2 -mb-px transition duration-150">
+                                        Excludes
+                                    </button>
+                                </div>
+
+                                <div class="mt-4 relative">
+                                    <!-- Itinerary Tab -->
+                                    <div x-show="activeTab === 'itinerary'" class="space-y-3">
+                                        @if (isset($package->itinerary) && count($package->itinerary) > 0)
+                                            <div :class="{ 'max-h-48 overflow-hidden': !contentExpanded }">
+                                                @foreach ($package->itinerary as $index => $item)
+                                                    <div class="flex items-start pb-2">
+                                                        <span
+                                                            class="text-blue-500 font-bold mr-2">{{ $index + 1 }}.</span>
+                                                        <span class="text-gray-700">{{ $item }}</span>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                            @if (count($package->itinerary) > 4)
+                                                <button @click="contentExpanded = !contentExpanded"
+                                                    class="text-sm text-blue-500 hover:text-blue-700 mt-2 flex items-center">
+                                                    <span
+                                                        x-text="contentExpanded ? 'Tampilkan lebih sedikit' : 'Lihat itinerary lengkap (' + {{ count($package->itinerary) }} + ')'"></span>
+                                                    <i class="fas"
+                                                        :class="contentExpanded ? 'fa-chevron-up' : 'fa-chevron-down'"
+                                                        class="ml-1 text-xs"></i>
+                                                </button>
+                                            @endif
                                         @else
-                                            Hubungi Kami
+                                            <p class="text-gray-500">No itinerary available</p>
+                                        @endif
+                                    </div>
+
+                                    <!-- Includes Tab -->
+                                    <div x-show="activeTab === 'includes'" class="space-y-3">
+                                        @if (isset($package->includes) && count($package->includes) > 0)
+                                            <div :class="{ 'max-h-48 overflow-hidden': !contentExpanded }">
+                                                @foreach ($package->includes as $item)
+                                                    <div class="flex items-start">
+                                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                                        <span class="text-gray-700">{{ $item }}</span>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                            @if (count($package->includes) > 4)
+                                                <button @click="contentExpanded = !contentExpanded"
+                                                    class="text-sm text-blue-500 hover:text-blue-700 mt-2 flex items-center">
+                                                    <span
+                                                        x-text="contentExpanded ? 'Tampilkan lebih sedikit' : 'Lihat semua includes (' + {{ count($package->includes) }} + ')'"></span>
+                                                    <i class="fas"
+                                                        :class="contentExpanded ? 'fa-chevron-up' : 'fa-chevron-down'"
+                                                        class="ml-1 text-xs"></i>
+                                                </button>
+                                            @endif
+                                        @else
+                                            <p class="text-gray-500">No includes information</p>
+                                        @endif
+                                    </div>
+
+                                    <!-- Excludes Tab -->
+                                    <div x-show="activeTab === 'excludes'" class="space-y-3">
+                                        @if (isset($package->excludes) && count($package->excludes) > 0)
+                                            <div :class="{ 'max-h-48 overflow-hidden': !contentExpanded }">
+                                                @foreach ($package->excludes as $item)
+                                                    <div class="flex items-start">
+                                                        <i class="fas fa-times-circle text-red-500 mt-1 mr-2"></i>
+                                                        <span class="text-gray-700">{{ $item }}</span>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                            @if (count($package->excludes) > 4)
+                                                <button @click="contentExpanded = !contentExpanded"
+                                                    class="text-sm text-blue-500 hover:text-blue-700 mt-2 flex items-center">
+                                                    <span
+                                                        x-text="contentExpanded ? 'Tampilkan lebih sedikit' : 'Lihat semua excludes (' + {{ count($package->excludes) }} + ')'"></span>
+                                                    <i class="fas"
+                                                        :class="contentExpanded ? 'fa-chevron-up' : 'fa-chevron-down'"
+                                                        class="ml-1 text-xs"></i>
+                                                </button>
+                                            @endif
+                                        @else
+                                            <p class="text-gray-500">No excludes information</p>
                                         @endif
                                     </div>
                                 </div>
-                                <a href="{{ route('packages.show', $package->slug) }}"
-                                    class="px-6 py-2 bg-{{ $color }}-600 text-white rounded-lg hover:bg-{{ $color }}-700 transition duration-300 font-medium text-sm">
+                            </div>
+
+                            <!-- Action Button -->
+                            <div class="mt-6 text-center">
+                                <a href="{{ route('tour-packages.show', $package->slug) }}"
+                                    class="inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-blue-400 to-blue-500 text-white rounded-lg hover:from-blue-500 hover:to-blue-600 transition-all duration-300 shadow-md hover:shadow-lg">
                                     Detail Paket
+                                    <i class="fas fa-arrow-right ml-2 text-sm"></i>
                                 </a>
                             </div>
-                        </div>
-
-                        <div class="bg-gray-50 px-6 py-4 border-t">
-                            <p class="text-xs text-gray-600 text-center">
-                                @if ($package->packageType->slug === 'one-day-tour')
-                                    *Harga bervariasi berdasarkan jumlah peserta
-                                @elseif($package->packageType->slug === 'hyang-argopuro-festival')
-                                    *Tersedia paket VIP dan Reguler
-                                @else
-                                    *Termasuk semua fasilitas yang disebutkan
-                                @endif
-                            </p>
                         </div>
                     </div>
                 @endforeach
             </div>
 
-            <div class="text-center mt-12"> {{-- Tambahkan text-center dan mt-12 untuk menengahkan tombol --}}
+            <div class="text-center mt-12">
                 <a href="{{ route('packages.by-type', ['packageType' => 'all']) }}"
-                    class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-teal-600 hover:bg-teal-700 transition duration-300">
+                    class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-500 hover:bg-blue-600 transition duration-300">
                     Lihat Semua Paket <i class="fas fa-arrow-right ml-2"></i>
                 </a>
             </div>
         </div>
     </section>
-
-    <!-- Package Types Section -->
-    @if ($packageTypes->count() > 0)
-    <section class="py-16 bg-white">
-            {{-- Tambahkan max-w-screen-xl pada div.container --}}
-            <div class="container mx-auto px-4 max-w-screen-xl">
-                <div class="text-center mb-12"> {{-- Margin bottom sedikit disesuaikan --}}
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-montserrat">
-                        {{-- Tambahkan kelas baru untuk menargetkan CSS garis bawah ini --}}
-                        <span class="relative inline-block text-underline-animated-package-type-heading">
-                            Pilih Jenis Paket Wisata
-                            {{-- Garis bawah tetap di sini, akan ditarget oleh CSS custom --}}
-                            <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 opacity-30 -z-1"></span>
-                        </span>
-                    </h2>
-                </div>
-
-                {{-- Grid disesuaikan: grid-cols-1 untuk mobile, md:grid-cols-2 untuk tablet, lg:grid-cols-4 untuk desktop --}}
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    @foreach ($packageTypes as $index => $type) {{-- Tambahkan $index untuk delay AOS --}}
-                        @php
-                            $typeColors = [
-                                'one-day-tour' => 'teal',
-                                'heritage-art-camp' => 'amber',
-                                'research-tour' => 'indigo',
-                                'hyang-argopuro-festival' => 'purple',
-                            ];
-                            $typeColor = $typeColors[$type->slug] ?? 'teal';
-                            $typeIcons = [
-                                'one-day-tour' => 'map-marked-alt',
-                                'heritage-art-camp' => 'landmark',
-                                'research-tour' => 'microscope',
-                                'hyang-argopuro-festival' => 'calendar-alt', // Mengubah icon festival agar konsisten dengan sebelumnya
-                            ];
-                            $typeIcon = $typeIcons[$type->slug] ?? 'map';
-                        @endphp
-
-                        {{-- Tambahkan data-aos="fade-up" dan data-aos-delay --}}
-                        <a href="{{ route('packages.by-type', ['packageType' => $type->slug]) }}"
-                            class="group block bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300 border-t-4 border-{{ $typeColor }}-500"
-                            data-aos="fade-up" data-aos-delay="{{ ($index + 1) * 100 }}"> {{-- Delay bertahap --}}
-                            <div class="p-6">
-                                <div
-                                    class="w-12 h-12 bg-{{ $typeColor }}-100 rounded-full flex items-center justify-center mb-4 mx-auto"> {{-- Tambahkan mx-auto untuk menengahkan ikon --}}
-                                    <i class="fas fa-{{ $typeIcon }} text-{{ $typeColor }}-600 text-lg"></i>
-                                </div>
-                                <h3
-                                    class="text-xl font-bold text-center text-gray-800 mb-2 group-hover:text-{{ $typeColor }}-600 transition">
-                                    {{ $type->name }}
-                                </h3>
-                                <p class="text-gray-600 text-sm text-center mb-4"> {{-- Tambahkan text-center --}}
-                                    {{ Str::limit($type->description, 80) }}
-                                </p>
-                                <span class="text-{{ $typeColor }}-600 text-sm font-medium block text-center"> {{-- Tambahkan block text-center --}}
-                                    {{ $type->tourPackages->count() }} paket tersedia
-                                </span>
-                            </div>
-                        </a>
-                    @endforeach
-                </div>
-            </div>
-        </section>
-    @endif
-
-    <!-- Special Packages Section (Hyang Argopuro Festival) -->
-    @if ($specialPackages->count() > 0)
-        <section class="py-16 bg-gray-100">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold text-gray-800 mb-2 font-montserrat">Event Khusus</h2>
-                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Paket spesial untuk pengalaman festival yang tak
-                        terlupakan</p>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8">
-                    @foreach ($specialPackages as $package)
-                        @php
-                            $basePrice = $package->pricings->sortBy('price')->first();
-                            $variantPrices = $package->pricings->groupBy('variant');
-                        @endphp
-
-                        <div class="bg-white rounded-xl shadow-lg overflow-hidden border-t-4 border-purple-500">
-                            <div class="relative h-48 overflow-hidden">
-                                @if ($package->images && count(json_decode($package->images)) > 0)
-                                    <img src="{{ asset('storage/' . json_decode($package->images)[0]) }}"
-                                        alt="{{ $package->name }}" class="w-full h-full object-cover">
-                                @else
-                                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                                        alt="{{ $package->name }}" class="w-full h-full object-cover">
-                                @endif
-                                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/70 to-transparent"></div>
-                                <div class="absolute bottom-0 left-0 p-6 text-white">
-                                    <h3 class="text-xl font-bold">{{ $package->name }}</h3>
-                                    <p class="text-sm text-gray-200">{{ $package->duration }}</p>
-                                </div>
-                            </div>
-
-                            <div class="p-6">
-                                <div class="flex justify-between items-center mb-4">
-                                    <div>
-                                        <p class="text-sm text-gray-500">Mulai dari</p>
-                                        <p class="text-xl font-bold text-purple-600">
-                                            Rp {{ number_format($basePrice->price) }}
-                                        </p>
-                                    </div>
-                                    <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">
-                                        {{ $package->pricings->first()->variant ?? 'Reguler' }}
-                                    </span>
-                                </div>
-
-                                <a href="{{ route('packages.show', $package->slug) }}"
-                                    class="w-full block text-center px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">
-                                    Pesan Sekarang
-                                </a>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </section>
-    @endif
 
     {{-- Cottage Options Section --}}
     <section class="py-20 bg-gray-50">
@@ -690,11 +568,12 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10"> {{-- Grid responsif untuk 1, 2, atau 4 kolom --}}
 
                 {{-- Tria Maria Cottages Ngurbloat --}}
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
+                    data-aos="fade-up" data-aos-delay="100">
                     <div class="relative">
                         <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=400&q=80"
-                                        alt="Tria Maria Cottages"
-                                        class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                            alt="Tria Maria Cottages"
+                            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
                     </div>
                     <div class="p-4">
                         {{-- Nama Cottage --}}
@@ -702,11 +581,15 @@
 
                         {{-- Fasilitas --}}
                         <ul class="text-sm text-gray-700 mb-4 space-y-1">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free Breakfast</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free WiFi</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Water Heater</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free
+                                Breakfast</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free WiFi
+                            </li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Water
+                                Heater</li>
                             <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>AC</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>View Sea</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>View Sea
+                            </li>
                         </ul>
 
                         {{-- Total Room --}}
@@ -720,22 +603,24 @@
                         {{-- Button dan Harga --}}
                         <div class="flex justify-between text-sm items-center mt-4">
                             <a href="#"
-                            class="bg-blue-400 text-sm text-white font-semibold px-3 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
+                                class="bg-blue-400 text-sm text-white font-semibold px-3 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
                                 BOOKING
                             </a>
                             <div class="text-right">
-                                <span class="block text-sm font-bold text-gray-800">Rp 500.000<span class="text-sm text-gray-600">/Night</span></span>
+                                <span class="block text-sm font-bold text-gray-800">Rp 500.000<span
+                                        class="text-sm text-gray-600">/Night</span></span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 {{-- Noel Cottages Ngurbloat --}}
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
+                    data-aos="fade-up" data-aos-delay="200">
                     <div class="relative">
                         <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=400&q=80"
-                                        alt="Noel Cottages"
-                                        class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                            alt="Noel Cottages"
+                            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
                     </div>
                     <div class="p-4">
                         {{-- Nama Cottage --}}
@@ -743,11 +628,15 @@
 
                         {{-- Fasilitas --}}
                         <ul class="text-sm text-gray-700 mb-4 space-y-1">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free Breakfast</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free WiFi</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Water Heater</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free
+                                Breakfast</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free WiFi
+                            </li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Water
+                                Heater</li>
                             <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>AC</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>View Sea</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>View Sea
+                            </li>
                         </ul>
 
                         {{-- Total Room --}}
@@ -761,22 +650,24 @@
                         {{-- Button dan Harga --}}
                         <div class="flex justify-between text-sm items-center mt-4">
                             <a href="#"
-                            class="bg-blue-400 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
+                                class="bg-blue-400 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
                                 BOOKING
                             </a>
                             <div class="text-right">
-                                <span class="block text-sm font-bold text-gray-800">Rp 450.000<span class="text-sm text-gray-600">/Night</span></span>
+                                <span class="block text-sm font-bold text-gray-800">Rp 450.000<span
+                                        class="text-sm text-gray-600">/Night</span></span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 {{-- Tria Maria Cottages (another one) --}}
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="300">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
+                    data-aos="fade-up" data-aos-delay="300">
                     <div class="relative">
                         <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=400&q=80"
-                                        alt="Tria Maria Cottages 2"
-                                        class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                            alt="Tria Maria Cottages 2"
+                            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
                     </div>
                     <div class="p-4">
                         {{-- Nama Cottage --}}
@@ -784,11 +675,15 @@
 
                         {{-- Fasilitas --}}
                         <ul class="text-sm text-gray-700 mb-4 space-y-1">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free Breakfast</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free WiFi</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Water Heater</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free
+                                Breakfast</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free WiFi
+                            </li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Water
+                                Heater</li>
                             <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>AC</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>View Sea</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>View Sea
+                            </li>
                         </ul>
 
                         {{-- Total Room --}}
@@ -802,22 +697,24 @@
                         {{-- Button dan Harga --}}
                         <div class="flex justify-between text-sm items-center mt-4">
                             <a href="#"
-                            class="bg-blue-400 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
+                                class="bg-blue-400 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
                                 BOOKING
                             </a>
                             <div class="text-right">
-                                <span class="block text-sm font-bold text-gray-800">Rp 550.000<span class="text-sm text-gray-600">/Night</span></span>
+                                <span class="block text-sm font-bold text-gray-800">Rp 550.000<span
+                                        class="text-sm text-gray-600">/Night</span></span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 {{-- Stella Villa Cottages --}}
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="400">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
+                    data-aos="fade-up" data-aos-delay="400">
                     <div class="relative">
                         <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=400&q=80"
-                                        alt="Stella Villa Cottages"
-                                        class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                            alt="Stella Villa Cottages"
+                            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
                     </div>
                     <div class="p-4">
                         {{-- Nama Cottage --}}
@@ -825,11 +722,15 @@
 
                         {{-- Fasilitas --}}
                         <ul class="text-sm text-gray-700 mb-4 space-y-1">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free Breakfast</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free WiFi</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Water Heater</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free
+                                Breakfast</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free WiFi
+                            </li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Water
+                                Heater</li>
                             <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>AC</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>View Sea</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>View Sea
+                            </li>
                         </ul>
 
                         {{-- Total Room --}}
@@ -843,11 +744,12 @@
                         {{-- Button dan Harga --}}
                         <div class="flex justify-between text-sm items-center mt-4">
                             <a href="#"
-                            class="bg-blue-400 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
+                                class="bg-blue-400 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
                                 BOOKING
                             </a>
                             <div class="text-right">
-                                <span class="block text-sm font-bold text-gray-800">Rp 600.000<span class="text-sm text-gray-600">/Night</span></span>
+                                <span class="block text-sm font-bold text-gray-800">Rp 600.000<span
+                                        class="text-sm text-gray-600">/Night</span></span>
                             </div>
                         </div>
                     </div>
