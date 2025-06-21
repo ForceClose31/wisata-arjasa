@@ -213,263 +213,7 @@
     </section>
 
     {{-- Tour Packages Section --}}
-    <section class="py-20 bg-gray-50"> {{-- Latar belakang abu-abu terang untuk kontras dengan kartu putih --}}
-        <div class="container mx-auto px-4 max-w-screen-xl"> {{-- Menggunakan max-w-screen-xl untuk lebar yang lebih optimal --}}
-            <div class="mb-10" data-aos="fade-up" data-aos-duration="1000">
-                <h2 class="text-4xl md:text-5xl font-extrabold text-blue-900 mb-2 font-montserrat"><span
-                        class="text-blue-900">Paket</span> Tour</h2>
-                <p class="text-lg text-gray-700">Butuh bantuan? Hubungi kami!</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"> {{-- Grid responsif untuk 1, 2, atau 3 kolom --}}
-
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
-                    data-aos="fade-up" data-aos-delay="100">
-                    <div class="relative">
-                        {{-- Header Gambar Utama --}}
-                        <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                            alt="Kei Islands Tour Package"
-                            class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105">
-
-                        {{-- Informasi di dalam Gambar (Logo dan Judul Kecil) --}}
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex flex-col justify-between p-4 text-white">
-                            <div class="flex items-center justify-between">
-                                {{-- Placeholder Logo --}}
-                                <div class="flex items-center space-x-2">
-
-                                    <span class="font-bold text-lg">Kei Islands</span>
-                                </div>
-                                <span class="text-sm opacity-90">The Hidden Paradise</span>
-                            </div>
-                            <div class="text-right text-sm opacity-90">Pantai Ngurbloat, Pasir terhalus di dunia</div>
-                        </div>
-                    </div>
-
-                    {{-- Bagian Informasi Atas Paket --}}
-                    <div class="p-6">
-
-                        {{-- Detail DESTINASI dan INCLUDE --}}
-                        <div class="grid grid-cols-2 gap-4 text-sm mb-3">
-                            <div>
-                                <p class="font-bold text-gray-700 mb-2 border-b border-gray-200 pb-1">DESTINASI</p>
-                                <ul class="space-y-1 text-gray-600">
-                                    <li class="flex items-center"><i
-                                            class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Pantai Ngurbloat</li>
-                                    <li class="flex items-center"><i
-                                            class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Pulau Adranan</li>
-                                    <li class="flex items-center"><i
-                                            class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Waan Mas El Evu</li>
-                                    <li class="flex items-center"><i
-                                            class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Tanjung Ngurbloat</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <p class="font-bold text-gray-700 mb-2 border-b border-gray-200 pb-1">INCLUDE</p>
-                                <ul class="space-y-1 text-gray-600">
-                                    <li class="flex items-center"><i class="fas fa-hotel text-blue-800 mr-2"></i>Hotel di
-                                        Pantai</li>
-                                    <li class="flex items-center"><i class="fas fa-utensils text-blue-800  mr-2"></i>Makan
-                                        + Air</li>
-                                    <li class="flex items-center"><i class="fas fa-car text-blue-800 mr-2"></i>Speed Boat
-                                    </li>
-                                    <li class="flex items-center"><i
-                                            class="fas fa-users text-blue-800  mr-2"></i>Dokumentasi</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    {{-- Footer Card (Nama Paket, Lokasi, Rating, Harga Final, Tombol) --}}
-                    <div class="p-6 bg-white border-t border-gray-100">
-                        <h3 class="text-xl font-bold text-gray-800 mb-1">Tour Kei Island 3D2N</h3>
-                        <p class="text-gray-600 text-sm mb-3"><i
-                                class="fas fa-map-marker-alt text-gray-400 mr-1"></i>Kepulauan Kei</p>
-                        <div class="flex items-center mb-4">
-                            <div class="flex text-amber-400 text-sm">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i> {{-- Contoh setengah bintang --}}
-                            </div>
-                            <span class="text-gray-500 text-xs ml-2">(4.5/5)</span>
-                        </div>
-
-                        <div class="flex justify-between items-center mt-4">
-                            <a href="" {{-- Contoh route ke halaman detail --}}
-                                class="bg-blue-400 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
-                                DETAIL PAKET
-                            </a>
-                            <div class="text-right">
-                                <span class="text-gray-500 text-sm">Harga</span>
-                                <span class="block text-xl font-bold text-gray-800">Rp 3.500.000<span
-                                        class="text-base text-gray-600">/Pax</span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
-                    data-aos="fade-up" data-aos-delay="200">
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                            alt="Another Tour Package"
-                            class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex flex-col justify-between p-4 text-white">
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center space-x-2">
-
-                                    <span class="font-bold text-lg">Raja Ampat</span>
-                                </div>
-                                <span class="text-sm opacity-90">The Ultimate Dive</span>
-                            </div>
-                            <div class="text-right text-sm opacity-90">Piaynemo, Wayag, dll.</div>
-                        </div>
-                    </div>
-
-                    <div class="p-6">
-
-                        <div class="grid grid-cols-2 gap-4 text-sm mb-3">
-                            <div>
-                                <p class="font-bold text-gray-700 mb-2 border-b border-gray-200 pb-1">DESTINASI</p>
-                                <ul class="space-y-1 text-gray-600">
-                                    <li class="flex items-center"><i
-                                            class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Wayag Viewpoint</li>
-                                    <li class="flex items-center"><i
-                                            class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Piaynemo Karst</li>
-                                    <li class="flex items-center"><i
-                                            class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Teluk Kabui Pasir</li>
-                                    <li class="flex items-center"><i
-                                            class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Arborek Village</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <p class="font-bold text-gray-700 mb-2 border-b border-gray-200 pb-1">INCLUDE</p>
-                                <ul class="space-y-1 text-gray-600">
-                                    <li class="flex items-center"><i class="fas fa-hotel text-blue-800 mr-2"></i>Floating
-                                        Homestay</li>
-                                    <li class="flex items-center"><i class="fas fa-utensils text-blue-800 mr-2"></i>Full
-                                        Meals</li>
-                                    <li class="flex items-center"><i class="fas fa-ship text-blue-800 mr-2"></i>Island
-                                        Boat</li>
-                                    <li class="flex items-center"><i class="fas fa-users text-blue-800 mr-2"></i>Certified
-                                        Dive</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6 bg-white border-t border-gray-100">
-                        <h3 class="text-xl font-bold text-gray-800 mb-1">Raja Ampat Dive Expedition 5D4N</h3>
-                        <p class="text-gray-600 text-sm mb-3"><i class="fas fa-map-marker-alt text-gray-400 mr-1"></i>Raja
-                            Ampat, Papua Barat</p>
-                        <div class="flex items-center mb-4">
-                            <div class="flex text-amber-400 text-sm">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <span class="text-gray-500 text-xs ml-2">(5.0/5)</span>
-                        </div>
-
-                        <div class="flex justify-between items-center mt-4">
-                            <a href=""
-                                class="bg-blue-400 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
-                                DETAIL PAKET
-                            </a>
-                            <div class="text-right">
-                                <span class="text-gray-500 text-sm">Harga</span>
-                                <span class="block text-xl font-bold text-gray-800">Rp 8.000.000<span
-                                        class="text-base text-gray-600">/Pax</span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
-                    data-aos="fade-up" data-aos-delay="300">
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                            alt="Mount Bromo Sunrise Tour"
-                            class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex flex-col justify-between p-4 text-white">
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center space-x-2">
-
-                                    <span class="font-bold text-lg">Bromo Explore</span>
-                                </div>
-                                <span class="text-sm opacity-90">Volcano Adventure</span>
-                            </div>
-                            <div class="text-right text-sm opacity-90">Sunrise Point, Kawah Bromo</div>
-                        </div>
-                    </div>
-
-                    <div class="p-6">
-
-                        <div class="grid grid-cols-2 gap-4 text-sm mb-3">
-                            <div>
-                                <p class="font-bold text-gray-700 mb-2 border-b border-gray-200 pb-1">DESTINASI</p>
-                                <ul class="space-y-1 text-gray-600">
-                                    <li class="flex items-center"><i
-                                            class="fas fa-map-marker-alt text-blue-400  mr-2"></i>Bromo Sunrise Point</li>
-                                    <li class="flex items-center"><i
-                                            class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Kawah Bromo</li>
-                                    <li class="flex items-center"><i
-                                            class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Pasir Berbisik</li>
-                                    <li class="flex items-center"><i
-                                            class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Savana Teletubbies</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <p class="font-bold text-gray-700 mb-2 border-b border-gray-200 pb-1">INCLUDE</p>
-                                <ul class="space-y-1 text-gray-600">
-                                    <li class="flex items-center"><i
-                                            class="fas fa-hotel text-blue-800  mr-2"></i>Hotel/Guesthouse</li>
-                                    <li class="flex items-center"><i
-                                            class="fas fa-utensils text-blue-800 mr-2"></i>Breakfast</li>
-                                    <li class="flex items-center"><i class="fas fa-car text-blue-800 mr-2"></i>Jeep Bromo
-                                    </li>
-                                    <li class="flex items-center"><i class="fas fa-users text-blue-800 mr-2"></i>Local
-                                        Guide</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6 bg-white border-t border-gray-100">
-                        <h3 class="text-xl font-bold text-gray-800 mb-1">Bromo Sunrise Trek 2D1N</h3>
-                        <p class="text-gray-600 text-sm mb-3"><i
-                                class="fas fa-map-marker-alt text-gray-400 mr-1"></i>Probolinggo, Jawa Timur</p>
-                        <div class="flex items-center mb-4">
-                            <div class="flex text-amber-400 text-sm">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i> {{-- Contoh bintang kosong --}}
-                            </div>
-                            <span class="text-gray-500 text-xs ml-2">(4.0/5)</span>
-                        </div>
-
-                        <div class="flex justify-between items-center mt-4">
-                            <a href=""
-                                class="bg-blue-400 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
-                                DETAIL PAKET
-                            </a>
-                            <div class="text-right">
-                                <span class="text-gray-500 text-sm">Harga</span>
-                                <span class="block text-xl font-bold text-gray-800">Rp 1.800.000<span
-                                        class="text-base text-gray-600">/Pax</span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div> {{-- End of grid container --}}
-        </div>
-    </section>
+    
 
     @if ($specialPackages->count() > 0)
         {{-- Special Packages Section --}}
@@ -809,14 +553,23 @@
 
     <!-- Package Types Section -->
     @if ($packageTypes->count() > 0)
-        <section class="py-16 bg-white">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 font-montserrat">
-                    Pilih Jenis Paket Wisata
-                </h2>
+    <section class="py-16 bg-white">
+            {{-- Tambahkan max-w-screen-xl pada div.container --}}
+            <div class="container mx-auto px-4 max-w-screen-xl">
+                <div class="text-center mb-12"> {{-- Margin bottom sedikit disesuaikan --}}
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-montserrat">
+                        {{-- Tambahkan kelas baru untuk menargetkan CSS garis bawah ini --}}
+                        <span class="relative inline-block text-underline-animated-package-type-heading">
+                            Pilih Jenis Paket Wisata
+                            {{-- Garis bawah tetap di sini, akan ditarget oleh CSS custom --}}
+                            <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 opacity-30 -z-1"></span>
+                        </span>
+                    </h2>
+                </div>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    @foreach ($packageTypes as $type)
+                {{-- Grid disesuaikan: grid-cols-1 untuk mobile, md:grid-cols-2 untuk tablet, lg:grid-cols-4 untuk desktop --}}
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    @foreach ($packageTypes as $index => $type) {{-- Tambahkan $index untuk delay AOS --}}
                         @php
                             $typeColors = [
                                 'one-day-tour' => 'teal',
@@ -829,26 +582,28 @@
                                 'one-day-tour' => 'map-marked-alt',
                                 'heritage-art-camp' => 'landmark',
                                 'research-tour' => 'microscope',
-                                'hyang-argopuro-festival' => 'festival',
+                                'hyang-argopuro-festival' => 'calendar-alt', // Mengubah icon festival agar konsisten dengan sebelumnya
                             ];
                             $typeIcon = $typeIcons[$type->slug] ?? 'map';
                         @endphp
 
+                        {{-- Tambahkan data-aos="fade-up" dan data-aos-delay --}}
                         <a href="{{ route('packages.by-type', ['packageType' => $type->slug]) }}"
-                            class="group block bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300 border-t-4 border-{{ $typeColor }}-500">
+                            class="group block bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300 border-t-4 border-{{ $typeColor }}-500"
+                            data-aos="fade-up" data-aos-delay="{{ ($index + 1) * 100 }}"> {{-- Delay bertahap --}}
                             <div class="p-6">
                                 <div
-                                    class="w-12 h-12 bg-{{ $typeColor }}-100 rounded-full flex items-center justify-center mb-4">
+                                    class="w-12 h-12 bg-{{ $typeColor }}-100 rounded-full flex items-center justify-center mb-4 mx-auto"> {{-- Tambahkan mx-auto untuk menengahkan ikon --}}
                                     <i class="fas fa-{{ $typeIcon }} text-{{ $typeColor }}-600 text-lg"></i>
                                 </div>
                                 <h3
-                                    class="text-xl font-bold text-gray-800 mb-2 group-hover:text-{{ $typeColor }}-600 transition">
+                                    class="text-xl font-bold text-center text-gray-800 mb-2 group-hover:text-{{ $typeColor }}-600 transition">
                                     {{ $type->name }}
                                 </h3>
-                                <p class="text-gray-600 text-sm mb-4">
+                                <p class="text-gray-600 text-sm text-center mb-4"> {{-- Tambahkan text-center --}}
                                     {{ Str::limit($type->description, 80) }}
                                 </p>
-                                <span class="text-{{ $typeColor }}-600 text-sm font-medium">
+                                <span class="text-{{ $typeColor }}-600 text-sm font-medium block text-center"> {{-- Tambahkan block text-center --}}
                                     {{ $type->tourPackages->count() }} paket tersedia
                                 </span>
                             </div>
@@ -920,14 +675,13 @@
     {{-- Cottage Options Section --}}
     <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-4 max-w-screen-xl">
-            {{-- Ini adalah bagian yang direvisi untuk menambahkan rating di samping judul --}}
-            <div class="mb-10 flex justify-between items-center" data-aos="fade-up" data-aos-duration="1000">
-                <div>
-                    <h2 class="text-4xl md:text-5xl font-extrabold text-blue-500 mb-2 font-montserrat">Cottage</h2>
-                    <p class="text-lg text-gray-700">Kami menyediakan pilihan Cottage dengan fasilitas lengkap.</p>
-                </div>
-                {{-- Bagian rating 5/5 --}}
-                <div class="flex items-center bg-blue-400 px-4 py-2 rounded-full ">
+            <div class="mb-10 text-center" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-2 font-montserrat relative inline-block">
+                    Cottage
+                    <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 opacity-70 -z-1"></span>
+                </h2>
+                <p class="text-lg text-gray-700">Kami menyediakan pilihan Cottage dengan fasilitas lengkap.</p>
+                <div class="flex items-center bg-blue-400 px-4 py-2 rounded-full mx-auto w-fit mt-4">
                     <i class="fas fa-star text-yellow-500 mr-2"></i>
                     <span class="text-lg font-semibold text-white">Rating 5/5</span>
                 </div>
@@ -936,12 +690,11 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10"> {{-- Grid responsif untuk 1, 2, atau 4 kolom --}}
 
                 {{-- Tria Maria Cottages Ngurbloat --}}
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
-                    data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="100">
                     <div class="relative">
                         <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=400&q=80"
-                            alt="Tria Maria Cottages"
-                            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                        alt="Tria Maria Cottages"
+                                        class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
                     </div>
                     <div class="p-4">
                         {{-- Nama Cottage --}}
@@ -949,15 +702,11 @@
 
                         {{-- Fasilitas --}}
                         <ul class="text-sm text-gray-700 mb-4 space-y-1">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free
-                                Breakfast</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free WiFi
-                            </li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Water
-                                Heater</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free Breakfast</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free WiFi</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Water Heater</li>
                             <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>AC</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>View Sea
-                            </li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>View Sea</li>
                         </ul>
 
                         {{-- Total Room --}}
@@ -971,24 +720,22 @@
                         {{-- Button dan Harga --}}
                         <div class="flex justify-between text-sm items-center mt-4">
                             <a href="#"
-                                class="bg-blue-400 text-sm text-white font-semibold px-3 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
+                            class="bg-blue-400 text-sm text-white font-semibold px-3 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
                                 BOOKING
                             </a>
                             <div class="text-right">
-                                <span class="block text-sm font-bold text-gray-800">Rp 500.000<span
-                                        class="text-sm text-gray-600">/Night</span></span>
+                                <span class="block text-sm font-bold text-gray-800">Rp 500.000<span class="text-sm text-gray-600">/Night</span></span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 {{-- Noel Cottages Ngurbloat --}}
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
-                    data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="200">
                     <div class="relative">
                         <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=400&q=80"
-                            alt="Noel Cottages"
-                            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                        alt="Noel Cottages"
+                                        class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
                     </div>
                     <div class="p-4">
                         {{-- Nama Cottage --}}
@@ -996,15 +743,11 @@
 
                         {{-- Fasilitas --}}
                         <ul class="text-sm text-gray-700 mb-4 space-y-1">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free
-                                Breakfast</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free WiFi
-                            </li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Water
-                                Heater</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free Breakfast</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free WiFi</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Water Heater</li>
                             <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>AC</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>View Sea
-                            </li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>View Sea</li>
                         </ul>
 
                         {{-- Total Room --}}
@@ -1018,24 +761,22 @@
                         {{-- Button dan Harga --}}
                         <div class="flex justify-between text-sm items-center mt-4">
                             <a href="#"
-                                class="bg-blue-400 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
+                            class="bg-blue-400 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
                                 BOOKING
                             </a>
                             <div class="text-right">
-                                <span class="block text-sm font-bold text-gray-800">Rp 450.000<span
-                                        class="text-sm text-gray-600">/Night</span></span>
+                                <span class="block text-sm font-bold text-gray-800">Rp 450.000<span class="text-sm text-gray-600">/Night</span></span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 {{-- Tria Maria Cottages (another one) --}}
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
-                    data-aos="fade-up" data-aos-delay="300">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="300">
                     <div class="relative">
                         <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=400&q=80"
-                            alt="Tria Maria Cottages 2"
-                            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                        alt="Tria Maria Cottages 2"
+                                        class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
                     </div>
                     <div class="p-4">
                         {{-- Nama Cottage --}}
@@ -1043,15 +784,11 @@
 
                         {{-- Fasilitas --}}
                         <ul class="text-sm text-gray-700 mb-4 space-y-1">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free
-                                Breakfast</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free WiFi
-                            </li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Water
-                                Heater</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free Breakfast</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free WiFi</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Water Heater</li>
                             <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>AC</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>View Sea
-                            </li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>View Sea</li>
                         </ul>
 
                         {{-- Total Room --}}
@@ -1065,24 +802,22 @@
                         {{-- Button dan Harga --}}
                         <div class="flex justify-between text-sm items-center mt-4">
                             <a href="#"
-                                class="bg-blue-400 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
+                            class="bg-blue-400 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
                                 BOOKING
                             </a>
                             <div class="text-right">
-                                <span class="block text-sm font-bold text-gray-800">Rp 550.000<span
-                                        class="text-sm text-gray-600">/Night</span></span>
+                                <span class="block text-sm font-bold text-gray-800">Rp 550.000<span class="text-sm text-gray-600">/Night</span></span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 {{-- Stella Villa Cottages --}}
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
-                    data-aos="fade-up" data-aos-delay="400">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="400">
                     <div class="relative">
                         <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=400&q=80"
-                            alt="Stella Villa Cottages"
-                            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                        alt="Stella Villa Cottages"
+                                        class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
                     </div>
                     <div class="p-4">
                         {{-- Nama Cottage --}}
@@ -1090,15 +825,11 @@
 
                         {{-- Fasilitas --}}
                         <ul class="text-sm text-gray-700 mb-4 space-y-1">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free
-                                Breakfast</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free WiFi
-                            </li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Water
-                                Heater</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free Breakfast</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free WiFi</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Water Heater</li>
                             <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>AC</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>View Sea
-                            </li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>View Sea</li>
                         </ul>
 
                         {{-- Total Room --}}
@@ -1112,12 +843,11 @@
                         {{-- Button dan Harga --}}
                         <div class="flex justify-between text-sm items-center mt-4">
                             <a href="#"
-                                class="bg-blue-400 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
+                            class="bg-blue-400 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
                                 BOOKING
                             </a>
                             <div class="text-right">
-                                <span class="block text-sm font-bold text-gray-800">Rp 600.000<span
-                                        class="text-sm text-gray-600">/Night</span></span>
+                                <span class="block text-sm font-bold text-gray-800">Rp 600.000<span class="text-sm text-gray-600">/Night</span></span>
                             </div>
                         </div>
                     </div>
