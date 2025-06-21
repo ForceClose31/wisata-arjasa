@@ -51,7 +51,9 @@
         {{-- Tambahkan max-w-screen-xl pada container --}}
         <div class="container mx-auto px-4 max-w-screen-xl">
             <div class="mb-12 text-center" data-aos="fade-up"> {{-- Tambahkan AOS ke header --}}
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-2 font-montserrat relative inline-block text-underline-animated-package-tour-heading"> {{-- Tambahkan kelas baru --}}
+                <h2
+                    class="text-4xl md:text-5xl font-bold text-gray-800 mb-2 font-montserrat relative inline-block text-underline-animated-package-tour-heading">
+                    {{-- Tambahkan kelas baru --}}
                     Paket Tour
                     {{-- Garis bawah tetap di sini --}}
                     <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 opacity-70 -z-1"></span>
@@ -62,14 +64,14 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                @forelse ($featuredPackages as $index => $package) {{-- Tambahkan $index untuk AOS delay --}}
+                @forelse ($featuredPackages as $index => $package)
+                    {{-- Tambahkan $index untuk AOS delay --}}
                     <div x-data="{
                         activeTab: 'itinerary',
                         contentExpanded: false,
                         pricingExpanded: false
-                    }"
-                    {{-- Tambahkan data-aos="fade-up" dan data-aos-delay --}}
-                    data-aos="fade-up" data-aos-delay="{{ ($index + 1) * 100 }}"
+                    }" {{-- Tambahkan data-aos="fade-up" dan data-aos-delay --}} data-aos="fade-up"
+                        data-aos-delay="{{ ($index + 1) * 100 }}"
                         class="group relative bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
                         <div class="relative h-64 overflow-hidden">
                             @if (isset($package->images) && count($package->images) > 0)
@@ -188,7 +190,8 @@
                                                 @foreach ($package->itinerary as $item)
                                                     <div class="flex items-start pb-2">
                                                         <span
-                                                            class="text-blue-500 font-bold mr-2">{{ $loop->index + 1 }}.</span> {{-- Menggunakan $loop->index --}}
+                                                            class="text-blue-500 font-bold mr-2">{{ $loop->index + 1 }}.</span>
+                                                        {{-- Menggunakan $loop->index --}}
                                                         <span class="text-gray-700">{{ $item }}</span>
                                                     </div>
                                                 @endforeach
@@ -261,8 +264,7 @@
                             </div>
 
                             <div class="mt-6 text-center">
-                                <a href="{{ route('tour-packages.show', $package->slug) }}"
-                                    {{-- Ubah bg-gradient-to-r from-blue-500 to-teal-500 menjadi from-blue-400 to-blue-500 --}}
+                                <a href="{{ route('tour-packages.show', $package->slug) }}" {{-- Ubah bg-gradient-to-r from-blue-500 to-teal-500 menjadi from-blue-400 to-blue-500 --}}
                                     {{-- Ubah hover:from-blue-600 hover:to-teal-600 menjadi hover:from-blue-500 hover:to-blue-600 --}}
                                     class="inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-blue-400 to-blue-500 text-white rounded-lg hover:from-blue-500 hover:to-blue-600 transition-all duration-300 shadow-md hover:shadow-lg">
                                     Detail Paket

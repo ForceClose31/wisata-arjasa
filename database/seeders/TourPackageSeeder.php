@@ -17,6 +17,11 @@ class TourPackageSeeder extends Seeder
             'slug' => 'day-one-tour-arjasa',
             'description' => 'Paket wisata sehari penuh menjelajahi Desa Wisata Adat Arjasa',
             'duration' => '1 Hari',
+            'images' => [
+                'tour-packages/kei-island.webp',
+                'tour-packages/kei-island.webp',
+                'tour-packages/kei-island.webp',
+            ],
             'itinerary' => [
                 'Penjemputan di Terminal Bus Pariwisata Desa Arjasa',
                 'Perjalanan menggunakan angkot sultan modifikasi',
@@ -75,6 +80,11 @@ class TourPackageSeeder extends Seeder
             'slug' => 'heritage-art-camp',
             'description' => 'Pengalaman 2 hari 1 malam menjelajahi warisan budaya dan seni Arjasa',
             'duration' => '2 Hari 1 Malam',
+            'images' => [
+                'tour-packages/kei-island.webp',
+                'tour-packages/kei-island.webp',
+                'tour-packages/kei-island.webp',
+            ],
             'itinerary' => [
                 'Hari 1: Penjemputan, Gallery Lukis Bakar, Batik Silabango, PS Craft',
                 'Hari 1: Kunjungan ke Sendang Tirta Amertha Rajasa/Situs Calok',
@@ -128,6 +138,11 @@ class TourPackageSeeder extends Seeder
             'slug' => 'research-tour',
             'description' => 'Paket 3 hari 2 malam untuk penelitian budaya dan heritage Arjasa',
             'duration' => '3 Hari 2 Malam',
+            'images' => [
+                'tour-packages/kei-island.webp',
+                'tour-packages/kei-island.webp',
+                'tour-packages/kei-island.webp',
+            ],
             'itinerary' => [
                 'Hari 1: Penjemputan, Gallery Lukis Bakar, Batik Silabango, PS Craft',
                 'Hari 1: Kunjungan ke Sendang Tirta Amertha Rajasa/Situs Calok',
@@ -183,6 +198,11 @@ class TourPackageSeeder extends Seeder
             'slug' => 'hyang-argopuro-festival',
             'description' => 'Paket khusus untuk menyaksikan festival budaya Hyang Argopuro',
             'duration' => '2 Hari 1 Malam',
+            'images' => [
+                'tour-packages/kei-island.webp',
+                'tour-packages/kei-island.webp',
+                'tour-packages/kei-island.webp',
+            ],
             'itinerary' => [
                 'Hari 1: Penyambutan dan registrasi',
                 'Hari 1: Menuju venue event sesuai rundown acara',

@@ -1,60 +1,13 @@
 @extends('layouts.appCus')
 
 @section('content')
-    <!-- Article Hero Section -->
-    <section class="relative h-screen max-h-[500px] overflow-hidden bg-gradient-to-br from-teal-600 to-indigo-700">
-        <div class="absolute inset-0 bg-black/20 z-10"></div>
-        <template x-for="(slide, index) in slides" :key="index">
-            <div x-show="currentSlide === index" x-transition:enter="transition ease-out duration-1000"
-                x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-                x-transition:leave="transition ease-in duration-1000" x-transition:leave-start="opacity-100"
-                x-transition:leave-end="opacity-0" class="absolute inset-0 w-full h-full">
-                <img :src="slide.image" :alt="slide.title" class="w-full h-full object-cover">
-            </div>
-        </template>
-
-        <div class="relative z-20 h-full flex items-center">
-            <div class="container mx-auto px-4 text-white">
-                <div class="max-w-2xl">
-                    <h1 x-text="slides[currentSlide].title"
-                        class="text-xl md:text-4xl font-bold mb-4 font-montserrat animate-fade-in"></h1>
-                    <p x-text="slides[currentSlide].subtitle"
-                        class="text-sm md:text-xl mb-8 text-gray-100 animate-fade-in animate-delay-100"></p>
-                    {{-- <a href="{{ route('about.index') }}"
-                        class="px-8 py-4 bg-white text-teal-700 font-bold rounded-lg hover:bg-gray-100 hover:text-teal-800 transition duration-300 animate-fade-in animate-delay-200 inline-flex items-center shadow-lg">
-                        <span x-text="slides[currentSlide].cta"></span>
-                        <i class="fas fa-arrow-right ml-2"></i>
-                    </a> --}}
-                </div>
-            </div>
-        </div>
-
-        <!-- Slider Controls -->
-        <button @click="prevSlide"
-            class="absolute left-4 top-1/2 z-30 -translate-y-1/2 bg-white/30 text-white p-3 rounded-full hover:bg-white/50 transition backdrop-blur-sm">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-        <button @click="nextSlide"
-            class="absolute right-4 top-1/2 z-30 -translate-y-1/2 bg-white/30 text-white p-3 rounded-full hover:bg-white/50 transition backdrop-blur-sm">
-            <i class="fas fa-chevron-right"></i>
-        </button>
-
-        <!-- Slider Indicators -->
-        <div class="absolute bottom-8 left-1/2 z-30 -translate-x-1/2 flex space-x-2">
-            <template x-for="(slide, index) in slides" :key="index">
-                <button @click="currentSlide = index" class="w-3 h-3 rounded-full transition duration-300"
-                    :class="{ 'bg-white w-6': currentSlide === index, 'bg-white/50': currentSlide !== index }"></button>
-            </template>
-        </div>
-</section>
-
     <!-- Article Content Section -->
     <section class="py-12 bg-white">
         <div class="container mx-auto px-4">
             <div class="max-w-3xl mx-auto">
                 <!-- Featured Image -->
                 <div class="mb-12 rounded-xl overflow-hidden shadow-lg" data-aos="fade-up">
-                    <img src="{{ $article->thumbnail ? asset('storage/' . $article->thumbnail) : 'https://via.placeholder.com/800x450?text=No+Thumbnail' }}"
+                    <img src="{{ $article->image ? asset('storage/' . $article->image) : 'https://via.placeholder.com/800x450?text=No+Thumbnail' }}"
                         alt="{{ $article->title }}" class="w-full h-auto object-cover">
                 </div>
 
@@ -112,7 +65,7 @@
                         data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
                         <a href="{{ route('articles.show', $related->slug) }}">
                             <div class="relative h-48 overflow-hidden">
-                                <img src="{{ $related->thumbnail ? asset('storage/' . $related->thumbnail) : 'https://via.placeholder.com/400x225?text=No+Thumbnail' }}"
+                                <img src="{{ $related->image ? asset('storage/' . $related->image) : 'https://via.placeholder.com/400x225?text=No+Thumbnail' }}"
                                     alt="{{ $related->title }}"
                                     class="w-full h-full object-cover transition duration-300 hover:scale-105">
                             </div>
