@@ -53,9 +53,10 @@ Route::get('/article', function () {
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/tour-packages', [HomeController::class, 'index'])->name('tour-packages.index');
+Route::get('/tour-package', [HomeController::class, 'tourPackage'])->name('tour-package.index');
 // Route::get('/tour-packages/{slug}', [HomeController::class, 'show'])->name('tour-packages.show');
-Route::get('/packages/{tourPackage}', [HomeController::class, 'show'])->name('packages.show');
+Route::get('/packages/{tourPackage}', [HomeController::class, 'show'])->name('tour-packages.show');
+Route::get('/packages/all', [HomeController::class, 'show'])->name('packages.show');
 Route::get('/packages/type/{packageType}', [HomeController::class, 'byType'])->name('packages.by-type');
 
 // Articles
