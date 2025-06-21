@@ -60,6 +60,6 @@
     </div>
 
     <div class="mt-12 pt-6 border-t border-white-400 text-center text-sm text-white"> {{-- Increased mt- --}}
-        <p>&copy; 2025 Wisata Arjasa. All Rights Reserved.</p>
+        <p>&copy; 2025 DewaArjasa. All Rights Reserved.</p>
     </div>
 </footer>

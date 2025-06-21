@@ -5,7 +5,7 @@
             <!-- Logo -->
             <a href="/" class="flex items-center">
                 <img src="{{ asset('assets/img/Budanes__1_-removebg-preview.png') }}" class="w-8 h-8 mr-2">
-                <span class="text-2xl font-bold text-blue-600 font-montserrat">Dewi</span>
+                <span class="text-2xl font-bold text-blue-600 font-montserrat">Dewa</span>
                 <span class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text font-montserrat">Arjasa</span>
             </a>
 
