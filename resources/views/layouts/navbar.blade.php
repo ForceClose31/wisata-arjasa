@@ -19,15 +19,15 @@
                         ['label' => 'Komotra', 'route' => 'transport.index'],
                         ['label' => 'Cottage', 'route' => 'cottage.index'],
                         ['label' => 'Gallery', 'route' => 'gallery.index'],
-                        ['label' => 'Article', 'route' => 'article.index'],
+                        ['label' => 'Article', 'route' => 'articles.all'],
                         ['label' => 'Event Budaya', 'route' => 'event-budaya.index'],
                     ];
                 @endphp
 
                 @foreach ($menus as $menu)
                     <a href="{{ route($menu['route']) }}"
-                        class="{{ request()->routeIs($menu['route']) 
-                            ? 'bg-blue-500 text-white px-3 py-1 rounded-md' 
+                        class="{{ request()->routeIs($menu['route'])
+                            ? 'bg-blue-500 text-white px-3 py-1 rounded-md'
                             : 'text-black hover:text-blue-400 transition' }}">
                         {{ strtoupper($menu['label']) }}
                     </a>
@@ -56,8 +56,8 @@
             <div class="px-4 py-4 flex flex-col space-y-3 uppercase text-sm tracking-wide">
                 @foreach ($menus as $menu)
                     <a href="{{ route($menu['route']) }}"
-                        class="{{ request()->routeIs($menu['route']) 
-                            ? 'bg-blue-500 text-white px-3 py-2 rounded-md' 
+                        class="{{ request()->routeIs($menu['route'])
+                            ? 'bg-blue-500 text-white px-3 py-2 rounded-md'
                             : 'text-black hover:text-blue-400 transition' }}">
                         {{ strtoupper($menu['label']) }}
                     </a>

@@ -15,16 +15,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PetaBudayaController;
 
-// Route::get('/', [AuthController::class, 'home'])->name('welcome');
-
-// Route::get('/user', [AuthController::class, 'home']);
-
-// Route::get('/badge', [BadgeController::class, 'index'])->name('badge.index');
-// Route::get('badge/quiz', [BadgeController::class, 'quiz'])->name('badge.quiz');
-// Route::post('/submit-quiz', [BadgeController::class, 'submitQuiz'])->name('badge.submit-quiz');
-
-// Route::get('/user/konten', [KontenController::class, 'index'])->name('konten.index');
-// Route::get('/about', [KontenController::class, 'index'])->name('about.index');
 Route::get('/contact', function () {
     return view('user.about.about');
 })->name('contact');
@@ -75,13 +65,13 @@ Route::get('/tour-packages/{slug}', [HomeController::class, 'show'])->name('tour
 // Route::get('/event/{id}', [EventController::class, 'show'])->name('event.show');
 
 // Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-Route::get('/home', [AuthController::class, 'home'])->name('home');
 
 // Route::get('/peta-budaya', [PetaBudayaController::class, 'index'])->name('peta-budaya');
 
 // Route::get('/konten/{id}', [PetaBudayaController::class, 'show'])->name('konten.show');
 
 // Articles
+Route::get('/artikel', [ArticleController::class, 'index'])->name('articles.all');
 Route::get('/artikel/{slug}', [ArticleController::class, 'show'])->name('articles.show');
 Route::get('/artikel/tag/{slug}', [ArticleController::class, 'byTag'])->name('articles.byTag');
 

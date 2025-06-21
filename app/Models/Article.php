@@ -15,6 +15,7 @@ class Article extends Model
         'excerpt',
         'content',
         'image',
+        'category',
         'published_at',
         'is_published'
     ];
@@ -24,5 +25,11 @@ class Article extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
+    }
+
+    public function incrementReadCount()
+    {
+        $this->views_count++;
+        $this->save();
     }
 }

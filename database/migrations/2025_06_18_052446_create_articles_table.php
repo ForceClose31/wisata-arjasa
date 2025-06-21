@@ -15,6 +15,8 @@ return new class extends Migration
             $table->text('excerpt');
             $table->text('content');
             $table->string('image')->nullable();
+            $table->string('category')->default('Uncategorized');
+            $table->integer('views_count')->default(0);
             $table->date('published_at');
             $table->boolean('is_published')->default(false);
             $table->timestamps();
