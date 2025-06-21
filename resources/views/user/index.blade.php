@@ -139,232 +139,269 @@
 
     {{-- About Us Section --}}
     <section class="py-20 bg-white">
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto px-4 max-w-screen-xl">
             <div class="flex flex-col lg:flex-row items-center gap-12">
-                <div class="lg:w-1/2">
-                    <div class="relative rounded-xl overflow-hidden shadow-2xl" data-aos="fade-right">
-                        <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                            alt="About Us" class="w-full h-auto object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/70 to-transparent"></div>
-                        <div class="absolute bottom-0 left-0 p-8 text-white">
-                            <h3 class="text-2xl font-bold">Our Story</h3>
-                            <p class="text-gray-200">Since 2010</p>
+                <div class="lg:w-1/3 mx-auto max-w-xs md:max-w-sm lg:max-w-md" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="relative rounded-xl overflow-hidden shadow-2xl transform hover:scale-105 transition duration-500 ease-in-out">
+                        <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Kisah Kami Dewi Arjasa"
+                            class="w-full h-auto object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6 text-white">
+
                         </div>
                     </div>
                 </div>
-                <div class="lg:w-1/2" data-aos="fade-left">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 font-montserrat">
-                        <span class="relative">
-                            Discover Arjasa with Us
-                            <span class="absolute bottom-0 left-0 w-full h-2 bg-teal-400 opacity-30 -z-1"></span>
-                        </span>
-                    </h2>
-                    <p class="text-lg text-gray-600 mb-6">
-                        Dewa Arjasa is your premier guide to the cultural and natural wonders of Arjasa. We are passionate
-                        about showcasing the authentic beauty of our region while preserving its heritage for future
-                        generations.
-                    </p>
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 mt-1">
-                                <div
-                                    class="flex items-center justify-center h-8 w-8 rounded-full bg-teal-100 text-teal-600">
-                                    <i class="fas fa-compass"></i>
-                                </div>
+                <div class="lg:w-2/3" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="max-w-2xl mx-auto lg:mx-0">
+                        <h2 class="text-3xl md:text-4xl font-extrabold mb-6 font-playfair text-blue-900">
+                            Kisah Perjalanan Kami
+                        </h2>
+                        <p class="text-lg text-gray-600 mb-6 leading-relaxed font-lato">
+                            Berawal dari kecintaan mendalam terhadap kekayaan budaya dan pesona alam Arjasa, <span class="text-blue-500 font-bold">Dewi Arjasa</span> didirikan pada tahun 2010 dengan misi mulia untuk memperkenalkan keindahan tersembunyi ini kepada dunia. Kami memulai perjalanan ini dengan semangat untuk berbagi keunikan Arjasa.
+                        </p>
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed font-lato">
+                            Dari sebuah tim kecil yang berdedikasi, kami telah tumbuh menjadi penyedia layanan wisata terpercaya, dikenal luas dengan <span class="text-blue-500 font-bold">pendekatan personal</span> dan <span class="text-blue-500 font-bold">pengetahuan mendalam</span> tentang setiap sudut Arjasa. Kami bangga dapat menjadi jembatan antara Anda dan pengalaman tak terlupakan di destinasi ini.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+                            <div class="text-center p-4 bg-teal-50 rounded-lg shadow-sm animate-fade-in delay-100">
+                                <div class="text-3xl font-bold text-teal-700 font-montserrat">14+</div>
+                                <div class="text-gray-700 text-sm font-lato">Tahun Pengalaman</div>
                             </div>
-                            <div class="ml-4">
-                                <h4 class="text-lg font-semibold text-gray-800">Local Expertise</h4>
-                                <p class="text-gray-600">Our team consists of Arjasa natives with deep knowledge of the
-                                    area's hidden gems.</p>
+                            <div class="text-center p-4 bg-indigo-50 rounded-lg shadow-sm animate-fade-in delay-200">
+                                <div class="text-3xl font-bold text-indigo-700 font-montserrat">5000+</div>
+                                <div class="text-gray-700 text-sm font-lato">Wisatawan Puas</div>
                             </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 mt-1">
-                                <div
-                                    class="flex items-center justify-center h-8 w-8 rounded-full bg-indigo-100 text-indigo-600">
-                                    <i class="fas fa-hands-helping"></i>
-                                </div>
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="text-lg font-semibold text-gray-800">Sustainable Tourism</h4>
-                                <p class="text-gray-600">We're committed to responsible tourism that benefits local
-                                    communities.</p>
+                            <div class="text-center p-4 bg-amber-50 rounded-lg shadow-sm animate-fade-in delay-300">
+                                <div class="text-3xl font-bold text-amber-700 font-montserrat">50+</div>
+                                <div class="text-gray-700 text-sm font-lato">Destinasi Unggulan</div>
                             </div>
                         </div>
                     </div>
-                    <a href="/about"
-                        class="mt-8 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-teal-600 hover:bg-teal-700 transition duration-300">
-                        Learn More About Us
-                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     {{-- Tour Packages Section --}}
-    <section class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col lg:flex-row gap-12 xl:gap-20">
-                <div class="lg:w-1/2">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 font-montserrat">
-                        <span class="relative">
-                            Our Signature Tours
-                            <span class="absolute bottom-0 left-0 w-full h-2 bg-amber-400 opacity-30 -z-1"></span>
-                        </span>
-                    </h2>
-                    <p class="text-lg text-gray-600 mb-8">
-                        Experience Arjasa like never before with our carefully crafted tour packages designed to showcase
-                        the best of our region's culture, nature, and heritage.
-                    </p>
+    <section class="py-20 bg-gray-50"> {{-- Latar belakang abu-abu terang untuk kontras dengan kartu putih --}}
+        <div class="container mx-auto px-4 max-w-screen-xl"> {{-- Menggunakan max-w-screen-xl untuk lebar yang lebih optimal --}}
+            <div class="mb-10" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-blue-900 mb-2 font-montserrat"><span class="text-blue-900">Paket</span> Tour</h2>
+                <p class="text-lg text-gray-700">Butuh bantuan? Hubungi kami!</p>
+            </div>
 
-                    <div class="space-y-6">
-                        @foreach ($featuredPackages->take(2) as $package)
-                            @php
-                                $basePrice = $package->pricings->sortBy('price')->first();
-                                $colors = [
-                                    'one-day-tour' => 'teal',
-                                    'heritage-art-camp' => 'amber',
-                                    'research-tour' => 'indigo',
-                                    'hyang-argopuro-festival' => 'purple',
-                                ];
-                                $color = $colors[$package->packageType->slug] ?? 'teal';
-                            @endphp
-                            <div
-                                class="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300 border-l-4 border-{{ $color }}-500 h-full">
-                                <div class="flex items-start mb-2">
-                                    <span
-                                        class="text-xs bg-{{ $color }}-500 text-white px-2 py-1 rounded-full mr-3">
-                                        {{ $package->packageType->name }}
-                                    </span>
-                                    <h3 class="text-xl font-bold text-gray-800">{{ $package->name }}</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"> {{-- Grid responsif untuk 1, 2, atau 3 kolom --}}
+
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative">
+                        {{-- Header Gambar Utama --}}
+                        <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Kei Islands Tour Package"
+                            class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105">
+
+                        {{-- Informasi di dalam Gambar (Logo dan Judul Kecil) --}}
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex flex-col justify-between p-4 text-white">
+                            <div class="flex items-center justify-between">
+                                {{-- Placeholder Logo --}}
+                                <div class="flex items-center space-x-2">
+
+                                    <span class="font-bold text-lg">Kei Islands</span>
                                 </div>
-                                <p class="text-gray-600 mb-4">{{ Str::limit($package->description, 120) }}</p>
-                                <div class="flex justify-between items-center">
-                                    @if ($basePrice)
-                                        <span class="text-{{ $color }}-600 font-semibold">
-                                            From IDR {{ number_format($basePrice->price) }}
-                                            <span class="text-gray-500 text-sm">/ person
-                                                ({{ $basePrice->group_size }})</span>
-                                        </span>
-                                    @endif
-                                    <a href="{{ route('packages.show', $package->slug) }}"
-                                        class="text-sm font-medium text-{{ $color }}-600 hover:text-{{ $color }}-800 transition duration-300 flex items-center">
-                                        View Details
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none"
-                                            viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M9 5l7 7-7 7" />
-                                        </svg>
-                                    </a>
-                                </div>
+                                <span class="text-sm opacity-90">The Hidden Paradise</span>
                             </div>
-                        @endforeach
+                            <div class="text-right text-sm opacity-90">Pantai Ngurbloat, Pasir terhalus di dunia</div>
+                        </div>
                     </div>
 
-                    <a href="{{ route('packages.by-type', ['packageType' => 'all']) }}"
-                        class="mt-8 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 transition duration-300 group">
-                        View All Packages
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                            class="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </a>
+                    {{-- Bagian Informasi Atas Paket --}}
+                    <div class="p-6">
+
+                        {{-- Detail DESTINASI dan INCLUDE --}}
+                        <div class="grid grid-cols-2 gap-4 text-sm mb-3">
+                            <div>
+                                <p class="font-bold text-gray-700 mb-2 border-b border-gray-200 pb-1">DESTINASI</p>
+                                <ul class="space-y-1 text-gray-600">
+                                    <li class="flex items-center"><i class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Pantai Ngurbloat</li>
+                                    <li class="flex items-center"><i class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Pulau Adranan</li>
+                                    <li class="flex items-center"><i class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Waan Mas El Evu</li>
+                                    <li class="flex items-center"><i class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Tanjung Ngurbloat</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="font-bold text-gray-700 mb-2 border-b border-gray-200 pb-1">INCLUDE</p>
+                                <ul class="space-y-1 text-gray-600">
+                                    <li class="flex items-center"><i class="fas fa-hotel text-blue-800 mr-2"></i>Hotel di Pantai</li>
+                                    <li class="flex items-center"><i class="fas fa-utensils text-blue-800  mr-2"></i>Makan + Air</li>
+                                    <li class="flex items-center"><i class="fas fa-car text-blue-800 mr-2"></i>Speed Boat</li>
+                                    <li class="flex items-center"><i class="fas fa-users text-blue-800  mr-2"></i>Dokumentasi</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- Footer Card (Nama Paket, Lokasi, Rating, Harga Final, Tombol) --}}
+                    <div class="p-6 bg-white border-t border-gray-100">
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">Tour Kei Island 3D2N</h3>
+                        <p class="text-gray-600 text-sm mb-3"><i class="fas fa-map-marker-alt text-gray-400 mr-1"></i>Kepulauan Kei</p>
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-amber-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i> {{-- Contoh setengah bintang --}}
+                            </div>
+                            <span class="text-gray-500 text-xs ml-2">(4.5/5)</span>
+                        </div>
+
+                        <div class="flex justify-between items-center mt-4">
+                            <a href="" {{-- Contoh route ke halaman detail --}}
+                            class="bg-blue-400 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
+                                DETAIL PAKET
+                            </a>
+                            <div class="text-right">
+                                <span class="text-gray-500 text-sm">Harga</span>
+                                <span class="block text-xl font-bold text-gray-800">Rp 3.500.000<span class="text-base text-gray-600">/Pax</span></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="lg:w-1/2 flex flex-col gap-6 h-full">
-                    @foreach ($newestPackages->take(2) as $package)
-                        @php
-                            $colors = [
-                                'one-day-tour' => 'teal',
-                                'heritage-art-camp' => 'amber',
-                                'research-tour' => 'indigo',
-                                'hyang-argopuro-festival' => 'purple',
-                            ];
-                            $color = $colors[$package->packageType->slug] ?? 'teal';
-                        @endphp
-                        <div class="relative rounded-xl overflow-hidden shadow-lg flex-1 group">
-                            @if ($package->images && count(json_decode($package->images)) > 0)
-                                <img src="{{ asset('storage/' . json_decode($package->images)[0]) }}"
-                                    alt="{{ $package->name }}"
-                                    class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                            @else
-                                <img src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                                    alt="Tour Package"
-                                    class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                            @endif
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent flex items-end p-6">
-                                <div>
-                                    <span
-                                        class="text-xs text-white bg-{{ $color }}-600 px-2 py-1 rounded-full mb-2 inline-block">
-                                        {{ $package->packageType->name }}
-                                    </span>
-                                    <h3 class="text-white font-semibold text-xl mb-1">{{ $package->name }}</h3>
-                                    <p class="text-gray-200 text-sm">{{ $package->duration }}</p>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Another Tour Package"
+                            class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex flex-col justify-between p-4 text-white">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+
+                                    <span class="font-bold text-lg">Raja Ampat</span>
                                 </div>
+                                <span class="text-sm opacity-90">The Ultimate Dive</span>
+                            </div>
+                            <div class="text-right text-sm opacity-90">Piaynemo, Wayag, dll.</div>
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+
+                        <div class="grid grid-cols-2 gap-4 text-sm mb-3">
+                            <div>
+                                <p class="font-bold text-gray-700 mb-2 border-b border-gray-200 pb-1">DESTINASI</p>
+                                <ul class="space-y-1 text-gray-600">
+                                    <li class="flex items-center"><i class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Wayag Viewpoint</li>
+                                    <li class="flex items-center"><i class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Piaynemo Karst</li>
+                                    <li class="flex items-center"><i class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Teluk Kabui Pasir</li>
+                                    <li class="flex items-center"><i class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Arborek Village</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="font-bold text-gray-700 mb-2 border-b border-gray-200 pb-1">INCLUDE</p>
+                                <ul class="space-y-1 text-gray-600">
+                                    <li class="flex items-center"><i class="fas fa-hotel text-blue-800 mr-2"></i>Floating Homestay</li>
+                                    <li class="flex items-center"><i class="fas fa-utensils text-blue-800 mr-2"></i>Full Meals</li>
+                                    <li class="flex items-center"><i class="fas fa-ship text-blue-800 mr-2"></i>Island Boat</li>
+                                    <li class="flex items-center"><i class="fas fa-users text-blue-800 mr-2"></i>Certified Dive</li>
+                                </ul>
                             </div>
                         </div>
-                    @endforeach
+                    </div>
+                    <div class="p-6 bg-white border-t border-gray-100">
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">Raja Ampat Dive Expedition 5D4N</h3>
+                        <p class="text-gray-600 text-sm mb-3"><i class="fas fa-map-marker-alt text-gray-400 mr-1"></i>Raja Ampat, Papua Barat</p>
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-amber-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-gray-500 text-xs ml-2">(5.0/5)</span>
+                        </div>
+
+                        <div class="flex justify-between items-center mt-4">
+                            <a href=""
+                            class="bg-blue-400 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
+                                DETAIL PAKET
+                            </a>
+                            <div class="text-right">
+                                <span class="text-gray-500 text-sm">Harga</span>
+                                <span class="block text-xl font-bold text-gray-800">Rp 8.000.000<span class="text-base text-gray-600">/Pax</span></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-    </section>
 
-    {{-- Package Types Section --}}
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 font-montserrat">
-                Explore By Package Type
-            </h2>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Mount Bromo Sunrise Tour"
+                            class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex flex-col justify-between p-4 text-white">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                @foreach ($packageTypes as $type)
-                    @php
-                        $typeColors = [
-                            'one-day-tour' => 'teal',
-                            'heritage-art-camp' => 'amber',
-                            'research-tour' => 'indigo',
-                            'hyang-argopuro-festival' => 'purple',
-                        ];
-                        $typeColor = $typeColors[$type->slug] ?? 'teal';
-                        $typeIcons = [
-                            'one-day-tour' => 'map-marked-alt',
-                            'heritage-art-camp' => 'landmark',
-                            'research-tour' => 'microscope',
-                            'hyang-argopuro-festival' => 'festival',
-                        ];
-                        $typeIcon = $typeIcons[$type->slug] ?? 'map';
-                    @endphp
-
-                    <a href="{{ route('packages.by-type', ['packageType' => $type->slug]) }}"
-                        class="group block bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300 border-t-4 border-{{ $typeColor }}-500">
-                        <div class="p-6">
-                            <div
-                                class="w-12 h-12 bg-{{ $typeColor }}-100 rounded-full flex items-center justify-center mb-4">
-                                <i class="fas fa-{{ $typeIcon }} text-{{ $typeColor }}-600 text-lg"></i>
+                                    <span class="font-bold text-lg">Bromo Explore</span>
+                                </div>
+                                <span class="text-sm opacity-90">Volcano Adventure</span>
                             </div>
-                            <h3
-                                class="text-xl font-bold text-gray-800 mb-2 group-hover:text-{{ $typeColor }}-600 transition">
-                                {{ $type->name }}
-                            </h3>
-                            <p class="text-gray-600 text-sm mb-4">
-                                {{ Str::limit($type->description, 80) }}
-                            </p>
-                            <div class="flex justify-between items-center">
-                                <span class="text-{{ $typeColor }}-600 text-sm font-medium">
-                                    {{ $type->tourPackages->count() }} packages
-                                </span>
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                    class="h-5 w-5 text-{{ $typeColor }}-500 opacity-0 group-hover:opacity-100 transition"
-                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 5l7 7-7 7" />
-                                </svg>
+                            <div class="text-right text-sm opacity-90">Sunrise Point, Kawah Bromo</div>
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+
+                        <div class="grid grid-cols-2 gap-4 text-sm mb-3">
+                            <div>
+                                <p class="font-bold text-gray-700 mb-2 border-b border-gray-200 pb-1">DESTINASI</p>
+                                <ul class="space-y-1 text-gray-600">
+                                    <li class="flex items-center"><i class="fas fa-map-marker-alt text-blue-400  mr-2"></i>Bromo Sunrise Point</li>
+                                    <li class="flex items-center"><i class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Kawah Bromo</li>
+                                    <li class="flex items-center"><i class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Pasir Berbisik</li>
+                                    <li class="flex items-center"><i class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Savana Teletubbies</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="font-bold text-gray-700 mb-2 border-b border-gray-200 pb-1">INCLUDE</p>
+                                <ul class="space-y-1 text-gray-600">
+                                    <li class="flex items-center"><i class="fas fa-hotel text-blue-800  mr-2"></i>Hotel/Guesthouse</li>
+                                    <li class="flex items-center"><i class="fas fa-utensils text-blue-800 mr-2"></i>Breakfast</li>
+                                    <li class="flex items-center"><i class="fas fa-car text-blue-800 mr-2"></i>Jeep Bromo</li>
+                                    <li class="flex items-center"><i class="fas fa-users text-blue-800 mr-2"></i>Local Guide</li>
+                                </ul>
                             </div>
                         </div>
-                    </a>
-                @endforeach
-            </div>
+                    </div>
+                    <div class="p-6 bg-white border-t border-gray-100">
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">Bromo Sunrise Trek 2D1N</h3>
+                        <p class="text-gray-600 text-sm mb-3"><i class="fas fa-map-marker-alt text-gray-400 mr-1"></i>Probolinggo, Jawa Timur</p>
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-amber-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i> {{-- Contoh bintang kosong --}}
+                            </div>
+                            <span class="text-gray-500 text-xs ml-2">(4.0/5)</span>
+                        </div>
+
+                        <div class="flex justify-between items-center mt-4">
+                            <a href=""
+                            class="bg-blue-400 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
+                                DETAIL PAKET
+                            </a>
+                            <div class="text-right">
+                                <span class="text-gray-500 text-sm">Harga</span>
+                                <span class="block text-xl font-bold text-gray-800">Rp 1.800.000<span class="text-base text-gray-600">/Pax</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> {{-- End of grid container --}}
         </div>
     </section>
 
@@ -519,7 +556,7 @@
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-montserrat">
                     <span class="relative">
                         Paket Wisata Unggulan
-                        <span class="absolute bottom-0 left-0 w-full h-2 bg-teal-400 opacity-30 -z-1"></span>
+                        <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 opacity-30 -z-1"></span>
                     </span>
                 </h2>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">Temukan pengalaman wisata terbaik dengan paket-paket
@@ -860,196 +897,187 @@
     @endif
 
     {{-- Cottage Options Section --}}
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-montserrat">
-                    <span class="relative">
-                        Pilihan Cottage
-                        <span class="absolute bottom-0 left-0 w-full h-2 bg-teal-400 opacity-30 -z-1"></span>
-                    </span>
-                </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Kami menyediakan pilihan cottage dengan fasilitas
-                    lengkap untuk kenyamanan Anda</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Cottage 1 -->
-                <div
-                    class="bg-white rounded-xl shadow-lg overflow-hidden border-b-4 border-teal-500 hover:shadow-xl transition duration-300">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                            alt="Triambian Cottages" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent"></div>
-                        <div class="absolute bottom-0 left-0 p-4 text-white">
-                            <h3 class="text-xl font-bold">TRIAMBIAN COTTAGES</h3>
-                            <p class="text-sm text-gray-200">NACHRIDAN BRACH MITSI SANS</p>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="mb-4">
-                            <h4 class="font-semibold text-gray-800 mb-2">FASILITAS:</h4>
-                            <ul class="space-y-2 text-sm text-gray-600">
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-teal-500 mr-2"></i>
-                                    Free Breakfast
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-teal-500 mr-2"></i>
-                                    Free Wifi
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-teal-500 mr-2"></i>
-                                    Free Preseter
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-teal-500 mr-2"></i>
-                                    Full AC
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-teal-500 mr-2"></i>
-                                    View Sea
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="flex justify-between items-center border-t pt-4">
-                            <div>
-                                <p class="text-sm text-gray-500">TRIAMARIA COTTAGE</p>
-                                <p class="font-medium">Four (4) Room</p>
-                            </div>
-                            <div class="text-right">
-                                <p class="text-sm text-gray-500">Start from</p>
-                                <p class="text-xl font-bold text-teal-600">650rb/malam</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="px-6 pb-6">
-                        <a href="#"
-                            class="block w-full text-center px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition duration-300">
-                            BOOKING
-                        </a>
-                    </div>
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-screen-xl">
+            {{-- Ini adalah bagian yang direvisi untuk menambahkan rating di samping judul --}}
+            <div class="mb-10 flex justify-between items-center" data-aos="fade-up" data-aos-duration="1000">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-blue-500 mb-2 font-montserrat">Cottage</h2>
+                    <p class="text-lg text-gray-700">Kami menyediakan pilihan Cottage dengan fasilitas lengkap.</p>
                 </div>
-
-                <!-- Cottage 2 -->
-                <div
-                    class="bg-white rounded-xl shadow-lg overflow-hidden border-b-4 border-indigo-500 hover:shadow-xl transition duration-300">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                            alt="Casa Di Stella" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent"></div>
-                        <div class="absolute bottom-0 left-0 p-4 text-white">
-                            <h3 class="text-xl font-bold">CASA DI STELLA</h3>
-                            <p class="text-sm text-gray-200">NGUIBROAT BEACH KITISI ANIS</p>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="mb-4">
-                            <h4 class="font-semibold text-gray-800 mb-2">FASILITAS:</h4>
-                            <ul class="space-y-2 text-sm text-gray-600">
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-indigo-500 mr-2"></i>
-                                    Free Breakfast
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-indigo-500 mr-2"></i>
-                                    Free Wifi
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-indigo-500 mr-2"></i>
-                                    Free Preseter
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-indigo-500 mr-2"></i>
-                                    Full AC
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-indigo-500 mr-2"></i>
-                                    View Sea
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="flex justify-between items-center border-t pt-4">
-                            <div>
-                                <p class="text-sm text-gray-500">CASA DI STELLA</p>
-                                <p class="font-medium">Two (2) Room</p>
-                            </div>
-                            <div class="text-right">
-                                <p class="text-sm text-gray-500">Start from</p>
-                                <p class="text-xl font-bold text-indigo-600">550rb/malam</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="px-6 pb-6">
-                        <a href="#"
-                            class="block w-full text-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition duration-300">
-                            BOOKING
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Cottage 3 -->
-                <div
-                    class="bg-white rounded-xl shadow-lg overflow-hidden border-b-4 border-amber-500 hover:shadow-xl transition duration-300">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1582719471389-8d0cb5301b69?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                            alt="Noel Cottages" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent"></div>
-                        <div class="absolute bottom-0 left-0 p-4 text-white">
-                            <h3 class="text-xl font-bold">NOEL COTTAGES</h3>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="mb-4">
-                            <h4 class="font-semibold text-gray-800 mb-2">FASILITAS:</h4>
-                            <ul class="space-y-2 text-sm text-gray-600">
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-amber-500 mr-2"></i>
-                                    Free Breakfast
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-amber-500 mr-2"></i>
-                                    Free Wifi
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-amber-500 mr-2"></i>
-                                    Free Preseter
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-amber-500 mr-2"></i>
-                                    Full AC
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-amber-500 mr-2"></i>
-                                    View Sea
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="flex justify-between items-center border-t pt-4">
-                            <div>
-                                <p class="text-sm text-gray-500">NOEL COTTAGES</p>
-                                <p class="font-medium">Four (4) Room</p>
-                            </div>
-                            <div class="text-right">
-                                <p class="text-sm text-gray-500">Start from</p>
-                                <p class="text-xl font-bold text-amber-600">550rb/malam</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="px-6 pb-6">
-                        <a href="#"
-                            class="block w-full text-center px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition duration-300">
-                            BOOKING
-                        </a>
-                    </div>
+                {{-- Bagian rating 5/5 --}}
+                <div class="flex items-center bg-blue-400 px-4 py-2 rounded-full ">
+                    <i class="fas fa-star text-yellow-500 mr-2"></i>
+                    <span class="text-lg font-semibold text-white">Rating 5/5</span>
                 </div>
             </div>
 
-            <div class="text-center mt-12">
-                <a href="#"
-                    class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-teal-600 hover:bg-teal-700 transition duration-300">
-                    LIHAT COTTAGE LAINNYA <i class="fas fa-arrow-right ml-2"></i>
-                </a>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10"> {{-- Grid responsif untuk 1, 2, atau 4 kolom --}}
+
+                {{-- Tria Maria Cottages Ngurbloat --}}
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=400&q=80"
+                                    alt="Tria Maria Cottages"
+                                    class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                    </div>
+                    <div class="p-4">
+                        {{-- Nama Cottage --}}
+                        <h3 class="text-lg font-bold text-gray-800 mb-1">Tria Maria Cottages</h3>
+
+                        {{-- Fasilitas --}}
+                        <ul class="text-sm text-gray-700 mb-4 space-y-1">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free Breakfast</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free WiFi</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Water Heater</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>AC</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>View Sea</li>
+                        </ul>
+
+                        {{-- Total Room --}}
+                        <div class="flex justify-end items-center mb-4 text-gray-700">
+                            <div class="flex items-center text-sm">
+                                <i class="fas fa-bed text-blue-500 mr-2"></i>
+                                <span>4 Room</span>
+                            </div>
+                        </div>
+
+                        {{-- Button dan Harga --}}
+                        <div class="flex justify-between text-sm items-center mt-4">
+                            <a href="#"
+                            class="bg-blue-400 text-sm text-white font-semibold px-3 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
+                                BOOKING
+                            </a>
+                            <div class="text-right">
+                                <span class="block text-sm font-bold text-gray-800">Rp 500.000<span class="text-sm text-gray-600">/Night</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Noel Cottages Ngurbloat --}}
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=400&q=80"
+                                    alt="Noel Cottages"
+                                    class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                    </div>
+                    <div class="p-4">
+                        {{-- Nama Cottage --}}
+                        <h3 class="text-lg font-bold text-gray-800 mb-1">Noel Cottages</h3>
+
+                        {{-- Fasilitas --}}
+                        <ul class="text-sm text-gray-700 mb-4 space-y-1">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free Breakfast</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free WiFi</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Water Heater</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>AC</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>View Sea</li>
+                        </ul>
+
+                        {{-- Total Room --}}
+                        <div class="flex justify-end items-center mb-4 text-gray-700">
+                            <div class="flex items-center text-sm">
+                                <i class="fas fa-bed text-blue-500 mr-2"></i>
+                                <span>2 Room</span>
+                            </div>
+                        </div>
+
+                        {{-- Button dan Harga --}}
+                        <div class="flex justify-between text-sm items-center mt-4">
+                            <a href="#"
+                            class="bg-blue-400 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
+                                BOOKING
+                            </a>
+                            <div class="text-right">
+                                <span class="block text-sm font-bold text-gray-800">Rp 450.000<span class="text-sm text-gray-600">/Night</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Tria Maria Cottages (another one) --}}
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=400&q=80"
+                                    alt="Tria Maria Cottages 2"
+                                    class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                    </div>
+                    <div class="p-4">
+                        {{-- Nama Cottage --}}
+                        <h3 class="text-lg font-bold text-gray-800 mb-1">Tria Maria Cottages</h3>
+
+                        {{-- Fasilitas --}}
+                        <ul class="text-sm text-gray-700 mb-4 space-y-1">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free Breakfast</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free WiFi</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Water Heater</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>AC</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>View Sea</li>
+                        </ul>
+
+                        {{-- Total Room --}}
+                        <div class="flex justify-end items-center mb-4 text-gray-700">
+                            <div class="flex items-center text-sm">
+                                <i class="fas fa-bed text-blue-500 mr-2"></i>
+                                <span>3 Room</span>
+                            </div>
+                        </div>
+
+                        {{-- Button dan Harga --}}
+                        <div class="flex justify-between text-sm items-center mt-4">
+                            <a href="#"
+                            class="bg-blue-400 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
+                                BOOKING
+                            </a>
+                            <div class="text-right">
+                                <span class="block text-sm font-bold text-gray-800">Rp 550.000<span class="text-sm text-gray-600">/Night</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Stella Villa Cottages --}}
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="400">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=400&q=80"
+                                    alt="Stella Villa Cottages"
+                                    class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                    </div>
+                    <div class="p-4">
+                        {{-- Nama Cottage --}}
+                        <h3 class="text-lg font-bold text-gray-800 mb-1">Stella Villa Cottages</h3>
+
+                        {{-- Fasilitas --}}
+                        <ul class="text-sm text-gray-700 mb-4 space-y-1">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free Breakfast</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free WiFi</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Water Heater</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>AC</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>View Sea</li>
+                        </ul>
+
+                        {{-- Total Room --}}
+                        <div class="flex justify-end items-center mb-4 text-gray-700">
+                            <div class="flex items-center text-sm">
+                                <i class="fas fa-bed text-blue-500 mr-2"></i>
+                                <span>2 Room</span>
+                            </div>
+                        </div>
+
+                        {{-- Button dan Harga --}}
+                        <div class="flex justify-between text-sm items-center mt-4">
+                            <a href="#"
+                            class="bg-blue-400 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
+                                BOOKING
+                            </a>
+                            <div class="text-right">
+                                <span class="block text-sm font-bold text-gray-800">Rp 600.000<span class="text-sm text-gray-600">/Night</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>

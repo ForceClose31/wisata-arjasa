@@ -2,27 +2,65 @@
 
 @section('content')
 
-<section class="relative h-96 overflow-hidden bg-gradient-to-br from-teal-600 to-indigo-700">
-    <div class="absolute inset-0 bg-black/25 z-10"></div>
-    <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80"
-         alt="Keindahan Alam Arjasa"
-         class="w-full h-full object-cover transform scale-105 transition-transform duration-500 ease-in-out group-hover:scale-100">
-    <div class="relative z-20 h-full flex items-center">
-        <div class="container mx-auto px-4 text-center text-white">
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 font-montserrat tracking-tight" data-aos="fade-up" data-aos-duration="1000">Paket <span class="text-teal-200">Tour</span></h1>
-            <p class="text-xl md:text-2xl max-w-3xl mx-auto opacity-90" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-                Jelajahi keindahan tersembunyi Arjasa dengan paket wisata terbaik kami.
-            </p>
+<section class="relative h-screen max-h-[500px] overflow-hidden bg-gradient-to-br from-teal-600 to-indigo-700">
+        <div class="absolute inset-0 bg-black/20 z-10"></div>
+        <template x-for="(slide, index) in slides" :key="index">
+            <div x-show="currentSlide === index" x-transition:enter="transition ease-out duration-1000"
+                x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                x-transition:leave="transition ease-in duration-1000" x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0" class="absolute inset-0 w-full h-full">
+                <img :src="slide.image" :alt="slide.title" class="w-full h-full object-cover">
+            </div>
+        </template>
+
+        <div class="relative z-20 h-full flex items-center">
+            <div class="container mx-auto px-4 text-white">
+                <div class="max-w-2xl">
+                    <h1 x-text="slides[currentSlide].title"
+                        class="text-xl md:text-4xl font-bold mb-4 font-montserrat animate-fade-in"></h1>
+                    <p x-text="slides[currentSlide].subtitle"
+                        class="text-sm md:text-xl mb-8 text-gray-100 animate-fade-in animate-delay-100"></p>
+                    {{-- <a href="{{ route('about.index') }}"
+                        class="px-8 py-4 bg-white text-teal-700 font-bold rounded-lg hover:bg-gray-100 hover:text-teal-800 transition duration-300 animate-fade-in animate-delay-200 inline-flex items-center shadow-lg">
+                        <span x-text="slides[currentSlide].cta"></span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a> --}}
+                </div>
+            </div>
         </div>
-    </div>
+
+        <!-- Slider Controls -->
+        <button @click="prevSlide"
+            class="absolute left-4 top-1/2 z-30 -translate-y-1/2 bg-white/30 text-white p-3 rounded-full hover:bg-white/50 transition backdrop-blur-sm">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button @click="nextSlide"
+            class="absolute right-4 top-1/2 z-30 -translate-y-1/2 bg-white/30 text-white p-3 rounded-full hover:bg-white/50 transition backdrop-blur-sm">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Slider Indicators -->
+        <div class="absolute bottom-8 left-1/2 z-30 -translate-x-1/2 flex space-x-2">
+            <template x-for="(slide, index) in slides" :key="index">
+                <button @click="currentSlide = index" class="w-3 h-3 rounded-full transition duration-300"
+                    :class="{ 'bg-white w-6': currentSlide === index, 'bg-white/50': currentSlide !== index }"></button>
+            </template>
+        </div>
 </section>
 
 <section class="py-20 bg-gray-50"> {{-- Latar belakang abu-abu terang untuk kontras dengan kartu putih --}}
     <div class="container mx-auto px-4 max-w-screen-xl"> {{-- Menggunakan max-w-screen-xl untuk lebar yang lebih optimal --}}
-        <div class="mb-10" data-aos="fade-up" data-aos-duration="1000">
-            <h2 class="text-4xl md:text-5xl font-extrabold text-blue-500 mb-2 font-montserrat"><span class="text-blue-900">Paket</span> Tour</h2>
-            <p class="text-lg text-gray-700">Butuh bantuan? Hubungi kami!</p>
-        </div>
+        <div class="container mx-auto px-4 max-w-screen-xl">
+            {{-- Judul dan Sub-judul --}}
+            <div class="mb-10 text-center" data-aos="fade-up" data-aos-duration="1000">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-2 font-montserrat relative inline-block">
+            {{-- Menambahkan kelas relative inline-block untuk positioning garis --}}
+            Paket Tour
+            {{-- Garis di bawah teks --}}
+            <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 opacity-70 -z-1"></span>
+        </h2>
+        <p class="text-lg text-gray-700">Jelajahi keindahan destinasi kami dengan beragam pilihan paket tour.</p>
+    </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"> {{-- Grid responsif untuk 1, 2, atau 3 kolom --}}
 

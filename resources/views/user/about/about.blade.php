@@ -2,21 +2,50 @@
 
 @section('content')
 
-<section class="relative h-96 overflow-hidden bg-gradient-to-br from-teal-600 to-indigo-700">
-    <div class="absolute inset-0 bg-black/25 z-10"></div>
-    <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80"
-        alt="Pemandangan Indah Arjasa"
-        class="w-full h-full object-cover transform scale-105 transition-transform duration-500 ease-in-out group-hover:scale-100">
-    <div class="relative z-20 h-full flex items-center">
-        <div class="container mx-auto px-4 text-center text-white">
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 font-montserrat tracking-wide drop-shadow-lg" data-aos="fade-up" data-aos-duration="1000">
-                Tentang <span class="text-teal-200">Dewi Arjasa</span>
-            </h1>
-            <p class="text-xl md:text-2xl max-w-3xl mx-auto opacity-90 font-lato italic text-white/80" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-                Menghubungkan Anda dengan keindahan alam dan kekayaan budaya Arjasa sejak 2010.
-            </p>
+<section class="relative h-screen max-h-[500px] overflow-hidden bg-gradient-to-br from-teal-600 to-indigo-700">
+        <div class="absolute inset-0 bg-black/20 z-10"></div>
+        <template x-for="(slide, index) in slides" :key="index">
+            <div x-show="currentSlide === index" x-transition:enter="transition ease-out duration-1000"
+                x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                x-transition:leave="transition ease-in duration-1000" x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0" class="absolute inset-0 w-full h-full">
+                <img :src="slide.image" :alt="slide.title" class="w-full h-full object-cover">
+            </div>
+        </template>
+
+        <div class="relative z-20 h-full flex items-center">
+            <div class="container mx-auto px-4 text-white">
+                <div class="max-w-2xl">
+                    <h1 x-text="slides[currentSlide].title"
+                        class="text-xl md:text-4xl font-bold mb-4 font-montserrat animate-fade-in"></h1>
+                    <p x-text="slides[currentSlide].subtitle"
+                        class="text-sm md:text-xl mb-8 text-gray-100 animate-fade-in animate-delay-100"></p>
+                    {{-- <a href="{{ route('about.index') }}"
+                        class="px-8 py-4 bg-white text-teal-700 font-bold rounded-lg hover:bg-gray-100 hover:text-teal-800 transition duration-300 animate-fade-in animate-delay-200 inline-flex items-center shadow-lg">
+                        <span x-text="slides[currentSlide].cta"></span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a> --}}
+                </div>
+            </div>
         </div>
-    </div>
+
+        <!-- Slider Controls -->
+        <button @click="prevSlide"
+            class="absolute left-4 top-1/2 z-30 -translate-y-1/2 bg-white/30 text-white p-3 rounded-full hover:bg-white/50 transition backdrop-blur-sm">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button @click="nextSlide"
+            class="absolute right-4 top-1/2 z-30 -translate-y-1/2 bg-white/30 text-white p-3 rounded-full hover:bg-white/50 transition backdrop-blur-sm">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Slider Indicators -->
+        <div class="absolute bottom-8 left-1/2 z-30 -translate-x-1/2 flex space-x-2">
+            <template x-for="(slide, index) in slides" :key="index">
+                <button @click="currentSlide = index" class="w-3 h-3 rounded-full transition duration-300"
+                    :class="{ 'bg-white w-6': currentSlide === index, 'bg-white/50': currentSlide !== index }"></button>
+            </template>
+        </div>
 </section>
 
 <section class="py-20 bg-white">
@@ -30,21 +59,22 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
                     <div class="absolute bottom-0 left-0 p-6 text-white">
                         <p class="text-sm font-semibold font-lato tracking-wide">
-                            Dewi Arjasa - Jejak Sejarah Sejak 2010
+                            Dewa Arjasa - Jejak Sejarah Sejak 2010
                         </p>
                     </div>
                 </div>
             </div>
             <div class="lg:w-2/3" data-aos="fade-left" data-aos-duration="1000">
                 <div class="max-w-2xl mx-auto lg:mx-0">
-                    <h2 class="text-3xl md:text-4xl font-extrabold mb-6 font-playfair text-blue-900">
-                        Kisah <span class="text-blue-500 not-italic">Perjalanan</span> Kami
+                    <h2 class="text-4xl md:text-4xl font-bold text-gray-800 mb-2 font-montserrat relative inline-block">
+                        Kisah Perjalanan Kami
+                        <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 opacity-70 -z-1"></span>
                     </h2>
                     <p class="text-lg text-gray-600 mb-6 leading-relaxed font-lato">
-                        Berawal dari kecintaan mendalam terhadap kekayaan budaya dan pesona alam Arjasa, <span class="text-blue-500 font-bold">Dewi Arjasa</span> didirikan pada tahun 2010 dengan misi mulia untuk memperkenalkan keindahan tersembunyi ini kepada dunia. Kami memulai perjalanan ini dengan semangat untuk berbagi keunikan Arjasa.
+                        Berawal dari kecintaan mendalam terhadap kekayaan budaya dan pesona alam Arjasa, <span class="text-blue-500 font-bold">Dewa Arjasa</span> didirikan pada tahun 2010 dengan misi mulia untuk memperkenalkan keindahan tersembunyi ini kepada dunia. Kami memulai perjalanan ini dengan semangat untuk berbagi keunikan Arjasa.
                     </p>
                     <p class="text-lg text-gray-600 mb-8 leading-relaxed font-lato">
-                        Dari sebuah tim kecil yang berdedikasi, kami telah tumbuh menjadi penyedia layanan wisata terpercaya, dikenal luas dengan <span class="text-blue-500 font-bold">pendekatan personal</span> dan <span class="text-blue-500 font-bold">pengetahuan mendalam</span> tentang setiap sudut Arjasa. Kami bangga dapat menjadi jembatan antara Anda dan pengalaman tak terlupakan di destinasi ini.
+                        Dari sebuah tim kecil yang berdedikasi, kami telah tumbuh menjadi penyedia layanan wisata terpercaya, dikenal luas dengan pendekatan personal dan pengetahuan mendalam tentang setiap sudut Arjasa. Kami bangga dapat menjadi jembatan antara Anda dan pengalaman tak terlupakan di destinasi ini.
                     </p>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
                         <div class="text-center p-4 bg-teal-50 rounded-lg shadow-sm animate-fade-in delay-100">
