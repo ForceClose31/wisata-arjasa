@@ -972,10 +972,6 @@
                 <p class="text-xl mb-8 max-w-2xl mx-auto">Join our community of cultural explorers and start your Arjasa
                     adventure today</p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="{{ 'login' }}"
-                        class="px-8 py-3 bg-white text-teal-700 font-bold rounded-lg hover:bg-gray-100 hover:text-teal-800 transition duration-300 shadow-lg">
-                        Create Account
-                    </a>
                     <a href="/about"
                         class="px-8 py-3 border-2 border-white text-white font-bold rounded-lg hover:bg-white hover:text-teal-700 transition duration-300">
                         Learn More

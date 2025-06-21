@@ -13,33 +13,36 @@
         </template>
 
         <div class="relative z-20 h-full flex items-center">
-            {{-- Tambahkan max-w-screen-xl pada container --}}
-            <div class="container mx-auto px-4 max-w-screen-xl">
+            <div class="container mx-auto px-4 text-white">
                 <div class="max-w-2xl">
                     <h1 x-text="slides[currentSlide].title"
                         class="text-xl md:text-4xl font-bold mb-4 font-montserrat animate-fade-in"></h1>
                     <p x-text="slides[currentSlide].subtitle"
                         class="text-sm md:text-xl mb-8 text-gray-100 animate-fade-in animate-delay-100"></p>
+                    {{-- <a href="{{ route('about.index') }}"
+                    class="px-8 py-4 bg-white text-teal-700 font-bold rounded-lg hover:bg-gray-100 hover:text-teal-800 transition duration-300 animate-fade-in animate-delay-200 inline-flex items-center shadow-lg">
+                    <span x-text="slides[currentSlide].cta"></span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a> --}}
                 </div>
             </div>
         </div>
 
+        <!-- Slider Controls -->
         <button @click="prevSlide"
-            {{-- Ubah bg-white/30 menjadi bg-blue-400/70 dan hover:bg-blue-500/90 --}}
-            class="absolute left-4 top-1/2 z-30 -translate-y-1/2 bg-blue-400/70 text-white p-3 rounded-full hover:bg-blue-500/90 transition backdrop-blur-sm">
+            class="absolute left-4 top-1/2 z-30 -translate-y-1/2 bg-white/30 text-white p-3 rounded-full hover:bg-white/50 transition backdrop-blur-sm">
             <i class="fas fa-chevron-left"></i>
         </button>
         <button @click="nextSlide"
-            {{-- Ubah bg-white/30 menjadi bg-blue-400/70 dan hover:bg-blue-500/90 --}}
-            class="absolute right-4 top-1/2 z-30 -translate-y-1/2 bg-blue-400/70 text-white p-3 rounded-full hover:bg-blue-500/90 transition backdrop-blur-sm">
+            class="absolute right-4 top-1/2 z-30 -translate-y-1/2 bg-white/30 text-white p-3 rounded-full hover:bg-white/50 transition backdrop-blur-sm">
             <i class="fas fa-chevron-right"></i>
         </button>
 
+        <!-- Slider Indicators -->
         <div class="absolute bottom-8 left-1/2 z-30 -translate-x-1/2 flex space-x-2">
             <template x-for="(slide, index) in slides" :key="index">
                 <button @click="currentSlide = index" class="w-3 h-3 rounded-full transition duration-300"
-                    {{-- Ubah bg-white menjadi bg-blue-400 pada indikator aktif --}}
-                    :class="{ 'bg-blue-400 w-6': currentSlide === index, 'bg-white/50': currentSlide !== index }"></button>
+                    :class="{ 'bg-white w-6': currentSlide === index, 'bg-white/50': currentSlide !== index }"></button>
             </template>
         </div>
     </section>
@@ -48,7 +51,9 @@
         {{-- Tambahkan max-w-screen-xl pada container --}}
         <div class="container mx-auto px-4 max-w-screen-xl">
             <div class="mb-12 text-center" data-aos="fade-up"> {{-- Tambahkan AOS ke header --}}
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-2 font-montserrat relative inline-block text-underline-animated-package-tour-heading"> {{-- Tambahkan kelas baru --}}
+                <h2
+                    class="text-4xl md:text-5xl font-bold text-gray-800 mb-2 font-montserrat relative inline-block text-underline-animated-package-tour-heading">
+                    {{-- Tambahkan kelas baru --}}
                     Paket Tour
                     {{-- Garis bawah tetap di sini --}}
                     <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 opacity-70 -z-1"></span>
@@ -59,14 +64,14 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                @forelse ($featuredPackages as $index => $package) {{-- Tambahkan $index untuk AOS delay --}}
+                @forelse ($featuredPackages as $index => $package)
+                    {{-- Tambahkan $index untuk AOS delay --}}
                     <div x-data="{
                         activeTab: 'itinerary',
                         contentExpanded: false,
                         pricingExpanded: false
-                    }"
-                    {{-- Tambahkan data-aos="fade-up" dan data-aos-delay --}}
-                    data-aos="fade-up" data-aos-delay="{{ ($index + 1) * 100 }}"
+                    }" {{-- Tambahkan data-aos="fade-up" dan data-aos-delay --}} data-aos="fade-up"
+                        data-aos-delay="{{ ($index + 1) * 100 }}"
                         class="group relative bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
                         <div class="relative h-64 overflow-hidden">
                             @if (isset($package->images) && count($package->images) > 0)
@@ -185,7 +190,8 @@
                                                 @foreach ($package->itinerary as $item)
                                                     <div class="flex items-start pb-2">
                                                         <span
-                                                            class="text-blue-500 font-bold mr-2">{{ $loop->index + 1 }}.</span> {{-- Menggunakan $loop->index --}}
+                                                            class="text-blue-500 font-bold mr-2">{{ $loop->index + 1 }}.</span>
+                                                        {{-- Menggunakan $loop->index --}}
                                                         <span class="text-gray-700">{{ $item }}</span>
                                                     </div>
                                                 @endforeach
@@ -258,8 +264,7 @@
                             </div>
 
                             <div class="mt-6 text-center">
-                                <a href="{{ route('tour-packages.show', $package->slug) }}"
-                                    {{-- Ubah bg-gradient-to-r from-blue-500 to-teal-500 menjadi from-blue-400 to-blue-500 --}}
+                                <a href="{{ route('tour-packages.show', $package->slug) }}" {{-- Ubah bg-gradient-to-r from-blue-500 to-teal-500 menjadi from-blue-400 to-blue-500 --}}
                                     {{-- Ubah hover:from-blue-600 hover:to-teal-600 menjadi hover:from-blue-500 hover:to-blue-600 --}}
                                     class="inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-blue-400 to-blue-500 text-white rounded-lg hover:from-blue-500 hover:to-blue-600 transition-all duration-300 shadow-md hover:shadow-lg">
                                     Detail Paket
