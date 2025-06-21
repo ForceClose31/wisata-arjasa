@@ -2,14 +2,36 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Models\TourPackage;
 use App\Models\PackageType;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index()
     {
+        $article = Article::query()->where('is_published', true);
+
+        if (request()->has('search')) {
+            $article->where('title', 'like', '%' . request('search') . '%')
+                ->orWhere('content', 'like', '%' . request('search') . '%');
+        }
+
+        if (request()->has('category')) {
+            $article->where('category', request('category'));
+        }
+
+        $articles = $article->latest()->paginate(9);
+
+        $categories = Article::select('category')->distinct()->pluck('category');
+
+        $popularTags = Tag::withCount('articles')
+            ->orderBy('articles_count', 'desc')
+            ->limit(10)
+            ->get();
+
         $packageTypes = PackageType::with(['tourPackages' => function ($query) {
             $query->where('is_available', true)
                 ->with(['pricings' => function ($q) {
@@ -48,7 +70,10 @@ class HomeController extends Controller
             'packageTypes' => $packageTypes,
             'featuredPackages' => $featuredPackages,
             'newestPackages' => $newestPackages,
-            'specialPackages' => $specialPackages
+            'specialPackages' => $specialPackages,
+            'articles' => $articles,
+            'categories' => $categories,
+            'popularTags' => $popularTags,
         ]);
     }
 

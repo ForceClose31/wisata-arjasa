@@ -331,9 +331,8 @@
                         class="group relative bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
                         <!-- Package Header with Image -->
                         <div class="relative h-64 overflow-hidden">
-                            @if ($package->images && count(($package->images)) > 0)
-                                <img src="{{ asset('storage/' . ($package->images)[0]) }}"
-                                    alt="{{ $package->name }}"
+                            @if ($package->images && count($package->images) > 0)
+                                <img src="{{ asset('storage/' . $package->images[0]) }}" alt="{{ $package->name }}"
                                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                             @else
                                 <img src="https://source.unsplash.com/random/600x400?indonesia,tour"
@@ -775,109 +774,78 @@
                     destinasi kami</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300" data-aos="fade-up" data-aos-delay="100"> {{-- Tambahkan AOS --}}
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1503917988258-f87a78e3c995?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                            alt="Panduan Wisata Kei"
-                            class="w-full h-full object-cover transition duration-300 hover:scale-105">
-                        <div class="absolute top-4 left-4">
-                            {{-- Ubah warna badge dari teal-600 menjadi blue-400 --}}
-                            <span class="px-3 py-1 bg-blue-400 text-white text-xs font-semibold rounded-full">Tips
-                                Wisata</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center text-sm text-gray-500 mb-3">
-                            <i class="far fa-calendar-alt mr-2"></i>
-                            <span>15 Juni 2023</span>
-                            <span class="mx-2">•</span>
-                            <i class="far fa-eye mr-1"></i>
-                            <span>1.2k</span>
-                        </div>
-                        {{-- Ubah hover:text-teal-600 menjadi hover:text-blue-600 --}}
-                        <h3 class="text-xl font-bold text-gray-800 mb-3 hover:text-blue-600 transition duration-300">
-                            <a href="#">Panduan Lengkap Wisata ke Kepulauan Kei untuk Pemula</a>
-                        </h3>
-                        <p class="text-gray-600 mb-4">Temukan semua yang perlu Anda ketahui sebelum mengunjungi surga
-                            tersembunyi di Maluku Tenggara ini.</p>
-                        {{-- Ubah text-teal-600 dan hover:text-teal-800 menjadi text-blue-600 dan hover:text-blue-800 --}}
-                        <a href="#"
-                            class="text-blue-600 font-medium hover:text-blue-800 transition duration-300 flex items-center">
-                            Baca Selengkapnya <i class="fas fa-arrow-right ml-2"></i>
+            <div class="container mx-auto px-4">
+                <!-- Categories Filter -->
+                <div class="mb-8 flex flex-wrap justify-center gap-2" data-aos="fade-up">
+                    <a href="{{ route('articles.all') }}"
+                        class="px-4 py-2 rounded-full {{ !request('category') ? 'bg-teal-600 text-white' : 'bg-gray-100 text-gray-800 hover:bg-gray-200' }}">
+                        Semua Kategori
+                    </a>
+                    @foreach ($categories as $category)
+                        <a href="{{ route('articles.all', ['category' => $category]) }}"
+                            class="px-4 py-2 rounded-full {{ request('category') == $category ? 'bg-teal-600 text-white' : 'bg-gray-100 text-gray-800 hover:bg-gray-200' }}">
+                            {{ $category }}
                         </a>
-                    </div>
-                </article>
+                    @endforeach
+                </div>
 
-                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300" data-aos="fade-up" data-aos-delay="200"> {{-- Tambahkan AOS --}}
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                            alt="Kuliner Kei" class="w-full h-full object-cover transition duration-300 hover:scale-105">
-                        <div class="absolute top-4 left-4">
-                            {{-- Ubah warna badge dari indigo-600 menjadi blue-400 --}}
-                            <span
-                                class="px-3 py-1 bg-blue-400 text-white text-xs font-semibold rounded-full">Kuliner</span>
-                        </div>
+                <!-- Articles Grid -->
+                @if ($articles->count() > 0)
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        @foreach ($articles as $article)
+                            <article
+                                class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300"
+                                data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
+                                <a href="{{ route('articles.show', $article->slug) }}">
+                                    <!-- Make sure your article has these properties -->
+                                    <div class="relative h-48 overflow-hidden">
+                                        <img src="{{ $article->image ? asset('storage/' . $article->image) : 'https://via.placeholder.com/400x225?text=No+Thumbnail' }}"
+                                            alt="{{ $article->title }}"
+                                            class="w-full h-full object-cover transition duration-300 hover:scale-105">
+                                    </div>
+                                    <div class="p-6">
+                                        <div class="flex items-center mb-3">
+                                            <span
+                                                class="px-2 py-1 bg-teal-100 text-teal-800 text-xs font-medium rounded-full">
+                                                {{ $article->category }}
+                                            </span>
+                                            <span class="ml-2 text-xs text-gray-500">
+                                                {{ $article->created_at->diffForHumans() }}
+                                            </span>
+                                        </div>
+                                        <h3 class="text-xl font-bold text-gray-800 mb-2 hover:text-teal-600 transition">
+                                            {{ $article->title }}
+                                        </h3>
+                                        <p class="text-gray-600 line-clamp-2">
+                                            {{ Str::limit(strip_tags($article->excerpt), 100) }}
+                                        </p>
+                                        <div class="mt-4 flex items-center justify-between">
+                                            <span class="text-sm text-gray-500">
+                                                <i class="far fa-eye mr-1"></i>
+                                                {{ $article->views_count ?? 0 }} views
+                                            </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </article>
+                        @endforeach
                     </div>
-                    <div class="p-6">
-                        <div class="flex items-center text-sm text-gray-500 mb-3">
-                            <i class="far fa-calendar-alt mr-2"></i>
-                            <span>2 Juni 2023</span>
-                            <span class="mx-2">•</span>
-                            <i class="far fa-eye mr-1"></i>
-                            <span>890</span>
-                        </div>
-                        {{-- Ubah hover:text-indigo-600 menjadi hover:text-blue-600 --}}
-                        <h3 class="text-xl font-bold text-gray-800 mb-3 hover:text-blue-600 transition duration-300">
-                            <a href="#">5 Makanan Khas Kei yang Wajib Dicoba Saat Berkunjung</a>
-                        </h3>
-                        <p class="text-gray-600 mb-4">Jelajahi kekayaan kuliner Kepulauan Kei mulai dari ikan bakar hingga
-                            papeda yang lezat.</p>
-                        {{-- Ubah text-indigo-600 dan hover:text-indigo-800 menjadi text-blue-600 dan hover:text-blue-800 --}}
-                        <a href="#"
-                            class="text-blue-600 font-medium hover:text-blue-800 transition duration-300 flex items-center">
-                            Baca Selengkapnya <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </article>
 
-                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300" data-aos="fade-up" data-aos-delay="300"> {{-- Tambahkan AOS --}}
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                            alt="Spot Foto Kei"
-                            class="w-full h-full object-cover transition duration-300 hover:scale-105">
-                        <div class="absolute top-4 left-4">
-                            {{-- Ubah warna badge dari amber-600 menjadi blue-400 --}}
-                            <span
-                                class="px-3 py-1 bg-blue-400 text-white text-xs font-semibold rounded-full">Fotografi</span>
-                        </div>
+                    <!-- Pagination -->
+                    <div class="mt-12" data-aos="fade-up">
+                        {{ $articles->links() }}
                     </div>
-                    <div class="p-6">
-                        <div class="flex items-center text-sm text-gray-500 mb-3">
-                            <i class="far fa-calendar-alt mr-2"></i>
-                            <span>20 Mei 2023</span>
-                            <span class="mx-2">•</span>
-                            <i class="far fa-eye mr-1"></i>
-                            <span>1.5k</span>
-                        </div>
-                        {{-- Ubah hover:text-amber-600 menjadi hover:text-blue-600 --}}
-                        <h3 class="text-xl font-bold text-gray-800 mb-3 hover:text-blue-600 transition duration-300">
-                            <a href="#">10 Spot Foto Instagramable di Kepulauan Kei</a>
-                        </h3>
-                        <p class="text-gray-600 mb-4">Catat lokasi-lokasi terbaik untuk mengabadikan momen indah Anda di
-                            Kei dengan pemandangan memukau.</p>
-                        {{-- Ubah text-amber-600 dan hover:text-amber-800 menjadi text-blue-600 dan hover:text-blue-800 --}}
-                        <a href="#"
-                            class="text-blue-600 font-medium hover:text-blue-800 transition duration-300 flex items-center">
-                            Baca Selengkapnya <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
+                @else
+                    <div class="text-center py-12" data-aos="fade-up">
+                        <img src="{{ asset('images/no-articles.svg') }}" alt="No articles found"
+                            class="max-w-xs mx-auto mb-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Tidak ada artikel yang ditemukan</h3>
+                        <p class="text-gray-600">Coba dengan kata kunci atau kategori yang berbeda</p>
                     </div>
-                </article>
+                @endif
             </div>
-
             <div class="text-center mt-12" data-aos="fade-up"> {{-- Tambahkan AOS ke tombol --}}
-                <a href="/event-budaya"
-                    {{-- Ubah bg-teal-600 dan hover:bg-teal-700 menjadi bg-blue-400 dan hover:bg-blue-500 --}}
+                <a href="/artikel" {{-- Ubah bg-teal-600 dan hover:bg-teal-700 menjadi bg-blue-400 dan hover:bg-blue-500 --}}
                     class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-400 hover:bg-blue-500 transition duration-300">
                     Lihat Semua Artikel <i class="fas fa-arrow-right ml-2"></i>
                 </a>
