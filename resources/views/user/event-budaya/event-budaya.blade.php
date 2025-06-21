@@ -63,7 +63,7 @@
 
         {{-- Tombol Kategori Event --}}
         <div id="event-categories" class="flex flex-wrap justify-center gap-4 mb-16">
-            <button class="category-btn bg-blue-500 text-white px-5 py-3 rounded-full font-semibold text-sm hover:bg-blue-600 transition duration-300 shadow-md active" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000" data-category="Semua">
+            <button class="category-btn bg-blue-500 text-white px-5 py-3 rounded-full font-semibold text-sm hover:hover:bg-gray-100 transition duration-300 shadow-md" active" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000" data-category="Semua">
                 Semua Event
             </button>
             <button class="category-btn bg-white text-gray-800 px-5 py-3 rounded-full font-semibold text-sm border border-gray-300 hover:bg-gray-100 transition duration-300 shadow-md" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000" data-category="Seni Pertunjukan">
