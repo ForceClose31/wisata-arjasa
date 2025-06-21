@@ -11,9 +11,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AdminSeeder::class,
             TagSeeder::class,
+            PackageTypeSeeder::class,
+            TourPackageSeeder::class,
             ArticleSeeder::class,
             CottageSeeder::class,
-            TourPackageSeeder::class,
             TestimonialSeeder::class,
             EventSeeder::class,
             ContentSeeder::class,

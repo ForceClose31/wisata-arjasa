@@ -51,24 +51,12 @@ Route::get('/article', function () {
     return view('user.article.article');
 })->name('article.index');
 
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/tour-packages', [HomeController::class, 'index'])->name('tour-packages.index');
-Route::get('/tour-packages/{slug}', [HomeController::class, 'show'])->name('tour-packages.show');
-
-// Route::get('/tour-package', function () {
-//     return view('user.event');
-// })->name('tour-package');
-
-// Route::get('/konten-detail/{id}', [KontenController::class, 'show'])->name('kontenbudaya.show');
-
-// Route::get('/user/event', [EventController::class, 'index'])->name('event.index');
-// Route::get('/event/{id}', [EventController::class, 'show'])->name('event.show');
-
-// Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
-// Route::get('/peta-budaya', [PetaBudayaController::class, 'index'])->name('peta-budaya');
-
-// Route::get('/konten/{id}', [PetaBudayaController::class, 'show'])->name('konten.show');
+// Route::get('/tour-packages/{slug}', [HomeController::class, 'show'])->name('tour-packages.show');
+Route::get('/packages/{tourPackage}', [HomeController::class, 'show'])->name('packages.show');
+Route::get('/packages/type/{packageType}', [HomeController::class, 'byType'])->name('packages.by-type');
 
 // Articles
 Route::get('/artikel', [ArticleController::class, 'index'])->name('articles.all');

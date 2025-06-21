@@ -4,28 +4,26 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class TourPackage extends Model
 {
+
     use HasFactory;
 
     protected $fillable = [
+        'package_type_id',
         'name',
         'slug',
-        'subtitle',
         'description',
-        'price',
         'duration',
-        'min_person',
         'itinerary',
         'includes',
         'excludes',
         'highlights',
         'images',
-        'is_available',
         'is_featured',
-        'website_url',
-        'phone_numbers'
+        'is_available'
     ];
 
     protected $casts = [
@@ -34,6 +32,22 @@ class TourPackage extends Model
         'excludes' => 'array',
         'highlights' => 'array',
         'images' => 'array',
-        'phone_numbers' => 'array'
+        'is_featured' => 'boolean',
+        'is_available' => 'boolean'
     ];
+
+    public function packageType()
+    {
+        return $this->belongsTo(PackageType::class);
+    }
+
+    public function pricings()
+    {
+        return $this->hasMany(TourPackagePricing::class);
+    }
+
+    public function getBasePriceAttribute()
+    {
+        return $this->pricings->sortBy('price')->first();
+    }
 }

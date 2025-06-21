@@ -10,17 +10,20 @@ return new class extends Migration
     {
         Schema::create('tour_packages', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('package_type_id')->constrained();
             $table->string('name');
             $table->string('slug')->unique();
             $table->text('description');
-            $table->decimal('price', 10, 2);
             $table->string('duration');
             $table->json('itinerary')->nullable();
             $table->json('includes')->nullable();
             $table->json('excludes')->nullable();
+            $table->json('highlights')->nullable();
             $table->json('images')->nullable();
+            $table->boolean('is_featured')->default(false);
             $table->boolean('is_available')->default(true);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

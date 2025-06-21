@@ -38,7 +38,7 @@
                         <div class="flex items-center justify-between">
                             {{-- Placeholder Logo --}}
                             <div class="flex items-center space-x-2">
-                              
+
                                 <span class="font-bold text-lg">Kei Islands</span>
                             </div>
                             <span class="text-sm opacity-90">The Hidden Paradise</span>
@@ -49,7 +49,7 @@
 
                 {{-- Bagian Informasi Atas Paket --}}
                 <div class="p-6">
-                 
+
                     {{-- Detail DESTINASI dan INCLUDE --}}
                     <div class="grid grid-cols-2 gap-4 text-sm mb-3">
                         <div>
@@ -108,7 +108,7 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex flex-col justify-between p-4 text-white">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center space-x-2">
-                               
+
                                 <span class="font-bold text-lg">Raja Ampat</span>
                             </div>
                             <span class="text-sm opacity-90">The Ultimate Dive</span>
@@ -118,7 +118,7 @@
                 </div>
 
                 <div class="p-6">
-                   
+
                     <div class="grid grid-cols-2 gap-4 text-sm mb-3">
                         <div>
                             <p class="font-bold text-gray-700 mb-2 border-b border-gray-200 pb-1">DESTINASI</p>
@@ -175,7 +175,7 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex flex-col justify-between p-4 text-white">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center space-x-2">
-                              
+
                                 <span class="font-bold text-lg">Bromo Explore</span>
                             </div>
                             <span class="text-sm opacity-90">Volcano Adventure</span>
@@ -185,7 +185,7 @@
                 </div>
 
                 <div class="p-6">
-                    
+
                     <div class="grid grid-cols-2 gap-4 text-sm mb-3">
                         <div>
                             <p class="font-bold text-gray-700 mb-2 border-b border-gray-200 pb-1">DESTINASI</p>
