@@ -52,6 +52,24 @@ class HomeController extends Controller
         ]);
     }
 
+    public function tourPackage()
+    {
+        $packageTypes = PackageType::where('is_active', true)->get();
+
+        $featuredPackages = TourPackage::with(['packageType', 'pricings' => function ($query) {
+            $query->orderBy('price', 'asc');
+        }])
+            ->where('is_available', true)
+            ->where('is_featured', true)
+            ->orderBy('created_at', 'desc')
+            ->paginate(6); // Using pagination instead of take()
+
+        return view('user.tour-package.tour-package', [
+            'packageTypes' => $packageTypes,
+            'featuredPackages' => $featuredPackages
+        ]);
+    }
+
     public function show(TourPackage $tourPackage)
     {
         if (!$tourPackage->is_available) {
@@ -90,23 +108,26 @@ class HomeController extends Controller
 
     public function byType($packageType)
     {
+        $packageTypes = PackageType::where('is_active', true)->get();
+
         if ($packageType === 'all') {
-            $packages = TourPackage::with(['pricings' => function ($query) {
+            $tourPackages = TourPackage::with(['pricings' => function ($query) {
                 $query->orderBy('price', 'asc');
             }])
                 ->where('is_available', true)
                 ->orderBy('created_at', 'desc')
                 ->paginate(9);
 
-            return view('user.packages.all', [
-                'packages' => $packages,
+            return view('user.tour-package.tour-package', [
+                'tourPackages' => $tourPackages,
+                'packageTypes' => $packageTypes,
                 'title' => 'Semua Paket Wisata'
             ]);
         }
 
         $type = PackageType::where('slug', $packageType)->firstOrFail();
 
-        $packages = TourPackage::with(['pricings' => function ($query) {
+        $tourPackages = TourPackage::with(['pricings' => function ($query) {
             $query->orderBy('price', 'asc');
         }])
             ->where('package_type_id', $type->id)
@@ -116,7 +137,8 @@ class HomeController extends Controller
 
         return view('user.packages.by-type', [
             'packageType' => $type,
-            'packages' => $packages
+            'tourPackages' => $tourPackages,
+            'packageTypes' => $packageTypes
         ]);
     }
 }
