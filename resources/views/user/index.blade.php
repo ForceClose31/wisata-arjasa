@@ -331,8 +331,8 @@
                         class="group relative bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
                         <!-- Package Header with Image -->
                         <div class="relative h-64 overflow-hidden">
-                            @if ($package->images && count(json_decode($package->images)) > 0)
-                                <img src="{{ asset('storage/' . json_decode($package->images)[0]) }}"
+                            @if ($package->images && count(($package->images)) > 0)
+                                <img src="{{ asset('storage/' . ($package->images)[0]) }}"
                                     alt="{{ $package->name }}"
                                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                             @else
