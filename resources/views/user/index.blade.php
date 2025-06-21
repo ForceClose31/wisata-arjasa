@@ -164,7 +164,7 @@
     </section>
 
     {{-- About Us Section --}}
-    <section class="py-20 bg-white">
+    <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-4 max-w-screen-xl">
             <div class="flex flex-col lg:flex-row items-center gap-12">
                 <div class="lg:w-1/3 mx-auto max-w-xs md:max-w-sm lg:max-w-md" data-aos="fade-right"
@@ -219,7 +219,7 @@
         </div>
     </section>
     {{-- Keunggulan Section --}}
-    <section class="py-20 bg-white">
+    <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-4 max-w-screen-xl">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-montserrat">
@@ -934,8 +934,8 @@
                 <p class="text-xl mb-8 max-w-2xl mx-auto">Bergabunglah dengan komunitas penjelajah budaya kami dan mulai petualangan Anda di Arjasa hari ini</p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
                     <a href="{{ 'login' }}"
-                        class="px-8 py-3 bg-white text-teal-700 font-bold rounded-lg hover:bg-gray-100 hover:text-teal-800 transition duration-300 shadow-lg">
-                        Create Account
+                        class="px-8 py-3 bg-white text-blue-400 font-bold rounded-lg hover:bg-gray-100 hover:text-teal-800 transition duration-300 shadow-lg">
+                        Buat Akun
                     </a>
                     <a href="/about"
                         class="px-8 py-3 border-2 border-blue-400 bg-blue-400 text-white font-bold rounded-lg hover:bg-white hover:text-teal-700 transition duration-300">
