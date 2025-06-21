@@ -13,6 +13,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PetaBudayaController;
 
 Route::get('/contact', function () {
@@ -35,9 +36,7 @@ Route::get('/cottage', function () {
     return view('user.cottage.cottage');
 })->name('cottage.index');
 
-Route::get('/gallery', function () {
-    return view('user.gallery.gallery');
-})->name('gallery.index');
+Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
 
 Route::get('/event-budaya', function () {
     return view('user.event-budaya.event-budaya');

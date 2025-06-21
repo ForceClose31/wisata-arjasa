@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             TestimonialSeeder::class,
             EventSeeder::class,
             ContentSeeder::class,
+            GallerySeeder::class,
         ]);
     }
 }

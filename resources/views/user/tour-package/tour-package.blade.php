@@ -75,7 +75,7 @@
                         class="group relative bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
                         <div class="relative h-64 overflow-hidden">
                             @if (isset($package->images) && count($package->images) > 0)
-                                <img src="{{ $package->images[0] }}" alt="{{ $package->name }}"
+                                <img src="/storage/{{ $package->images[0] }}" alt="{{ $package->name }}"
                                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                             @else
                                 <img src="https://source.unsplash.com/random/600x400?indonesia,tour"
