@@ -198,7 +198,7 @@
         {
             title: '{{ __('layouts.Ikuti Event Budaya Terdekat') }}',
             subtitle: '{{ __('layouts.Bergabunglah dengan komunitas pelestari budaya') }}',
-            image: 'https://kemenpar.go.id/_next/image?url=https%3A%2F%2Fapi.kemenpar.go.id%2Fstorage%2Fapp%2Fuploads%2Fpublic%2F67e%2Fd40%2Fced%2F67ed40ced157d243715809.png&w=3840&q=75',
+            image: 'assets/img/event.jpg',
             cta: 'Lihat Event'
         }
     ],
