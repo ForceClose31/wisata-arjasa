@@ -1,12 +1,9 @@
-<header class="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-200"
-    x-data="{ mobileMenuOpen: false }">
+<header class="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-200" x-data="{ mobileMenuOpen: false }">
     <nav class="transition-all duration-300">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <!-- Logo -->
             <a href="/" class="flex items-center">
-                <img src="{{ asset('assets/img/Budanes__1_-removebg-preview.png') }}" class="w-8 h-8 mr-2">
-                <span class="text-2xl font-bold text-blue-600 font-montserrat">Dewa</span>
-                <span class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text font-montserrat">Arjasa</span>
+                <img src="{{ asset('assets/img/logo.webp') }}" class="w-20 h-8 mr-2">
             </a>
 
             <!-- Desktop Menu -->
@@ -37,13 +34,15 @@
             <!-- Mobile Menu Button -->
             <div class="md:hidden">
                 <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-blue-600 focus:outline-none">
-                    <svg :class="{ 'hidden': mobileMenuOpen, 'block': !mobileMenuOpen }" xmlns="http://www.w3.org/2000/svg"
-                        class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg :class="{ 'hidden': mobileMenuOpen, 'block': !mobileMenuOpen }"
+                        xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
-                    <svg :class="{ 'block': mobileMenuOpen, 'hidden': !mobileMenuOpen }" xmlns="http://www.w3.org/2000/svg"
-                        class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg :class="{ 'block': mobileMenuOpen, 'hidden': !mobileMenuOpen }"
+                        xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M6 18L18 6M6 6l12 12" />
                     </svg>
@@ -69,8 +68,8 @@
 
 
 
-        {{-- Popular Content Section --}}
-    {{-- <section class="py-20 bg-gray-50">
+{{-- Popular Content Section --}}
+{{-- <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-montserrat">Featured <span
@@ -124,8 +123,8 @@
         </div>
     </section> --}}
 
-    {{-- Upcoming Events Section --}}
-    {{-- <section class="py-20 bg-white">
+{{-- Upcoming Events Section --}}
+{{-- <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-montserrat">Upcoming <span
