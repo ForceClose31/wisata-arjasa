@@ -55,11 +55,10 @@
                 <h2
                     class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 font-montserrat relative inline-block text-underline-animated-explore">
                     {{-- Tambahkan kelas baru untuk menargetkan CSS garis bawah ini --}}
-                    <span class="relative z-10">Explore Arjasa's Wonders</span>
+                    <span class="relative z-10">Jelajahi Keajaiban Arjasa</span>
                     <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 z-0 opacity-30"></span>
                 </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Discover the rich cultural heritage and natural beauty of
-                    Arjasa through our curated experiences</p>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Temukan kekayaan warisan budaya dan keindahan alam Arjasa melalui pengalaman yang telah kami kurasi</p>
             </div>
 
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -85,7 +84,7 @@
                             requestAnimationFrame(animateCount);
                         }"
                         x-text="count">0</div>
-                    <h3 class="text-lg font-semibold text-gray-800">Cultural Sites</h3>
+                    <h3 class="text-lg font-semibold text-gray-800">Situs Budaya</h3>
                 </div>
 
                 {{-- Local Events --}}
@@ -109,7 +108,7 @@
                             requestAnimationFrame(animateCount);
                         }"
                         x-text="count">0</div>
-                    <h3 class="text-lg font-semibold text-gray-800">Local Events</h3>
+                    <h3 class="text-lg font-semibold text-gray-800">Acara Lokal</h3>
                 </div>
 
                 {{-- Tour Packages --}}
@@ -133,7 +132,7 @@
                             requestAnimationFrame(animateCount);
                         }"
                         x-text="count">0</div>
-                    <h3 class="text-lg font-semibold text-gray-800">Tour Packages</h3>
+                    <h3 class="text-lg font-semibold text-gray-800">Paket Wisata</h3>
                 </div>
 
                 {{-- Natural Attractions --}}
@@ -157,7 +156,7 @@
                             requestAnimationFrame(animateCount);
                         }"
                         x-text="count">0</div>
-                    <h3 class="text-lg font-semibold text-gray-800">Natural Attractions</h3>
+                    <h3 class="text-lg font-semibold text-gray-800">Daya Tarik Alam</h3>
                 </div>
             </div>
         </div>
@@ -252,7 +251,7 @@
                         class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-4 text-indigo-600 mx-auto">
                         <i class="fas fa-car text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-center text-gray-800 mb-3">All in One</h3>
+                    <h3 class="text-xl font-bold text-center text-gray-800 mb-3">Semua dalam Satu</h3>
                     <p class="text-gray-600 text-center text-sm">Tersedia juga sewa motor, mobil, dan cottage untuk
                         kenyamanan
                         Anda.</p>
@@ -264,7 +263,7 @@
                         class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-4 text-amber-600 mx-auto">
                         <i class="fas fa-user-tie text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-center text-gray-800 mb-3">Professional</h3>
+                    <h3 class="text-xl font-bold text-center text-gray-800 mb-3">Profesional</h3>
                     <p class="text-gray-600 text-center text-sm">Dengan dukungan tour guide profesional dan berpengalaman.
                     </p>
                 </div>
@@ -275,15 +274,15 @@
                         class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mb-4 text-emerald-600 mx-auto">
                         <i class="fas fa-award text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-center text-gray-800 mb-3">Best Guide</h3>
+                    <h3 class="text-xl font-bold text-center text-gray-800 mb-3">Panduan Terbaik</h3>
                     <div class="flex flex-col items-center space-y-2 mt-3">
                         <div class="flex items-center">
                             <i class="fas fa-check-circle text-emerald-500 mr-2"></i>
-                            <span class="text-gray-600 text-sm">Best Package</span>
+                            <span class="text-gray-600 text-sm">Paket Terbaik</span>
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-check-circle text-emerald-500 mr-2"></i>
-                            <span class="text-gray-600 text-sm">Best Price</span>
+                            <span class="text-gray-600 text-sm">Harga Terbaik</span>
                         </div>
                     </div>
                 </div>
@@ -292,7 +291,7 @@
             {{-- Tambahkan data-aos="fade-up" pada bagian Best Your Trip --}}
             <div class="mt-16 text-center bg-gradient-to-r from-teal-50 to-indigo-50 rounded-xl p-8 shadow-inner"
                 data-aos="fade-up" data-aos-delay="500">
-                <h3 class="text-2xl font-bold text-gray-800 mb-4">Best Your Trip</h3>
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Sempurnakan Perjalanan Anda</h3>
                 <p class="text-gray-600 mb-6">Temukan paket wisata terbaik untuk petualangan Anda di Arjasa</p>
                 <div class="max-w-md mx-auto relative">
                     <input type="text" placeholder="Cari paket wisata..."
@@ -548,10 +547,10 @@
         <div class="container mx-auto px-4 max-w-screen-xl">
             <div class="mb-10 text-center" data-aos="fade-up" data-aos-duration="1000">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-2 font-montserrat relative inline-block">
-                    Cottage
+                    Penginapan
                     <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 opacity-70 -z-1"></span>
                 </h2>
-                <p class="text-lg text-gray-700">Kami menyediakan pilihan Cottage dengan fasilitas lengkap.</p>
+                <p class="text-lg text-gray-700">Kami menyediakan pilihan Penginapan dengan fasilitas lengkap.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10"> {{-- Grid responsif untuk 1, 2, atau 4 kolom --}}
@@ -850,7 +849,7 @@
             <div class="text-center mb-16" data-aos="fade-up"> {{-- Menambahkan AOS ke header --}}
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-montserrat">
                     <span class="relative text-underline-animated-article-heading"> {{-- Tambahkan kelas baru untuk garis bawah --}}
-                        Testimoni Traveler
+                        Testimoni Pengunjung
                         {{-- Ubah warna garis bawah dari teal-400 menjadi blue-400 --}}
                         <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 opacity-70 -z-1"></span>
                     </span>
