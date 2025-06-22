@@ -20,7 +20,7 @@
                 <div class="mt-12 flex flex-wrap gap-2" data-aos="fade-up">
                     @foreach ($article->tags as $tag)
                         <a href="{{ route('articles.byTag', $tag->slug) }}"
-                            class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full hover:bg-teal-100 hover:text-teal-800 transition">
+                            class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full hover:bg-blue-100 hover:text-blue-800 transition">
                             #{{ $tag->name }}
                         </a>
                     @endforeach
@@ -31,7 +31,7 @@
                     <h4 class="text-lg font-semibold text-gray-800 mb-4">Bagikan Artikel:</h4>
                     <div class="flex space-x-4">
                         <a href="#"
-                            class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 transition">
+                            class="w-10 h-10 rounded-full bg-blue-400 text-white flex items-center justify-center hover:bg-blue-500 transition">
                             <i class="fab fa-facebook-f"></i>
                         </a>
                         <a href="#"
@@ -72,11 +72,11 @@
                             <div class="p-6">
                                 <div class="flex items-center mb-3">
                                     <span
-                                        class="px-2 py-1 bg-teal-100 text-teal-800 text-xs font-medium rounded-full">{{ $related->category }}</span>
+                                        class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">{{ $related->category }}</span>
                                     <span
                                         class="ml-2 text-xs text-gray-500">{{ $related->created_at->diffForHumans() }}</span>
                                 </div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-2 hover:text-teal-600 transition">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2 hover:text-blue-500 transition">
                                     {{ $related->title }}</h3>
                                 <p class="text-gray-600 line-clamp-2">{{ Str::limit(strip_tags($related->content), 100) }}
                                 </p>

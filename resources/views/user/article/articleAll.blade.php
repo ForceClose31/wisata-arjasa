@@ -14,9 +14,9 @@
                 <div class="relative max-w-md mx-auto" data-aos="fade-up" data-aos-delay="200">
                     <form action="{{ route('articles.all') }}" method="GET">
                         <input type="text" name="search" placeholder="Cari artikel..."
-                            class="w-full px-6 py-3 border border-gray-300 rounded-full focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                            class="w-full px-6 py-3 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             value="{{ request('search') }}">
-                        <button type="submit" class="absolute right-3 top-3 text-gray-400 hover:text-teal-600">
+                        <button type="submit" class="absolute right-3 top-3 text-gray-400 hover:text-blue-500">
                             <i class="fas fa-search"></i>
                         </button>
                     </form>
@@ -31,12 +31,12 @@
             <!-- Categories Filter -->
             <div class="mb-8 flex flex-wrap justify-center gap-2" data-aos="fade-up">
                 <a href="{{ route('articles.all') }}"
-                    class="px-4 py-2 rounded-full {{ !request('category') ? 'bg-teal-600 text-white' : 'bg-gray-100 text-gray-800 hover:bg-gray-200' }}">
+                    class="px-4 py-2 rounded-full {{ !request('category') ? 'bg-blue-500 text-white' : 'bg-gray-100 text-gray-800 hover:bg-gray-200' }}">
                     Semua Kategori
                 </a>
                 @foreach ($categories as $category)
                     <a href="{{ route('articles.all', ['category' => $category]) }}"
-                        class="px-4 py-2 rounded-full {{ request('category') == $category ? 'bg-teal-600 text-white' : 'bg-gray-100 text-gray-800 hover:bg-gray-200' }}">
+                        class="px-4 py-2 rounded-full {{ request('category') == $category ? 'bg-blue-500 text-white' : 'bg-gray-100 text-gray-800 hover:bg-gray-200' }}">
                         {{ $category }}
                     </a>
                 @endforeach
@@ -58,14 +58,14 @@
                                 </div>
                                 <div class="p-6">
                                     <div class="flex items-center mb-3">
-                                        <span class="px-2 py-1 bg-teal-100 text-teal-800 text-xs font-medium rounded-full">
+                                        <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
                                             {{ $article->category }}
                                         </span>
                                         <span class="ml-2 text-xs text-gray-500">
                                             {{ $article->created_at->diffForHumans() }}
                                         </span>
                                     </div>
-                                    <h3 class="text-xl font-bold text-gray-800 mb-2 hover:text-teal-600 transition">
+                                    <h3 class="text-xl font-bold text-gray-800 mb-2 hover:text-blue-500 transition">
                                         {{ $article->title }}
                                     </h3>
                                     <p class="text-gray-600 line-clamp-2">
@@ -107,7 +107,7 @@
                 <div class="flex flex-wrap justify-center gap-3" data-aos="fade-up" data-aos-delay="100">
                     @foreach ($popularTags as $tag)
                         <a href="{{ route('articles.byTag', $tag->slug) }}"
-                            class="px-4 py-2 bg-white text-gray-800 rounded-full shadow-sm hover:bg-teal-100 hover:text-teal-800 transition flex items-center">
+                            class="px-4 py-2 bg-white text-gray-800 rounded-full shadow-sm hover:bg-blue-100 hover:text-teal-800 transition flex items-center">
                             #{{ $tag->name }}
                             <span class="ml-2 text-xs bg-gray-200 text-gray-700 px-2 py-1 rounded-full">
                                 {{ $tag->articles_count }}

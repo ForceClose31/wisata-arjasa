@@ -53,7 +53,7 @@
         <div class="container mx-auto px-4 max-w-screen-xl"> {{-- Tambahkan max-w-screen-xl di sini --}}
             <div class="text-center mb-16">
                 <h2
-                    class="text-3xl md:text-5xl font-bold text-gray-800 mb-6 font-montserrat relative inline-block text-underline-animated-explore">
+                    class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 font-montserrat relative inline-block text-underline-animated-explore">
                     {{-- Tambahkan kelas baru untuk menargetkan CSS garis bawah ini --}}
                     <span class="relative z-10">Explore Arjasa's Wonders</span>
                     <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 z-0 opacity-30"></span>
@@ -298,11 +298,11 @@
                     <input type="text" placeholder="Cari paket wisata..."
                         class="w-full px-6 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent shadow-sm">
                     <button
-                        class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-teal-600 text-white p-2 rounded-full hover:bg-teal-700 transition duration-300">
+                        class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white p-2 rounded-full hover:bg-teal-700 transition duration-300">
                         <i class="fas fa-search"></i>
                     </button>
                 </div>
-                <p class="text-sm text-gray-500 mt-4">*Temukan paket wisata menarik</p>
+              
             </div>
         </div>
     </section>
@@ -768,12 +768,12 @@
                 <!-- Categories Filter -->
                 <div class="mb-8 flex flex-wrap justify-center gap-2" data-aos="fade-up">
                     <a href="{{ route('articles.all') }}"
-                        class="px-4 py-2 rounded-full {{ !request('category') ? 'bg-teal-600 text-white' : 'bg-gray-100 text-gray-800 hover:bg-gray-200' }}">
+                        class="px-4 py-2 rounded-full {{ !request('category') ? 'bg-blue-500 text-white' : 'bg-gray-100 text-gray-800 hover:bg-gray-200' }}">
                         Semua Kategori
                     </a>
                     @foreach ($categories as $category)
                         <a href="{{ route('articles.all', ['category' => $category]) }}"
-                            class="px-4 py-2 rounded-full {{ request('category') == $category ? 'bg-teal-600 text-white' : 'bg-gray-100 text-gray-800 hover:bg-gray-200' }}">
+                            class="px-4 py-2 rounded-full {{ request('category') == $category ? 'bg-blue-500 text-white' : 'bg-gray-100 text-gray-800 hover:bg-gray-200' }}">
                             {{ $category }}
                         </a>
                     @endforeach
@@ -796,14 +796,14 @@
                                     <div class="p-6">
                                         <div class="flex items-center mb-3">
                                             <span
-                                                class="px-2 py-1 bg-teal-100 text-teal-800 text-xs font-medium rounded-full">
+                                                class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
                                                 {{ $article->category }}
                                             </span>
                                             <span class="ml-2 text-xs text-gray-500">
                                                 {{ $article->created_at->diffForHumans() }}
                                             </span>
                                         </div>
-                                        <h3 class="text-xl font-bold text-gray-800 mb-2 hover:text-teal-600 transition">
+                                        <h3 class="text-xl font-bold text-gray-800 mb-2 hover:text-blue-600 transition">
                                             {{ $article->title }}
                                         </h3>
                                         <p class="text-gray-600 line-clamp-2">

@@ -2,7 +2,7 @@
     <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-x-12 gap-y-10"> {{-- Adjusted gap for spacing --}}
         <div class="flex flex-col"> {{-- Removed justify-between here, as copyright is moved --}}
             <div>
-                <img src="{{ asset('assets/img/Budanes__1_-removebg-preview.png') }}" alt="Logo" class="h-16 mb-4"> {{-- Changed logo source & size --}}
+                <img src="{{ asset('assets/img/logo.png') }}" alt="Logo" class="h-16 mb-4"> {{-- Changed logo source & size --}}
             </div>
             <p class="text-sm">Budaya adalah warisan yang lebih berharga dari permata.</p> {{-- Original description --}}
         </div>
@@ -60,6 +60,6 @@
     </div>
 
     <div class="mt-12 pt-6 border-t border-white-400 text-center text-sm text-white"> {{-- Increased mt- --}}
-        <p>&copy; 2025 DewaArjasa. All Rights Reserved.</p>
+        <p>&copy; 2025 Desa Wisata Adat Arjasa. All Rights Reserved.</p>
     </div>
 </footer>
