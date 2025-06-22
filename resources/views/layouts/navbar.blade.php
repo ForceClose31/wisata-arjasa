@@ -33,10 +33,14 @@
                 @endforeach
                 <div class="ml-4">
                     <select id="language-selector"
-                        class="bg-white px-3 py-1 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
-                        <option value="id">🇮🇩 Bahasa Indonesia</option>
-                        <option value="en">🇬🇧 English</option>
+                        class="bg-white px-3 py-1 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                        onchange="window.location.href='/lang/' + this.value">
+                        <option value="id" {{ session('locale', app()->getLocale()) === 'id' ? 'selected' : '' }}>
+                            🇮🇩 Bahasa Indonesia</option>
+                        <option value="en" {{ session('locale', app()->getLocale()) === 'en' ? 'selected' : '' }}>
+                            🇬🇧 English</option>
                     </select>
+
                 </div>
             </div>
 
@@ -74,9 +78,12 @@
 
                 <div class="mt-4">
                     <select id="language-selector-mobile"
-                        class="w-full bg-white px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
-                        <option value="id">🇮🇩 Bahasa Indonesia</option>
-                        <option value="en">🇬🇧 English</option>
+                        class="w-full bg-white px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                        onchange="window.location.href='/lang/' + this.value">
+                        <option value="id" {{ session('locale', app()->getLocale()) === 'id' ? 'selected' : '' }}>
+                            🇮🇩 Bahasa Indonesia</option>
+                        <option value="en" {{ session('locale', app()->getLocale()) === 'en' ? 'selected' : '' }}>
+                            🇬🇧 English</option>
                     </select>
                 </div>
             </div>

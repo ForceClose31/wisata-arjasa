@@ -15,55 +15,64 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PetaBudayaController;
+use Illuminate\Support\Facades\Session;
 
-Route::get('/contact', function () {
-    return view('user.about.about');
-})->name('contact');
+Route::get('/lang/{locale}', function ($locale) {
+    if (in_array($locale, ['en', 'id'])) {
+        session(['locale' => $locale]);
+    }
+    return redirect()->back();
+})->name('language.switch');
 
-Route::get('/paket', function () {
-    return view('user.about.about');
-})->name('paket.index');
+Route::middleware('locale')->group(function () {
+    Route::get('/contact', function () {
+        return view('user.about.about');
+    })->name('contact');
 
-Route::get('/about', function () {
-    return view('user.about.about');
-})->name('about.index');
+    Route::get('/paket', function () {
+        return view('user.about.about');
+    })->name('paket.index');
 
-Route::get('/tour-package', function () {
-    return view('user.tour-package.tour-package');
-})->name('tour-package.index');
+    Route::get('/about', function () {
+        return view('user.about.about');
+    })->name('about.index');
 
-Route::get('/cottage', function () {
-    return view('user.cottage.cottage');
-})->name('cottage.index');
+    Route::get('/tour-package', function () {
+        return view('user.tour-package.tour-package');
+    })->name('tour-package.index');
 
-Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
+    Route::get('/cottage', function () {
+        return view('user.cottage.cottage');
+    })->name('cottage.index');
 
-Route::get('/event-budaya', function () {
-    return view('user.event-budaya.event-budaya');
-})->name('event-budaya.index');
+    Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
 
-Route::get('/transport', function () {
-    return view('user.transport.transport');
-})->name('transport.index');
+    Route::get('/event-budaya', function () {
+        return view('user.event-budaya.event-budaya');
+    })->name('event-budaya.index');
 
-Route::get('/article', function () {
-    return view('user.article.article');
-})->name('article.index');
+    Route::get('/transport', function () {
+        return view('user.transport.transport');
+    })->name('transport.index');
+
+    Route::get('/article', function () {
+        return view('user.article.article');
+    })->name('article.index');
 
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/tour-package', [HomeController::class, 'tourPackage'])->name('tour-package.index');
-// Route::get('/tour-packages/{slug}', [HomeController::class, 'show'])->name('tour-packages.show');
-Route::get('/packages/{tourPackage}', [HomeController::class, 'show'])->name('tour-packages.show');
-Route::get('/packages/all', [HomeController::class, 'show'])->name('packages.show');
-Route::get('/packages/', [HomeController::class, 'show'])->name('tour-package.all');
-Route::get('/packages/type/{packageType}', [HomeController::class, 'byType'])->name('packages.by-type');
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/tour-package', [HomeController::class, 'tourPackage'])->name('tour-package.index');
+    // Route::get('/tour-packages/{slug}', [HomeController::class, 'show'])->name('tour-packages.show');
+    Route::get('/packages/{tourPackage}', [HomeController::class, 'show'])->name('tour-packages.show');
+    Route::get('/packages/all', [HomeController::class, 'show'])->name('packages.show');
+    Route::get('/packages/', [HomeController::class, 'show'])->name('tour-package.all');
+    Route::get('/packages/type/{packageType}', [HomeController::class, 'byType'])->name('packages.by-type');
 
-// Articles
-Route::get('/artikel', [ArticleController::class, 'index'])->name('articles.all');
-Route::get('/artikel/{slug}', [ArticleController::class, 'show'])->name('articles.show');
-Route::get('/artikel/tag/{slug}', [ArticleController::class, 'byTag'])->name('articles.byTag');
-
+    // Articles
+    Route::get('/artikel', [ArticleController::class, 'index'])->name('articles.all');
+    Route::get('/artikel/{slug}', [ArticleController::class, 'show'])->name('articles.show');
+    Route::get('/artikel/tag/{slug}', [ArticleController::class, 'byTag'])->name('articles.byTag');
+});
 // Route::middleware(['guest'])->group(function () {
 //     Route::get('/user/regis', function () {
 //         return view('user.regis');
