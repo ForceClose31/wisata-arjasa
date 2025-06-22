@@ -49,12 +49,12 @@
         <div>
             <h4 class="text-lg font-bold mb-5">Recent Posts</h4> {{-- Adjusted margin-bottom --}}
             <div class="flex items-start mb-4 space-x-3">
-                <img src="https://images.unsplash.com/photo-1517457210948-709559816007?ixlib=rb-1.2.1&auto=format&fit=crop&w=60&h=60&q=80" class="w-16 h-16 object-cover" alt="Post thumbnail"> {{-- Adjusted image size and removed rounded corners --}}
-                <p class="text-sm">Toko Ole-ole - Souvenir di Kepulauan Kei</p>
+                <img src="assets/gallery/1.JPG" class="w-16 h-16 object-cover" alt="Post thumbnail"> {{-- Adjusted image size and removed rounded corners --}}
+                <p class="text-sm">Tari Hitam</p>
             </div>
             <div class="flex items-start space-x-3">
-                <img src="https://images.unsplash.com/photo-1501785888041-af3ba6f60060?ixlib=rb-1.2.1&auto=format&fit=crop&w=60&h=60&q=80" class="w-16 h-16 object-cover" alt="Post thumbnail"> {{-- Adjusted image size and removed rounded corners --}}
-                <p class="text-sm">Paket Wisata Kepulauan Kei</p>
+                <img src="assets/gallery/2.JPG" class="w-16 h-16 object-cover" alt="Post thumbnail"> {{-- Adjusted image size and removed rounded corners --}}
+                <p class="text-sm">Acara Festival</p>
             </div>
         </div>
     </div>
