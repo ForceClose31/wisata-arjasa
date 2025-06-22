@@ -55,16 +55,16 @@
         {{-- Judul dan Sub-judul Kategori Event --}}
         <div class="mb-10 text-center" data-aos="fade-up" data-aos-duration="1000">
             <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-2 font-montserrat relative inline-block">
-                Kategory Event
+                {{ __('user.Kategori Event') }}
                 <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 opacity-70 -z-1"></span>
             </h2>
-            <p class="text-lg text-gray-700" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">Pilih kategori event yang ingin Anda jelajahi.</p>
+            <p class="text-lg text-gray-700" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">{{ __('user.Pilih kategori event yang ingin Anda jelajahi.') }}</p>
         </div>
 
         {{-- Tombol Kategori Event --}}
         <div id="event-categories" class="flex flex-wrap justify-center gap-4 mb-16">
             <button class="category-btn bg-blue-500 text-white px-5 py-3 rounded-full font-semibold text-sm hover:hover:bg-gray-100 transition duration-300 shadow-md" active" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000" data-category="Semua">
-                Semua Event
+                {{ __('user.Semua Event') }}
             </button>
             <button class="category-btn bg-white text-gray-800 px-5 py-3 rounded-full font-semibold text-sm border border-gray-300 hover:bg-gray-100 transition duration-300 shadow-md" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000" data-category="Seni Pertunjukan">
                 Seni Pertunjukan
@@ -80,9 +80,7 @@
             </button>
         </div>
 
-        {{-- Daftar Kartu Event --}}
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {{-- Event Card 1 (Kategori Festival) --}}
             <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl event-card" data-aos="fade-up" data-aos-delay="800" data-aos-duration="1000" data-category="Festival">
                 <div class="relative">
                     <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
@@ -104,7 +102,7 @@
                     <div class="flex justify-between items-center mt-4">
                         <a href="#"
                            class="bg-blue-400 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
-                            LIHAT DETAIL
+                            {{ __('user.LIHAT DETAIL') }}
                         </a>
                         <span class="text-lg font-bold text-green-600">Gratis</span>
                     </div>
@@ -197,17 +195,12 @@
                     </div>
                 </div>
             </div>
-
-            {{-- Tambahkan lebih banyak kartu event di sini sesuai kebutuhan --}}
-            {{-- Pastikan setiap kartu memiliki `data-category` yang sesuai --}}
-
         </div>
     </div>
 </section>
 
 @endsection
 
-{{-- Bagian JavaScript untuk filter kategori --}}
 @push('scripts')
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -224,21 +217,16 @@
                     card.style.display = 'none'; // Menyembunyikan kartu
                 }
             });
-            // Memaksa AOS untuk refresh posisi elemen setelah perubahan display
-            // Ini penting agar animasi AOS bekerja lagi untuk elemen yang baru ditampilkan
             AOS.refreshHard();
         }
 
-        // Tambahkan event listener ke setiap tombol kategori
         categoryButtons.forEach(button => {
             button.addEventListener('click', function() {
-                // Hapus kelas 'active' dari semua tombol dan kembalikan ke style non-aktif
                 categoryButtons.forEach(btn => {
                     btn.classList.remove('active', 'bg-blue-500', 'text-white');
                     btn.classList.add('bg-white', 'text-gray-800', 'border', 'border-gray-300');
                 });
 
-                // Tambahkan kelas 'active' ke tombol yang diklik dan ubah style menjadi aktif
                 this.classList.add('active', 'bg-blue-500', 'text-white');
                 this.classList.remove('bg-white', 'text-gray-800', 'border', 'border-gray-300');
 
@@ -247,11 +235,8 @@
             });
         });
 
-        // Setel tombol "Semua Event" menjadi aktif secara default saat halaman dimuat
         const allButton = document.querySelector('.category-btn[data-category="Semua"]');
         if (allButton) {
-            // Gunakan setTimeout sedikit agar DOM render dulu dan AOS punya waktu inisialisasi awal
-            // Ini membantu jika ada masalah timing AOS dengan elemen yang awalnya disembunyikan.
             setTimeout(() => {
                 allButton.click(); // Simulasikan klik pada tombol "Semua Event" untuk inisialisasi awal
             }, 50); // Delay kecil, bisa disesuaikan jika perlu

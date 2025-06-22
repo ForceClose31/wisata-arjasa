@@ -44,7 +44,6 @@
                 </div>
             </div>
 
-
             <!-- Mobile Menu Button -->
             <div class="md:hidden">
                 <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-blue-600 focus:outline-none">

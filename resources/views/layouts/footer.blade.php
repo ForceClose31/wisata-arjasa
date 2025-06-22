@@ -1,19 +1,18 @@
 <footer class="bg-blue-400 text-white py-12"> {{-- Custom dark blue background color --}}
-    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-x-12 gap-y-10"> {{-- Adjusted gap for spacing --}}
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-10"> {{-- Adjusted gap for spacing --}}
         <div class="flex flex-col"> {{-- Removed justify-between here, as copyright is moved --}}
             <div>
                 <img src="{{ asset('assets/img/logo.png') }}" alt="Logo" class="h-16 mb-4"> {{-- Changed logo source & size --}}
             </div>
-            <p class="text-sm">Budaya adalah warisan yang lebih berharga dari permata.</p> {{-- Original description --}}
+            <p class="text-sm">{{ __('layouts.Budaya adalah warisan yang lebih berharga dari permata.') }}</p> {{-- Original description --}}
         </div>
 
         <div>
-            <h4 class="text-lg font-bold mb-5">Alamat</h4> {{-- Adjusted margin-bottom --}}
+            <h4 class="text-lg font-bold mb-5">{{ __('layouts.Alamat') }}</h4> {{-- Adjusted margin-bottom --}}
             <div class="flex items-start space-x-3 mb-4"> {{-- Adjusted space-x and mb --}}
                 <i class="fas fa-map-marker-alt mt-1 text-white text-base"></i> {{-- Icon size adjusted --}}
-                <p class="text-sm leading-relaxed">Pantai Ngurbloat Desa Wisata Ngilngof, Maluku Tenggara Kepulauan Kei</p>
+                <p class="text-sm leading-relaxed mt-1">{{ __('layouts.Desa Wisata Adat Arjasa, Jember, Indonesia') }}</p>
             </div>
-            {{-- Social Media Icons --}}
             <div class="flex space-x-3 mt-6"> {{-- Added margin-top to separate from address text --}}
                 <a href="#" class="bg-white text-red-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-blue-200 transition">
                     <i class="fab fa-instagram text-lg"></i>
@@ -31,35 +30,23 @@
         </div>
 
         <div>
-            <h4 class="text-lg font-bold mb-5">Kontak</h4> {{-- Adjusted margin-bottom --}}
+            <h4 class="text-lg font-bold mb-5">{{ __('layouts.Kontak') }}</h4> {{-- Adjusted margin-bottom --}}
             <div class="flex items-center text-sm mb-3 space-x-3"> {{-- Adjusted space-x and mb --}}
                 <i class="fas fa-phone-alt text-base"></i>
-                <span>Telephone: 0811477719</span>
+                <span>Telephone: 082323577199</span>
             </div>
             <div class="flex items-center text-sm mb-3 space-x-3"> {{-- Adjusted space-x and mb --}}
                 <i class="fab fa-whatsapp text-base"></i>
-                <span>Whatsapp: 0811477719</span>
+                <span>Whatsapp: 082323577199</span>
             </div>
             <div class="flex items-center text-sm mb-3 space-x-3"> {{-- Adjusted space-x and mb --}}
                 <i class="fas fa-envelope text-base"></i>
-                <span>wisataarjasa@gmail.com</span>
-            </div>
-        </div>
-
-        <div>
-            <h4 class="text-lg font-bold mb-5">Postingan Terbaru</h4> {{-- Adjusted margin-bottom --}}
-            <div class="flex items-start mb-4 space-x-3">
-                <img src="assets/gallery/1.JPG" class="w-16 h-16 object-cover" alt="Post thumbnail"> {{-- Adjusted image size and removed rounded corners --}}
-                <p class="text-sm">Tari Hitam</p>
-            </div>
-            <div class="flex items-start space-x-3">
-                <img src="assets/gallery/2.JPG" class="w-16 h-16 object-cover" alt="Post thumbnail"> {{-- Adjusted image size and removed rounded corners --}}
-                <p class="text-sm">Acara Festival</p>
+                <span>desaadatarjasa@gmail.com</span>
             </div>
         </div>
     </div>
 
     <div class="mt-12 pt-6 border-t border-white-400 text-center text-sm text-white"> {{-- Increased mt- --}}
-        <p>&copy; 2025 Desa Wisata Adat Arjasa. Hak Cipta Dilindungi Undang-Undang.</p>
+        <p>&copy; {{ __('layouts.2025 Desa Wisata Adat Arjasa. Hak Cipta Dilindungi Undang-Undang.') }}</p>
     </div>
 </footer>

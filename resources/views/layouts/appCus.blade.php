@@ -190,14 +190,14 @@
     mobileAccountMenuOpen: false,
     currentSlide: 0,
     slides: [{
-            title: 'Jelajahi Keindahan Desa Wisata Adat Arjasa',
-            subtitle: 'Temukan kekayaan warisan budaya Indonesia',
+            title: '{{ __('layouts.Jelajahi Keindahan Desa Wisata Adat Arjasa') }}',
+            subtitle: '{{ __('layouts.Temukan kekayaan warisan budaya Indonesia') }}',
             image: 'assets/img/gandrung.jpg',
             cta: 'Mulai Jelajahi'
         },
         {
-            title: 'Ikuti Event Budaya Terdekat',
-            subtitle: 'Bergabunglah dengan komunitas pelestari budaya',
+            title: '{{ __('layouts.Ikuti Event Budaya Terdekat') }}',
+            subtitle: '{{ __('layouts.Bergabunglah dengan komunitas pelestari budaya') }}',
             image: 'https://kemenpar.go.id/_next/image?url=https%3A%2F%2Fapi.kemenpar.go.id%2Fstorage%2Fapp%2Fuploads%2Fpublic%2F67e%2Fd40%2Fced%2F67ed40ced157d243715809.png&w=3840&q=75',
             cta: 'Lihat Event'
         }

@@ -28,7 +28,6 @@
                 </div>
             </div>
 
-            <!-- Slider Controls -->
             <button @click="prevSlide"
                 class="absolute left-4 top-1/2 z-30 -translate-y-1/2 bg-white/30 text-white p-3 rounded-full hover:bg-white/50 transition backdrop-blur-sm">
                 <i class="fas fa-chevron-left"></i>
@@ -38,7 +37,6 @@
                 <i class="fas fa-chevron-right"></i>
             </button>
 
-            <!-- Slider Indicators -->
             <div class="absolute bottom-8 left-1/2 z-30 -translate-x-1/2 flex space-x-2">
                 <template x-for="(slide, index) in slides" :key="index">
                     <button @click="currentSlide = index" class="w-3 h-3 rounded-full transition duration-300"
@@ -48,24 +46,20 @@
     </section>
 
     <section class="py-20 bg-gray-50">
-        {{-- Tambahkan max-w-screen-xl pada container --}}
         <div class="container mx-auto px-4 max-w-screen-xl">
             <div class="mb-12 text-center" data-aos="fade-up"> {{-- Tambahkan AOS ke header --}}
                 <h2
                     class="text-4xl md:text-5xl font-bold text-gray-800 mb-2 font-montserrat relative inline-block text-underline-animated-package-tour-heading">
-                    {{-- Tambahkan kelas baru --}}
-                    Paket Tour
-                    {{-- Garis bawah tetap di sini --}}
+                    {{ __('user.Paket Tour') }}
                     <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 opacity-70 -z-1"></span>
                 </h2>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Jelajahi keindahan destinasi kami dengan beragam pilihan paket tour eksklusif
+                    {{ __('user.Jelajahi keindahan destinasi kami dengan beragam pilihan paket tour eksklusif') }}
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @forelse ($featuredPackages as $index => $package)
-                    {{-- Tambahkan $index untuk AOS delay --}}
                     <div x-data="{
                         activeTab: 'itinerary',
                         contentExpanded: false,
@@ -89,7 +83,6 @@
                                     class="bg-white/90 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full shadow-sm backdrop-blur-sm">
                                     {{ $package->duration }}
                                 </span>
-                                {{-- Ubah warna badge package type menjadi blue-400 --}}
                                 <span
                                     class="bg-blue-400/90 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-sm backdrop-blur-sm">
                                     {{ $package->packageType->name }}
@@ -105,7 +98,7 @@
                             @if (isset($package->highlights) && count($package->highlights) > 0)
                                 <div class="mb-4">
                                     <h4 class="text-sm font-semibold text-gray-500 mb-2 flex items-center">
-                                        <i class="fas fa-sparkles text-amber-400 mr-2"></i> Highlights
+                                        <i class="fas fa-sparkles text-amber-400 mr-2"></i> {{ __('user.Highlights') }}
                                     </h4>
                                     <div class="flex flex-wrap gap-2">
                                         @foreach (array_slice($package->highlights, 0, 3) as $highlight)
@@ -118,7 +111,7 @@
 
                             <div class="mb-6 bg-blue-50/50 p-4 rounded-lg border border-blue-100">
                                 <h4 class="font-bold text-gray-800 mb-3 flex items-center">
-                                    <i class="fas fa-tag text-blue-500 mr-2"></i> Harga Paket
+                                    <i class="fas fa-tag text-blue-500 mr-2"></i> {{ __('user.Harga Paket') }}
                                 </h4>
                                 <div class="space-y-2">
                                     @foreach ($package->pricings->sortBy('price')->take(2) as $pricing)
@@ -139,7 +132,7 @@
                                             <button @click="pricingExpanded = !pricingExpanded"
                                                 class="text-xs text-blue-500 hover:text-blue-700 flex items-center">
                                                 <span
-                                                    x-text="pricingExpanded ? 'Tampilkan lebih sedikit' : 'Lihat semua harga (' + ({{ $package->pricings->count() }} - 2) + ')'"></span>
+                                                    x-text="pricingExpanded ? '{{ __('user.Tampilkan lebih sedikit') }}' : '{{ __('user.Lihat semua harga') }} (' + ({{ $package->pricings->count() }} - 2) + ')'"></span>
                                                 <i class="fas"
                                                     :class="pricingExpanded ? 'fa-chevron-up' : 'fa-chevron-down'"
                                                     class="ml-1 text-xs"></i>
@@ -191,7 +184,6 @@
                                                     <div class="flex items-start pb-2">
                                                         <span
                                                             class="text-blue-500 font-bold mr-2">{{ $loop->index + 1 }}.</span>
-                                                        {{-- Menggunakan $loop->index --}}
                                                         <span class="text-gray-700">{{ $item }}</span>
                                                     </div>
                                                 @endforeach
@@ -200,7 +192,7 @@
                                                 <button @click="contentExpanded = !contentExpanded"
                                                     class="text-sm text-blue-500 hover:text-blue-700 mt-2 flex items-center">
                                                     <span
-                                                        x-text="contentExpanded ? 'Tampilkan lebih sedikit' : 'Lihat itinerary lengkap (' + {{ count($package->itinerary) }} + ')'"></span>
+                                                        x-text="contentExpanded ? '{{ __('user.Tampilkan lebih sedikit') }}' : '{{ __('user.Lihat itinerary lengkap') }} (' + {{ count($package->itinerary) }} + ')'"></span>
                                                     <i class="fas"
                                                         :class="contentExpanded ? 'fa-chevron-up' : 'fa-chevron-down'"
                                                         class="ml-1 text-xs"></i>
@@ -225,7 +217,7 @@
                                                 <button @click="contentExpanded = !contentExpanded"
                                                     class="text-sm text-blue-500 hover:text-blue-700 mt-2 flex items-center">
                                                     <span
-                                                        x-text="contentExpanded ? 'Tampilkan lebih sedikit' : 'Lihat semua includes (' + {{ count($package->includes) }} + ')'"></span>
+                                                        x-text="contentExpanded ? '{{ __('user.Tampilkan lebih sedikit') }}' : '{{ __('user.Lihat semua includes') }} (' + {{ count($package->includes) }} + ')'"></span>
                                                     <i class="fas"
                                                         :class="contentExpanded ? 'fa-chevron-up' : 'fa-chevron-down'"
                                                         class="ml-1 text-xs"></i>
@@ -250,7 +242,7 @@
                                                 <button @click="contentExpanded = !contentExpanded"
                                                     class="text-sm text-blue-500 hover:text-blue-700 mt-2 flex items-center">
                                                     <span
-                                                        x-text="contentExpanded ? 'Tampilkan lebih sedikit' : 'Lihat semua excludes (' + {{ count($package->excludes) }} + ')'"></span>
+                                                        x-text="contentExpanded ? '{{ __('user.Tampilkan lebih sedikit') }}' : '{{ __('user.Lihat semua excludes') }} (' + {{ count($package->excludes) }} + ')'"></span>
                                                     <i class="fas"
                                                         :class="contentExpanded ? 'fa-chevron-up' : 'fa-chevron-down'"
                                                         class="ml-1 text-xs"></i>
@@ -265,9 +257,8 @@
 
                             <div class="mt-6 text-center">
                                 <a href="{{ route('tour-packages.show', $package->slug) }}" {{-- Ubah bg-gradient-to-r from-blue-500 to-teal-500 menjadi from-blue-400 to-blue-500 --}}
-                                    {{-- Ubah hover:from-blue-600 hover:to-teal-600 menjadi hover:from-blue-500 hover:to-blue-600 --}}
                                     class="inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-blue-400 to-blue-500 text-white rounded-lg hover:from-blue-500 hover:to-blue-600 transition-all duration-300 shadow-md hover:shadow-lg">
-                                    Detail Paket
+                                    {{ __('user.Detail Paket') }}
                                     <i class="fas fa-arrow-right ml-2 text-sm"></i>
                                 </a>
                             </div>
@@ -277,8 +268,8 @@
                     <div class="col-span-full text-center py-10" data-aos="fade-up"> {{-- Ubah col-span-3 menjadi col-span-full untuk responsivitas --}}
                         <div class="bg-white p-8 rounded-xl shadow-md max-w-md mx-auto">
                             <i class="fas fa-compass text-4xl text-gray-300 mb-4"></i>
-                            <h3 class="text-xl font-medium text-gray-700">Belum ada paket tersedia</h3>
-                            <p class="text-gray-500 mt-2">Kami sedang mempersiapkan paket wisata terbaik untuk Anda.</p>
+                            <h3 class="text-xl font-medium text-gray-700">{{ __('user.Belum ada paket tersedia') }}</h3>
+                            <p class="text-gray-500 mt-2">{{ __('user.Kami sedang mempersiapkan paket wisata terbaik untuk Anda.') }}</p>
                         </div>
                     </div>
                 @endforelse
