@@ -189,7 +189,7 @@
                         </h2>
                         <p class="text-lg text-gray-600 mb-6 leading-relaxed font-lato">
                             Berawal dari kecintaan mendalam terhadap kekayaan budaya dan pesona alam Arjasa, <span
-                                class="text-blue-500 font-bold">Dewa Arjasa</span> didirikan pada tahun 2010 dengan misi
+                                class="text-blue-500 font-bold">Desa Wisata Adat Arjasa</span> didirikan pada tahun 2010 dengan misi
                             mulia untuk memperkenalkan keindahan tersembunyi ini kepada dunia. Kami memulai perjalanan ini
                             dengan semangat untuk berbagi keunikan Arjasa.
                         </p>
@@ -552,10 +552,6 @@
                     <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 opacity-70 -z-1"></span>
                 </h2>
                 <p class="text-lg text-gray-700">Kami menyediakan pilihan Cottage dengan fasilitas lengkap.</p>
-                <div class="flex items-center bg-blue-400 px-4 py-2 rounded-full mx-auto w-fit mt-4">
-                    <i class="fas fa-star text-yellow-500 mr-2"></i>
-                    <span class="text-lg font-semibold text-white">Rating 5/5</span>
-                </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10"> {{-- Grid responsif untuk 1, 2, atau 4 kolom --}}
@@ -930,7 +926,7 @@
     @else
         <section class="py-20 bg-gray-50 text-gray-800">
             <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6 font-montserrat">Siap Jelajahi Arjasa?</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 font-montserrat">Siap Jelajahi Desa Wisata Arjasa?</h2>
                 <p class="text-xl mb-8 max-w-2xl mx-auto">Bergabunglah dengan komunitas penjelajah budaya kami dan mulai petualangan Anda di Arjasa hari ini</p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
                     <a href="{{ 'login' }}"

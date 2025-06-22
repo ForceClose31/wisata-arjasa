@@ -190,7 +190,7 @@
     mobileAccountMenuOpen: false,
     currentSlide: 0,
     slides: [{
-            title: 'Jelajahi Keindahan Budaya Nusantara',
+            title: 'Jelajahi Keindahan Desa Wisata Adat Arjasa',
             subtitle: 'Temukan kekayaan warisan budaya Indonesia',
             image: 'assets/img/gandrung.jpg',
             cta: 'Mulai Jelajahi'
@@ -211,6 +211,7 @@
 }">
 
     @include('layouts.navbar')
+
 
     <div class="min-h-screen">
         @yield('content')

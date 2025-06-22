@@ -2,9 +2,11 @@
     <nav class="transition-all duration-300">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <!-- Logo -->
-            <a href="/" class="flex items-center">
-                <img src="{{ asset('assets/img/logo.webp') }}" class="w-20 h-8 mr-2">
+            <a href="/" class="flex items-center relative" style="height: 40px;">
+                <img src="{{ asset('assets/img/logo.png') }}" alt="Arjasa Logo"
+                    class="h-20 w-auto drop-shadow-sm hover:scale-105 transition-transform duration-300">
             </a>
+
 
             <!-- Desktop Menu -->
             <div class="hidden md:flex items-center space-x-6 font-medium uppercase text-sm tracking-wide">
@@ -29,7 +31,15 @@
                         {{ strtoupper($menu['label']) }}
                     </a>
                 @endforeach
+                <div class="ml-4">
+                    <select id="language-selector"
+                        class="bg-white px-3 py-1 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+                        <option value="id">🇮🇩 Bahasa Indonesia</option>
+                        <option value="en">🇬🇧 English</option>
+                    </select>
+                </div>
             </div>
+
 
             <!-- Mobile Menu Button -->
             <div class="md:hidden">
@@ -61,6 +71,14 @@
                         {{ strtoupper($menu['label']) }}
                     </a>
                 @endforeach
+
+                <div class="mt-4">
+                    <select id="language-selector-mobile"
+                        class="w-full bg-white px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+                        <option value="id">🇮🇩 Bahasa Indonesia</option>
+                        <option value="en">🇬🇧 English</option>
+                    </select>
+                </div>
             </div>
         </div>
     </nav>
