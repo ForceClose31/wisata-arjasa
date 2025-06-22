@@ -10,9 +10,9 @@ return new class extends Migration
     {
         Schema::create('package_types', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->json('name');
+            $table->json('description')->nullable();
             $table->string('slug')->unique();
-            $table->text('description')->nullable();
             $table->boolean('is_active')->default(true);
             $table->softDeletes();
             $table->timestamps();

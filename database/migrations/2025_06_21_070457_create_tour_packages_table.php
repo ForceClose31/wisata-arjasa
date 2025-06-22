@@ -11,10 +11,10 @@ return new class extends Migration
         Schema::create('tour_packages', function (Blueprint $table) {
             $table->id();
             $table->foreignId('package_type_id')->constrained();
-            $table->string('name');
+            $table->json('name');
+            $table->json('description')->nullable();
+            $table->json('duration');
             $table->string('slug')->unique();
-            $table->text('description');
-            $table->string('duration');
             $table->json('itinerary')->nullable();
             $table->json('includes')->nullable();
             $table->json('excludes')->nullable();

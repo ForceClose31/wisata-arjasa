@@ -11,24 +11,40 @@ class PackageTypeSeeder extends Seeder
     {
         $packageTypes = [
             [
-                'name' => 'One Day Tour',
+                'name' => ['en' => 'One Day Tour', 'id' => 'Tur Sehari'],
                 'slug' => 'one-day-tour',
-                'description' => 'Paket wisata sehari penuh'
+                'description' => [
+                    'en' => 'Full day tour packages exploring local attractions',
+                    'id' => 'Paket tur sehari penuh menjelajahi atraksi lokal'
+                ],
+                'is_active' => true
             ],
             [
-                'name' => 'Heritage and Art Camp (2D1N)',
+                'name' => ['en' => 'Heritage & Art Camp', 'id' => 'Kemah Warisan & Seni'],
                 'slug' => 'heritage-art-camp',
-                'description' => 'Paket 2 hari 1 malam dengan fokus warisan budaya dan seni'
+                'description' => [
+                    'en' => 'Multi-day immersive cultural experiences',
+                    'id' => 'Pengalaman budaya imersif beberapa hari'
+                ],
+                'is_active' => true
             ],
             [
-                'name' => 'Research Tour (3D2N)',
+                'name' => ['en' => 'Research Tour', 'id' => 'Tur Penelitian'],
                 'slug' => 'research-tour',
-                'description' => 'Paket 3 hari 2 malam untuk tujuan penelitian'
+                'description' => [
+                    'en' => 'In-depth cultural and heritage research programs',
+                    'id' => 'Program penelitian budaya dan warisan mendalam'
+                ],
+                'is_active' => true
             ],
             [
-                'name' => 'Hyang Argopuro Festival',
+                'name' => ['en' => 'Hyang Argopuro Festival', 'id' => 'Festival Hyang Argopuro'],
                 'slug' => 'hyang-argopuro-festival',
-                'description' => 'Paket khusus event festival Hyang Argopuro'
+                'description' => [
+                    'en' => 'Special packages for cultural festival events',
+                    'id' => 'Paket khusus untuk acara festival budaya'
+                ],
+                'is_active' => true
             ]
         ];
 
