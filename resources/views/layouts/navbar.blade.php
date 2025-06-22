@@ -12,14 +12,14 @@
             <div class="hidden md:flex items-center space-x-6 font-medium uppercase text-sm tracking-wide">
                 @php
                     $menus = [
-                        ['label' => 'Home', 'route' => 'home'],
-                        ['label' => 'About Us', 'route' => 'about.index'],
-                        ['label' => 'Tour Package', 'route' => 'tour-package.index'],
-                        ['label' => 'Komotra', 'route' => 'transport.index'],
-                        ['label' => 'Cottage', 'route' => 'cottage.index'],
-                        ['label' => 'Gallery', 'route' => 'gallery.index'],
-                        ['label' => 'Article', 'route' => 'articles.all'],
-                        ['label' => 'Event Budaya', 'route' => 'event-budaya.index'],
+                        ['label' => __('navbar.home'), 'route' => 'home'],
+                        ['label' => __('navbar.about_us'), 'route' => 'about.index'],
+                        ['label' => __('navbar.tour_package'), 'route' => 'tour-package.index'],
+                        ['label' => __('navbar.komotra'), 'route' => 'transport.index'],
+                        ['label' => __('navbar.cottage'), 'route' => 'cottage.index'],
+                        ['label' => __('navbar.gallery'), 'route' => 'gallery.index'],
+                        ['label' => __('navbar.article'), 'route' => 'articles.all'],
+                        ['label' => __('navbar.event_budaya'), 'route' => 'event-budaya.index'],
                     ];
                 @endphp
 
