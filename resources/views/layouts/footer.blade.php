@@ -8,7 +8,7 @@
         </div>
 
         <div>
-            <h4 class="text-lg font-bold mb-5">Address</h4> {{-- Adjusted margin-bottom --}}
+            <h4 class="text-lg font-bold mb-5">Alamat</h4> {{-- Adjusted margin-bottom --}}
             <div class="flex items-start space-x-3 mb-4"> {{-- Adjusted space-x and mb --}}
                 <i class="fas fa-map-marker-alt mt-1 text-white text-base"></i> {{-- Icon size adjusted --}}
                 <p class="text-sm leading-relaxed">Pantai Ngurbloat Desa Wisata Ngilngof, Maluku Tenggara Kepulauan Kei</p>
@@ -47,7 +47,7 @@
         </div>
 
         <div>
-            <h4 class="text-lg font-bold mb-5">Recent Posts</h4> {{-- Adjusted margin-bottom --}}
+            <h4 class="text-lg font-bold mb-5">Postingan Terbaru</h4> {{-- Adjusted margin-bottom --}}
             <div class="flex items-start mb-4 space-x-3">
                 <img src="assets/gallery/1.JPG" class="w-16 h-16 object-cover" alt="Post thumbnail"> {{-- Adjusted image size and removed rounded corners --}}
                 <p class="text-sm">Tari Hitam</p>
@@ -60,6 +60,6 @@
     </div>
 
     <div class="mt-12 pt-6 border-t border-white-400 text-center text-sm text-white"> {{-- Increased mt- --}}
-        <p>&copy; 2025 Desa Wisata Adat Arjasa. All Rights Reserved.</p>
+        <p>&copy; 2025 Desa Wisata Adat Arjasa. Hak Cipta Dilindungi Undang-Undang.</p>
     </div>
 </footer>
