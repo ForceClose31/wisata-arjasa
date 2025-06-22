@@ -28,7 +28,7 @@
 
                 <!-- Share Buttons -->
                 <div class="mt-8 pt-8 border-t border-gray-200" data-aos="fade-up">
-                    <h4 class="text-lg font-semibold text-gray-800 mb-4">Bagikan Artikel:</h4>
+                    <h4 class="text-lg font-semibold text-gray-800 mb-4">{{ __('Bagikan Artikel') }}:</h4>
                     <div class="flex space-x-4">
                         <a href="#"
                             class="w-10 h-10 rounded-full bg-blue-400 text-white flex items-center justify-center hover:bg-blue-500 transition">
