@@ -1,42 +1,57 @@
 <?php
 
 namespace Database\Seeders;
-
 use Illuminate\Database\Seeder;
 use App\Models\Event;
-use Carbon\Carbon;
+use App\Models\EventCategory;
+use Illuminate\Support\Str;
 
 class EventSeeder extends Seeder
 {
-    public function run()
+    public function run(): void
     {
-        $events = [
-            [
-                'title' => 'Festival Budaya Desa',
-                'slug' => 'festival-budaya-desa',
-                'description' => 'Acara tahunan menampilkan berbagai kesenian dan budaya tradisional.',
-                'start_date' => Carbon::now()->addDays(15),
-                'end_date' => Carbon::now()->addDays(17),
-                'location' => 'Lapangan Desa Wisata',
-                'image' => 'events/festival1.jpg',
-                'is_published' => true,
-            ],
-            [
-                'title' => 'Workshop Kerajinan Tangan',
-                'slug' => 'workshop-kerajinan-tangan',
-                'description' => 'Belajar membuat kerajinan tangan tradisional dari pengrajin lokal.',
-                'start_date' => Carbon::now()->addDays(30),
-                'end_date' => Carbon::now()->addDays(30),
-                'location' => 'Ruang Kreatif Desa',
-                'image' => 'events/workshop1.jpg',
-                'is_published' => true,
-            ],
-        ];
+        $categories = EventCategory::all();
 
-        foreach ($events as $event) {
-            Event::create($event);
+        if ($categories->isEmpty()) {
+            $this->command->warn('No categories found. Please run EventCategorySeeder first.');
+            return;
         }
 
-        $this->command->info('Events seeded successfully!');
+        $types = [
+            ['en' => 'Free', 'id' => 'Gratis'],
+            ['en' => 'Paid', 'id' => 'Berbayar'],
+        ];
+
+        $statuses = [
+            ['en' => 'live', 'id' => 'langsung'],
+            ['en' => 'upcoming', 'id' => 'akan datang'],
+            ['en' => 'past', 'id' => 'lalu'],
+            ['en' => 'ongoing', 'id' => 'berlangsung'],
+        ];
+
+        foreach (range(1, 10) as $i) {
+            $category = $categories->random();
+            $type = $types[array_rand($types)];
+            $status = $statuses[array_rand($statuses)];
+
+            Event::create([
+                'title' => [
+                    'en' => 'Sample Event ' . $i,
+                    'id' => 'Acara Contoh ' . $i,
+                ],
+                'description' => [
+                    'en' => 'This is the description of event number ' . $i,
+                    'id' => 'Ini adalah deskripsi untuk acara nomor ' . $i,
+                ],
+                'image' => 'https://via.placeholder.com/600x400.png?text=Event+' . $i,
+                'location' => 'Bali',
+                'start_date' => now()->addDays($i),
+                'end_date' => now()->addDays($i + 1),
+                'type' => $type,
+                'status' => $status,
+                'category_id' => $category->id,
+                'slug' => Str::slug('Sample Event ' . $i . '-' . Str::random(5)),
+            ]);
+        }
     }
 }

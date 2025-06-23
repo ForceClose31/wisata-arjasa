@@ -4,21 +4,32 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class Event extends Model
 {
-    use HasFactory;
+    use HasFactory, HasTranslations;
+
+    public $translatable = ['title', 'description', 'type', 'status'];
 
     protected $fillable = [
         'title',
-        'slug',
         'description',
+        'image',
+        'location',
         'start_date',
         'end_date',
-        'location',
-        'image',
-        'is_published'
+        'type',
+        'status',
+        'category_id',
+        'slug'
     ];
 
     protected $dates = ['start_date', 'end_date'];
+
+    public function category()
+    {
+        return $this->belongsTo(EventCategory::class, 'category_id');
+    }
+
 }

@@ -45,10 +45,7 @@ Route::middleware('locale')->group(function () {
 
     Route::get('/cottage', [CottageController::class, 'index'])->name('cottage.index');
     Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
-
-    Route::get('/event-budaya', function () {
-        return view('user.event-budaya.event-budaya');
-    })->name('event-budaya.index');
+    Route::get('/event-budaya', [EventController::class, 'index'])->name('event-budaya.index');
 
     Route::get('/transport', function () {
         return view('user.transport.transport');

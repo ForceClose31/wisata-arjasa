@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             ArticleSeeder::class,
             CottageSeeder::class,
             TestimonialSeeder::class,
+            EventCategorySeeder::class,
             EventSeeder::class,
             ContentSeeder::class,
             GallerySeeder::class,
