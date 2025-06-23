@@ -292,6 +292,25 @@
         });
     </script>
 
+    <script>
+        function getSlideLink(cta) {
+            if (cta === '{{ __('layouts.Mulai Jelajahi') }}') {
+                return '{{ url('/about') }}';
+            } else if (cta === '{{ __('layouts.Lihat Event') }}') {
+                return '{{ url('/event-budaya') }}';
+            }
+            return '#';
+        }
+
+        // Registrasi ke Alpine agar bisa dipanggil dari mana pun
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('sliderController', () => ({
+                getSlideLink
+            }));
+        });
+    </script>
+
+
     @stack('scripts') {{-- Ini adalah tempat script spesifik halaman akan di-render --}}
 
 </body>

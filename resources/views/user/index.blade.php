@@ -20,7 +20,7 @@
                         class="text-4xl md:text-6xl font-bold mb-4 font-montserrat animate-fade-in"></h1>
                     <p x-text="slides[currentSlide].subtitle"
                         class="text-xl md:text-2xl mb-8 text-gray-100 animate-fade-in animate-delay-100"></p>
-                    <a href="{{ route('about.index') }}"
+                    <a :href="getSlideLink(slides[currentSlide].cta)" ...
                         class="px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-gray-100 hover:text-blue-800 transition duration-300 animate-fade-in animate-delay-200 inline-flex items-center shadow-lg">
                         <span x-text="slides[currentSlide].cta"></span>
                         <i class="fas fa-arrow-right ml-2"></i>
