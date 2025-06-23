@@ -49,7 +49,7 @@ return array (
   'Penginapan' => 'Penginapan',
   'Pilih kategori event yang ingin Anda jelajahi.' => 'Pilih kategori event yang ingin Anda jelajahi.',
   'Populer Tags' => 'Populer Tags',
-  'Price List Sewa Mobil Kepulauan Kei.' => 'Price List Sewa Mobil Kepulauan Kei.',
+  'Daftar Harga Sewa Transportasi Desa Wisata Adat Arjasa.' => 'Daftar Harga Sewa Transportasi Desa Wisata Adat Arjasa.',
   'Profesional' => 'Profesional',
   'SEWA MOBIL' => 'SEWA MOBIL',
   'Sempurnakan Perjalanan Anda' => 'Sempurnakan Perjalanan Anda',
@@ -72,4 +72,5 @@ return array (
   'Transportasi' => 'Transportasi',
   'Wisatawan Puas' => 'Wisatawan Puas',
   'didirikan pada tahun 2010 dengan misi mulia untuk memperkenalkan keindahan tersembunyi ini kepada dunia. Kami memulai perjalanan ini dengan semangat untuk berbagi keunikan Arjasa.' => 'didirikan pada tahun 2010 dengan misi mulia untuk memperkenalkan keindahan tersembunyi ini kepada dunia. Kami memulai perjalanan ini dengan semangat untuk berbagi keunikan Arjasa.',
+  'SEWA MOBIL' => 'SEWA MOBIL'
 );

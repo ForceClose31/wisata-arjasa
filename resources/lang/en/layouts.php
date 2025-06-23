@@ -10,4 +10,6 @@ return array(
     'Jelajahi Keindahan Desa Wisata Adat Arjasa' => 'Explore the Beauty of Arjasa Traditional Tourism Village',
     'Kontak' => 'Contact',
     'Temukan kekayaan warisan budaya Indonesia' => 'Discover the richness of Indonesian cultural heritage',
+    'Mulai Jelajahi' => 'Start Exploring',
+    'Lihat Event' => 'See Event',
 );

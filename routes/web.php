@@ -15,6 +15,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PetaBudayaController;
+use App\Http\Controllers\TransportController;
 use Illuminate\Support\Facades\Session;
 
 Route::get('/lang/{locale}', function ($locale) {
@@ -54,6 +55,8 @@ Route::middleware('locale')->group(function () {
     Route::get('/transport', function () {
         return view('user.transport.transport');
     })->name('transport.index');
+
+    Route::get('/transport', [TransportController::class, 'index'])->name('transport.index');
 
     Route::get('/article', function () {
         return view('user.article.article');

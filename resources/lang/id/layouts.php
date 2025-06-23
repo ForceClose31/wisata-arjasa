@@ -10,4 +10,6 @@ return array (
   'Jelajahi Keindahan Desa Wisata Adat Arjasa' => 'Jelajahi Keindahan Desa Wisata Adat Arjasa',
   'Kontak' => 'Kontak',
   'Temukan kekayaan warisan budaya Indonesia' => 'Temukan kekayaan warisan budaya Indonesia',
+  'Mulai Jelajahi' => 'Mulai Jelajahi',
+  'Lihat Event' => 'Lihat Event',
 );

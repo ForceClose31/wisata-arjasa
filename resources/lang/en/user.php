@@ -49,7 +49,7 @@ return array(
     'Penginapan' => 'Accommodation',
     'Pilih kategori event yang ingin Anda jelajahi.' => 'Choose the event category you want to explore.',
     'Populer Tags' => 'Popular Tags',
-    'Price List Sewa Mobil Kepulauan Kei.' => 'Kei Islands Car Rental Price List.',
+    'Daftar Harga Sewa Transportasi Desa Wisata Adat Arjasa.' => 'List of Rental Prices for Transportation in the Arjasa Cultural Tourism Village.',
     'Profesional' => 'Professional',
     'SEWA MOBIL' => 'CAR RENTAL',
     'Sempurnakan Perjalanan Anda' => 'Perfect Your Journey',
@@ -72,4 +72,5 @@ return array(
     'Transportasi' => 'Transportation',
     'Wisatawan Puas' => 'Satisfied Tourists',
     'didirikan pada tahun 2010 dengan misi mulia untuk memperkenalkan keindahan tersembunyi ini kepada dunia. Kami memulai perjalanan ini dengan semangat untuk berbagi keunikan Arjasa.' => 'was established in 2010 with the noble mission of introducing this hidden beauty to the world. We began this journey with a passion for sharing Arjasa\'s uniqueness.',
+    'SEWA MOBIL' => 'RENT CAR'
 );

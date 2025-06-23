@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             EventSeeder::class,
             ContentSeeder::class,
             GallerySeeder::class,
+            TransportSeeder::class,
         ]);
     }
 }

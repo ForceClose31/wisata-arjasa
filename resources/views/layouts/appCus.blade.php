@@ -13,14 +13,20 @@
 
     {{-- Font Awesome --}}
     {{-- Anda memiliki dua link Font Awesome, saya sarankan gunakan yang terbaru saja (6.x.x) --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     {{-- Google Fonts --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@400;700&display=swap"
+        rel="stylesheet">
     {{-- Duplikasi Montserrat, saya biarkan yang lebih spesifik --}}
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&family=Lily+Script+One&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&family=Lily+Script+One&display=swap"
+        rel="stylesheet">
 
     {{-- AOS CSS --}}
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -46,15 +52,24 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        .animate-delay-100 { animation-delay: 0.1s; }
-        .animate-delay-200 { animation-delay: 0.2s; }
-        .animate-delay-300 { animation-delay: 0.3s; }
+        .animate-delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .animate-delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .animate-delay-300 {
+            animation-delay: 0.3s;
+        }
 
         /* Form Styles (dari kode asli Anda) */
         .register-bg {
@@ -62,12 +77,14 @@
             background-size: cover;
             background-position: center;
         }
+
         .form-input {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.2);
             color: white;
             transition: all 0.3s ease;
         }
+
         .confirm {
             padding-top: 0.3rem;
             padding-bottom: 0.3rem;
@@ -78,20 +95,24 @@
             color: rgb(0, 0, 0);
             transition: all 0.3s ease;
         }
+
         .form-input:focus {
             background: rgba(255, 255, 255, 0.1);
             border-color: #FBC02D;
             box-shadow: 0 0 0 2px rgba(251, 192, 45, 0.3);
         }
+
         .form-select {
             background: rgba(255, 255, 255, 0.05) url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23FFEB3B' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e") right 0.75rem center/1.5em 1.5em no-repeat;
             border: 1px solid rgba(255, 255, 255, 0.2);
             color: white;
         }
+
         .form-select:focus {
             border-color: #FBC02D;
             box-shadow: 0 0 0 2px rgba(251, 192, 45, 0.3);
         }
+
         .login-bg {
             background-image: url('assets/img/kecak.jpg');
             background-size: cover;
@@ -111,9 +132,11 @@
             padding: 0;
             margin-top: 2rem;
         }
+
         .pagination li {
             margin: 0 0.25rem;
         }
+
         .pagination li a,
         .pagination li span {
             display: inline-flex;
@@ -127,15 +150,19 @@
             background-color: #f3f4f6;
             transition: all 0.3s ease;
         }
+
         .pagination li.active a {
-            background-color: #20f2f6; /* Ini warna yang ada di pagination Anda, bukan blue-500 */
+            background-color: #20f2f6;
+            /* Ini warna yang ada di pagination Anda, bukan blue-500 */
             color: white;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
+
         .pagination li a:hover {
             background-color: #e5e7eb;
             color: #1f2937;
         }
+
         .pagination li:first-child a,
         .pagination li:last-child a {
             width: auto;
@@ -144,16 +171,35 @@
         }
 
         /* Line Clamp Utilities (dari kode asli Anda) */
-        .line-clamp-1 { display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
-        .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-        .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+        .line-clamp-1 {
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
 
         /* --- PENTING: Gaya untuk Tombol Filter Kategori --- */
         .category-btn.active {
-            background-color: #3B82F6 !important; /* blue-500, pakai !important untuk prioritas */
+            background-color: #3B82F6 !important;
+            /* blue-500, pakai !important untuk prioritas */
             color: #fff !important;
             border-color: #3B82F6 !important;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Opsional: tambah shadow */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            /* Opsional: tambah shadow */
         }
     </style>
     <script>
@@ -193,13 +239,13 @@
             title: '{{ __('layouts.Jelajahi Keindahan Desa Wisata Adat Arjasa') }}',
             subtitle: '{{ __('layouts.Temukan kekayaan warisan budaya Indonesia') }}',
             image: 'assets/img/gandrung.jpg',
-            cta: 'Mulai Jelajahi'
+            cta: '{{ __('layouts.Mulai Jelajahi') }}'
         },
         {
             title: '{{ __('layouts.Ikuti Event Budaya Terdekat') }}',
             subtitle: '{{ __('layouts.Bergabunglah dengan komunitas pelestari budaya') }}',
             image: 'assets/img/event.jpg',
-            cta: 'Lihat Event'
+            cta: '{{ __('layouts.Lihat Event') }}'
         }
     ],
     nextSlide() {
@@ -229,8 +275,8 @@
         AOS.init({
             duration: 800, // Durasi default untuk semua animasi AOS
             easing: 'ease-in-out',
-            once: true,    // Animasi hanya terjadi sekali saat elemen masuk viewport
-            mirror: false  // Jangan mengulang animasi saat scroll ke atas
+            once: true, // Animasi hanya terjadi sekali saat elemen masuk viewport
+            mirror: false // Jangan mengulang animasi saat scroll ke atas
         });
 
         // Contoh Auto slide change (jika ini memang untuk bagian lain di halaman Anda)
