@@ -223,7 +223,8 @@
                         <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 opacity-30 -z-1"></span>
                     </span>
                 </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">{{ __('user.Mengapa memilih kami untuk petualangan Anda di Desa Wisata Adat Arjasa?') }}
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    {{ __('user.Mengapa memilih kami untuk petualangan Anda di Desa Wisata Adat Arjasa?') }}
                 </p>
             </div>
 
@@ -235,7 +236,9 @@
                         <i class="fas fa-box-open text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-center text-gray-800 mb-3">{{ __('user.Paket Lengkap') }}</h3>
-                    <p class="text-gray-600 text-center text-sm">{{ __('user.Kami menyediakan berbagai pilihan paket wisata terlengkap di Desa Wisata Adat Arjasa.') }}</p>
+                    <p class="text-gray-600 text-center text-sm">
+                        {{ __('user.Kami menyediakan berbagai pilihan paket wisata terlengkap di Desa Wisata Adat Arjasa.') }}
+                    </p>
                 </div>
 
                 <div data-aos="fade-up" data-aos-delay="200"
@@ -245,7 +248,8 @@
                         <i class="fas fa-car text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-center text-gray-800 mb-3">{{ __('user.Semua dalam Satu') }}</h3>
-                    <p class="text-gray-600 text-center text-sm">{{ __('user.Tersedia juga sewa motor, mobil, dan cottage untuk kenyamanan Anda.') }}</p>
+                    <p class="text-gray-600 text-center text-sm">
+                        {{ __('user.Tersedia juga sewa motor, mobil, dan cottage untuk kenyamanan Anda.') }}</p>
                 </div>
 
                 <div data-aos="fade-up" data-aos-delay="300"
@@ -255,7 +259,8 @@
                         <i class="fas fa-user-tie text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-center text-gray-800 mb-3">{{ __('user.Profesional') }}</h3>
-                    <p class="text-gray-600 text-center text-sm">{{ __('user.Dengan dukungan tour guide profesional dan berpengalaman.') }}
+                    <p class="text-gray-600 text-center text-sm">
+                        {{ __('user.Dengan dukungan tour guide profesional dan berpengalaman.') }}
                     </p>
                 </div>
 
@@ -282,7 +287,8 @@
             <div class="mt-16 text-center bg-gradient-to-r from-teal-50 to-indigo-50 rounded-xl p-8 shadow-inner"
                 data-aos="fade-up" data-aos-delay="500">
                 <h3 class="text-2xl font-bold text-gray-800 mb-4">{{ __('user.Sempurnakan Perjalanan Anda') }}</h3>
-                <p class="text-gray-600 mb-6">{{ __('user.Temukan paket wisata terbaik untuk petualangan Anda di Arjasa') }}</p>
+                <p class="text-gray-600 mb-6">
+                    {{ __('user.Temukan paket wisata terbaik untuk petualangan Anda di Arjasa') }}</p>
                 <div class="max-w-md mx-auto relative">
                     <input type="text" placeholder="{{ __('user.Cari paket wisata...') }}"
                         class="w-full px-6 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent shadow-sm">
@@ -306,7 +312,8 @@
                         <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 opacity-30 -z-1"></span>
                     </span>
                 </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">{{ __('user.Temukan pengalaman wisata terbaik dengan paket-paket eksklusif kami') }}</p>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    {{ __('user.Temukan pengalaman wisata terbaik dengan paket-paket eksklusif kami') }}</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -540,197 +547,39 @@
                     {{ __('user.Penginapan') }}
                     <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 opacity-70 -z-1"></span>
                 </h2>
-                <p class="text-lg text-gray-700">{{ __('user.Kami menyediakan pilihan Penginapan dengan fasilitas lengkap.') }}</p>
+                <p class="text-lg text-gray-700">
+                    {{ __('user.Kami menyediakan pilihan Penginapan dengan fasilitas lengkap.') }}</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10"> {{-- Grid responsif untuk 1, 2, atau 4 kolom --}}
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
-                    data-aos="fade-up" data-aos-delay="100">
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=400&q=80"
-                            alt="Tria Maria Cottages"
-                            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
-                    </div>
-                    <div class="p-4">
-                        {{-- Nama Cottage --}}
-                        <h3 class="text-lg font-bold text-gray-800 mb-1">Tria Maria Cottages</h3>
-
-                        {{-- Fasilitas --}}
-                        <ul class="text-sm text-gray-700 mb-4 space-y-1">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free
-                                Breakfast</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free WiFi
-                            </li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Water
-                                Heater</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>AC</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>View Sea
-                            </li>
-                        </ul>
-
-                        {{-- Total Room --}}
-                        <div class="flex justify-end items-center mb-4 text-gray-700">
-                            <div class="flex items-center text-sm">
-                                <i class="fas fa-bed text-blue-500 mr-2"></i>
-                                <span>4 Room</span>
-                            </div>
+                @foreach ($cottages as $cottage)
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
+                        <div class="relative">
+                            <img src="{{ asset('storage/' . $cottage->images[0]) }}" alt="{{ $cottage->name }}"
+                                class="w-full h-48 object-cover">
                         </div>
-
-                        {{-- Button dan Harga --}}
-                        <div class="flex justify-between text-sm items-center mt-4">
-                            <a href="#"
-                                class="bg-blue-400 text-sm text-white font-semibold px-3 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
-                                BOOKING
-                            </a>
-                            <div class="text-right">
-                                <span class="block text-sm font-bold text-gray-800">Rp 500.000<span
-                                        class="text-sm text-gray-600">/Night</span></span>
+                        <div class="p-4">
+                            <h3 class="text-lg font-bold text-gray-800 mb-1">
+                                {{ $cottage->getTranslation('name', app()->getLocale()) }}</h3>
+                            <ul class="text-sm text-gray-700 mb-4 space-y-1">
+                                @foreach ($cottage->getTranslation('facilities', app()->getLocale()) as $facility)
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check-circle text-blue-500 mr-2"></i>{{ $facility }}
+                                    </li>
+                                @endforeach
+                            </ul>
+                            <div class="text-sm text-gray-800">
+                                <a href="#"
+                                    class="bg-blue-400 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
+                                    {{ __('user.PESAN') }}
+                                </a>
+                                <span class="ml-2 font-bold">Rp
+                                    {{ number_format($cottage->price, 0, ',', '.') }}</span><span class="text-gray-600">
+                                    /{{ __('user.Malam') }}</span>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                {{-- Noel Cottages Ngurbloat --}}
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
-                    data-aos="fade-up" data-aos-delay="200">
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=400&q=80"
-                            alt="Noel Cottages"
-                            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
-                    </div>
-                    <div class="p-4">
-                        {{-- Nama Cottage --}}
-                        <h3 class="text-lg font-bold text-gray-800 mb-1">Noel Cottages</h3>
-
-                        {{-- Fasilitas --}}
-                        <ul class="text-sm text-gray-700 mb-4 space-y-1">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free
-                                Breakfast</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free WiFi
-                            </li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Water
-                                Heater</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>AC</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>View Sea
-                            </li>
-                        </ul>
-
-                        {{-- Total Room --}}
-                        <div class="flex justify-end items-center mb-4 text-gray-700">
-                            <div class="flex items-center text-sm">
-                                <i class="fas fa-bed text-blue-500 mr-2"></i>
-                                <span>2 Room</span>
-                            </div>
-                        </div>
-
-                        {{-- Button dan Harga --}}
-                        <div class="flex justify-between text-sm items-center mt-4">
-                            <a href="#"
-                                class="bg-blue-400 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
-                                BOOKING
-                            </a>
-                            <div class="text-right">
-                                <span class="block text-sm font-bold text-gray-800">Rp 450.000<span
-                                        class="text-sm text-gray-600">/Night</span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Tria Maria Cottages (another one) --}}
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
-                    data-aos="fade-up" data-aos-delay="300">
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=400&q=80"
-                            alt="Tria Maria Cottages 2"
-                            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
-                    </div>
-                    <div class="p-4">
-                        {{-- Nama Cottage --}}
-                        <h3 class="text-lg font-bold text-gray-800 mb-1">Tria Maria Cottages</h3>
-
-                        {{-- Fasilitas --}}
-                        <ul class="text-sm text-gray-700 mb-4 space-y-1">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free
-                                Breakfast</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free WiFi
-                            </li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Water
-                                Heater</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>AC</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>View Sea
-                            </li>
-                        </ul>
-
-                        {{-- Total Room --}}
-                        <div class="flex justify-end items-center mb-4 text-gray-700">
-                            <div class="flex items-center text-sm">
-                                <i class="fas fa-bed text-blue-500 mr-2"></i>
-                                <span>3 Room</span>
-                            </div>
-                        </div>
-
-                        {{-- Button dan Harga --}}
-                        <div class="flex justify-between text-sm items-center mt-4">
-                            <a href="#"
-                                class="bg-blue-400 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
-                                BOOKING
-                            </a>
-                            <div class="text-right">
-                                <span class="block text-sm font-bold text-gray-800">Rp 550.000<span
-                                        class="text-sm text-gray-600">/Night</span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Stella Villa Cottages --}}
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
-                    data-aos="fade-up" data-aos-delay="400">
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=400&q=80"
-                            alt="Stella Villa Cottages"
-                            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
-                    </div>
-                    <div class="p-4">
-                        {{-- Nama Cottage --}}
-                        <h3 class="text-lg font-bold text-gray-800 mb-1">Stella Villa Cottages</h3>
-
-                        {{-- Fasilitas --}}
-                        <ul class="text-sm text-gray-700 mb-4 space-y-1">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free
-                                Breakfast</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Free WiFi
-                            </li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>Water
-                                Heater</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>AC</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>View Sea
-                            </li>
-                        </ul>
-
-                        {{-- Total Room --}}
-                        <div class="flex justify-end items-center mb-4 text-gray-700">
-                            <div class="flex items-center text-sm">
-                                <i class="fas fa-bed text-blue-500 mr-2"></i>
-                                <span>2 Room</span>
-                            </div>
-                        </div>
-
-                        {{-- Button dan Harga --}}
-                        <div class="flex justify-between text-sm items-center mt-4">
-                            <a href="#"
-                                class="bg-blue-400 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
-                                BOOKING
-                            </a>
-                            <div class="text-right">
-                                <span class="block text-sm font-bold text-gray-800">Rp 600.000<span
-                                        class="text-sm text-gray-600">/Night</span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                @endforeach
             </div>
         </div>
     </section>
@@ -744,7 +593,8 @@
                         <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 opacity-70 -z-1"></span>
                     </span>
                 </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">{{ __('user.Temukan tips wisata dan informasi terbaru seputar destinasi kami') }}</p>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    {{ __('user.Temukan tips wisata dan informasi terbaru seputar destinasi kami') }}</p>
             </div>
 
             <div class="container mx-auto px-4">
@@ -809,7 +659,8 @@
                     <div class="text-center py-12" data-aos="fade-up">
                         <img src="{{ asset('images/no-articles.svg') }}" alt="No articles found"
                             class="max-w-xs mx-auto mb-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">{{ __('user.Tidak ada artikel yang ditemukan') }}</h3>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">
+                            {{ __('user.Tidak ada artikel yang ditemukan') }}</h3>
                         <p class="text-gray-600">{{ __('user.Coba dengan kata kunci atau kategori yang berbeda') }}</p>
                     </div>
                 @endif
@@ -832,7 +683,8 @@
                         <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 opacity-70 -z-1"></span>
                     </span>
                 </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">{{ __('user.Dengarkan apa kata pengunjung kami tentang petualangan mereka di Arjasa') }}
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    {{ __('user.Dengarkan apa kata pengunjung kami tentang petualangan mereka di Arjasa') }}
                 </p>
             </div>
 
@@ -906,8 +758,11 @@
     @else
         <section class="py-20 bg-gray-50 text-gray-800">
             <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6 font-montserrat">{{ __('user.Siap Jelajahi Desa Wisata Arjasa?') }}</h2>
-                <p class="text-xl mb-8 max-w-2xl mx-auto">{{ __('user.Bergabunglah dengan komunitas penjelajah budaya kami dan mulai petualangan Anda di Arjasa hari ini') }}</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 font-montserrat">
+                    {{ __('user.Siap Jelajahi Desa Wisata Arjasa?') }}</h2>
+                <p class="text-xl mb-8 max-w-2xl mx-auto">
+                    {{ __('user.Bergabunglah dengan komunitas penjelajah budaya kami dan mulai petualangan Anda di Arjasa hari ini') }}
+                </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
                     <a href="/about"
                         class="px-8 py-3 border-2 border-blue-400 bg-blue-400 text-white font-bold rounded-lg hover:bg-white hover:text-blue-400 transition duration-300">

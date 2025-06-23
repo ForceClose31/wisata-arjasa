@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Cottage;
 use App\Models\TourPackage;
 use App\Models\PackageType;
 use App\Models\Tag;
@@ -34,31 +35,35 @@ class HomeController extends Controller
             ->limit(10)
             ->get();
 
-        $packageTypes = PackageType::with(['tourPackages' => function ($query) {
-            $query->where('is_available', true)
-                ->with(['pricings' => fn ($q) => $q->orderBy('price', 'asc')])
-                ->orderBy('created_at', 'desc');
-        }])->where('is_active', true)->get();
+        $packageTypes = PackageType::with([
+            'tourPackages' => function ($query) {
+                $query->where('is_available', true)
+                    ->with(['pricings' => fn($q) => $q->orderBy('price', 'asc')])
+                    ->orderBy('created_at', 'desc');
+            }
+        ])->where('is_active', true)->get();
 
-        $featuredPackages = TourPackage::with(['packageType', 'pricings' => fn ($q) => $q->orderBy('price', 'asc')])
+        $featuredPackages = TourPackage::with(['packageType', 'pricings' => fn($q) => $q->orderBy('price', 'asc')])
             ->where('is_available', true)
             ->where('is_featured', true)
             ->latest()
             ->take(4)
             ->get();
 
-        $newestPackages = TourPackage::with(['packageType', 'pricings' => fn ($q) => $q->orderBy('price', 'asc')])
+        $newestPackages = TourPackage::with(['packageType', 'pricings' => fn($q) => $q->orderBy('price', 'asc')])
             ->where('is_available', true)
             ->latest()
             ->take(4)
             ->get();
 
         $specialPackages = TourPackage::with(['packageType', 'pricings'])
-            ->whereHas('packageType', fn ($query) => $query->where('slug', 'hyang-argopuro-festival'))
+            ->whereHas('packageType', fn($query) => $query->where('slug', 'hyang-argopuro-festival'))
             ->where('is_available', true)
             ->latest()
             ->take(2)
             ->get();
+
+        $cottages = Cottage::where('is_available', true)->get();
 
         return view('user.index', compact(
             'packageTypes',
@@ -67,7 +72,8 @@ class HomeController extends Controller
             'specialPackages',
             'articles',
             'categories',
-            'popularTags'
+            'popularTags',
+            'cottages'
         ));
     }
 
@@ -75,7 +81,7 @@ class HomeController extends Controller
     {
         $packageTypes = PackageType::where('is_active', true)->get();
 
-        $featuredPackages = TourPackage::with(['packageType', 'pricings' => fn ($q) => $q->orderBy('price', 'asc')])
+        $featuredPackages = TourPackage::with(['packageType', 'pricings' => fn($q) => $q->orderBy('price', 'asc')])
             ->where('is_available', true)
             ->where('is_featured', true)
             ->latest()
@@ -89,7 +95,7 @@ class HomeController extends Controller
         $packageTypes = PackageType::where('is_active', true)->get();
 
         if ($packageType === 'all') {
-            $tourPackages = TourPackage::with(['pricings' => fn ($q) => $q->orderBy('price', 'asc')])
+            $tourPackages = TourPackage::with(['pricings' => fn($q) => $q->orderBy('price', 'asc')])
                 ->where('is_available', true)
                 ->latest()
                 ->paginate(9);
@@ -103,7 +109,7 @@ class HomeController extends Controller
 
         $type = PackageType::where('slug', $packageType)->firstOrFail();
 
-        $tourPackages = TourPackage::with(['pricings' => fn ($q) => $q->orderBy('price', 'asc')])
+        $tourPackages = TourPackage::with(['pricings' => fn($q) => $q->orderBy('price', 'asc')])
             ->where('package_type_id', $type->id)
             ->where('is_available', true)
             ->latest()
@@ -124,10 +130,10 @@ class HomeController extends Controller
 
         $tourPackage->load([
             'packageType',
-            'pricings' => fn ($q) => $q->orderBy('price', 'asc')
+            'pricings' => fn($q) => $q->orderBy('price', 'asc')
         ]);
 
-        $relatedPackages = TourPackage::with(['packageType', 'pricings' => fn ($q) => $q->orderBy('price', 'asc')])
+        $relatedPackages = TourPackage::with(['packageType', 'pricings' => fn($q) => $q->orderBy('price', 'asc')])
             ->where('package_type_id', $tourPackage->package_type_id)
             ->where('id', '!=', $tourPackage->id)
             ->where('is_available', true)

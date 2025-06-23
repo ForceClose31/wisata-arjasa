@@ -80,13 +80,13 @@
                                     class="bg-blue-400 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
                                     {{ __('user.PESAN') }}
                                 </a>
-                                <span class="ml-2 font-bold">Rp {{ number_format($cottage->price, 0, ',', '.') }}</span><span
-                                    class="text-gray-600"> /{{ __('user.Malam') }}</span>
+                                <span class="ml-2 font-bold">Rp
+                                    {{ number_format($cottage->price, 0, ',', '.') }}</span><span class="text-gray-600">
+                                    /{{ __('user.Malam') }}</span>
                             </div>
                         </div>
                     </div>
                 @endforeach
-
             </div>
         </div>
     </section>

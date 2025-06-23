@@ -24,9 +24,9 @@ class TourPackageSeeder extends Seeder
             ],
             'duration' => '1 Hari / 1 Day',
             'images' => [
-                'tour-packages/kei-island.webp',
-                'tour-packages/kei-island.webp',
-                'tour-packages/kei-island.webp',
+                'tour-packages/gandrung.jpg',
+                'tour-packages/gandrung.jpg',
+                'tour-packages/gandrung.jpg',
             ],
             'itinerary' => [
                 'en' => [
@@ -134,9 +134,9 @@ class TourPackageSeeder extends Seeder
             ],
             'duration' => '2 Hari 1 Malam / 2 Days 1 Night',
             'images' => [
-                'tour-packages/kei-island.webp',
-                'tour-packages/kei-island.webp',
-                'tour-packages/kei-island.webp',
+                'tour-packages/gandrung.jpg',
+                'tour-packages/gandrung.jpg',
+                'tour-packages/gandrung.jpg',
             ],
             'itinerary' => [
                 'en' => [
@@ -239,9 +239,9 @@ class TourPackageSeeder extends Seeder
             ],
             'duration' => '3 Hari 2 Malam / 3 Days 2 Nights',
             'images' => [
-                'tour-packages/kei-island.webp',
-                'tour-packages/kei-island.webp',
-                'tour-packages/kei-island.webp',
+                'tour-packages/gandrung.jpg',
+                'tour-packages/gandrung.jpg',
+                'tour-packages/gandrung.jpg',
             ],
             'itinerary' => [
                 'en' => [
@@ -348,9 +348,9 @@ class TourPackageSeeder extends Seeder
             ],
             'duration' => '2 Hari 1 Malam / 2 Days 1 Night',
             'images' => [
-                'tour-packages/kei-island.webp',
-                'tour-packages/kei-island.webp',
-                'tour-packages/kei-island.webp',
+                'tour-packages/gandrung.jpg',
+                'tour-packages/gandrung.jpg',
+                'tour-packages/gandrung.jpg',
             ],
             'itinerary' => [
                 'en' => [
