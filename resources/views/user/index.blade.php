@@ -531,7 +531,7 @@
             </div>
 
             <div class="text-center mt-12" data-aos="fade-up">
-                <a href="{{ route('packages.by-type', ['packageType' => 'all']) }}"
+                <a href="{{ route('tour-package.index') }}"
                     class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-500 hover:bg-blue-600 transition duration-300">
                     {{ __('user.Lihat Semua Paket') }} <i class="fas fa-arrow-right ml-2"></i>
                 </a>
