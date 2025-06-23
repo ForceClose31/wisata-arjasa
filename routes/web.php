@@ -14,6 +14,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\CottageController;
 use App\Http\Controllers\PetaBudayaController;
 use App\Http\Controllers\TransportController;
 use Illuminate\Support\Facades\Session;
@@ -42,10 +43,7 @@ Route::middleware('locale')->group(function () {
         return view('user.tour-package.tour-package');
     })->name('tour-package.index');
 
-    Route::get('/cottage', function () {
-        return view('user.cottage.cottage');
-    })->name('cottage.index');
-
+    Route::get('/cottage', [CottageController::class, 'index'])->name('cottage.index');
     Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
 
     Route::get('/event-budaya', function () {

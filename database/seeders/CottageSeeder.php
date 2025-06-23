@@ -11,25 +11,25 @@ class CottageSeeder extends Seeder
     {
         $cottages = [
             [
-                'name' => 'Cottage Bambu',
+                'name' => [
+                    'en' => 'Bamboo Cottage',
+                    'id' => 'Cottage Bambu'
+                ],
                 'slug' => 'cottage-bambu',
-                'description' => 'Cottage nyaman dengan bahan utama bambu yang ramah lingkungan.',
+                'description' => [
+                    'en' => 'Cozy cottage built with eco-friendly bamboo.',
+                    'id' => 'Cottage nyaman dengan bahan utama bambu yang ramah lingkungan.'
+                ],
                 'price' => 350000,
                 'capacity' => 2,
-                'facilities' => ['Kasur queen size', 'Kamar mandi dalam', 'AC', 'WiFi', 'Dapur kecil'],
+                'facilities' => [
+                    'en' => ['Queen size bed', 'Private bathroom', 'AC', 'WiFi', 'Kitchenette'],
+                    'id' => ['Kasur queen size', 'Kamar mandi dalam', 'AC', 'WiFi', 'Dapur kecil']
+                ],
                 'images' => ['cottages/bambu1.jpg', 'cottages/bambu2.jpg'],
                 'is_available' => true,
             ],
-            [
-                'name' => 'Cottage Keluarga',
-                'slug' => 'cottage-keluarga',
-                'description' => 'Cottage luas yang cocok untuk keluarga dengan 2 kamar tidur.',
-                'price' => 650000,
-                'capacity' => 4,
-                'facilities' => ['2 kamar tidur', 'Kamar mandi dalam', 'AC', 'TV', 'Dapur lengkap'],
-                'images' => ['cottages/keluarga1.jpg', 'cottages/keluarga2.jpg'],
-                'is_available' => true,
-            ],
+
         ];
 
         foreach ($cottages as $cottage) {

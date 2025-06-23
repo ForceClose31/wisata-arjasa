@@ -10,9 +10,9 @@ return new class extends Migration
     {
         Schema::create('cottages', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->json('name');
             $table->string('slug')->unique();
-            $table->text('description');
+            $table->json('description');
             $table->decimal('price', 10, 2);
             $table->integer('capacity');
             $table->json('facilities')->nullable();

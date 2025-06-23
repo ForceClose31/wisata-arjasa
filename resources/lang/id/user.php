@@ -72,5 +72,7 @@ return array (
   'Transportasi' => 'Transportasi',
   'Wisatawan Puas' => 'Wisatawan Puas',
   'didirikan pada tahun 2010 dengan misi mulia untuk memperkenalkan keindahan tersembunyi ini kepada dunia. Kami memulai perjalanan ini dengan semangat untuk berbagi keunikan Arjasa.' => 'didirikan pada tahun 2010 dengan misi mulia untuk memperkenalkan keindahan tersembunyi ini kepada dunia. Kami memulai perjalanan ini dengan semangat untuk berbagi keunikan Arjasa.',
-  'SEWA MOBIL' => 'SEWA MOBIL'
+  'SEWA MOBIL' => 'SEWA MOBIL',
+  'Malam' => 'Malam',
+  'PESAN' => 'PESAN'
 );

@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class Cottage extends Model
 {
-    use HasFactory;
+    use HasFactory, HasTranslations;
 
     protected $fillable = [
         'name',
@@ -22,6 +23,9 @@ class Cottage extends Model
 
     protected $casts = [
         'facilities' => 'array',
-        'images' => 'array'
+        'images' => 'array',
+        'is_available' => 'boolean',
     ];
+
+    public $translatable = ['name', 'description', 'facilities'];
 }
