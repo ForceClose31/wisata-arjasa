@@ -14,18 +14,19 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-    public function home() {
+    public function home()
+    {
         $popularContents = Konten::where('status', 'approved')
-                                ->orderBy('views_count', 'desc')
-                                ->take(3)
-                                ->get();
+            ->orderBy('views_count', 'desc')
+            ->take(3)
+            ->get();
 
         $upcomingEvents = Event::where('status', 'approved')
-                            ->where('jadwal', '>=', now())
-                            ->orderBy('views_count', 'desc')
-                            ->orderBy('jadwal', 'asc')
-                            ->take(2)
-                            ->get();
+            ->where('jadwal', '>=', now())
+            ->orderBy('views_count', 'desc')
+            ->orderBy('jadwal', 'asc')
+            ->take(2)
+            ->get();
 
         return view('user.index', compact('popularContents', 'upcomingEvents'));
     }
@@ -176,19 +177,20 @@ class AuthController extends Controller
         ));
     }
 
-    public function showLogin() {
+    public function showLogin()
+    {
         return view('user.login');
     }
 
     public function login(Request $request)
     {
-        $credentials = $request->only('username', 'password');
+        $credentials = $request->only('email', 'password');
 
         $validator = Validator::make($request->all(), [
-            'username' => 'required',
+            'email' => 'required',
             'password' => 'required|min:8',
         ], [
-            'username.required' => 'Username wajib diisi.',
+            'email.required' => 'Email wajib diisi.',
             'password.required' => 'Password wajib diisi.',
             'password.min' => 'Password minimal terdiri dari 8 karakter.',
         ]);
@@ -198,29 +200,24 @@ class AuthController extends Controller
         } elseif (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            // Ambil data user yang berhasil login
             $user = Auth::user();
-            $username = $user->username;
-            $role = $user->id_role; // Ambil id_role pengguna
+            $email = $user->email;
+            $role = $user->id_role;
 
-            // Simpan nama ke session flash data
-            $request->session()->flash('nama_login', $username);
+            $request->session()->flash('nama_login', $email);
             $request->session()->flash('alert_tampil', true);
 
-            // Periksa id_role dan arahkan ke route yang sesuai
             if ($role === 1) {
-                return redirect()->intended('admin/admin/dashboard');
-            } elseif ($role === 2) {
-
-                return redirect(route('home'));
+                return redirect()->intended('admin/dashboard');
             } else {
                 return redirect()->intended('index')->with('warning', 'Peran pengguna tidak dikenali.');
             }
         } else {
-            return redirect()->back()->with('error', 'Username atau password tidak terdaftar.');
+            return redirect()->back()->with('error', 'Email atau password tidak terdaftar.');
         }
     }
-    public function logout(Request $request){
+    public function logout(Request $request)
+    {
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();

@@ -13,16 +13,14 @@ class CheckRole
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
-     * @param  int  $roleId
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next, int $roleId)
+    public function handle(Request $request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->id_role === $roleId) {
+        if (Auth::check() && Auth::user()->role === 'admin') {
             return $next($request);
         }
 
-        // Jika peran tidak sesuai, redirect atau tampilkan pesan error
         return redirect()->route('index')->with('error', 'Anda tidak memiliki akses ke halaman ini.');
     }
 }

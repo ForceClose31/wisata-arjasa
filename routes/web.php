@@ -71,20 +71,23 @@ Route::middleware('locale')->group(function () {
     Route::get('/artikel/{slug}', [ArticleController::class, 'show'])->name('articles.show');
     Route::get('/artikel/tag/{slug}', [ArticleController::class, 'byTag'])->name('articles.byTag');
 });
-// Route::middleware(['guest'])->group(function () {
-//     Route::get('/user/regis', function () {
-//         return view('user.regis');
-//     })->name('regis');
+Route::middleware(['guest'])->group(function () {
+    Route::get('/user/regis', function () {
+        return view('user.regis');
+    })->name('regis');
 
-//     Route::post('/register', [RegisterController::class, 'submit'])->name('register.submit');
-//     Route::get('/login', [AuthController::class, 'ShowLogin'])->name('login');
-//     Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
-// });
+    Route::post('/register', [RegisterController::class, 'submit'])->name('register.submit');
+    Route::get('/admin/login', [AuthController::class, 'ShowLogin'])->name('login');
+    Route::post('/admin/login', [AuthController::class, 'login'])->name('login.submit');
+});
 
 
-// Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
-//     Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-//     Route::get('/admin/laporan', [LaporanController::class, 'index'])->name('laporan.index');
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
+    Route::get('/dashboard', function () {
+        return ('index');
+    })->name('dashboard');
+    // Route::get('admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    //     Route::get('/admin/laporan', [LaporanController::class, 'index'])->name('laporan.index');
 //     Route::get('/konten/create', [AdminController::class, 'create'])->name('konten.create');
 //     Route::post('/konten/storeAdmin', [KontenController::class, 'storeAdmin'])->name('konten.storeAdmin');
 //     Route::get('/konten/read', [AdminController::class, 'index'])->name('konten.index');
@@ -92,12 +95,12 @@ Route::middleware('locale')->group(function () {
 //     Route::put('/konten/{id}', [AdminController::class, 'update'])->name('konten.update');
 //     Route::delete('/konten/{id}', [AdminController::class, 'destroy'])->name('konten.destroy');
 
-//     // profile admin
+    //     // profile admin
 //     Route::get('/profile', [AdminController::class, 'profile'])->name('profile'); // Admin Profile
 //     Route::get('/profile/edit', [AdminController::class, 'editProfile'])->name('profile.edit'); // Edit Profile
 //     Route::put('/profile', [AdminController::class, 'updateProfile'])->name('profile.update'); // Update Profile
 
-//     // Event Routes
+    //     // Event Routes
 //     Route::get('/events', [EventController::class, 'indexAdmin'])->name('events.index'); // Menampilkan daftar event
 //     Route::get('/events/create', [EventController::class, 'createAdmin'])->name('events.create'); // Form tambah event
 //     Route::post('/events/store', [EventController::class, 'storeAdmin'])->name('events.store');
@@ -107,7 +110,7 @@ Route::middleware('locale')->group(function () {
 //     Route::get('/events/{event}/edit', [EventController::class, 'editAdmin'])->name('admin.events.edit');
 
 
-//     Route::post('/content/{id}/approve', [AdminController::class, 'approveContent'])->name('content.approve');
+    //     Route::post('/content/{id}/approve', [AdminController::class, 'approveContent'])->name('content.approve');
 //     Route::post('/content/{id}/reject', [AdminController::class, 'rejectContent'])->name('content.reject');
 //     Route::post('/recalculate-badges', [BadgeController::class, 'recalculateAllBadges'])->name('recalculate.badges');
-// });
+});

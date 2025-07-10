@@ -19,16 +19,16 @@
                 <form action="{{ route('login.submit') }}" method="POST" class="space-y-6">
                     @csrf
                     <div class="animate-fade-in" style="animation-delay: 0.2s;">
-                        <label for="username" class="block text-white mb-2 text-lg">Username</label>
+                        <label for="email" class="block text-white mb-2 text-lg">Email</label>
                         <div class="relative">
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                 <i class="fas fa-user text-gray-500 text-lg"></i>
                             </div>
-                            <input type="text" name="username" required
+                            <input type="text" name="email" required
                                    class="text-white border-black form-input w-full pl-10 pr-3 py-4 rounded-lg focus:ring-2 focus:ring-budanes text-lg"
-                                   placeholder="Masukkan username Anda">
+                                   placeholder="Masukkan email Anda">
                         </div>
-                        @error('username')
+                        @error('email')
                             <p class="mt-2 text-sm text-red-400">{{ $message }}</p>
                         @enderror
                     </div>
@@ -57,13 +57,6 @@
                         </button>
                     </div>
                 </form>
-
-                <div class="mt-8 text-center animate-fade-in" style="animation-delay: 0.5s;">
-                    <p class="text-white text-lg">Belum punya akun?
-                        <a href="{{ route('regis') }}" class="text-blue-500 hover:text-white hover:underline">Daftar sekarang</a>
-                    </p>
-                </div>
-
                 <div class=" rounded-lg mt-6 text-center animate-fade-in p-3" style="animation-delay: 0.6s;">
                     <a href="{{route('home')}}" class="border-b-4 border-red-900 inline-flex items-center text-white hover:bg-black hover:text-budanes transition text-lg bg-budanes rounded-lg p-3 border-b-2 border-black">
                         <i class="fas fa-home mr-2"></i> Kembali ke Beranda
