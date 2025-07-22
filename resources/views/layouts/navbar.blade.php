@@ -14,8 +14,8 @@
                     $menus = [
                         ['label' => __('navbar.home'), 'route' => 'home'],
                         ['label' => __('navbar.profile'), 'route' => 'about.index'],
-                        ['label' => __('navbar.tourist_destination'), 'route' => 'event-budaya.index'],
-                        ['label' => __('navbar.e_booklet'), 'route' => 'event-budaya.index'],
+                        ['label' => __('navbar.tourist_destination'), 'route' => 'tourist-destination.index'],
+                        ['label' => __('navbar.e_booklet'), 'route' => 'tourist-destination.index'],
                         ['label' => __('navbar.tour_package'), 'route' => 'tour-package.index'],
                         ['label' => __('navbar.gallery'), 'route' => 'gallery.index'],
                         ['label' => __('navbar.komotra'), 'route' => 'transport.index'],

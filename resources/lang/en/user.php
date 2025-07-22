@@ -53,7 +53,7 @@ return array(
     'SEWA MOBIL' => 'CAR RENTAL',
     'Sempurnakan Perjalanan Anda' => 'Perfect Your Journey',
     'Semua Artikel' => 'All Articles',
-    'Semua Event' => 'All Events',
+    'Semua Destinasi' => 'All Destinations',
     'Semua Kategori' => 'All Categories',
     'Semua dalam Satu' => 'All in One',
     'Siap Jelajahi Desa Wisata Arjasa?' => 'Ready to Explore Arjasa Tourism Village?',

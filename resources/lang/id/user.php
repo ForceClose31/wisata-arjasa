@@ -53,7 +53,7 @@ return array (
   'SEWA MOBIL' => 'SEWA MOBIL',
   'Sempurnakan Perjalanan Anda' => 'Sempurnakan Perjalanan Anda',
   'Semua Artikel' => 'Semua Artikel',
-  'Semua Event' => 'Semua Event',
+  'Semua Destinasi' => 'Semua Destinasi',
   'Semua Kategori' => 'Semua Kategori',
   'Semua dalam Satu' => 'Semua dalam Satu',
   'Siap Jelajahi Desa Wisata Arjasa?' => 'Siap Jelajahi Desa Wisata Arjasa?',

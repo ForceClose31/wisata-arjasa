@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\TouristDestination;
+use App\Http\Controllers\TouristDestinationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LaporanController;
@@ -45,7 +47,7 @@ Route::middleware('locale')->group(function () {
 
     Route::get('/cottage', [CottageController::class, 'index'])->name('cottage.index');
     Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
-    Route::get('/event-budaya', [EventController::class, 'index'])->name('event-budaya.index');
+    Route::get('/tourist-destination', [TouristDestinationController::class, 'index'])->name('tourist-destination.index');
 
     Route::get('/transport', function () {
         return view('user.transport.transport');

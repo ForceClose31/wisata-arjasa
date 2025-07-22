@@ -7,24 +7,24 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up()
     {
-        Schema::create('events', function (Blueprint $table) {
+        Schema::create('destinations', function (Blueprint $table) {
             $table->id();
             $table->json('title');
             $table->json('description');
+            $table->foreignId('category_id')->constrained('destination_categories');
             $table->string('location');
-            $table->string('slug');
+            $table->json('operational_hours');
             $table->string('image')->nullable();
-            $table->dateTime('start_date');
-            $table->dateTime('end_date');
-            $table->json('status');
             $table->json('type');
-            $table->foreignId('category_id')->constrained('event_categories')->cascadeOnDelete();
+            $table->string('slug');
+            $table->integer('views_count')->default(0);
+            $table->foreignId('admin_id')->constrained('admins');
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('destinations');
     }
 };

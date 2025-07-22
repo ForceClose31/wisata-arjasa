@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\DestinationCategory;
 use Illuminate\Database\Seeder;
-use App\Models\EventCategory;
 
-class EventCategorySeeder extends Seeder
+class CategorySeeder extends Seeder
 {
     public function run(): void
     {
@@ -33,7 +33,7 @@ class EventCategorySeeder extends Seeder
         ];
 
         foreach ($categories as $category) {
-            EventCategory::create([
+            DestinationCategory::create([
                 'name' => $category,
             ]);
         }

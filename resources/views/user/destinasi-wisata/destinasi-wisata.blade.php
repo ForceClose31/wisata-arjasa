@@ -20,11 +20,6 @@
                         class="text-xl md:text-4xl font-bold mb-4 font-montserrat animate-fade-in"></h1>
                     <p x-text="slides[currentSlide].subtitle"
                         class="text-sm md:text-xl mb-8 text-gray-100 animate-fade-in animate-delay-100"></p>
-                    {{-- <a href="{{ route('about.index') }}"
-                        class="px-8 py-4 bg-white text-teal-700 font-bold rounded-lg hover:bg-gray-100 hover:text-teal-800 transition duration-300 animate-fade-in animate-delay-200 inline-flex items-center shadow-lg">
-                        <span x-text="slides[currentSlide].cta"></span>
-                        <i class="fas fa-arrow-right ml-2"></i>
-                    </a> --}}
                 </div>
             </div>
         </div>
@@ -56,14 +51,15 @@
                     <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 opacity-70 -z-1"></span>
                 </h2>
                 <p class="text-lg text-gray-700" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-                    {{ __('user.Desa Wisata Adat Arjasa menawarkan 7 destinasi wisata bagi pengunjung, yaitu Wisata Citra Mandiri Waterpark, Situs Calok, Punden Berundak, Kampung Wisata Kesseh Gumitir, Gallery Lukis Bakar, Sendang Tirta Amertha Rajasa, Sanggar Seni Desa Arjasa. Penjelasan singkat destinasi :') }}</p>
+                    {{ __('user.Desa Wisata Adat Arjasa menawarkan 7 destinasi wisata bagi pengunjung, yaitu Wisata Citra Mandiri Waterpark, Situs Calok, Punden Berundak, Kampung Wisata Kesseh Gumitir, Gallery Lukis Bakar, Sendang Tirta Amertha Rajasa, Sanggar Seni Desa Arjasa.') }}
+                </p>
             </div>
 
-            <div id="event-categories" class="flex flex-wrap justify-center gap-4 mb-16">
+            <div id="destination-categories" class="flex flex-wrap justify-center gap-4 mb-16">
                 <button
                     class="category-btn bg-blue-500 text-white px-5 py-3 rounded-full font-semibold text-sm hover:hover:bg-gray-100 transition duration-300 shadow-md"
                     data-category="all">
-                    {{ __('user.Semua Event') }}
+                    {{ __('user.Semua Destinasi') }}
                 </button>
 
                 @foreach ($categories as $category)
@@ -75,52 +71,36 @@
                 @endforeach
             </div>
 
-
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                @foreach ($events as $event)
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl event-card"
+                @foreach ($destinations as $destination)
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl destination-card"
                         data-aos="fade-up" data-aos-delay="{{ 800 + $loop->index * 100 }}" data-aos-duration="1000"
-                        data-category="{{ $event->category?->getTranslation('name', app()->getLocale()) }}">
+                        data-category="{{ $destination->category?->getTranslation('name', app()->getLocale()) }}">
 
                         <div class="relative">
-                            <img src="{{ $event->image }}" alt="{{ $event->title }}"
+                            <img src="{{ $destination->image }}" alt="{{ $destination->getTranslation('title', app()->getLocale()) }}"
                                 class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105">
-                            <div
-                                class="absolute top-4 right-4 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md
-                    {{ $event->status === 'live'
-                        ? 'bg-red-500'
-                        : ($event->status === 'upcoming'
-                            ? 'bg-blue-500'
-                            : ($event->status === 'past'
-                                ? 'bg-gray-500'
-                                : ($event->status === 'ongoing'
-                                    ? 'bg-purple-500'
-                                    : 'bg-orange-500'))) }}">
-                                {{ ucfirst($event->getTranslation('status', app()->getLocale())) }}
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                                <h3 class="text-xl font-bold text-white">
+                                    {{ $destination->getTranslation('title', app()->getLocale()) }}
+                                </h3>
                             </div>
                         </div>
 
                         <div class="p-6">
-                            <div class="flex items-center justify-between mb-4">
-                                <span class="text-sm text-gray-600">
-                                    <i class="fas fa-calendar-alt text-gray-400 mr-2"></i>
-                                    {{ \Carbon\Carbon::parse($event->start_date)->translatedFormat('d F Y') }}
-                                </span>
-                                <span class="text-sm text-gray-600">
-                                    <i class="fas fa-calendar-alt text-gray-400 mr-2"></i>
-                                    {{ \Carbon\Carbon::parse($event->end_date)->translatedFormat('d F Y') }}
-                                </span>
-                                <span class="text-sm text-gray-600">
+                            <div class="flex items-center mb-4">
+                                <span class="text-sm text-gray-600 mr-3">
                                     <i class="fas fa-map-marker-alt text-gray-400 mr-2"></i>
-                                    {{ $event->location }}
+                                    {{ $destination->location }}
+                                </span>
+                                <span class="text-sm text-gray-600">
+                                    <i class="fas fa-clock text-gray-400 mr-2"></i>
+                                    {{ $destination->getTranslation('operational_hours', app()->getLocale()) }}
                                 </span>
                             </div>
 
-                            <h3 class="text-2xl font-bold text-gray-800 mb-2">
-                                {{ $event->getTranslation('title', app()->getLocale()) }}
-                            </h3>
                             <p class="text-gray-700 text-sm mb-4">
-                                {{ Str::limit($event->getTranslation('description', app()->getLocale()), 150) }}
+                                {{ Str::limit($destination->getTranslation('description', app()->getLocale()), 150) }}
                             </p>
 
                             <div class="flex justify-between items-center mt-4">
@@ -129,16 +109,8 @@
                                     {{ __('user.LIHAT DETAIL') }}
                                 </a>
 
-                                @php
-                                    $type = $event->getTranslation('type', app()->getLocale());
-                                    $color =
-                                        strtolower($type) === 'free' || strtolower($type) === 'gratis'
-                                            ? 'text-green-600'
-                                            : 'text-red-600';
-                                @endphp
-
-                                <span class="text-lg font-bold {{ $color }}">
-                                    {{ $type }}
+                                <span class="text-sm font-semibold bg-blue-100 text-blue-800 px-3 py-1 rounded-full">
+                                    {{ $destination->getTranslation('type', app()->getLocale()) }}
                                 </span>
                             </div>
                         </div>
@@ -153,10 +125,10 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const categoryButtons = document.querySelectorAll('.category-btn');
-            const eventCards = document.querySelectorAll('.event-card');
+            const destinationCards = document.querySelectorAll('.destination-card');
 
-            function filterEvents(category) {
-                eventCards.forEach(card => {
+            function filterDestinations(category) {
+                destinationCards.forEach(card => {
                     const cardCategory = card.getAttribute('data-category');
                     if (category === 'all' || cardCategory === category) {
                         card.style.display = 'block';
@@ -178,26 +150,11 @@
                     this.classList.remove('bg-white', 'text-gray-800');
 
                     const selectedCategory = this.getAttribute('data-category');
-                    filterEvents(selectedCategory);
+                    filterDestinations(selectedCategory);
                 });
             });
 
             document.querySelector('.category-btn[data-category="all"]').click();
-
-            const defaultButton = document.querySelector('.category-btn[data-category="all"]');
-            if (defaultButton) {
-                defaultButton.click();
-            } else {
-                filterEvents('all');
-            }
-
-            if (allButton) {
-                setTimeout(() => {
-                    allButton.click(); // Simulasikan klik pada tombol "Semua Event" untuk inisialisasi awal
-                }, 50); // Delay kecil, bisa disesuaikan jika perlu
-            } else {
-                filterEvents('Semua'); // Fallback jika tombol "Semua" tidak ditemukan
-            }
         });
     </script>
 @endpush
