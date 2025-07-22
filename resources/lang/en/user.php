@@ -73,5 +73,15 @@ return array(
     'didirikan pada tahun 2010 dengan misi mulia untuk memperkenalkan keindahan tersembunyi ini kepada dunia. Kami memulai perjalanan ini dengan semangat untuk berbagi keunikan Arjasa.' => 'was established in 2010 with the noble mission of introducing this hidden beauty to the world. We began this journey with a passion for sharing Arjasa\'s uniqueness.',
     'SEWA MOBIL' => 'RENT CAR',
     'Malam' => 'Night',
-    'PESAN' => 'BOOKING'
+    'PESAN' => 'BOOKING',
+    'Beranda' => 'Home',
+    'Lihat' => 'Views',
+    'Deskripsi' => 'Description',
+    'Fasilitas' => 'Facilities',
+    'Informasi Kunjungan' => 'Visit Information',
+    'Jam Operasional' => 'Operating Hours',
+    'Tipe Wisata' => 'Type of Tourism',
+    'Kategori' => 'Category',
+    'Bagikan' => 'Share',
+    'Destinasi Terdekat' => 'Nearest Destination',
 );

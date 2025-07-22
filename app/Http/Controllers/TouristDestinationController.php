@@ -56,13 +56,19 @@ class TouristDestinationController extends Controller
         return redirect()->route('destinations.history');
     }
 
-    public function show($id)
-    {
-        $destination = Destination::with('user')->findOrFail($id);
-        $destination->increment('views_count');
-        return view('user.destinasi-wisata.show', compact('destination'));
-    }
 
+    public function show($slug)
+    {
+        $destination = Destination::where('slug', $slug)->firstOrFail();
+        $destination->increment('views_count');
+
+        $nearbyDestinations = Destination::where('id', '!=', $destination->id)
+            ->inRandomOrder()
+            ->limit(5)
+            ->get();
+
+        return view('user.destinasi-wisata.destinasi-wisata-detail', compact('destination', 'nearbyDestinations'));
+    }
     public function edit($id)
     {
         $destination = Destination::findOrFail($id);

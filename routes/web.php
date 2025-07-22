@@ -1,25 +1,14 @@
 <?php
 
-use App\Http\Controllers\TouristDestination;
 use App\Http\Controllers\TouristDestinationController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\LaporanController;
-use App\Http\Controllers\KontenController;
-use App\Http\Controllers\BadgeController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\EventController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\CommentController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\CottageController;
-use App\Http\Controllers\PetaBudayaController;
 use App\Http\Controllers\TransportController;
-use Illuminate\Support\Facades\Session;
 
 Route::get('/lang/{locale}', function ($locale) {
     if (in_array($locale, ['en', 'id'])) {
@@ -48,6 +37,8 @@ Route::middleware('locale')->group(function () {
     Route::get('/cottage', [CottageController::class, 'index'])->name('cottage.index');
     Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
     Route::get('/tourist-destination', [TouristDestinationController::class, 'index'])->name('tourist-destination.index');
+    Route::get('/tourist-destination/{slug}', [TouristDestinationController::class, 'show'])
+        ->name('tourist-destination.show');
 
     Route::get('/transport', function () {
         return view('user.transport.transport');

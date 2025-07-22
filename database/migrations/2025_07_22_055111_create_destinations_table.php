@@ -12,9 +12,10 @@ return new class extends Migration {
             $table->json('title');
             $table->json('description');
             $table->foreignId('category_id')->constrained('destination_categories');
-            $table->string('location');
+            $table->json('location');
             $table->json('operational_hours');
             $table->string('image')->nullable();
+            $table->json('facilities')->nullable();
             $table->json('type');
             $table->string('slug');
             $table->integer('views_count')->default(0);

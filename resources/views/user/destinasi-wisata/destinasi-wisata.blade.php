@@ -78,7 +78,8 @@
                         data-category="{{ $destination->category?->getTranslation('name', app()->getLocale()) }}">
 
                         <div class="relative">
-                            <img src="{{ $destination->image }}" alt="{{ $destination->getTranslation('title', app()->getLocale()) }}"
+                            <img src="{{ $destination->image }}"
+                                alt="{{ $destination->getTranslation('title', app()->getLocale()) }}"
                                 class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105">
                             <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                                 <h3 class="text-xl font-bold text-white">
@@ -91,7 +92,7 @@
                             <div class="flex items-center mb-4">
                                 <span class="text-sm text-gray-600 mr-3">
                                     <i class="fas fa-map-marker-alt text-gray-400 mr-2"></i>
-                                    {{ $destination->location }}
+                                    {{ $destination->getTranslation('location', app()->getLocale()) }}
                                 </span>
                                 <span class="text-sm text-gray-600">
                                     <i class="fas fa-clock text-gray-400 mr-2"></i>
@@ -104,7 +105,7 @@
                             </p>
 
                             <div class="flex justify-between items-center mt-4">
-                                <a href="#"
+                                <a href="{{ route('tourist-destination.show', $destination->slug) }}"
                                     class="bg-blue-400 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md transform hover:-translate-y-1">
                                     {{ __('user.LIHAT DETAIL') }}
                                 </a>
