@@ -13,68 +13,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $articleQuery = Article::query()->where('is_published', true);
-
-        if (request()->filled('search')) {
-            $searchTerm = request('search');
-            $articleQuery->where(function ($query) use ($searchTerm) {
-                $query->where('title', 'like', "%$searchTerm%")
-                    ->orWhere('content', 'like', "%$searchTerm%");
-            });
-        }
-
-        if (request()->filled('category')) {
-            $articleQuery->where('category', request('category'));
-        }
-
-        $articles = $articleQuery->latest()->paginate(9);
-        $categories = Article::select('category')->distinct()->pluck('category');
-
-        $popularTags = Tag::withCount('articles')
-            ->orderByDesc('articles_count')
-            ->limit(10)
-            ->get();
-
-        $packageTypes = PackageType::with([
-            'tourPackages' => function ($query) {
-                $query->where('is_available', true)
-                    ->with(['pricings' => fn($q) => $q->orderBy('price', 'asc')])
-                    ->orderBy('created_at', 'desc');
-            }
-        ])->where('is_active', true)->get();
-
-        $featuredPackages = TourPackage::with(['packageType', 'pricings' => fn($q) => $q->orderBy('price', 'asc')])
-            ->where('is_available', true)
-            ->where('is_featured', true)
-            ->latest()
-            ->take(4)
-            ->get();
-
-        $newestPackages = TourPackage::with(['packageType', 'pricings' => fn($q) => $q->orderBy('price', 'asc')])
-            ->where('is_available', true)
-            ->latest()
-            ->take(4)
-            ->get();
-
-        $specialPackages = TourPackage::with(['packageType', 'pricings'])
-            ->whereHas('packageType', fn($query) => $query->where('slug', 'hyang-argopuro-festival'))
-            ->where('is_available', true)
-            ->latest()
-            ->take(2)
-            ->get();
-
-        $cottages = Cottage::where('is_available', true)->get();
-
-        return view('user.index', compact(
-            'packageTypes',
-            'featuredPackages',
-            'newestPackages',
-            'specialPackages',
-            'articles',
-            'categories',
-            'popularTags',
-            'cottages'
-        ));
+        return view('user.index');
     }
 
     public function tourPackage()
@@ -154,3 +93,55 @@ class HomeController extends Controller
         ));
     }
 }
+
+// $articleQuery = Article::query()->where('is_published', true);
+
+// if (request()->filled('search')) {
+//     $searchTerm = request('search');
+//     $articleQuery->where(function ($query) use ($searchTerm) {
+//         $query->where('title', 'like', "%$searchTerm%")
+//             ->orWhere('content', 'like', "%$searchTerm%");
+//     });
+// }
+
+// if (request()->filled('category')) {
+//     $articleQuery->where('category', request('category'));
+// }
+
+// $articles = $articleQuery->latest()->paginate(9);
+// $categories = Article::select('category')->distinct()->pluck('category');
+
+// $popularTags = Tag::withCount('articles')
+//     ->orderByDesc('articles_count')
+//     ->limit(10)
+//     ->get();
+
+// $packageTypes = PackageType::with([
+//     'tourPackages' => function ($query) {
+//         $query->where('is_available', true)
+//             ->with(['pricings' => fn($q) => $q->orderBy('price', 'asc')])
+//             ->orderBy('created_at', 'desc');
+//     }
+// ])->where('is_active', true)->get();
+
+// $featuredPackages = TourPackage::with(['packageType', 'pricings' => fn($q) => $q->orderBy('price', 'asc')])
+//     ->where('is_available', true)
+//     ->where('is_featured', true)
+//     ->latest()
+//     ->take(4)
+//     ->get();
+
+// $newestPackages = TourPackage::with(['packageType', 'pricings' => fn($q) => $q->orderBy('price', 'asc')])
+//     ->where('is_available', true)
+//     ->latest()
+//     ->take(4)
+//     ->get();
+
+// $specialPackages = TourPackage::with(['packageType', 'pricings'])
+//     ->whereHas('packageType', fn($query) => $query->where('slug', 'hyang-argopuro-festival'))
+//     ->where('is_available', true)
+//     ->latest()
+//     ->take(2)
+//     ->get();
+
+// $cottages = Cottage::where('is_available', true)->get();

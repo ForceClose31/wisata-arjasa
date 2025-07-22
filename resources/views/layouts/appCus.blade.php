@@ -237,7 +237,7 @@
     currentSlide: 0,
     slides: [{
             title: '{{ __('layouts.Jelajahi Keindahan Desa Wisata Adat Arjasa') }}',
-            subtitle: '{{ __('layouts.Temukan kekayaan warisan budaya Indonesia') }}',
+            subtitle: '{{ __('layouts.Dari Suara Lokal ke Kebanggaan Global.') }}',
             image: 'assets/img/gandrung.jpg',
             cta: '{{ __('layouts.Mulai Jelajahi') }}'
         },

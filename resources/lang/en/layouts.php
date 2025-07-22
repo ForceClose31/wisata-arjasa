@@ -9,7 +9,7 @@ return array(
     'Ikuti Event Budaya Terdekat' => 'Follow Upcoming Cultural Events',
     'Jelajahi Keindahan Desa Wisata Adat Arjasa' => 'Explore the Beauty of Arjasa Traditional Tourism Village',
     'Kontak' => 'Contact',
-    'Temukan kekayaan warisan budaya Indonesia' => 'Discover the richness of Indonesian cultural heritage',
+    'Dari Suara Lokal ke Kebanggaan Global.' => 'From Local Vibes to Global Pride.',
     'Mulai Jelajahi' => 'Start Exploring',
     'Lihat Event' => 'See Event',
 );

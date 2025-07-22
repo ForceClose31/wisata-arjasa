@@ -9,7 +9,7 @@ return array (
   'Ikuti Event Budaya Terdekat' => 'Ikuti Event Budaya Terdekat',
   'Jelajahi Keindahan Desa Wisata Adat Arjasa' => 'Jelajahi Keindahan Desa Wisata Adat Arjasa',
   'Kontak' => 'Kontak',
-  'Temukan kekayaan warisan budaya Indonesia' => 'Temukan kekayaan warisan budaya Indonesia',
+  'Dari Suara Lokal ke Kebanggaan Global.' => 'Dari Suara Lokal ke Kebanggaan Global.',
   'Mulai Jelajahi' => 'Mulai Jelajahi',
   'Lihat Event' => 'Lihat Event',
 );
