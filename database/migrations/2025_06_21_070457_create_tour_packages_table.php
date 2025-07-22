@@ -15,9 +15,7 @@ return new class extends Migration
             $table->json('description')->nullable();
             $table->json('duration');
             $table->string('slug')->unique();
-            $table->json('itinerary')->nullable();
-            $table->json('includes')->nullable();
-            $table->json('excludes')->nullable();
+            $table->string('pdf_url')->nullable();
             $table->json('highlights')->nullable();
             $table->json('images')->nullable();
             $table->boolean('is_featured')->default(false);
