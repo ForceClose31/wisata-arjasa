@@ -10,4 +10,5 @@ return [
     'contact' => 'Kontak',
     'tourist_destination' => 'Destinasi Wisata',
     'e_booklet' => 'E-Booklet',
+    'tourism' => 'Destinasi Wisata'
 ];

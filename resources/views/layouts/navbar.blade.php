@@ -7,31 +7,60 @@
                     class="h-20 w-auto drop-shadow-sm hover:scale-105 transition-transform duration-300">
             </a>
 
-
             <!-- Desktop Menu -->
             <div class="hidden md:flex items-center space-x-6 font-medium uppercase text-sm tracking-wide">
                 @php
                     $menus = [
                         ['label' => __('navbar.home'), 'route' => 'home'],
                         ['label' => __('navbar.profile'), 'route' => 'about.index'],
-                        ['label' => __('navbar.tourist_destination'), 'route' => 'tourist-destination.index'],
-                        ['label' => __('navbar.e_booklet'), 'route' => 'tourist-destination.index'],
+                        [
+                            'label' => __('navbar.tourism'),
+                            'children' => [
+                                ['label' => __('navbar.tourist_destination'), 'route' => 'tourist-destination.index'],
+                                ['label' => __('navbar.e_booklet'), 'route' => 'tourist-destination.index'],
+                            ],
+                        ],
                         ['label' => __('navbar.tour_package'), 'route' => 'tour-package.index'],
                         ['label' => __('navbar.gallery'), 'route' => 'gallery.index'],
                         ['label' => __('navbar.komotra'), 'route' => 'transport.index'],
                         ['label' => __('navbar.cottage'), 'route' => 'cottage.index'],
                         ['label' => __('navbar.contact'), 'route' => 'articles.all'],
                     ];
+
                 @endphp
 
                 @foreach ($menus as $menu)
-                    <a href="{{ route($menu['route']) }}"
-                        class="{{ request()->routeIs($menu['route'])
-                            ? 'bg-blue-500 text-white px-3 py-1 rounded-md'
-                            : 'text-black hover:text-blue-400 transition' }}">
-                        {{ strtoupper($menu['label']) }}
-                    </a>
+                    @if (isset($menu['children']))
+                        <div x-data="{ open: false }" class="relative group">
+                            <button @click="open = !open"
+                                class="flex items-center gap-1 text-black hover:text-blue-400 transition focus:outline-none">
+                                {{ strtoupper($menu['label']) }}
+                                <svg class="w-4 h-4 transform transition" :class="{ 'rotate-180': open }" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div x-show="open" @click.away="open = false" x-transition
+                                class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
+                                <div class="py-2">
+                                    @foreach ($menu['children'] as $child)
+                                        <a href="{{ route($child['route']) }}"
+                                            class="block px-4 py-2 text-sm text-gray-800 hover:bg-blue-100">
+                                            {{ strtoupper($child['label']) }}
+                                        </a>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                        <a href="{{ route($menu['route']) }}"
+                            class="{{ request()->routeIs($menu['route']) ? 'bg-blue-500 text-white px-3 py-1 rounded-md' : 'text-black hover:text-blue-400 transition' }}">
+                            {{ strtoupper($menu['label']) }}
+                        </a>
+                    @endif
                 @endforeach
+
                 <div class="ml-4">
                     <select id="language-selector"
                         class="bg-white px-3 py-1 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
@@ -68,13 +97,34 @@
         <div x-show="mobileMenuOpen" x-transition class="md:hidden bg-white border-t border-gray-100">
             <div class="px-4 py-4 flex flex-col space-y-3 uppercase text-sm tracking-wide">
                 @foreach ($menus as $menu)
-                    <a href="{{ route($menu['route']) }}"
-                        class="{{ request()->routeIs($menu['route'])
-                            ? 'bg-blue-500 text-white px-3 py-2 rounded-md'
-                            : 'text-black hover:text-blue-400 transition' }}">
-                        {{ strtoupper($menu['label']) }}
-                    </a>
+                    @if (isset($menu['children']))
+                        <div x-data="{ open: false }">
+                            <button @click="open = !open"
+                                class="flex justify-between items-center w-full px-3 py-2 text-left text-black hover:text-blue-400 transition">
+                                {{ strtoupper($menu['label']) }}
+                                <svg class="w-4 h-4 transform transition" :class="{ 'rotate-180': open }" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div x-show="open" x-transition class="pl-4">
+                                @foreach ($menu['children'] as $child)
+                                    <a href="{{ route($child['route']) }}"
+                                        class="block px-3 py-2 text-sm text-gray-800 hover:bg-blue-100">
+                                        {{ strtoupper($child['label']) }}
+                                    </a>
+                                @endforeach
+                            </div>
+                        </div>
+                    @else
+                        <a href="{{ route($menu['route']) }}"
+                            class="{{ request()->routeIs($menu['route']) ? 'bg-blue-500 text-white px-3 py-2 rounded-md' : 'text-black hover:text-blue-400 transition' }}">
+                            {{ strtoupper($menu['label']) }}
+                        </a>
+                    @endif
                 @endforeach
+
 
                 <div class="mt-4">
                     <select id="language-selector-mobile"
@@ -90,130 +140,3 @@
         </div>
     </nav>
 </header>
-
-
-
-{{-- Popular Content Section --}}
-{{-- <section class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-montserrat">Featured <span
-                        class="relative">
-                        Cultural Highlights
-                        <span class="absolute bottom-0 left-0 w-full h-2 bg-indigo-400 opacity-30 -z-1"></span>
-                    </span></h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Discover the most engaging cultural content from our
-                    community</p>
-            </div>
-
-            @if ($popularContents->count() > 0)
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    @foreach ($popularContents as $content)
-                        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
-                            @if ($content->thumbnail)
-                                <img src="{{ asset('storage/' . $content->thumbnail) }}" alt="{{ $content->judul }}"
-                                    class="w-full h-48 object-cover">
-                            @else
-                                <img src="https://via.placeholder.com/400x200?text=No+Thumbnail" alt="No Thumbnail"
-                                    class="w-full h-48 object-cover">
-                            @endif
-                            <div class="p-6">
-                                <div class="flex items-center mb-3">
-                                    <span
-                                        class="px-3 py-1 bg-teal-100 text-teal-800 text-xs font-semibold rounded-full">{{ $content->kategori }}</span>
-                                    <span class="ml-2 text-xs text-gray-500">{{ $content->views_count }} views</span>
-                                </div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-2">{{ $content->judul }}</h3>
-                                <p class="text-gray-600 mb-4">{{ Str::limit($content->isi, 100) }}</p>
-                                <a href="{{ route('kontenbudaya.show', $content->id) }}"
-                                    class="text-teal-600 font-semibold hover:text-teal-800 transition duration-300 flex items-center">
-                                    Read More <i class="fas fa-arrow-right ml-2"></i>
-                                </a>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            @else
-                <div class="text-center py-8">
-                    <p class="text-gray-500">No content available at the moment</p>
-                </div>
-            @endif
-
-            <div class="text-center mt-12">
-                <a href="{{ route('about.index') }}"
-                    class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 transition duration-300">
-                    Explore All Content <i class="fas fa-arrow-right ml-2"></i>
-                </a>
-            </div>
-        </div>
-    </section> --}}
-
-{{-- Upcoming Events Section --}}
-{{-- <section class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-montserrat">Upcoming <span
-                        class="relative">
-                        Cultural Events
-                        <span class="absolute bottom-0 left-0 w-full h-2 bg-amber-400 opacity-30 -z-1"></span>
-                    </span></h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Mark your calendar for these exciting cultural events in
-                    Arjasa</p>
-            </div>
-
-            @if ($upcomingEvents->count() > 0)
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    @foreach ($upcomingEvents as $event)
-                        <div
-                            class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300 flex flex-col md:flex-row">
-                            <div class="md:w-1/3 relative">
-                                @if ($event->thumbnail)
-                                    <img src="{{ asset('storage/' . $event->thumbnail) }}" alt="{{ $event->judul }}"
-                                        class="w-full h-full object-cover">
-                                @else
-                                    <img src="https://via.placeholder.com/400x200?text=No+Thumbnail" alt="No Thumbnail"
-                                        class="w-full h-full object-cover">
-                                @endif
-                                <div class="absolute top-4 left-4 bg-white/90 px-3 py-1 rounded-lg shadow-sm">
-                                    <div class="text-sm font-bold text-gray-800">{{ $event->jadwal->format('d') }}</div>
-                                    <div class="text-xs text-gray-600">{{ $event->jadwal->format('M') }}</div>
-                                </div>
-                            </div>
-                            <div class="p-6 md:w-2/3">
-                                <div class="flex items-center mb-2">
-                                    <span
-                                        class="px-2 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded">{{ $event->tempat }}</span>
-                                </div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-2">{{ $event->judul }}</h3>
-                                <p class="text-gray-600 mb-4">{{ Str::limit($event->isi, 100) }}</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-sm font-semibold text-gray-700">
-                                        @if ($event->harga > 0)
-                                            Rp {{ number_format($event->harga, 0, ',', '.') }}
-                                        @else
-                                            Free Admission
-                                        @endif
-                                    </span>
-                                    <a href="{{ route('event.show', $event->id) }}"
-                                        class="text-sm font-semibold text-teal-600 hover:text-teal-800 transition duration-300 flex items-center">
-                                        Details <i class="fas fa-arrow-right ml-1"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            @else
-                <div class="text-center py-8">
-                    <p class="text-gray-500">No upcoming events scheduled</p>
-                </div>
-            @endif
-
-            <div class="text-center mt-12">
-                <a href="{{ route('event.index') }}"
-                    class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-amber-600 hover:bg-amber-700 transition duration-300">
-                    View All Events <i class="fas fa-arrow-right ml-2"></i>
-                </a>
-            </div>
-        </div>
-    </section> --}}

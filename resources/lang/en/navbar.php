@@ -9,5 +9,6 @@ return [
     'gallery' => 'Gallery',
     'contact' => 'Contact',
     'tourist_destination' => 'Tourist Destination',
-    'e_booklet' => 'E-Booklet'
+    'e_booklet' => 'E-Booklet',
+    'tourism' => 'Tourism'
 ];
