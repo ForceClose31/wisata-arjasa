@@ -3,15 +3,27 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gallery;
+use App\Models\GalleryCategory;
 use Illuminate\Http\Request;
 
 class GalleryController extends Controller
 {
-    public function index()
+   public function index(Request $request)
     {
-        $galleries = Gallery::all();
-        return view('user.gallery.gallery', compact('galleries'));
+        $categories = GalleryCategory::all();
+        $selectedCategory = $request->input('galleryCategory');
+
+        $galleries = Gallery::when($selectedCategory, function($query) use ($selectedCategory) {
+            return $query->whereHas('galleryCategory', function($q) use ($selectedCategory) {
+                $q->where('slug', $selectedCategory);
+            }); 
+        })
+        ->with('galleryCategory')
+        ->get();
+
+        return view('user.gallery.gallery', compact('galleries', 'categories', 'selectedCategory'));
     }
+
 
     public function create()
     {

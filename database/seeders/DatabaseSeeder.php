@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             DestinationSeeder::class,
             ContentSeeder::class,
+            GalleryCategorySeeder::class,
             GallerySeeder::class,
             TransportSeeder::class,
         ]);

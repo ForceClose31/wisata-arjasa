@@ -13,6 +13,12 @@ class Gallery extends Model
         'title',
         'description',
         'image_path',
-        'location'
+        'location',
+        'gallery_category_id'
     ];
+
+     public function galleryCategory()
+    {
+        return $this->belongsTo(GalleryCategory::class);
+    }
 }
