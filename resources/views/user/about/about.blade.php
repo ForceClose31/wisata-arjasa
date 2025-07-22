@@ -67,16 +67,12 @@
                 <div class="lg:w-2/3" data-aos="fade-left" data-aos-duration="1000">
                     <div class="max-w-2xl mx-auto lg:mx-0">
                         <h2 class="text-4xl md:text-4xl font-bold text-gray-800 mb-2 font-montserrat relative inline-block">
-                            {{ __('user.Kisah Perjalanan Kami') }}
+                            {{ __('user.Sejarah Singkat Kami') }}
                             <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 opacity-70 -z-1"></span>
                         </h2>
                         <p class="text-lg text-gray-600 mb-6 leading-relaxed font-lato">
-                            {{ __('user.Berawal dari kecintaan mendalam terhadap kekayaan budaya dan pesona alam Arjasa,') }}
                             <span class="text-blue-500 font-bold">{{ __('Desa Wisata Adat Arjasa') }}</span>
-                            {{ __('user.didirikan pada tahun 2010 dengan misi mulia untuk memperkenalkan keindahan tersembunyi ini kepada dunia. Kami memulai perjalanan ini dengan semangat untuk berbagi keunikan Arjasa.') }}
-                        </p>
-                        <p class="text-lg text-gray-600 mb-8 leading-relaxed font-lato">
-                            {{ __('user.Dari sebuah tim kecil yang berdedikasi, kami telah tumbuh menjadi penyedia layanan wisata terpercaya, dikenal luas dengan pendekatan personal dan pengetahuan mendalam tentang setiap sudut Arjasa. Kami bangga dapat menjadi jembatan antara Anda dan pengalaman tak terlupakan di destinasi ini.') }}
+                            {{ __('user.dibentuk pada tahun 1920, pada era kepemimpinan kepala Desa Arjasa kedua yaitu bapak Seha. Beliau memimpin dari tahun 1915 sampai dengan tahun 1946. Bapak Seha merupakan penggerak dan penginisiasi berdirinya  desa adat ini dengan nama Desa Wisata Adat. Dengan berkembangnya pariwisata dan minat masyarakat untuk berkunjung, maka Kelompok Sadar Wisata Arjasa mengelola dan membuka desa wisata ini untuk masyarakat luas. Grand launching pendirian Desa Wisata Adat Arjasa tanggal 25 November 2019 dengan brand “Desa Wisata Adat Arjasa“. Nama baru ini menjadi branding bagi desa ini untuk menjadi salah satu destinasi wisata baru yang ada di Jember.') }}
                         </p>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
                             <div class="text-center p-4 bg-teal-50 rounded-lg shadow-sm animate-fade-in delay-100">

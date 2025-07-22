@@ -48,14 +48,14 @@
     </section>
 
     <section class="py-20 bg-gray-50" data-aos="fade-up">
-        <div class="container mx-auto px-4 max-w-screen-xl">
+        <div class="container mx-auto px-4">
             <div class="text-center mb-16">
                 <h2
                     class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 font-montserrat relative inline-block text-underline-animated-explore">
-                    <span class="relative z-10">{{ __('user.Jelajahi Keajaiban Arjasa') }}</span>
+                    <span class="relative z-10">{{ __('user.Apa itu Desa Wisata Adat Arjasa?') }}</span>
                     <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 z-0 opacity-30"></span>
                 </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                <p class="text-lg text-gray-600 w-3/4 mx-auto">
                     {{ __('user.Desa Wisata Adat Arjasa merupakan desa wisata  sejarah. Disebut demikian karena di Desa Arjasa banyak ditemukan peninggalan cagar budaya nenek moyang yang terdiri dari Batu Kenong, Dolmein dan Menhir. Disamping itu, Desa Arjasa juga memiliki kesenian asli Kabupaten Jember yang dikenal dengan kesenian Ta\'bhutaan yang telah tercatat sebagai “Warisan Budaya Tak Benda Nasional”. Desa Wisata Adat Arjasa juga memiliki eksotisme alam yang luar biasa karena Desa Wisata Adat Arjasa berada tepat di bawah lereng Pegunungan Argopuro sehingga memiliki suasana yang asri, hawa sejuk serta hamparan sawah yang sangat luas.') }}
                 </p>
             </div>

@@ -13,13 +13,14 @@
                 @php
                     $menus = [
                         ['label' => __('navbar.home'), 'route' => 'home'],
-                        ['label' => __('navbar.about_us'), 'route' => 'about.index'],
+                        ['label' => __('navbar.profile'), 'route' => 'about.index'],
+                        ['label' => __('navbar.tourist_destination'), 'route' => 'event-budaya.index'],
+                        ['label' => __('navbar.e_booklet'), 'route' => 'event-budaya.index'],
                         ['label' => __('navbar.tour_package'), 'route' => 'tour-package.index'],
+                        ['label' => __('navbar.gallery'), 'route' => 'gallery.index'],
                         ['label' => __('navbar.komotra'), 'route' => 'transport.index'],
                         ['label' => __('navbar.cottage'), 'route' => 'cottage.index'],
-                        ['label' => __('navbar.gallery'), 'route' => 'gallery.index'],
-                        ['label' => __('navbar.article'), 'route' => 'articles.all'],
-                        ['label' => __('navbar.event_budaya'), 'route' => 'event-budaya.index'],
+                        ['label' => __('navbar.contact'), 'route' => 'articles.all'],
                     ];
                 @endphp
 

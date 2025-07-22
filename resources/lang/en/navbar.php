@@ -2,11 +2,12 @@
 
 return [
     'home' => 'Home',
-    'about_us' => 'About Us',
+    'profile' => 'Profile',
     'tour_package' => 'Tour Package',
     'komotra' => 'Komotra',
     'cottage' => 'Cottage',
     'gallery' => 'Gallery',
-    'article' => 'Article',
-    'event_budaya' => 'Cultural Event',
+    'contact' => 'Contact',
+    'tourist_destination' => 'Tourist Destination',
+    'e_booklet' => 'E-Booklet'
 ];

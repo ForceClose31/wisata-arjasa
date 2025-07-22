@@ -48,20 +48,17 @@
         </div>
     </section>
 
-    {{-- Bagian Kategori Event dan Daftar Event --}}
-    <section class="py-20 bg-gray-50">
+    <section class="py-10 bg-gray-50">
         <div class="container mx-auto px-4 max-w-screen-xl">
-            {{-- Judul dan Sub-judul Kategori Event --}}
             <div class="mb-10 text-center" data-aos="fade-up" data-aos-duration="1000">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-2 font-montserrat relative inline-block">
-                    {{ __('user.Kategori Event') }}
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-5 font-montserrat relative inline-block">
+                    {{ __('user.Destinasi Wisata') }}
                     <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 opacity-70 -z-1"></span>
                 </h2>
                 <p class="text-lg text-gray-700" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-                    {{ __('user.Pilih kategori event yang ingin Anda jelajahi.') }}</p>
+                    {{ __('user.Desa Wisata Adat Arjasa menawarkan 7 destinasi wisata bagi pengunjung, yaitu Wisata Citra Mandiri Waterpark, Situs Calok, Punden Berundak, Kampung Wisata Kesseh Gumitir, Gallery Lukis Bakar, Sendang Tirta Amertha Rajasa, Sanggar Seni Desa Arjasa. Penjelasan singkat destinasi :') }}</p>
             </div>
 
-            {{-- Tombol Kategori Event --}}
             <div id="event-categories" class="flex flex-wrap justify-center gap-4 mb-16">
                 <button
                     class="category-btn bg-blue-500 text-white px-5 py-3 rounded-full font-semibold text-sm hover:hover:bg-gray-100 transition duration-300 shadow-md"
