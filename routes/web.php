@@ -18,9 +18,6 @@ Route::get('/lang/{locale}', function ($locale) {
 })->name('language.switch');
 
 Route::middleware('locale')->group(function () {
-    Route::get('/contact', function () {
-        return view('user.about.about');
-    })->name('contact');
 
     Route::get('/paket', function () {
         return view('user.about.about');
@@ -33,6 +30,10 @@ Route::middleware('locale')->group(function () {
     Route::get('/tour-package', function () {
         return view('user.tour-package.tour-package');
     })->name('tour-package.index');
+
+    Route::get('/contact', function () {
+        return view('user.contact.contact');
+    })->name('contact.index');
 
     Route::get('/cottage', [CottageController::class, 'index'])->name('cottage.index');
     Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');

@@ -13,20 +13,22 @@
                 <i class="fas fa-map-marker-alt mt-1 text-white text-base"></i> {{-- Icon size adjusted --}}
                 <p class="text-sm leading-relaxed mt-1">{{ __('layouts.Desa Wisata Adat Arjasa, Jember, Indonesia') }}</p>
             </div>
+
             <div class="flex space-x-3 mt-6"> {{-- Added margin-top to separate from address text --}}
-                <a href="#" class="bg-white text-red-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-blue-200 transition">
+                <a href="https://www.instagram.com/desaadatwisata_arjasa" target="_blank" class="bg-white text-red-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-blue-200 transition">
                     <i class="fab fa-instagram text-lg"></i>
                 </a>
-                <a href="#" class="bg-white text-blue-600  rounded-full w-9 h-9 flex items-center justify-center hover:bg-blue-200 transition">
+                <a href="https://www.facebook.com/DesaWisataAdatArjasa" target="_blank" class="bg-white text-blue-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-blue-200 transition">
                     <i class="fab fa-facebook-f text-lg"></i>
                 </a>
-                <a href="#" class="bg-white text-red-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-blue-200 transition">
+                <a href="https://www.youtube.com/@DesaWisataAdatArjasa" target="_blank" class="bg-white text-red-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-blue-200 transition">
                     <i class="fab fa-youtube text-lg"></i>
                 </a>
-                <a href="#" class="bg-white text-black  rounded-full w-9 h-9 flex items-center justify-center hover:bg-blue-200 transition">
+                <a href="https://www.tiktok.com/@dewiarjasa12" target="_blank" class="bg-white text-black rounded-full w-9 h-9 flex items-center justify-center hover:bg-blue-200 transition">
                     <i class="fab fa-tiktok text-lg"></i>
                 </a>
             </div>
+            
         </div>
 
         <div>

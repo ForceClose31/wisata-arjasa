@@ -24,7 +24,7 @@
                         ['label' => __('navbar.gallery'), 'route' => 'gallery.index'],
                         ['label' => __('navbar.komotra'), 'route' => 'transport.index'],
                         ['label' => __('navbar.cottage'), 'route' => 'cottage.index'],
-                        ['label' => __('navbar.contact'), 'route' => 'articles.all'],
+                        ['label' => __('navbar.contact'), 'route' => 'contact.index'],
                     ];
 
                 @endphp
