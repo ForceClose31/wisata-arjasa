@@ -151,7 +151,7 @@
                                         class="flex items-center group">
                                         <img src="{{ $nearby->image }}"
                                             alt="{{ $nearby->getTranslation('title', app()->getLocale()) }}"
-                                            class="w-16 h-16 object-cover rounded-lg mr-3">
+                                            class="w-16 h-16 object-cover rounded-lg mr-3 aspect-square">
                                         <div>
                                             <h4 class="font-semibold text-gray-800 group-hover:text-blue-600 transition">
                                                 {{ $nearby->getTranslation('title', app()->getLocale()) }}
