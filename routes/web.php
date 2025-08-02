@@ -92,5 +92,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::resource('tour-packages', AdminTourPackageController::class)
         ->except(['show'])
         ->names('admin.tour-packages');
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
 });
 

@@ -62,7 +62,7 @@
                     </nav>
                 </div>
                 <div class="p-4 border-t border-blue-700">
-                    <form method="POST" action="#">
+                    <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit"
                             class="flex items-center w-full px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 rounded-lg">
