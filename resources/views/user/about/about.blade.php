@@ -54,7 +54,7 @@
                     data-aos-duration="1000">
                     <div
                         class="relative rounded-xl overflow-hidden shadow-2xl transform hover:scale-105 transition duration-500 ease-in-out">
-                        <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        <img src="storage/profile/DSC_0312.JPG"
                             alt="Kisah Kami Dewi Arjasa" class="w-full h-auto object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
                         <div class="absolute bottom-0 left-0 p-6 text-white">

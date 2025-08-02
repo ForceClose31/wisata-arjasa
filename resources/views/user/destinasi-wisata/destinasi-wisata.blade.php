@@ -78,7 +78,7 @@
                         data-category="{{ $destination->category?->getTranslation('name', app()->getLocale()) }}">
 
                         <div class="relative">
-                            <img src="{{ $destination->image }}"
+                            <img src="storage/{{ $destination->image }}"
                                 alt="{{ $destination->getTranslation('title', app()->getLocale()) }}"
                                 class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105">
                             <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">

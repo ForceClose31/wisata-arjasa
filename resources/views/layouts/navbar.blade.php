@@ -17,7 +17,7 @@
                             'label' => __('navbar.tourism'),
                             'children' => [
                                 ['label' => __('navbar.tourist_destination'), 'route' => 'tourist-destination.index'],
-                                ['label' => __('navbar.e_booklet'), 'route' => 'tourist-destination.index'],
+                                ['label' => __('navbar.e_booklet'), 'route' => 'tourist-destination.ebooklet'],
                             ],
                         ],
                         ['label' => __('navbar.tour_package'), 'route' => 'tour-package.index'],

@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\CottageController;
 use App\Http\Controllers\TransportController;
+use App\Http\Controllers\ContactController;
 
 Route::get('/lang/{locale}', function ($locale) {
     if (in_array($locale, ['en', 'id'])) {
@@ -34,6 +35,8 @@ Route::middleware('locale')->group(function () {
     Route::get('/contact', function () {
         return view('user.contact.contact');
     })->name('contact.index');
+    
+    Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
 
     Route::get('/cottage', [CottageController::class, 'index'])->name('cottage.index');
     Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
@@ -64,6 +67,9 @@ Route::middleware('locale')->group(function () {
     Route::get('/artikel', [ArticleController::class, 'index'])->name('articles.all');
     Route::get('/artikel/{slug}', [ArticleController::class, 'show'])->name('articles.show');
     Route::get('/artikel/tag/{slug}', [ArticleController::class, 'byTag'])->name('articles.byTag');
+    Route::get('/e-booklet', function() {
+        return view('user.destinasi-wisata.e-booklet');
+    })->name('tourist-destination.ebooklet');
 });
 Route::middleware(['guest'])->group(function () {
     Route::get('/user/regis', function () {

@@ -35,7 +35,7 @@
 
             <div class="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div class="relative h-96">
-                    <img src="{{ $destination->image }}"
+                    <img src="{{ asset('storage/'. $destination->image) }}"
                         alt="{{ $destination->getTranslation('title', app()->getLocale()) }}"
                         class="w-full h-full object-cover">
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
@@ -149,9 +149,9 @@
                                 @foreach ($nearbyDestinations as $nearby)
                                     <a href="{{ route('tourist-destination.show', $nearby->slug) }}"
                                         class="flex items-center group">
-                                        <img src="{{ $nearby->image }}"
+                                        <img src="{{ asset('storage/'. $nearby->image) }}"
                                             alt="{{ $nearby->getTranslation('title', app()->getLocale()) }}"
-                                            class="w-16 h-16 object-cover rounded-lg mr-3 aspect-square">
+                                            class="w-16 h-16 object-cover rounded-lg mr-3">
                                         <div>
                                             <h4 class="font-semibold text-gray-800 group-hover:text-blue-600 transition">
                                                 {{ $nearby->getTranslation('title', app()->getLocale()) }}

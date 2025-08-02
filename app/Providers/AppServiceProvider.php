@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Event; // Import Facade Event
 use App\Events\ContentApproved; // Import Event Anda
 use App\Listeners\ContentApprovedListener; // Import Listener Anda
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -35,6 +36,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+        Schema::defaultStringLength(191);
 
     }
 }

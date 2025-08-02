@@ -58,7 +58,8 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                 <div class="bg-white p-8 rounded-xl shadow-lg" data-aos="fade-right" data-aos-delay="100">
                     <h3 class="text-2xl font-bold text-gray-800 mb-6 font-montserrat">{{ __('user.Kirim Pesan kepada Kami') }}</h3>
-                    <form action="#" method="POST" class="space-y-6">
+                    <form action="{{ route('contact.send') }}" method="POST" class="space-y-6">
+                        @csrf
                         <div>
                             <label for="name" class="block text-sm font-medium text-gray-700 mb-1">{{ __('user.Nama Lengkap') }}</label>
                             <input type="text" id="name" name="name" required

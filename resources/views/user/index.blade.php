@@ -65,8 +65,8 @@
                 <div class="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300">
                     <div class="text-4xl font-bold text-teal-600 mb-2" x-data="{ count: 0, target: 10 }"
                         x-intersect.once="() => {
-                            const duration = 2000;
-                            const increment = target / (duration / 16);
+                            const duration = 5000;
+                            const increment = target / (duration / 3);
                             let start;
                             const animateCount = (timestamp) => {
                                 if (!start) start = timestamp;
@@ -88,8 +88,8 @@
                 <div class="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300">
                     <div class="text-4xl font-bold text-indigo-600 mb-2" x-data="{ count: 0, target: 25 }"
                         x-intersect.once="() => {
-                            const duration = 2000;
-                            const increment = target / (duration / 16);
+                            const duration = 5000;
+                            const increment = target / (duration / 3);
                             let start;
                             const animateCount = (timestamp) => {
                                 if (!start) start = timestamp;
@@ -110,10 +110,10 @@
 
                 {{-- Tour Packages --}}
                 <div class="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300">
-                    <div class="text-4xl font-bold text-amber-600 mb-2" x-data="{ count: 0, target: 8 }"
+                    <div class="text-4xl font-bold text-amber-600 mb-2" x-data="{ count: 0, target: 5 }"
                         x-intersect.once="() => {
-                            const duration = 2000;
-                            const increment = target / (duration / 16);
+                            const duration = 5000;
+                            const increment = target / (duration / 3);
                             let start;
                             const animateCount = (timestamp) => {
                                 if (!start) start = timestamp;
@@ -136,8 +136,8 @@
                 <div class="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300">
                     <div class="text-4xl font-bold text-emerald-600 mb-2" x-data="{ count: 0, target: 15 }"
                         x-intersect.once="() => {
-                            const duration = 2000;
-                            const increment = target / (duration / 16);
+                            const duration = 5000;
+                            const increment = target / (duration / 3);
                             let start;
                             const animateCount = (timestamp) => {
                                 if (!start) start = timestamp;
@@ -177,3 +177,9 @@
 
 
 @endsection
+
+<!-- Alpine Plugins -->
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
+ 
+<!-- Alpine Core -->
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
