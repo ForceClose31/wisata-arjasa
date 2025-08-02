@@ -25,7 +25,7 @@ class TourPackage extends Model
         'duration',
         'highlights',
         'images',
-        'pdf_path',
+        'pdf_url',
         'is_featured',
         'is_available'
     ];

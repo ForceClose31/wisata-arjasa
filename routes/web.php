@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminDestinationController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminTourPackageController;
 use App\Http\Controllers\TouristDestinationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
@@ -35,7 +38,7 @@ Route::middleware('locale')->group(function () {
     Route::get('/contact', function () {
         return view('user.contact.contact');
     })->name('contact.index');
-    
+
     Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
 
     Route::get('/cottage', [CottageController::class, 'index'])->name('cottage.index');
@@ -57,7 +60,6 @@ Route::middleware('locale')->group(function () {
 
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/tour-package', [HomeController::class, 'tourPackage'])->name('tour-package.index');
-    // Route::get('/tour-packages/{slug}', [HomeController::class, 'show'])->name('tour-packages.show');
     Route::get('/packages/{tourPackage}', [HomeController::class, 'show'])->name('tour-packages.show');
     Route::get('/packages/all', [HomeController::class, 'show'])->name('packages.show');
     Route::get('/packages/', [HomeController::class, 'show'])->name('tour-package.all');
@@ -67,7 +69,7 @@ Route::middleware('locale')->group(function () {
     Route::get('/artikel', [ArticleController::class, 'index'])->name('articles.all');
     Route::get('/artikel/{slug}', [ArticleController::class, 'show'])->name('articles.show');
     Route::get('/artikel/tag/{slug}', [ArticleController::class, 'byTag'])->name('articles.byTag');
-    Route::get('/e-booklet', function() {
+    Route::get('/e-booklet', function () {
         return view('user.destinasi-wisata.e-booklet');
     })->name('tourist-destination.ebooklet');
 });
@@ -82,35 +84,13 @@ Route::middleware(['guest'])->group(function () {
 });
 
 
-Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
-    Route::get('/dashboard', function () {
-        return ('index');
-    })->name('dashboard');
-    // Route::get('admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    //     Route::get('/admin/laporan', [LaporanController::class, 'index'])->name('laporan.index');
-//     Route::get('/konten/create', [AdminController::class, 'create'])->name('konten.create');
-//     Route::post('/konten/storeAdmin', [KontenController::class, 'storeAdmin'])->name('konten.storeAdmin');
-//     Route::get('/konten/read', [AdminController::class, 'index'])->name('konten.index');
-//     Route::get('/konten/{id}/edit', [AdminController::class, 'edit'])->name('konten.edit');
-//     Route::put('/konten/{id}', [AdminController::class, 'update'])->name('konten.update');
-//     Route::delete('/konten/{id}', [AdminController::class, 'destroy'])->name('konten.destroy');
-
-    //     // profile admin
-//     Route::get('/profile', [AdminController::class, 'profile'])->name('profile'); // Admin Profile
-//     Route::get('/profile/edit', [AdminController::class, 'editProfile'])->name('profile.edit'); // Edit Profile
-//     Route::put('/profile', [AdminController::class, 'updateProfile'])->name('profile.update'); // Update Profile
-
-    //     // Event Routes
-//     Route::get('/events', [EventController::class, 'indexAdmin'])->name('events.index'); // Menampilkan daftar event
-//     Route::get('/events/create', [EventController::class, 'createAdmin'])->name('events.create'); // Form tambah event
-//     Route::post('/events/store', [EventController::class, 'storeAdmin'])->name('events.store');
-//     Route::get('/events/{event}', [EventController::class, 'showAdmin'])->name('events.show');
-//     Route::put('/events/{event}', [EventController::class, 'updateAdmin'])->name('events.update');
-//     Route::delete('/events/{event}', [EventController::class, 'destroyAdmin'])->name('events.destroy');
-//     Route::get('/events/{event}/edit', [EventController::class, 'editAdmin'])->name('admin.events.edit');
-
-
-    //     Route::post('/content/{id}/approve', [AdminController::class, 'approveContent'])->name('content.approve');
-//     Route::post('/content/{id}/reject', [AdminController::class, 'rejectContent'])->name('content.reject');
-//     Route::post('/recalculate-badges', [BadgeController::class, 'recalculateAllBadges'])->name('recalculate.badges');
+Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::resource('destinations', AdminDestinationController::class)
+        ->except(['show'])
+        ->names('admin.destinations');
+    Route::resource('tour-packages', AdminTourPackageController::class)
+        ->except(['show'])
+        ->names('admin.tour-packages');
 });
+
