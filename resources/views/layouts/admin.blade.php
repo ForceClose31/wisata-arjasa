@@ -48,8 +48,8 @@
                             Paket Wisata
                         </a>
 
-                        <a href="#"
-                            class="flex items-center px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 rounded-lg group">
+                        <a href="{{ route('admin.galleries.index') }}"
+                            class="flex items-center px-4 py-2 text-sm font-medium text-white rounded-lg group {{ request()->routeIs('admin.galleries.*') ? 'bg-blue-900' : 'hover:bg-blue-700' }}">
                             <i class="fas fa-images mr-3"></i>
                             Galeri
                         </a>

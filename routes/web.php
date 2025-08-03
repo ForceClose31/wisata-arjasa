@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminDestinationController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminGalleryController;
 use App\Http\Controllers\AdminTourPackageController;
 use App\Http\Controllers\TouristDestinationController;
 use Illuminate\Support\Facades\Route;
@@ -92,6 +93,9 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::resource('tour-packages', AdminTourPackageController::class)
         ->except(['show'])
         ->names('admin.tour-packages');
+    Route::resource('galleries', AdminGalleryController::class)
+        ->except(['show'])
+        ->names('admin.galleries');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 });
