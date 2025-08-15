@@ -202,12 +202,12 @@ class AuthController extends Controller
 
             $user = Auth::user();
             $email = $user->email;
-            $role = $user->id_role;
+            $role = $user->role;
 
             $request->session()->flash('nama_login', $email);
             $request->session()->flash('alert_tampil', true);
 
-            if ($role === 1) {
+            if ($role === 'admin') {
                 return redirect()->intended('admin/dashboard');
             } else {
                 return redirect()->intended('index')->with('warning', 'Peran pengguna tidak dikenali.');
@@ -221,7 +221,7 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('home');
+        return redirect()->route('login');
     }
 }
 

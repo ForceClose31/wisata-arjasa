@@ -120,19 +120,19 @@
                 <label for="images" class="block text-sm font-medium text-gray-700 mb-1">Package Images</label>
                 <input type="file" name="images[]" id="images" multiple accept="image/*"
                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <p class="text-sm text-gray-500 mt-1">Format: JPG, PNG, max 2MB</p>
+                <p class="text-sm text-gray-500 mt-1">Format: JPG, PNG, max 5MB</p>
 
                 <div class="mt-4">
                     <label class="block text-sm font-medium text-gray-700 mb-2">Current Images</label>
                     <div class="flex flex-wrap gap-2">
-                        @foreach($tourPackage->images as $image)
+                        @foreach($tourPackage->images as $index => $image)
                             <div class="relative">
                                 <img src="{{ Storage::url($image) }}" alt="Package image" class="h-24 w-auto rounded-md border">
                                 <button type="button" onclick="removeImage(this, '{{ $image }}')"
                                         class="absolute top-0 right-0 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center">
                                     <i class="fas fa-times text-xs"></i>
                                 </button>
-                                <input type="hidden" name="deleted_images[]" id="deleted_image_{{ md5($image) }}" value="">
+                                <input type="hidden" name="deleted_images[]" id="deleted_image_{{ $index }}" value="">
                             </div>
                         @endforeach
                     </div>
@@ -240,16 +240,28 @@
     }
 
     function removeImage(button, imagePath) {
-        const inputId = 'deleted_image_' + md5(imagePath);
-        document.getElementById(inputId).value = imagePath;
-
+        const encodedPath = btoa(imagePath).replace(/[^a-zA-Z0-9]/g, '');
+        const inputId = 'deleted_image_' + encodedPath;
+        
+        let hiddenInput = document.getElementById(inputId);
+        if (!hiddenInput) {
+            hiddenInput = document.createElement('input');
+            hiddenInput.type = 'hidden';
+            hiddenInput.name = 'deleted_images[]';
+            hiddenInput.id = inputId;
+            hiddenInput.value = imagePath;
+            button.closest('form').appendChild(hiddenInput);
+        } else {
+            hiddenInput.value = imagePath;
+        }
+    
         button.parentElement.remove();
     }
 
     document.getElementById('add-pricing').addEventListener('click', function () {
         const container = document.getElementById('pricings-container');
         const index = parseInt(document.getElementById('pricing-index').value);
-
+    
         const div = document.createElement('div');
         div.className = 'grid grid-cols-1 md:grid-cols-4 gap-4 items-end pricing-row';
         div.innerHTML = `

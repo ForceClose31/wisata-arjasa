@@ -51,7 +51,7 @@
                     <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 opacity-70 -z-1"></span>
                 </h2>
                 <p class="text-lg text-gray-700" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-                    {{ __('user.Desa Wisata Adat Arjasa menawarkan 7 destinasi wisata bagi pengunjung, yaitu Wisata Citra Mandiri Waterpark, Situs Calok, Punden Berundak, Kampung Wisata Kesseh Gumitir, Gallery Lukis Bakar, Sendang Tirta Amertha Rajasa, Sanggar Seni Desa Arjasa.') }}
+                    {{ __('user.Desa Wisata Adat Arjasa menawarkan 8 destinasi wisata bagi pengunjung, yaitu Wisata Citra Mandiri Waterpark, Situs Calok, Punden Berundak, Kampung Wisata Kesseh Gumitir, Gallery Lukis Bakar, Sendang Tirta Amertha Rajasa, Sanggar Seni Desa Arjasa, Event Hyang Argopuro Festival.') }}
                 </p>
             </div>
 

@@ -66,7 +66,6 @@ Route::middleware('locale')->group(function () {
     Route::get('/packages/', [HomeController::class, 'show'])->name('tour-package.all');
     Route::get('/packages/type/{packageType}', [HomeController::class, 'byType'])->name('packages.by-type');
 
-    // Articles
     Route::get('/artikel', [ArticleController::class, 'index'])->name('articles.all');
     Route::get('/artikel/{slug}', [ArticleController::class, 'show'])->name('articles.show');
     Route::get('/artikel/tag/{slug}', [ArticleController::class, 'byTag'])->name('articles.byTag');
@@ -74,6 +73,7 @@ Route::middleware('locale')->group(function () {
         return view('user.destinasi-wisata.e-booklet');
     })->name('tourist-destination.ebooklet');
 });
+
 Route::middleware(['guest'])->group(function () {
     Route::get('/user/regis', function () {
         return view('user.regis');
@@ -97,6 +97,5 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         ->except(['show'])
         ->names('admin.galleries');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
 });
 

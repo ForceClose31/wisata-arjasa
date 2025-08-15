@@ -70,7 +70,7 @@
                             <label for="email" class="block text-sm font-medium text-gray-700 mb-1">{{ __('user.Alamat Email') }}</label>
                             <input type="email" id="email" name="email" required
                                 class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-400 focus:border-blue-400 sm:text-sm"
-                                placeholder="Contoh: nama@example.com">
+                                placeholder="{{ __('user.Contoh') }}: {{ __('user.nama@example.com') }}">
                         </div>
                         <div>
                             <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">{{ __('user.Subjek') }}</label>
@@ -117,8 +117,8 @@
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-envelope text-blue-400 mr-3 text-lg"></i>
-                                <span>Email: <a href="mailto:desaadatarijasa@gmail.com"
-                                        class="text-blue-600 hover:underline">desaadatarijasa@gmail.com</a></span>
+                                <span>Email: <a href="mailto:desaadatarjasa@gmail.com"
+                                        class="text-blue-600 hover:underline">desaadatarjasa@gmail.com</a></span>
                             </div>
                         </div>
                         <div class="mt-8">

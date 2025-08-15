@@ -27,10 +27,12 @@ class AdminGalleryController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'gallery_category_id' => 'required|exists:gallery_categories,id',
+            'title.id' => 'required|string|max:255',
+            'title.en' => 'required|string|max:255',
+            'description.id' => 'required|string',
+            'description.en' => 'required|string',
             'location' => 'required|string',
+            'gallery_category_id' => 'required|exists:gallery_categories,id',
             'image_path' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
@@ -42,7 +44,20 @@ class AdminGalleryController extends Controller
 
         $validated['admin_id'] = auth()->id();
 
-        Gallery::create($validated);
+        Gallery::create([
+            'title' => [
+                'id' => $validated['title']['id'],
+                'en' => $validated['title']['en'],
+            ],
+            'description' => [
+                'id' => $validated['description']['id'],
+                'en' => $validated['description']['en'],
+            ],
+            'location' => $validated['location'],
+            'gallery_category_id' => $validated['gallery_category_id'],
+            'image_path' => $validated['image_path'] ?? null,
+            'admin_id' => $validated['admin_id'],
+        ]);
 
         return redirect()->route('admin.galleries.index')
             ->with('success', 'Gallery berhasil ditambahkan');
@@ -57,10 +72,13 @@ class AdminGalleryController extends Controller
     public function update(Request $request, Gallery $gallery)
     {
         $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'gallery_category_id' => 'required|exists:gallery_categories,id',
+            'title.id' => 'required|string|max:255',
+            'title.en' => 'required|string|max:255',
+            'description.id' => 'required|string',
+            'description.en' => 'required|string',
             'location' => 'required|string',
+            'gallery_category_id' => 'required|exists:gallery_categories,id',
+            'image_path' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
         if ($request->hasFile('image_path')) {
@@ -72,8 +90,19 @@ class AdminGalleryController extends Controller
             $validated['image_path'] = $imagePath;
         }
 
-        $gallery->update($validated);
-
+        $gallery->update([
+            'title' => [
+                'id' => $validated['title']['id'],
+                'en' => $validated['title']['en'],
+            ],
+            'description' => [
+                'id' => $validated['description']['id'],
+                'en' => $validated['description']['en'],
+            ],
+            'location' => $validated['location'],
+            'gallery_category_id' => $validated['gallery_category_id'],
+            'image_path' => $validated['image_path'] ?? $gallery->image_path,
+        ]);
         return redirect()->route('admin.galleries.index')
             ->with('success', 'Destinasi wisata berhasil diperbarui');
     }

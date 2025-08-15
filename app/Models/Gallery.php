@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class Gallery extends Model
 {
-    use HasFactory;
+    use HasFactory, HasTranslations;
 
     protected $fillable = [
         'title',
@@ -17,8 +18,21 @@ class Gallery extends Model
         'gallery_category_id'
     ];
 
-     public function galleryCategory()
+    public $translatable = ['title', 'description'];
+
+    public function galleryCategory()
     {
         return $this->belongsTo(GalleryCategory::class);
+    }
+
+    public function toArray()
+    {
+        $attributes = parent::toArray();
+
+        foreach ($this->getTranslatableAttributes() as $field) {
+            $attributes[$field] = $this->getTranslation($field, app()->getLocale());
+        }
+
+        return $attributes;
     }
 }

@@ -47,69 +47,83 @@
                     {{ __('user.Paket Tour') }}
                 </h2>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    {{ __('user.Desa Wisata Adat Arjasa menawarkan 4 paket tour yaitu') }}
+                    {{ __('user.Desa Wisata Adat Arjasa menawarkan 5 paket tour yaitu') }}
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @forelse ($featuredPackages as $index => $package)
                     <div data-aos="fade-up" data-aos-delay="{{ ($index + 1) * 100 }}"
-                        class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-                        <div class="relative h-64 overflow-hidden">
+                        class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 flex flex-col">
+                        
+                        <!-- Image Container dengan aspect ratio natural tanpa crop -->
+                        <div class="relative overflow-hidden flex-shrink-0">
                             @if (isset($package->images) && count($package->images) > 0)
                                 <img src="/storage/{{ $package->images[0] }}" alt="{{ $package->name }}"
-                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                                    class="w-full h-auto transition-transform duration-700 group-hover:scale-105">
                             @else
                                 <img src="https://source.unsplash.com/random/600x400?indonesia,tour"
                                     alt="{{ $package->name }}"
-                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                                    class="w-full h-auto transition-transform duration-700 group-hover:scale-105">
                             @endif
-                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent">
+                            
+                            <!-- Gradient Overlay -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent">
                             </div>
+                            
+                            <!-- Badges -->
                             <div class="absolute top-4 right-4 flex flex-col space-y-2">
-                                <span
-                                    class="bg-white/90 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full shadow-sm backdrop-blur-sm">
+                                <span class="bg-white/95 text-gray-800 text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
                                     {{ $package->duration }}
                                 </span>
-                                <span
-                                    class="bg-blue-400/90 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-sm backdrop-blur-sm">
+                                <span class="bg-blue-500/95 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
                                     {{ $package->packageType->name }}
                                 </span>
                             </div>
+                            
+                            <!-- Title Overlay -->
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <h3 class="text-white font-bold text-lg leading-tight drop-shadow-lg">
+                                    {{ $package->name }}
+                                </h3>
+                            </div>
                         </div>
-
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">{{ $package->name }}</h3>
-
+            
+                        <!-- Content dengan flex-grow untuk membuat tinggi card sama -->
+                        <div class="p-6 flex flex-col flex-grow">
                             <p class="text-gray-600 mb-4 line-clamp-3">
-                                {{ $package->short_description ?? $package->description }}</p>
-
+                                {{ $package->short_description ?? $package->description }}
+                            </p>
+            
                             <div class="mb-4">
                                 <h4 class="text-sm font-semibold text-gray-500 mb-2 flex items-center">
                                     <i class="fas fa-sparkles text-amber-400 mr-2"></i> {{ __('user.Highlights') }}
                                 </h4>
                                 <div class="flex flex-wrap gap-2">
                                     @foreach (array_slice($package->highlights ?? [], 0, 3) as $highlight)
-                                        <span
-                                            class="bg-amber-50 text-amber-800 text-xs px-3 py-1 rounded-full border border-amber-100">{{ $highlight }}</span>
+                                        <span class="bg-amber-50 text-amber-800 text-xs px-3 py-1 rounded-full border border-amber-100">
+                                            {{ $highlight }}
+                                        </span>
                                     @endforeach
                                 </div>
                             </div>
-
+            
+                            <!-- Spacer untuk mendorong price dan button ke bawah -->
+                            <div class="flex-grow"></div>
+            
                             <div class="mb-6">
                                 <h4 class="font-bold text-gray-800 mb-2 flex items-center">
                                     <i class="fas fa-tag text-blue-500 mr-2"></i> {{ __('user.Harga Mulai Dari') }}
                                 </h4>
                                 <div class="text-2xl font-bold text-blue-600">
-                                    Rp
-                                    {{ number_format($package->pricings->sortBy('price')->first()->price ?? 0, 0, ',', '.') }}
+                                    Rp {{ number_format($package->pricings->sortBy('price')->first()->price ?? 0, 0, ',', '.') }}
                                 </div>
                             </div>
-
-                            <div class="text-center">
+            
+                            <div class="text-center mt-auto">
                                 @if ($package->pdf_url)
                                     <a href="/storage/{{ $package->pdf_url }}" target="_blank"
-                                        class="inline-flex items-center px-6 py-2.5 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all duration-300 shadow-md hover:shadow-lg">
+                                        class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                                         {{ __('user.Detail Paket') }} (PDF)
                                         <i class="fas fa-external-link-alt ml-2 text-sm"></i>
                                     </a>

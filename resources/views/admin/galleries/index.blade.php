@@ -76,7 +76,7 @@
                                     class="text-blue-600 hover:text-blue-900 mr-3">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <form action="{{ route('admin.galleries.destroy', $gallery->galleryCategory->slug) }}"
+                                <form action="{{ route('admin.galleries.destroy', $gallery->id) }}"
                                     method="POST" class="inline">
                                     @csrf
                                     @method('DELETE')

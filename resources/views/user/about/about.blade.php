@@ -59,7 +59,7 @@
                         <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
                         <div class="absolute bottom-0 left-0 p-6 text-white">
                             <p class="text-sm font-semibold font-lato tracking-wide">
-                                {{ __('user.Desa Wisata Adat Arjasa - Jejak Sejarah Sejak 2010') }}
+                                {{ __('user.Desa Wisata Adat Arjasa - Jejak Sejarah Sejak 1920') }}
                             </p>
                         </div>
                     </div>

@@ -8,37 +8,22 @@
                     {{ __('E-Booklet Desa Wisata Adat Arjasa') }}
                 </h1>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    {{ __('Jelajahi booklet digital kami untuk informasi lengkap tentang paket wisata dan budaya') }}
+                    {{ __('user.Jelajahi booklet digital kami untuk informasi lengkap tentang paket wisata dan budaya') }}
                 </p>
             </div>
 
             <!-- E-Booklet Viewer -->
             <div class="bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up">
                 <div class="flex justify-between items-center bg-gray-100 px-6 py-4 border-b">
-                    <h2 class="text-xl font-semibold text-gray-800">Booklet Wisata Arjasa 2024</h2>
-                    <div class="flex items-center space-x-4">
-                        <a href="{{ asset('storage/booklets/booklet-arjasa.pdf') }}" download 
-                           class="text-gray-600 hover:text-blue-600 transition" title="Download Booklet">
-                            <i class="fas fa-download fa-lg"></i> Unduh Booklet
-                        </a>
-                    </div>
+                    <h2 class="text-xl font-semibold text-gray-800">Booklet Desa Wisata Adat Arjasa 2025</h2>
                 </div>
                 
                 <div class="relative h-[70vh] overflow-hidden bg-gray-200">
-                    @if(file_exists(public_path('storage/booklets/booklet-arjasa.pdf')))
-                        <iframe src="{{ asset('storage/booklets/booklet-arjasa.pdf') }}#toolbar=0&navpanes=0" 
-                                class="w-full h-full" frameborder="0"></iframe>
-                    @else
-                        <div class="h-full flex flex-col items-center justify-center text-center p-8">
-                            <i class="fas fa-book-open text-5xl text-gray-300 mb-4"></i>
-                            <h3 class="text-xl font-medium text-gray-700">{{ __('Booklet tidak ditemukan') }}</h3>
-                            <p class="text-gray-500 mt-2">
-                                {{ __('File booklet belum tersedia. Silahkan hubungi admin.') }}</p>
-                            <a href="{{ route('home') }}" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
-                                Kembali ke Beranda
-                            </a>
-                        </div>
-                    @endif
+                    <iframe 
+                        src="https://heyzine.com/flip-book/5e2f2a0046.html" 
+                        style="width:100%; height:100%; border:none;" 
+                        allowfullscreen="true" scrolling="no">
+                    </iframe>
                 </div>
             </div>
             
@@ -112,17 +97,8 @@
                                 <i class="fas fa-mobile-alt text-amber-500"></i>
                             </div>
                             <div>
-                                <h4 class="font-medium text-gray-800">Kompatibilitas Perangkat</h4>
-                                <p class="text-sm text-gray-600">Booklet dapat dibuka di smartphone, tablet, dan komputer</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="bg-amber-100 p-2 rounded-full mr-3 flex-shrink-0">
-                                <i class="fas fa-download text-amber-500"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-gray-800">Unduh untuk Membaca Offline</h4>
-                                <p class="text-sm text-gray-600">Klik tombol "Unduh Booklet" untuk menyimpan file PDF</p>
+                                <h4 class="font-medium text-gray-800">{{ __('user.Kompatibilitas Perangkat') }}</h4>
+                                <p class="text-sm text-gray-600">{{ __('user.Booklet dapat dibuka di smartphone, tablet, dan komputer') }}</p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -130,8 +106,8 @@
                                 <i class="fas fa-question-circle text-amber-500"></i>
                             </div>
                             <div>
-                                <h4 class="font-medium text-gray-800">Bantuan</h4>
-                                <p class="text-sm text-gray-600">Jika booklet tidak terbuka, pastikan perangkat Anda memiliki aplikasi PDF viewer</p>
+                                <h4 class="font-medium text-gray-800">{{ __('user.Bantuan') }}</h4>
+                                <p class="text-sm text-gray-600">{{ __('user.Jika booklet tidak terbuka, pastikan perangkat Anda memiliki internet yang lancar') }}</p>
                             </div>
                         </div>
                     </div>

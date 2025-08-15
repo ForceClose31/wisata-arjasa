@@ -11,4 +11,9 @@ class DestinationCategory extends Model
 
     protected $fillable = ['name'];
     public $translatable = ['name'];
+
+    public function events()
+    {
+        return $this->hasMany(Event::class, 'category_id');
+    }
 }

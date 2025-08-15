@@ -63,7 +63,7 @@
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
 
                 <div class="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300">
-                    <div class="text-4xl font-bold text-teal-600 mb-2" x-data="{ count: 0, target: 10 }"
+                    <div class="text-4xl font-bold text-teal-600 mb-2" x-data="{ count: 0, target: 2 }"
                         x-intersect.once="() => {
                             const duration = 5000;
                             const increment = target / (duration / 3);
@@ -86,7 +86,7 @@
                 </div>
 
                 <div class="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300">
-                    <div class="text-4xl font-bold text-indigo-600 mb-2" x-data="{ count: 0, target: 25 }"
+                    <div class="text-4xl font-bold text-indigo-600 mb-2" x-data="{ count: 0, target: 1 }"
                         x-intersect.once="() => {
                             const duration = 5000;
                             const increment = target / (duration / 3);
@@ -134,7 +134,7 @@
 
                 {{-- Natural Attractions --}}
                 <div class="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300">
-                    <div class="text-4xl font-bold text-emerald-600 mb-2" x-data="{ count: 0, target: 15 }"
+                    <div class="text-4xl font-bold text-emerald-600 mb-2" x-data="{ count: 0, target: 8 }"
                         x-intersect.once="() => {
                             const duration = 5000;
                             const increment = target / (duration / 3);

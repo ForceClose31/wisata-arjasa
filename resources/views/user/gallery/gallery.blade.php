@@ -52,57 +52,40 @@
                         Gallery
                         <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 opacity-70 -z-1"></span>
                     </h2>
-                    <p class="text-lg text-gray-700">Temukan keindahan setiap sudut Arjasa dalam galeri foto kami.</p>
+                    <p class="text-lg text-gray-700">{{ __('user.Temukan keindahan setiap sudut Arjasa dalam galeri foto kami.') }}</p>
                 </div>
 
                 <!-- Improved Category Filter -->
-                <div class="mb-8 flex flex-wrap justify-center gap-3">
-                    <a href="{{ route('gallery.index') }}"
-                        class="px-5 py-2 rounded-full text-sm font-medium transition-all duration-300
-                              {{ !request()->has('category') ? 'bg-blue-600 text-white shadow-md' : 'bg-gray-100 text-gray-700 hover:bg-gray-200' }}">
-                        Semua Kategori
-                    </a>
+                <div class="mb-8 flex flex-wrap justify-center gap-3" id="category-filters">
+                    <button data-category=""
+                        class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 {{ !request()->has('category') ? 'bg-blue-600 text-white shadow-md' : 'bg-gray-100 text-gray-700 hover:bg-gray-200' }}">
+                        {{ __('user.Semua Kategori') }}
+                    </button>
                     @foreach ($categories as $category)
-                        <a href="{{ route('gallery.index', ['category' => $category->slug]) }}"
-                            class="px-5 py-2 rounded-full text-sm font-medium transition-all duration-300
-                                  {{ request('category') == $category->slug ? 'bg-blue-600 text-white shadow-md' : 'bg-gray-100 text-gray-700 hover:bg-gray-200' }}">
+                        <button data-category="{{ $category->slug }}"
+                            class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 {{ request('category') == $category->slug ? 'bg-blue-600 text-white shadow-md' : 'bg-gray-100 text-gray-700 hover:bg-gray-200' }}">
                             {{ $category->name }}
-                        </a>
+                        </button>
                     @endforeach
                 </div>
 
+                <!-- Loading indicator -->
+                <div id="loading" class="hidden text-center py-8">
+                    <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+                    <p class="mt-2 text-gray-600">Memuat galeri...</p>
+                </div>
+
                 <!-- Gallery Grid -->
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
-                    @foreach ($galleries as $gallery)
-                        <div class="relative w-full pb-[100%] rounded-xl overflow-hidden shadow-lg group transform transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer"
-                            data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}"
-                            @click="openModal(
-                                '{{ $gallery->title }}',
-                                'storage/{{ $gallery->image_path }}',
-                                '{{ $gallery->description }}',
-                                '{{ $gallery->location }}',
-                                '{{ $gallery->category ? $gallery->category->name : '' }}'
-                            )">
-                            <img src="storage/{{ $gallery->image_path }}" alt="{{ $gallery->title }}"
-                                class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                @if ($gallery->category)
-                                    <span
-                                        class="inline-block px-3 py-1 mb-2 text-xs font-bold bg-blue-500 rounded-full self-start">
-                                        {{ $gallery->category->name }}
-                                    </span>
-                                @endif
-                                <h3 class="font-bold text-sm leading-tight">{{ $gallery->title }}</h3>
-                                <p class="text-xs opacity-90 mt-1 line-clamp-2">{{ $gallery->description }}</p>
-                                @if ($gallery->location)
-                                    <div class="absolute bottom-3 right-3 text-white bg-black/30 p-2 rounded-full">
-                                        <i class="fas fa-map-marker-alt text-sm"></i>
-                                    </div>
-                                @endif
-                            </div>
-                        </div>
-                    @endforeach
+                <div id="gallery-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+                    @include('user.gallery.partials.gallery-grid', ['galleries' => $galleries])
+                </div>
+
+                <!-- Empty state -->
+                <div id="empty-state" class="hidden text-center py-12">
+                    <div class="text-gray-400 mb-4">
+                        <i class="fas fa-images text-4xl"></i>
+                    </div>
+                    <p class="text-gray-600">Tidak ada foto yang ditemukan untuk kategori ini.</p>
                 </div>
             </div>
         </section>
@@ -189,5 +172,67 @@
                 }
             }
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryGrid = document.getElementById('gallery-grid');
+            const loading = document.getElementById('loading');
+            const emptyState = document.getElementById('empty-state');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('bg-blue-600', 'text-white', 'shadow-md');
+                        btn.classList.add('bg-gray-100', 'text-gray-700', 'hover:bg-gray-200');
+                    });
+                    
+                    this.classList.remove('bg-gray-100', 'text-gray-700', 'hover:bg-gray-200');
+                    this.classList.add('bg-blue-600', 'text-white', 'shadow-md');
+
+                    loading.classList.remove('hidden');
+                    galleryGrid.classList.add('opacity-50');
+                    emptyState.classList.add('hidden');
+
+                    fetch(`{{ route('gallery.index') }}?category=${category}`, {
+                        method: 'GET',
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest',
+                            'Accept': 'application/json',
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        loading.classList.add('hidden');
+                        galleryGrid.classList.remove('opacity-50');
+                        
+                        galleryGrid.innerHTML = data.html;
+                        
+                        if (data.galleries.length === 0) {
+                            emptyState.classList.remove('hidden');
+                        }
+                        
+                        if (typeof AOS !== 'undefined') {
+                            AOS.refresh();
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        loading.classList.add('hidden');
+                        galleryGrid.classList.remove('opacity-50');
+                        
+                        galleryGrid.innerHTML = `
+                            <div class="col-span-full text-center py-12">
+                                <div class="text-red-500 mb-4">
+                                    <i class="fas fa-exclamation-triangle text-4xl"></i>
+                                </div>
+                                <p class="text-red-600">Terjadi kesalahan saat memuat galeri. Silakan coba lagi.</p>
+                            </div>
+                        `;
+                    });
+                });
+            });
+        });
     </script>
 @endpush
