@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
+use App\Http\Controllers\Controller;
 use App\Models\Gallery;
 use App\Models\GalleryCategory;
 use Illuminate\Http\Request;
@@ -12,11 +13,11 @@ class GalleryController extends Controller
     {
         $categories = GalleryCategory::all();
         $selectedCategory = $request->input('category');
-        
+
         $galleries = Gallery::when($selectedCategory, function($query) use ($selectedCategory) {
             return $query->whereHas('galleryCategory', function($q) use ($selectedCategory) {
                 $q->where('slug', $selectedCategory);
-            }); 
+            });
         })
         ->with('galleryCategory')
         ->get();

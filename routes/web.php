@@ -1,19 +1,18 @@
 <?php
 
-use App\Http\Controllers\AdminDestinationController;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\AdminGalleryController;
-use App\Http\Controllers\AdminTourPackageController;
-use App\Http\Controllers\TouristDestinationController;
+use App\Http\Controllers\Admin\AdminDestinationController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdminGalleryController;
+use App\Http\Controllers\Admin\AdminTourPackageController;
+use App\Http\Controllers\User\TouristDestinationController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\GalleryController;
-use App\Http\Controllers\CottageController;
-use App\Http\Controllers\TransportController;
-use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\User\HomeController;
+use App\Http\Controllers\User\GalleryController;
+use App\Http\Controllers\User\CottageController;
+use App\Http\Controllers\User\TransportController;
+use App\Http\Controllers\User\ContactController;
 
 Route::get('/lang/{locale}', function ($locale) {
     if (in_array($locale, ['en', 'id'])) {
@@ -78,7 +77,6 @@ Route::middleware(['guest'])->group(function () {
         return view('user.regis');
     })->name('regis');
 
-    Route::post('/register', [RegisterController::class, 'submit'])->name('register.submit');
     Route::get('/admin/login', [AuthController::class, 'ShowLogin'])->name('login');
     Route::post('/admin/login', [AuthController::class, 'login'])->name('login.submit');
 });

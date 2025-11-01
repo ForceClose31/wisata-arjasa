@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
+use App\Http\Controllers\Controller;
 use App\Models\TourPackage;
 use App\Models\PackageType;
 use Illuminate\Http\Request;
@@ -64,7 +65,6 @@ class HomeController extends Controller
             abort(404);
         }
 
-        // For PDF download only - not used in the simplified view
         return response()->download(storage_path('app/public/' . $tourPackage->pdf_path));
     }
 }
