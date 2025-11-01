@@ -63,7 +63,6 @@ Route::middleware('locale')->group(function () {
     Route::get('/tour-package', [HomeController::class, 'tourPackage'])->name('tour-package.index');
     Route::get('/packages/{tourPackage}', [HomeController::class, 'show'])->name('tour-packages.show');
     Route::get('/packages/all', [HomeController::class, 'show'])->name('packages.show');
-    Route::get('/packages/', [HomeController::class, 'show'])->name('tour-package.all');
     Route::get('/packages/type/{packageType}', [HomeController::class, 'byType'])->name('packages.by-type');
 
     Route::get('/artikel', [ArticleController::class, 'index'])->name('articles.all');
