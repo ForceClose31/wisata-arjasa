@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Str;
 
 class Destination extends Model
@@ -20,7 +21,8 @@ class Destination extends Model
         'facilities',
         'type',
         'views_count',
-        'admin_id'
+        'admin_id',
+        'slug'
     ];
 
     protected $casts = [
@@ -30,24 +32,29 @@ class Destination extends Model
         'location' => 'array',
         'operational_hours' => 'array',
         'type' => 'array',
+        'views_count' => 'integer',
     ];
 
-
-    public function category()
+    public function category(): BelongsTo
     {
         return $this->belongsTo(DestinationCategory::class);
     }
 
-    public function user()
+    public function admin(): BelongsTo
     {
         return $this->belongsTo(Admin::class);
     }
 
-    public function getTranslation($field, $locale = null)
+    public function getTranslation(string $field, ?string $locale = null): ?string
     {
         $locale = $locale ?? app()->getLocale();
         $translations = $this->{$field};
-        return $translations[$locale] ?? null;
+        return is_array($translations) ? ($translations[$locale] ?? null) : null;
+    }
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
     }
 
     protected static function boot()
@@ -55,23 +62,15 @@ class Destination extends Model
         parent::boot();
 
         static::creating(function ($destination) {
-            $defaultLocale = config('app.fallback_locale');
-            $title = $destination->title[$defaultLocale] ?? '';
+            $title = $destination->title[config('app.fallback_locale')] ?? '';
             $destination->slug = Str::slug($title);
         });
 
         static::updating(function ($destination) {
-            $defaultLocale = config('app.fallback_locale');
-            if ($destination->isDirty("title->{$defaultLocale}")) {
-                $title = $destination->title[$defaultLocale];
+            if ($destination->isDirty('title')) {
+                $title = $destination->title[config('app.fallback_locale')];
                 $destination->slug = Str::slug($title);
             }
         });
     }
-
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
-
 }

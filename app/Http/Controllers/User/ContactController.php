@@ -1,39 +1,39 @@
 <?php
-
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\ContactRequest;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Contracts\View\View;
 
 class ContactController extends Controller
 {
-    public function send(Request $request)
+    public function index(): View
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'subject' => 'required',
-            'message' => 'required',
-        ]);
+        return view('user.contact.contact');
+    }
 
-        $data = [
-            'name' => $request->name,
-            'email' => $request->email,
-            'subject' => $request->subject,
-            'message' => $request->message
-        ];
-
+    public function send(ContactRequest $request): RedirectResponse
+    {
         try {
-            Mail::send('user.emails.contact', ['data' => $data], function($message) use ($data) {
-                $message->to('desaadatarjasa@gmail.com')
-                        ->subject('Pesan Baru: ' . $data['subject'])
-                        ->replyTo($data['email']);
-            });
+            Mail::send(
+                'user.emails.contact',
+                ['data' => $request->validated()],
+                function ($message) use ($request) {
+                    $message->to(config('mail.contact_email', 'desaadatarjasa@gmail.com'))
+                        ->subject('Pesan Baru: ' . $request->subject)
+                        ->replyTo($request->email, $request->name);
+                }
+            );
 
-            return back()->with('success', 'Pesan berhasil dikirim!');
+            return back()->with('success', __('Message sent successfully!'));
         } catch (\Exception $e) {
-            return back()->with('error', 'Gagal mengirim pesan: ' . $e->getMessage());
+            \Log::error('Contact form error: ' . $e->getMessage());
+
+            return back()
+                ->with('error', __('Failed to send message. Please try again.'))
+                ->withInput();
         }
     }
 }

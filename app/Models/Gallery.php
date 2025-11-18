@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\Translatable\HasTranslations;
 
 class Gallery extends Model
@@ -15,24 +16,19 @@ class Gallery extends Model
         'description',
         'image_path',
         'location',
-        'gallery_category_id'
+        'gallery_category_id',
+        'admin_id'
     ];
 
     public $translatable = ['title', 'description'];
 
-    public function galleryCategory()
+    public function galleryCategory(): BelongsTo
     {
         return $this->belongsTo(GalleryCategory::class);
     }
 
-    public function toArray()
+    public function admin(): BelongsTo
     {
-        $attributes = parent::toArray();
-
-        foreach ($this->getTranslatableAttributes() as $field) {
-            $attributes[$field] = $this->getTranslation($field, app()->getLocale());
-        }
-
-        return $attributes;
+        return $this->belongsTo(Admin::class);
     }
 }
