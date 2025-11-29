@@ -1,4 +1,4 @@
-@extends('layouts.appCus')
+@extends('layouts.customer')
 
 @section('content')
     <section class="py-12 bg-gray-50">
@@ -17,16 +17,16 @@
                 <div class="flex justify-between items-center bg-gray-100 px-6 py-4 border-b">
                     <h2 class="text-xl font-semibold text-gray-800">Booklet Desa Wisata Adat Arjasa 2025</h2>
                 </div>
-                
+
                 <div class="relative h-[70vh] overflow-hidden bg-gray-200">
-                    <iframe 
-                        src="https://heyzine.com/flip-book/5e2f2a0046.html" 
-                        style="width:100%; height:100%; border:none;" 
+                    <iframe
+                        src="https://heyzine.com/flip-book/5e2f2a0046.html"
+                        style="width:100%; height:100%; border:none;"
                         allowfullscreen="true" scrolling="no">
                     </iframe>
                 </div>
             </div>
-            
+
             <!-- Additional Information -->
             <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8" data-aos="fade-up">
                 <div class="bg-white p-6 rounded-lg shadow-md">
@@ -88,7 +88,7 @@
                         </li>
                     </ul>
                 </div>
-                
+
                 <div class="bg-white p-6 rounded-lg shadow-md">
                     <h3 class="text-xl font-semibold mb-4 text-gray-800 border-b pb-2">{{ __('user.Panduan') }}</h3>
                     <div class="space-y-4">

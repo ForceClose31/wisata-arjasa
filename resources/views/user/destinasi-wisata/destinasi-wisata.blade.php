@@ -1,4 +1,4 @@
-@extends('layouts.appCus') {{-- Pastikan path ke layout Anda benar --}}
+@extends('layouts.customer') {{-- Pastikan path ke layout Anda benar --}}
 
 @section('content')
     {{-- Bagian Banner Atas --}}

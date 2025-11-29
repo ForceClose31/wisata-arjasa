@@ -23,20 +23,3 @@
 body.overflow-hidden {
     overflow: hidden;
 }
-
-.line-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-/* Optional: untuk browser yang tidak support -webkit-line-clamp */
-@supports not (-webkit-line-clamp: 3) {
-    .line-clamp-3 {
-        display: block;
-        max-height: 4.5em; /* approximate height for 3 lines */
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-}

@@ -1,4 +1,4 @@
-@extends('layouts.appCus') {{-- Asumsi ini adalah layout utama Anda --}}
+@extends('layouts.customer') {{-- Asumsi ini adalah layout utama Anda --}}
 
 @section('content')
     <section class="relative h-screen max-h-[500px] overflow-hidden bg-gradient-to-br from-teal-600 to-indigo-700">

@@ -1,4 +1,4 @@
-@extends('layouts.appCus')
+@extends('layouts.customer')
 
 @section('content')
     <!-- AlpineJS Component untuk Gallery -->
@@ -182,12 +182,12 @@
             filterButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     const category = this.getAttribute('data-category');
-                    
+
                     filterButtons.forEach(btn => {
                         btn.classList.remove('bg-blue-600', 'text-white', 'shadow-md');
                         btn.classList.add('bg-gray-100', 'text-gray-700', 'hover:bg-gray-200');
                     });
-                    
+
                     this.classList.remove('bg-gray-100', 'text-gray-700', 'hover:bg-gray-200');
                     this.classList.add('bg-blue-600', 'text-white', 'shadow-md');
 
@@ -206,13 +206,13 @@
                     .then(data => {
                         loading.classList.add('hidden');
                         galleryGrid.classList.remove('opacity-50');
-                        
+
                         galleryGrid.innerHTML = data.html;
-                        
+
                         if (data.galleries.length === 0) {
                             emptyState.classList.remove('hidden');
                         }
-                        
+
                         if (typeof AOS !== 'undefined') {
                             AOS.refresh();
                         }
@@ -221,7 +221,7 @@
                         console.error('Error:', error);
                         loading.classList.add('hidden');
                         galleryGrid.classList.remove('opacity-50');
-                        
+
                         galleryGrid.innerHTML = `
                             <div class="col-span-full text-center py-12">
                                 <div class="text-red-500 mb-4">

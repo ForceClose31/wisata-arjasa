@@ -1,4 +1,4 @@
-@extends('layouts.appCus')
+@extends('layouts.customer')
 
 @section('content')
     <section class="h-screen flex items-center justify-center bg-gradient-to-br from-teal-600 to-indigo-700">

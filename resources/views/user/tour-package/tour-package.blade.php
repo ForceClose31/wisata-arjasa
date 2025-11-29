@@ -1,4 +1,4 @@
-@extends('layouts.appCus')
+@extends('layouts.customer')
 
 @section('content')
     <section class="relative h-screen max-h-[500px] overflow-hidden bg-gradient-to-br from-teal-600 to-indigo-700">
@@ -55,7 +55,7 @@
                 @forelse ($featuredPackages as $index => $package)
                     <div data-aos="fade-up" data-aos-delay="{{ ($index + 1) * 100 }}"
                         class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 flex flex-col">
-                        
+
                         <!-- Image Container dengan aspect ratio natural tanpa crop -->
                         <div class="relative overflow-hidden flex-shrink-0">
                             @if (isset($package->images) && count($package->images) > 0)
@@ -66,11 +66,11 @@
                                     alt="{{ $package->name }}"
                                     class="w-full h-auto transition-transform duration-700 group-hover:scale-105">
                             @endif
-                            
+
                             <!-- Gradient Overlay -->
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent">
                             </div>
-                            
+
                             <!-- Badges -->
                             <div class="absolute top-4 right-4 flex flex-col space-y-2">
                                 <span class="bg-white/95 text-gray-800 text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
@@ -80,7 +80,7 @@
                                     {{ $package->packageType->name }}
                                 </span>
                             </div>
-                            
+
                             <!-- Title Overlay -->
                             <div class="absolute bottom-4 left-4 right-4">
                                 <h3 class="text-white font-bold text-lg leading-tight drop-shadow-lg">
@@ -88,13 +88,13 @@
                                 </h3>
                             </div>
                         </div>
-            
+
                         <!-- Content dengan flex-grow untuk membuat tinggi card sama -->
                         <div class="p-6 flex flex-col flex-grow">
                             <p class="text-gray-600 mb-4 line-clamp-3">
                                 {{ $package->short_description ?? $package->description }}
                             </p>
-            
+
                             <div class="mb-4">
                                 <h4 class="text-sm font-semibold text-gray-500 mb-2 flex items-center">
                                     <i class="fas fa-sparkles text-amber-400 mr-2"></i> {{ __('user.Highlights') }}
@@ -107,10 +107,10 @@
                                     @endforeach
                                 </div>
                             </div>
-            
+
                             <!-- Spacer untuk mendorong price dan button ke bawah -->
                             <div class="flex-grow"></div>
-            
+
                             <div class="mb-6">
                                 <h4 class="font-bold text-gray-800 mb-2 flex items-center">
                                     <i class="fas fa-tag text-blue-500 mr-2"></i> {{ __('user.Harga Mulai Dari') }}
@@ -119,7 +119,7 @@
                                     Rp {{ number_format($package->pricings->sortBy('price')->first()->price ?? 0, 0, ',', '.') }}
                                 </div>
                             </div>
-            
+
                             <div class="text-center mt-auto">
                                 @if ($package->pdf_url)
                                     <a href="/storage/{{ $package->pdf_url }}" target="_blank"
