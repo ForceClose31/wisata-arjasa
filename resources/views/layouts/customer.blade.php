@@ -52,16 +52,15 @@
         }
 
         .mobile-dropdown-menu {
-            transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+            max-height: 0;
             opacity: 0;
-            transform: translateY(-10px);
-            pointer-events: none;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, opacity 0.2s ease-out;
         }
 
         .mobile-dropdown-menu.show {
             opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
+            max-height: 300px;
         }
     </style>
 
