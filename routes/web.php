@@ -73,11 +73,12 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::prefix('admin')
-    ->middleware(['auth', 'admin'])
+    ->middleware(['auth:admin', 'admin'])
     ->name('admin.')
     ->group(function () {
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-
+        Route::get('/activities/refresh', [AdminController::class, 'refreshActivities'])->name('activities.refresh');
+        Route::get('/activities', [AdminController::class, 'activities'])->name('activities');
         Route::resource('destinations', AdminDestinationController::class)->except('show');
         Route::resource('tour-packages', AdminTourPackageController::class)->except('show');
         Route::resource('galleries', AdminGalleryController::class)->except('show');

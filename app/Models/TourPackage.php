@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Loggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -10,7 +11,7 @@ use Spatie\Translatable\HasTranslations;
 
 class TourPackage extends Model
 {
-    use HasFactory, HasTranslations;
+    use HasFactory, HasTranslations, Loggable;
 
     public $translatable = ['name', 'description', 'duration', 'highlights'];
 
