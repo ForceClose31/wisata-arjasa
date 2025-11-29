@@ -4,51 +4,34 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class TourPackagePricing extends Model
 {
     use HasFactory;
 
-    /**
-     * The attributes that are mass assignable
-     *
-     * @var array
-     */
-    protected $fillable = ['tour_package_id', 'group_size', 'price', 'variant'];
+    protected $fillable = [
+        'tour_package_id',
+        'group_size',
+        'price',
+        'variant'
+    ];
 
-    /**
-     * The attributes that should be cast
-     *
-     * @var array
-     */
     protected $casts = [
         'price' => 'integer'
     ];
 
-    /**
-     * Get the tour package that owns this pricing
-     */
-    public function package()
+    public function package(): BelongsTo
     {
         return $this->belongsTo(TourPackage::class, 'tour_package_id');
     }
 
-    /**
-     * Get formatted price (Rp format)
-     *
-     * @return string
-     */
-    public function getFormattedPriceAttribute()
+    public function getFormattedPriceAttribute(): string
     {
         return 'Rp ' . number_format($this->price, 0, ',', '.');
     }
 
-    /**
-     * Get full description with variant if exists
-     *
-     * @return string
-     */
-    public function getFullDescriptionAttribute()
+    public function getFullDescriptionAttribute(): string
     {
         $description = $this->group_size;
 

@@ -3,172 +3,117 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\DestinationRequest;
 use App\Models\Destination;
 use App\Models\DestinationCategory;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
+use App\Services\ImageService;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
 class AdminDestinationController extends Controller
 {
-    public function index()
+    public function __construct(
+        private ImageService $imageService
+    ) {
+    }
+
+    public function index(): View
     {
-        $destinations = Destination::with('category')->latest()->paginate(10);
+        $destinations = Destination::with('category:id,name')
+            ->latest()
+            ->paginate(15);
+
         return view('admin.destinations.index', compact('destinations'));
     }
 
-    public function create()
+    public function create(): View
     {
-        $categories = DestinationCategory::all();
+        $categories = DestinationCategory::select('id', 'name')->get();
         return view('admin.destinations.create', compact('categories'));
     }
 
-    public function store(Request $request)
+    public function store(DestinationRequest $request): RedirectResponse
     {
-        $validated = $request->validate([
-            'title_id' => 'required|string|max:255',
-            'title_en' => 'required|string|max:255',
-            'category_id' => 'required|exists:destination_categories,id',
-            'description_id' => 'required|string',
-            'description_en' => 'required|string',
-            'location_id' => 'required|string',
-            'location_en' => 'required|string',
-            'operational_hours_id' => 'required|string',
-            'operational_hours_en' => 'required|string',
-            'type_id' => 'required|string',
-            'type_en' => 'required|string',
-            'facilities_id' => 'required|array',
-            'facilities_en' => 'required|array',
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-        ]);
+        $data = $this->prepareData($request);
 
-        // Handle image upload
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('destinations', 'public');
-            $validated['image'] = $imagePath;
+            $data['image'] = $this->imageService->store(
+                $request->file('image'),
+                'destinations'
+            );
         }
 
-        // Prepare multilingual fields
-        $validated['title'] = [
-            'id' => $validated['title_id'],
-            'en' => $validated['title_en'],
-        ];
+        Destination::create($data);
 
-        $validated['description'] = [
-            'id' => $validated['description_id'],
-            'en' => $validated['description_en'],
-        ];
-
-        $validated['location'] = [
-            'id' => $validated['location_id'],
-            'en' => $validated['location_en'],
-        ];
-
-        $validated['operational_hours'] = [
-            'id' => $validated['operational_hours_id'],
-            'en' => $validated['operational_hours_en'],
-        ];
-
-        $validated['type'] = [
-            'id' => $validated['type_id'],
-            'en' => $validated['type_en'],
-        ];
-
-        $validated['facilities'] = [
-            'id' => $validated['facilities_id'],
-            'en' => $validated['facilities_en'],
-        ];
-
-        $validated['admin_id'] = auth()->id();
-
-        Destination::create($validated);
-
-        return redirect()->route('admin.destinations.index')
-            ->with('success', 'Destinasi wisata berhasil ditambahkan');
+        return redirect()
+            ->route('admin.destinations.index')
+            ->with('success', __('Destination successfully created'));
     }
 
-    public function edit(Destination $destination)
+    public function edit(Destination $destination): View
     {
-        $categories = DestinationCategory::all();
+        $categories = DestinationCategory::select('id', 'name')->get();
         return view('admin.destinations.edit', compact('destination', 'categories'));
     }
 
-    public function update(Request $request, Destination $destination)
+    public function update(DestinationRequest $request, Destination $destination): RedirectResponse
     {
-        $validated = $request->validate([
-            'title_id' => 'required|string|max:255',
-            'title_en' => 'required|string|max:255',
-            'category_id' => 'required|exists:destination_categories,id',
-            'description_id' => 'required|string',
-            'description_en' => 'required|string',
-            'location_id' => 'required|string',
-            'location_en' => 'required|string',
-            'operational_hours_id' => 'required|string',
-            'operational_hours_en' => 'required|string',
-            'type_id' => 'required|string',
-            'type_en' => 'required|string',
-            'facilities_id' => 'required|array',
-            'facilities_en' => 'required|array',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-        ]);
+        $data = $this->prepareData($request);
 
-        // Handle image update
         if ($request->hasFile('image')) {
-            // Delete old image if exists
-            if ($destination->image) {
-                Storage::disk('public')->delete($destination->image);
-            }
-
-            $imagePath = $request->file('image')->store('destinations', 'public');
-            $validated['image'] = $imagePath;
+            $this->imageService->delete($destination->image);
+            $data['image'] = $this->imageService->store(
+                $request->file('image'),
+                'destinations'
+            );
         }
 
-        // Prepare multilingual fields
-        $validated['title'] = [
-            'id' => $validated['title_id'],
-            'en' => $validated['title_en'],
-        ];
+        $destination->update($data);
 
-        $validated['description'] = [
-            'id' => $validated['description_id'],
-            'en' => $validated['description_en'],
-        ];
-
-        $validated['location'] = [
-            'id' => $validated['location_id'],
-            'en' => $validated['location_en'],
-        ];
-
-        $validated['operational_hours'] = [
-            'id' => $validated['operational_hours_id'],
-            'en' => $validated['operational_hours_en'],
-        ];
-
-        $validated['type'] = [
-            'id' => $validated['type_id'],
-            'en' => $validated['type_en'],
-        ];
-
-        $validated['facilities'] = [
-            'id' => $validated['facilities_id'],
-            'en' => $validated['facilities_en'],
-        ];
-
-        $destination->update($validated);
-
-        return redirect()->route('admin.destinations.index')
-            ->with('success', 'Destinasi wisata berhasil diperbarui');
+        return redirect()
+            ->route('admin.destinations.index')
+            ->with('success', __('Destination successfully updated'));
     }
 
-    public function destroy(Destination $destination)
+    public function destroy(Destination $destination): RedirectResponse
     {
-        if ($destination->image) {
-            Storage::disk('public')->delete($destination->image);
-        }
-
+        $this->imageService->delete($destination->image);
         $destination->delete();
 
-        return redirect()->route('admin.destinations.index')
-            ->with('success', 'Destinasi wisata berhasil dihapus');
+        return redirect()
+            ->route('admin.destinations.index')
+            ->with('success', __('Destination successfully deleted'));
+    }
+
+    private function prepareData(DestinationRequest $request): array
+    {
+        return [
+            'category_id' => $request->category_id,
+            'admin_id' => auth()->id(),
+            'title' => [
+                'id' => $request->title_id,
+                'en' => $request->title_en,
+            ],
+            'description' => [
+                'id' => $request->description_id,
+                'en' => $request->description_en,
+            ],
+            'location' => [
+                'id' => $request->location_id,
+                'en' => $request->location_en,
+            ],
+            'operational_hours' => [
+                'id' => $request->operational_hours_id,
+                'en' => $request->operational_hours_en,
+            ],
+            'type' => [
+                'id' => $request->type_id,
+                'en' => $request->type_en,
+            ],
+            'facilities' => [
+                'id' => $request->facilities_id,
+                'en' => $request->facilities_en,
+            ],
+        ];
     }
 }

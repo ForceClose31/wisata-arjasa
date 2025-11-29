@@ -4,15 +4,23 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Transportation;
-use Illuminate\Support\Facades\App;
+use Illuminate\Contracts\View\View;
 
 class TransportController extends Controller
 {
-    public function index()
+    public function index(): View
     {
-        $locale = App::getLocale();
-        $transportations = Transportation::all();
+        $transportations = Transportation::select(
+            'id',
+            'name',
+            'description',
+            'image',
+            'phone',
+            'price',
+            'duration'
+        )
+            ->get();
 
-        return view('user.transport.transport', compact('transportations', 'locale'));
+        return view('user.transport.transport', compact('transportations'));
     }
 }

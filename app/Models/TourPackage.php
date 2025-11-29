@@ -4,18 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Translatable\HasTranslations;
 
 class TourPackage extends Model
 {
     use HasFactory, HasTranslations;
 
-    public $translatable = [
-        'name',
-        'description',
-        'duration',
-        'highlights'
-    ];
+    public $translatable = ['name', 'description', 'duration', 'highlights'];
 
     protected $fillable = [
         'package_type_id',
@@ -32,34 +29,37 @@ class TourPackage extends Model
 
     protected $casts = [
         'images' => 'array',
-        'highlights' => 'array',
         'is_featured' => 'boolean',
         'is_available' => 'boolean'
     ];
 
-    public function packageType()
+    public function packageType(): BelongsTo
     {
         return $this->belongsTo(PackageType::class);
     }
 
-    public function pricings()
+    public function pricings(): HasMany
     {
         return $this->hasMany(TourPackagePricing::class);
     }
 
-    public function getBasePriceAttribute()
+    public function getBasePriceAttribute(): ?TourPackagePricing
     {
-        return $this->pricings->sortBy('price')->first();
+        return $this->pricings()->orderBy('price')->first();
     }
 
-    public function toArray()
+    public function getRouteKeyName(): string
     {
-        $attributes = parent::toArray();
+        return 'slug';
+    }
 
-        foreach ($this->getTranslatableAttributes() as $field) {
-            $attributes[$field] = $this->getTranslation($field, app()->getLocale());
-        }
+    public function scopeAvailable($query)
+    {
+        return $query->where('is_available', true);
+    }
 
-        return $attributes;
+    public function scopeFeatured($query)
+    {
+        return $query->where('is_featured', true);
     }
 }
