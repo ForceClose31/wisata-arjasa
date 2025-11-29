@@ -27,4 +27,10 @@ class Admin extends Authenticatable
     protected $casts = [
         'password' => 'hashed',
     ];
+
+    public function adminActivity()
+    {
+        return $this->belongsTo(AdminActivity::class);
+    }
+
 }

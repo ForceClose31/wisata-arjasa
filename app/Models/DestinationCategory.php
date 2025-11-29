@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\Loggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Translatable\HasTranslations;
 
 class DestinationCategory extends Model
 {
-    use HasTranslations;
+    use HasTranslations, Loggable;
 
     protected $fillable = ['name', 'slug'];
 

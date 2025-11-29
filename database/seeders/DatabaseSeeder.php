@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             TestimonialSeeder::class,
             CategorySeeder::class,
             DestinationSeeder::class,
-            ContentSeeder::class,
+            // ContentSeeder::class,
             GalleryCategorySeeder::class,
             GallerySeeder::class,
             TransportSeeder::class,

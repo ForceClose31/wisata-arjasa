@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\Loggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
 class GalleryCategory extends Model
 {
-    use HasFactory, HasTranslations;
+    use HasFactory, HasTranslations, Loggable;
 
     protected $fillable = ['name', 'slug'];
 
