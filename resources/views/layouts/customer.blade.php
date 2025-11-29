@@ -37,6 +37,32 @@
         [x-cloak] {
             display: none !important;
         }
+
+        .dropdown-menu {
+            transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+            opacity: 0;
+            transform: translateY(-10px);
+            pointer-events: none;
+        }
+
+        .dropdown-menu.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .mobile-dropdown-menu {
+            transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+            opacity: 0;
+            transform: translateY(-10px);
+            pointer-events: none;
+        }
+
+        .mobile-dropdown-menu.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
     </style>
 
     <script>
@@ -136,7 +162,7 @@
             Alpine.data('counter', (target, duration = 3000) => ({
                 count: 0,
                 start() {
-                    const increment = target / (duration/10);
+                    const increment = target / (duration / 10);
                     let startTime;
 
                     const update = (timestamp) => {
@@ -155,7 +181,58 @@
             }));
         });
     </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
 
+            const mobileBtn = document.getElementById("mobile-menu-button");
+            const mobileMenu = document.getElementById("mobile-menu");
+            const mobileMenuOpenIcon = document.getElementById("mobile-menu-open");
+            const mobileMenuCloseIcon = document.getElementById("mobile-menu-close");
+
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener("click", () => {
+                    mobileMenu.classList.toggle("hidden");
+                    mobileMenuOpenIcon.classList.toggle("hidden");
+                    mobileMenuCloseIcon.classList.toggle("hidden");
+                });
+            }
+
+            document.querySelectorAll("[data-dropdown]").forEach((dropdown) => {
+                const toggle = dropdown.querySelector("[data-toggle]");
+                const menu = dropdown.querySelector("[data-menu]");
+
+                if (toggle && menu) {
+                    toggle.addEventListener("click", (e) => {
+                        e.stopPropagation();
+                        document.querySelectorAll("[data-menu]").forEach(m => {
+                            if (m !== menu) m.classList.remove("show");
+                        });
+                        menu.classList.toggle("show");
+                    });
+                }
+            });
+
+            document.addEventListener("click", (e) => {
+                if (!e.target.closest("[data-dropdown]")) {
+                    document.querySelectorAll("[data-menu]").forEach(menu => {
+                        menu.classList.remove("show");
+                    });
+                }
+            });
+
+            document.querySelectorAll("[data-mobile-dropdown]").forEach((dropdown) => {
+                const toggle = dropdown.querySelector("[data-mobile-toggle]");
+                const menu = dropdown.querySelector("[data-mobile-menu]");
+
+                if (toggle && menu) {
+                    toggle.addEventListener("click", () => {
+                        menu.classList.toggle("show");
+                    });
+                }
+            });
+        });
+
+    </script>
     @stack('scripts')
 </body>
 
