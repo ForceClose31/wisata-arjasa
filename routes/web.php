@@ -67,7 +67,7 @@ Route::middleware('locale')->group(function () {
     Route::get('/transport', [TransportController::class, 'index'])->name('transport.index');
 });
 
-Route::middleware('guest')->group(function () {
+Route::middleware('guest:admin')->group(function () {
     Route::get('/admin/login', [AuthController::class, 'showLogin'])->name('login');
     Route::post('/admin/login', [AuthController::class, 'login'])->name('login.submit');
 });
