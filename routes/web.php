@@ -13,7 +13,8 @@ use App\Http\Controllers\User\{
     GalleryController,
     HomeController,
     TouristDestinationController,
-    TransportController
+    TransportController,
+    TourPackageController
 };
 use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
@@ -38,11 +39,11 @@ Route::middleware('locale')->group(function () {
         Route::post('/', 'send')->name('contact.send');
     });
 
-    Route::controller(HomeController::class)->prefix('tour-package')->group(function () {
+    Route::controller(TourPackageController::class)->prefix('tour-package')->group(function () {
         Route::get('/', 'tourPackage')->name('tour-package.index');
         Route::get('/type/{packageType}', 'byType')->name('packages.by-type');
     });
-    Route::get('/packages/{tourPackage}', [HomeController::class, 'show'])
+    Route::get('/packages/{tourPackage}', [TourPackageController::class, 'show'])
         ->name('tour-packages.show');
 
     Route::controller(TouristDestinationController::class)

@@ -2,6 +2,9 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Destination;
+use App\Models\DestinationCategory;
+use App\Models\GalleryCategory;
 use App\Models\TourPackage;
 use App\Models\PackageType;
 use Illuminate\Contracts\View\View;
@@ -11,67 +14,47 @@ class HomeController extends Controller
 {
     public function index(): View
     {
-        return view('user.index');
+        $cultureTourismCategory = DestinationCategory::where('name->en', 'Culture Tourism')
+            ->orWhere('name->id', 'Wisata Budaya')
+            ->first();
+
+        $situsBudayaCount = $cultureTourismCategory
+            ? $cultureTourismCategory->destinations()->count()
+            : 0;
+
+        $activityCategory = GalleryCategory::where('name->en', 'Activity')
+            ->orWhere('name->id', 'Aktivitas')
+            ->first();
+
+        $acaraLokalCount = $activityCategory
+            ? $activityCategory->galleries()->count()
+            : 0;
+
+        $paketWisataCount = TourPackage::where('is_available', true)->count();
+
+        $dayaTarikKategori = [
+            ['en' => 'Culture Tourism', 'id' => 'Wisata Budaya'],
+            ['en' => 'Special Interest Tourism', 'id' => 'Wisata Minat Khusus'],
+            ['en' => 'Education Tourism', 'id' => 'Wisata Edukasi'],
+            ['en' => 'Mass Tourism', 'id' => 'Wisata Buatan'],
+        ];
+
+        $dayaTarikAlamCount = Destination::whereIn('category_id', function ($query) use ($dayaTarikKategori) {
+            $query->select('id')
+                ->from('destination_categories')
+                ->where(function ($q) use ($dayaTarikKategori) {
+                    foreach ($dayaTarikKategori as $kat) {
+                        $q->orWhere('name->en', $kat['en'])
+                            ->orWhere('name->id', $kat['id']);
+                    }
+                });
+        })->count();
+
+        return view('user.index', compact(
+            'situsBudayaCount',
+            'acaraLokalCount',
+            'paketWisataCount',
+            'dayaTarikAlamCount'
+        ));
     }
-
-    public function tourPackage(): View
-    {
-        $featuredPackages = TourPackage::with([
-            'packageType:id,name',
-            'pricings' => fn($q) => $q->orderBy('price')
-        ])
-            ->where('is_available', true)
-            ->where('is_featured', true)
-            ->latest()
-            ->paginate(6);
-
-        return view('user.tour-package.tour-package', compact('featuredPackages'));
-    }
-
-    public function byType(string $packageType): View
-    {
-        if ($packageType === 'all') {
-            $tourPackages = TourPackage::with([
-                'packageType:id,name',
-                'pricings' => fn($q) => $q->orderBy('price')
-            ])
-                ->where('is_available', true)
-                ->latest()
-                ->paginate(9);
-
-            return view('user.tour-package.tour-package', [
-                'featuredPackages' => $tourPackages,
-                'title' => __('All Tour Packages')
-            ]);
-        }
-
-        $type = PackageType::where('slug', $packageType)
-            ->where('is_active', true)
-            ->firstOrFail();
-
-        $tourPackages = TourPackage::with([
-            'packageType:id,name',
-            'pricings' => fn($q) => $q->orderBy('price')
-        ])
-            ->where('package_type_id', $type->id)
-            ->where('is_available', true)
-            ->latest()
-            ->paginate(6);
-
-        return view('user.tour-package.tour-package', [
-            'featuredPackages' => $tourPackages,
-            'title' => $type->name
-        ]);
-    }
-
-    public function show(TourPackage $tourPackage): BinaryFileResponse
-    {
-        abort_if(!$tourPackage->is_available, 404);
-        abort_if(!$tourPackage->pdf_path, 404);
-
-        return response()->download(
-            storage_path('app/public/' . $tourPackage->pdf_path)
-        );
-    }
-
 }

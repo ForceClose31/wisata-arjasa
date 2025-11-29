@@ -28,7 +28,6 @@
             </div>
         </div>
 
-        <!-- Slider Controls -->
         <button @click="prevSlide"
             class="absolute left-4 top-1/2 z-30 -translate-y-1/2 bg-white/30 text-white p-3 rounded-full hover:bg-white/50 transition backdrop-blur-sm">
             <i class="fas fa-chevron-left"></i>
@@ -38,7 +37,6 @@
             <i class="fas fa-chevron-right"></i>
         </button>
 
-        <!-- Slider Indicators -->
         <div class="absolute bottom-8 left-1/2 z-30 -translate-x-1/2 flex space-x-2">
             <template x-for="(slide, index) in slides" :key="index">
                 <button @click="currentSlide = index" class="w-3 h-3 rounded-full transition duration-300"
@@ -63,96 +61,30 @@
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
 
                 <div class="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300">
-                    <div class="text-4xl font-bold text-teal-600 mb-2" x-data="{ count: 0, target: 2 }"
-                        x-intersect.once="() => {
-                            const duration = 5000;
-                            const increment = target / (duration / 3);
-                            let start;
-                            const animateCount = (timestamp) => {
-                                if (!start) start = timestamp;
-                                const progress = timestamp - start;
-                                const value = Math.min(target, Math.ceil(progress * increment));
-                                count = value;
-                                if (progress < duration) {
-                                    requestAnimationFrame(animateCount);
-                                } else {
-                                    count = target; // Ensure it ends exactly at target
-                                }
-                            };
-                            requestAnimationFrame(animateCount);
-                        }"
-                        x-text="count">0</div>
+                    <div x-data="counter({{ $situsBudayaCount }}, 3000)" x-intersect.once="start()" x-text="count"
+                        class="text-4xl font-bold text-teal-600 mb-2">
+                    </div>
                     <h3 class="text-lg font-semibold text-gray-800">{{ __('user.Situs Budaya') }}</h3>
                 </div>
 
                 <div class="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300">
-                    <div class="text-4xl font-bold text-indigo-600 mb-2" x-data="{ count: 0, target: 1 }"
-                        x-intersect.once="() => {
-                            const duration = 5000;
-                            const increment = target / (duration / 3);
-                            let start;
-                            const animateCount = (timestamp) => {
-                                if (!start) start = timestamp;
-                                const progress = timestamp - start;
-                                const value = Math.min(target, Math.ceil(progress * increment));
-                                count = value;
-                                if (progress < duration) {
-                                    requestAnimationFrame(animateCount);
-                                } else {
-                                    count = target;
-                                }
-                            };
-                            requestAnimationFrame(animateCount);
-                        }"
-                        x-text="count">0</div>
+                    <div x-data="counter({{ $acaraLokalCount }}, 3000)" x-intersect.once="start()" x-text="count"
+                        class="text-4xl font-bold text-indigo-600 mb-2">
+                    </div>
                     <h3 class="text-lg font-semibold text-gray-800">{{ __('user.Acara Lokal') }}</h3>
                 </div>
 
-                {{-- Tour Packages --}}
                 <div class="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300">
-                    <div class="text-4xl font-bold text-amber-600 mb-2" x-data="{ count: 0, target: 5 }"
-                        x-intersect.once="() => {
-                            const duration = 5000;
-                            const increment = target / (duration / 3);
-                            let start;
-                            const animateCount = (timestamp) => {
-                                if (!start) start = timestamp;
-                                const progress = timestamp - start;
-                                const value = Math.min(target, Math.ceil(progress * increment));
-                                count = value;
-                                if (progress < duration) {
-                                    requestAnimationFrame(animateCount);
-                                } else {
-                                    count = target;
-                                }
-                            };
-                            requestAnimationFrame(animateCount);
-                        }"
-                        x-text="count">0</div>
+                    <div x-data="counter({{ $paketWisataCount }}, 3000)" x-intersect.once="start()" x-text="count"
+                        class="text-4xl font-bold text-amber-600 mb-2">
+                    </div>
                     <h3 class="text-lg font-semibold text-gray-800">{{ __('user.Paket Wisata') }}</h3>
                 </div>
 
-                {{-- Natural Attractions --}}
                 <div class="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300">
-                    <div class="text-4xl font-bold text-emerald-600 mb-2" x-data="{ count: 0, target: 8 }"
-                        x-intersect.once="() => {
-                            const duration = 5000;
-                            const increment = target / (duration / 3);
-                            let start;
-                            const animateCount = (timestamp) => {
-                                if (!start) start = timestamp;
-                                const progress = timestamp - start;
-                                const value = Math.min(target, Math.ceil(progress * increment));
-                                count = value;
-                                if (progress < duration) {
-                                    requestAnimationFrame(animateCount);
-                                } else {
-                                    count = target;
-                                }
-                            };
-                            requestAnimationFrame(animateCount);
-                        }"
-                        x-text="count">0</div>
+                    <div x-data="counter({{ $dayaTarikAlamCount }}, 3000)" x-intersect.once="start()" x-text="count"
+                        class="text-4xl font-bold text-emerald-600 mb-2">
+                    </div>
                     <h3 class="text-lg font-semibold text-gray-800">{{ __('user.Daya Tarik Alam') }}</h3>
                 </div>
             </div>
@@ -162,7 +94,8 @@
     <section class="py-20 bg-gray-50 text-gray-800">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-6 font-montserrat">
-                {{ __('user.Siap Jelajahi Desa Wisata Arjasa?') }}</h2>
+                {{ __('user.Siap Jelajahi Desa Wisata Arjasa?') }}
+            </h2>
             <p class="text-xl mb-8 max-w-2xl mx-auto">
                 {{ __('user.Bergabunglah dengan komunitas penjelajah budaya kami dan mulai petualangan Anda di Arjasa hari ini') }}
             </p>
@@ -174,12 +107,4 @@
             </div>
         </div>
     </section>
-
-
 @endsection
-
-<!-- Alpine Plugins -->
-<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
-
-<!-- Alpine Core -->
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>

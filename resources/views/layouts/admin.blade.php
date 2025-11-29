@@ -7,13 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin Dashboard - Arjasa Cultural</title>
 
-    <!-- Favicon -->
     <link rel="icon" href="{{ asset('assets/img/logo.png') }}" type="image/png">
 
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
     @stack('styles')
@@ -21,7 +18,6 @@
 
 <body class="bg-gray-100 font-sans">
     <div class="flex h-screen overflow-hidden">
-        <!-- Sidebar -->
         <div class="hidden md:flex md:flex-shrink-0">
             <div class="flex flex-col w-64 bg-blue-800">
                 <div class="flex items-center justify-center h-16 px-4 bg-blue-900">
@@ -74,9 +70,7 @@
             </div>
         </div>
 
-        <!-- Main Content -->
         <div class="flex flex-col flex-1 overflow-hidden">
-            <!-- Top Navigation -->
             <header class="flex items-center justify-between h-16 px-6 bg-white border-b border-gray-200">
                 <div class="flex items-center">
                     <button class="md:hidden text-gray-500 focus:outline-none">
@@ -101,7 +95,6 @@
                 </div>
             </header>
 
-            <!-- Content -->
             <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50">
                 <div class="container px-6 py-8 mx-auto">
                     @yield('content')
@@ -110,7 +103,6 @@
         </div>
     </div>
 
-    <!-- Mobile sidebar -->
     <div class="fixed inset-0 z-40 md:hidden" style="display: none;">
         <div class="fixed inset-0 bg-gray-600 bg-opacity-75"></div>
         <div class="fixed inset-y-0 left-0 flex max-w-xs w-full">
@@ -167,7 +159,6 @@
     </div>
 
     <script>
-        // Toggle mobile sidebar
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuButton = document.querySelector('.md\\:hidden button');
             const mobileMenu = document.querySelector('.fixed.inset-0.z-40');
@@ -178,7 +169,6 @@
         });
     </script>
 
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @stack('scripts')
