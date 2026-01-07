@@ -10,9 +10,9 @@ class CottageController extends Controller
 {
     public function index(): View
     {
-        $cottages = Cottage::where('is_available', true)
-            ->select('id', 'name', 'description', 'price', 'capacity', 'images')
-            ->get();
+        // $cottages = Cottage::where('is_available', true)
+        //     ->select('id', 'name', 'description', 'price', 'capacity', 'images')
+        //     ->get();
 
         return view('user.cottage.cottage', compact('cottages'));
     }

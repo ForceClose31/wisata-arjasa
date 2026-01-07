@@ -10,16 +10,16 @@ class TransportController extends Controller
 {
     public function index(): View
     {
-        $transportations = Transportation::select(
-            'id',
-            'name',
-            'description',
-            'image',
-            'phone',
-            'price',
-            'duration'
-        )
-            ->get();
+        // $transportations = Transportation::select(
+        //     'id',
+        //     'name',
+        //     'description',
+        //     'image',
+        //     'phone',
+        //     'price',
+        //     'duration'
+        // )
+        //     ->get();
 
         return view('user.transport.transport', compact('transportations'));
     }
