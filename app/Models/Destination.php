@@ -74,4 +74,17 @@ class Destination extends Model
             }
         });
     }
+
+    public function getMetaTitleForLocale($locale = null)
+    {
+        $locale = $locale ?? app()->getLocale();
+        return $this->getTranslation('title', $locale);
+    }
+
+    public function getMetaDescriptionForLocale($locale = null)
+    {
+        $locale = $locale ?? app()->getLocale();
+        $description = $this->getTranslation('description', $locale);
+        return Str::limit(strip_tags($description), 160);
+    }
 }

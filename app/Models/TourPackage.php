@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Str;
 use Spatie\Translatable\HasTranslations;
 
 class TourPackage extends Model
@@ -62,5 +63,18 @@ class TourPackage extends Model
     public function scopeFeatured($query)
     {
         return $query->where('is_featured', true);
+    }
+
+    public function getMetaTitleForLocale($locale = null)
+    {
+        $locale = $locale ?? app()->getLocale();
+        return $this->getTranslation('name', $locale);
+    }
+
+    public function getMetaDescriptionForLocale($locale = null)
+    {
+        $locale = $locale ?? app()->getLocale();
+        $description = $this->getTranslation('description', $locale);
+        return Str::limit(strip_tags($description), 160);
     }
 }

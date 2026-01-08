@@ -1,5 +1,13 @@
 @extends('layouts.customer')
 
+@push('head')
+    <meta name="description"
+        content="Sejarah dan profil Desa Wisata Adat Arjasa - Destinasi wisata budaya di Jember yang melestarikan tradisi sejak 1920">
+    <meta name="keywords" content="sejarah arjasa, profil desa arjasa, wisata budaya jember, desa adat arjasa">
+
+    <title>Tentang Kami - Desa Wisata Adat Arjasa</title>
+@endpush
+
 @section('content')
     <section class="relative h-screen max-h-[500px] overflow-hidden bg-gradient-to-br from-teal-600 to-indigo-700">
         <div class="absolute inset-0 bg-black/20 z-10"></div>
@@ -54,8 +62,8 @@
                     data-aos-duration="1000">
                     <div
                         class="relative rounded-xl overflow-hidden shadow-2xl transform hover:scale-105 transition duration-500 ease-in-out">
-                        <img src="storage/profile/DSC_0312.JPG"
-                            alt="Kisah Kami Dewi Arjasa" class="w-full h-auto object-cover">
+                        <img src="storage/profile/DSC_0312.JPG" alt="Kisah Kami Dewi Arjasa"
+                            class="w-full h-auto object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
                         <div class="absolute bottom-0 left-0 p-6 text-white">
                             <p class="text-sm font-semibold font-lato tracking-wide">

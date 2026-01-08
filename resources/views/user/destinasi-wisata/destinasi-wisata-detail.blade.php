@@ -1,5 +1,25 @@
 @extends('layouts.customer')
 
+@push('head')
+    <meta name="description" content="{{ $destination->getMetaDescriptionForLocale() }}">
+    <meta name="keywords"
+        content="{{ $destination->category?->getTranslation('name', app()->getLocale()) }}, wisata {{ $destination->getTranslation('location', app()->getLocale()) }}">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="{{ $destination->getMetaTitleForLocale() }}">
+    <meta property="og:description" content="{{ $destination->getMetaDescriptionForLocale() }}">
+    <meta property="og:image" content="{{ asset('storage/' . $destination->image) }}">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ url()->current() }}">
+    <meta property="twitter:title" content="{{ $destination->getMetaTitleForLocale() }}">
+    <meta property="twitter:description" content="{{ $destination->getMetaDescriptionForLocale() }}">
+    <meta property="twitter:image" content="{{ asset('storage/' . $destination->image) }}">
+
+    <title>{{ $destination->getMetaTitleForLocale() }} - Desa Wisata Adat Arjasa</title>
+@endpush
+
 @section('content')
     <section class="py-12 bg-gray-50">
         <div class="container mx-auto px-4 max-w-6xl">
@@ -35,7 +55,7 @@
 
             <div class="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div class="relative h-96">
-                    <img src="{{ asset('storage/'. $destination->image) }}"
+                    <img src="{{ asset('storage/' . $destination->image) }}"
                         alt="{{ $destination->getTranslation('title', app()->getLocale()) }}"
                         class="w-full h-full object-cover">
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
@@ -149,7 +169,7 @@
                                 @foreach ($nearbyDestinations as $nearby)
                                     <a href="{{ route('tourist-destination.show', $nearby->slug) }}"
                                         class="flex items-center group">
-                                        <img src="{{ asset('storage/'. $nearby->image) }}"
+                                        <img src="{{ asset('storage/' . $nearby->image) }}"
                                             alt="{{ $nearby->getTranslation('title', app()->getLocale()) }}"
                                             class="w-16 h-16 object-cover rounded-lg mr-3">
                                         <div>

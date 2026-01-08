@@ -1,5 +1,13 @@
 @extends('layouts.customer')
 
+@push('head')
+    <meta name="description"
+        content="Galeri foto Desa Wisata Adat Arjasa - Temukan keindahan setiap sudut Arjasa dalam koleksi foto kami">
+    <meta name="keywords" content="galeri arjasa, foto wisata arjasa, foto budaya arjasa, dokumentasi arjasa">
+
+    <title>Galeri Foto - Desa Wisata Adat Arjasa</title>
+@endpush
+
 @section('content')
     <!-- AlpineJS Component untuk Gallery -->
     <div x-data="galleryApp()" @keydown.escape="closeModal">
@@ -52,7 +60,8 @@
                         Gallery
                         <span class="absolute bottom-0 left-0 w-full h-2 bg-blue-400 opacity-70 -z-1"></span>
                     </h2>
-                    <p class="text-lg text-gray-700">{{ __('user.Temukan keindahan setiap sudut Arjasa dalam galeri foto kami.') }}</p>
+                    <p class="text-lg text-gray-700">
+                        {{ __('user.Temukan keindahan setiap sudut Arjasa dalam galeri foto kami.') }}</p>
                 </div>
 
                 <!-- Improved Category Filter -->
@@ -76,7 +85,8 @@
                 </div>
 
                 <!-- Gallery Grid -->
-                <div id="gallery-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+                <div id="gallery-grid"
+                    class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
                     @include('user.gallery.partials.gallery-grid', ['galleries' => $galleries])
                 </div>
 
@@ -91,9 +101,10 @@
         </section>
 
         <!-- Enhanced Modal Popup -->
-        <div x-show="isOpen" x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0"
-            x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200"
-            x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+        <div x-show="isOpen" x-cloak x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+            x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0"
             class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-90" @click.self="closeModal">
             <div class="relative bg-white rounded-xl max-w-6xl w-full max-h-[90vh] overflow-hidden shadow-2xl">
                 <!-- Close Button -->
@@ -185,7 +196,8 @@
 
                     filterButtons.forEach(btn => {
                         btn.classList.remove('bg-blue-600', 'text-white', 'shadow-md');
-                        btn.classList.add('bg-gray-100', 'text-gray-700', 'hover:bg-gray-200');
+                        btn.classList.add('bg-gray-100', 'text-gray-700',
+                            'hover:bg-gray-200');
                     });
 
                     this.classList.remove('bg-gray-100', 'text-gray-700', 'hover:bg-gray-200');
@@ -196,33 +208,33 @@
                     emptyState.classList.add('hidden');
 
                     fetch(`{{ route('gallery.index') }}?category=${category}`, {
-                        method: 'GET',
-                        headers: {
-                            'X-Requested-With': 'XMLHttpRequest',
-                            'Accept': 'application/json',
-                        }
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        loading.classList.add('hidden');
-                        galleryGrid.classList.remove('opacity-50');
+                            method: 'GET',
+                            headers: {
+                                'X-Requested-With': 'XMLHttpRequest',
+                                'Accept': 'application/json',
+                            }
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            loading.classList.add('hidden');
+                            galleryGrid.classList.remove('opacity-50');
 
-                        galleryGrid.innerHTML = data.html;
+                            galleryGrid.innerHTML = data.html;
 
-                        if (data.galleries.length === 0) {
-                            emptyState.classList.remove('hidden');
-                        }
+                            if (data.galleries.length === 0) {
+                                emptyState.classList.remove('hidden');
+                            }
 
-                        if (typeof AOS !== 'undefined') {
-                            AOS.refresh();
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        loading.classList.add('hidden');
-                        galleryGrid.classList.remove('opacity-50');
+                            if (typeof AOS !== 'undefined') {
+                                AOS.refresh();
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            loading.classList.add('hidden');
+                            galleryGrid.classList.remove('opacity-50');
 
-                        galleryGrid.innerHTML = `
+                            galleryGrid.innerHTML = `
                             <div class="col-span-full text-center py-12">
                                 <div class="text-red-500 mb-4">
                                     <i class="fas fa-exclamation-triangle text-4xl"></i>
@@ -230,7 +242,7 @@
                                 <p class="text-red-600">Terjadi kesalahan saat memuat galeri. Silakan coba lagi.</p>
                             </div>
                         `;
-                    });
+                        });
                 });
             });
         });
