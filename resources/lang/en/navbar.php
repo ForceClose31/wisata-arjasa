@@ -10,5 +10,6 @@ return [
     'contact' => 'Contact',
     'tourist_destination' => 'Tourist Destination',
     'e_booklet' => 'E-Booklet',
-    'tourism' => 'Tourism'
+    'tourism' => 'Tourism',
+    'news' => 'News'
 ];
