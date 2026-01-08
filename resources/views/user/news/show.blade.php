@@ -332,7 +332,6 @@
             document.getElementById('reply-info').classList.remove('hidden');
             document.querySelector('textarea[name="comment"]').focus();
 
-            // Smooth scroll to form
             document.querySelector('form').scrollIntoView({
                 behavior: 'smooth',
                 block: 'center'
@@ -344,15 +343,15 @@
             document.getElementById('reply-info').classList.add('hidden');
         }
 
-        // @if (session('success'))
-        //     setTimeout(() => {
-        //         const alert = document.querySelector('.bg-green-100');
-        //         if (alert) {
-        //             alert.style.transition = 'opacity 0.5s';
-        //             alert.style.opacity = '0';
-        //             setTimeout(() => alert.remove(), 500);
-        //         }
-        //     }, 5000);
-        // @endif
+        // Auto-hide success alert
+        if (session('success'))
+            setTimeout(() => {
+                const alert = document.querySelector('.bg-green-100');
+                if (alert) {
+                    alert.style.transition = 'opacity 0.5s';
+                    alert.style.opacity = '0';
+                    setTimeout(() => alert.remove(), 500);
+                }
+            }, 5000);
     </script>
 @endpush
