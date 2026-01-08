@@ -55,11 +55,11 @@ Route::middleware('locale')->group(function () {
             Route::get('/{slug}', 'show')->name('show');
         });
 
-    Route::controller(NewsController::class)->prefix('news')->name('news.')->group(function () {
-        Route::get('/', 'index')->name('index');
-        Route::get('/{slug}', 'show')->name('show');
-        Route::post('/{news}/comments', 'storeComment')->name('comments.store');
-    });
+    // Route::controller(NewsController::class)->prefix('news')->name('news.')->group(function () {
+    //     Route::get('/', 'index')->name('index');
+    //     Route::get('/{slug}', 'show')->name('show');
+    //     Route::post('/{news}/comments', 'storeComment')->name('comments.store');
+    // });
 
     Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
 
@@ -85,11 +85,11 @@ Route::prefix('admin')
         Route::resource('galleries', AdminGalleryController::class)->except('show');
 
         Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-        Route::resource('news', AdminNewsController::class)->except('show');
-        Route::prefix('comments')->name('comments.')->group(function () {
-            Route::get('/', [AdminCommentController::class, 'index'])->name('index');
-            Route::post('/{comment}/approve', [AdminCommentController::class, 'approve'])->name('approve');
-            Route::post('/{comment}/reject', [AdminCommentController::class, 'reject'])->name('reject');
-            Route::delete('/{comment}', [AdminCommentController::class, 'destroy'])->name('destroy');
-        });
+        // Route::resource('news', AdminNewsController::class)->except('show');
+        // Route::prefix('comments')->name('comments.')->group(function () {
+        //     Route::get('/', [AdminCommentController::class, 'index'])->name('index');
+        //     Route::post('/{comment}/approve', [AdminCommentController::class, 'approve'])->name('approve');
+        //     Route::post('/{comment}/reject', [AdminCommentController::class, 'reject'])->name('reject');
+        //     Route::delete('/{comment}', [AdminCommentController::class, 'destroy'])->name('destroy');
+        // });
     });
