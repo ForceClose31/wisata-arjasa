@@ -26,6 +26,7 @@
                         ],
                         ['label' => __('navbar.tour_package'), 'route' => 'tour-package.index'],
                         ['label' => __('navbar.gallery'), 'route' => 'gallery.index'],
+                        ['label' => __('navbar.news'), 'route' => 'news.index'],
                         ['label' => __('navbar.komotra'), 'route' => 'transport.index'],
                         ['label' => __('navbar.cottage'), 'route' => 'cottage.index'],
                         ['label' => __('navbar.contact'), 'route' => 'contact.index'],
@@ -38,8 +39,10 @@
                             <button type="button" data-toggle
                                 class="flex items-center gap-1 text-black hover:text-blue-400 transition focus:outline-none">
                                 {{ strtoupper($menu['label']) }}
-                                <svg class="w-4 h-4 transform transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                <svg class="w-4 h-4 transform transition" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
                                 </svg>
                             </button>
                             <div data-menu
@@ -98,8 +101,10 @@
                             <button type="button" data-mobile-toggle
                                 class="flex justify-between items-center w-full px-3 py-2 text-left text-black hover:text-blue-400 transition">
                                 {{ strtoupper($menu['label']) }}
-                                <svg class="w-4 h-4 transform transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                <svg class="w-4 h-4 transform transition" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
                                 </svg>
                             </button>
                             <div data-mobile-menu class="mobile-dropdown-menu pl-4 border-l-2 border-gray-100">

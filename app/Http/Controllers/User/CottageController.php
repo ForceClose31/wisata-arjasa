@@ -14,6 +14,6 @@ class CottageController extends Controller
         //     ->select('id', 'name', 'description', 'price', 'capacity', 'images')
         //     ->get();
 
-        return view('user.cottage.cottage', compact('cottages'));
+        return view('user.cottage.cottage');
     }
 }

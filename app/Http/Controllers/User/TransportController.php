@@ -21,6 +21,6 @@ class TransportController extends Controller
         // )
         //     ->get();
 
-        return view('user.transport.transport', compact('transportations'));
+        return view('user.transport.transport');
     }
 }

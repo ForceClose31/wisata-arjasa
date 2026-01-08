@@ -1,9 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\{
-    AdminController,
+    AdminCommentController, AdminController,
     AdminDestinationController,
-    AdminGalleryController,
+    AdminGalleryController, AdminNewsController,
     AdminTourPackageController
 };
 use App\Http\Controllers\User\{
@@ -12,6 +12,7 @@ use App\Http\Controllers\User\{
     CottageController,
     GalleryController,
     HomeController,
+    NewsController,
     TouristDestinationController,
     TransportController,
     TourPackageController
@@ -54,10 +55,10 @@ Route::middleware('locale')->group(function () {
             Route::get('/{slug}', 'show')->name('show');
         });
 
-    Route::controller(ArticleController::class)->prefix('artikel')->group(function () {
-        Route::get('/', 'index')->name('articles.all');
-        Route::get('/{slug}', 'show')->name('articles.show');
-        Route::get('/tag/{slug}', 'byTag')->name('articles.byTag');
+    Route::controller(NewsController::class)->prefix('news')->name('news.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/{slug}', 'show')->name('show');
+        Route::post('/{news}/comments', 'storeComment')->name('comments.store');
     });
 
     Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
@@ -84,4 +85,11 @@ Route::prefix('admin')
         Route::resource('galleries', AdminGalleryController::class)->except('show');
 
         Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+        Route::resource('news', AdminNewsController::class)->except('show');
+        Route::prefix('comments')->name('comments.')->group(function () {
+            Route::get('/', [AdminCommentController::class, 'index'])->name('index');
+            Route::post('/{comment}/approve', [AdminCommentController::class, 'approve'])->name('approve');
+            Route::post('/{comment}/reject', [AdminCommentController::class, 'reject'])->name('reject');
+            Route::delete('/{comment}', [AdminCommentController::class, 'destroy'])->name('destroy');
+        });
     });
