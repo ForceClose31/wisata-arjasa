@@ -7,6 +7,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    @stack('head')
+
     <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="icon" href="{{ asset('assets/img/logo.png') }}" type="image/png">
@@ -115,18 +117,17 @@
                 mobileMenuOpen: false,
 
                 currentSlide: 0,
-                slides: [
-                    {
-                        title: '{{ __("layouts.Jelajahi Keindahan Desa Wisata Adat Arjasa") }}',
-                        subtitle: '{{ __("layouts.Dari Suara Lokal ke Kebanggaan Global.") }}',
+                slides: [{
+                        title: '{{ __('layouts.Jelajahi Keindahan Desa Wisata Adat Arjasa') }}',
+                        subtitle: '{{ __('layouts.Dari Suara Lokal ke Kebanggaan Global.') }}',
                         image: 'assets/img/gandrung.jpg',
-                        cta: '{{ __("layouts.Mulai Jelajahi") }}'
+                        cta: '{{ __('layouts.Mulai Jelajahi') }}'
                     },
                     {
-                        title: '{{ __("layouts.Ikuti Event Budaya Terdekat") }}',
-                        subtitle: '{{ __("layouts.Bergabunglah dengan komunitas pelestari budaya") }}',
+                        title: '{{ __('layouts.Ikuti Event Budaya Terdekat') }}',
+                        subtitle: '{{ __('layouts.Bergabunglah dengan komunitas pelestari budaya') }}',
                         image: 'assets/img/event.jpg',
-                        cta: '{{ __("layouts.Lihat Event") }}'
+                        cta: '{{ __('layouts.Lihat Event') }}'
                     }
                 ],
 
@@ -140,10 +141,10 @@
                 },
 
                 getSlideLink(cta) {
-                    if (cta === '{{ __("layouts.Mulai Jelajahi") }}')
+                    if (cta === '{{ __('layouts.Mulai Jelajahi') }}')
                         return '{{ url('/about') }}';
 
-                    if (cta === '{{ __("layouts.Lihat Event") }}')
+                    if (cta === '{{ __('layouts.Lihat Event') }}')
                         return '{{ url('/event-budaya') }}';
 
                     return '#';
@@ -181,7 +182,7 @@
         });
     </script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
 
             const mobileBtn = document.getElementById("mobile-menu-button");
             const mobileMenu = document.getElementById("mobile-menu");
@@ -230,7 +231,6 @@
                 }
             });
         });
-
     </script>
     @stack('scripts')
 </body>
