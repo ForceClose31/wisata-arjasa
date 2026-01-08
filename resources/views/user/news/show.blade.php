@@ -1,55 +1,55 @@
 @extends('layouts.customer')
 
-@section('content')
-    @push('head')
-        <!-- SEO Meta Tags -->
-        <meta name="description" content="{{ $news->meta_description }}">
-        <meta name="keywords" content="{{ $news->getTranslation('meta_keywords', app()->getLocale()) }}">
-        <meta name="author" content="{{ $news->admin->username }}">
+@push('head')
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="{{ $news->meta_description }}">
+    <meta name="keywords" content="{{ $news->getTranslation('meta_keywords', app()->getLocale()) }}">
+    <meta name="author" content="{{ $news->admin->username }}">
 
-        <!-- Open Graph Meta Tags -->
-        <meta property="og:title" content="{{ $news->meta_title }}">
-        <meta property="og:description" content="{{ $news->meta_description }}">
-        <meta property="og:image" content="{{ asset('storage/' . ($news->og_image ?: $news->featured_image)) }}">
-        <meta property="og:url" content="{{ url()->current() }}">
-        <meta property="og:type" content="article">
-        <meta property="article:published_time" content="{{ $news->published_at->toIso8601String() }}">
-        <meta property="article:author" content="{{ $news->admin->username }}">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="{{ $news->meta_title }}">
+    <meta property="og:description" content="{{ $news->meta_description }}">
+    <meta property="og:image" content="{{ asset('storage/' . ($news->og_image ?: $news->featured_image)) }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="{{ $news->published_at->toIso8601String() }}">
+    <meta property="article:author" content="{{ $news->admin->username }}">
 
-        <!-- Twitter Card Meta Tags -->
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="{{ $news->meta_title }}">
-        <meta name="twitter:description" content="{{ $news->meta_description }}">
-        <meta name="twitter:image" content="{{ asset('storage/' . ($news->og_image ?: $news->featured_image)) }}">
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $news->meta_title }}">
+    <meta name="twitter:description" content="{{ $news->meta_description }}">
+    <meta name="twitter:image" content="{{ asset('storage/' . ($news->og_image ?: $news->featured_image)) }}">
 
-        <!-- Canonical URL -->
-        <link rel="canonical" href="{{ url()->current() }}">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ url()->current() }}">
 
-        <!-- Schema.org Structured Data -->
-        <script type="application/ld+json">
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "NewsArticle",
-  "headline": "{{ $news->getTranslation('title', app()->getLocale()) }}",
-  "image": "{{ asset('storage/' . $news->featured_image) }}",
-  "datePublished": "{{ $news->published_at->toIso8601String() }}",
-  "dateModified": "{{ $news->updated_at->toIso8601String() }}",
-  "author": {
-    "@type": "Person",
-    "name": "{{ $news->admin->username }}"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Desa Wisata Adat Arjasa",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "{{ asset('assets/img/logo.png') }}"
-    }
-  },
-  "description": "{{ $news->getTranslation('excerpt', app()->getLocale()) }}"
+"@context": "https://schema.org",
+"@type": "NewsArticle",
+"headline": "{{ $news->getTranslation('title', app()->getLocale()) }}",
+"image": "{{ asset('storage/' . $news->featured_image) }}",
+"datePublished": "{{ $news->published_at->toIso8601String() }}",
+"dateModified": "{{ $news->updated_at->toIso8601String() }}",
+"author": {
+"@type": "Person",
+"name": "{{ $news->admin->username }}"
+},
+"publisher": {
+"@type": "Organization",
+"name": "Desa Wisata Adat Arjasa",
+"logo": {
+  "@type": "ImageObject",
+  "url": "{{ asset('assets/img/logo.png') }}"
+}
+},
+"description": "{{ $news->getTranslation('excerpt', app()->getLocale()) }}"
 }
 </script>
-    @endpush
+@endpush
+@section('content')
 
     <section class="py-12 bg-gray-50">
         <div class="container mx-auto px-4 max-w-6xl">
@@ -343,7 +343,6 @@
                 document.getElementById('reply-info').classList.add('hidden');
             }
 
-            // Auto-hide success message
             @if (session('success'))
                 setTimeout(() => {
                     const alert = document.querySelector('.bg-green-100');
