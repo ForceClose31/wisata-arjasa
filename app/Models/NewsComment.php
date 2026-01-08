@@ -66,6 +66,15 @@ class NewsComment extends Model
         return $query->where('status', 'rejected');
     }
 
+    protected static function booted()
+    {
+        static::creating(function ($comment) {
+            if ($comment->parent_id && !$comment->news_id) {
+                $comment->news_id = NewsComment::find($comment->parent_id)?->news_id;
+            }
+        });
+    }
+
     public function approve($adminId = null)
     {
         $this->update([
