@@ -26,7 +26,6 @@
                         ],
                         ['label' => __('navbar.tour_package'), 'route' => 'tour-package.index'],
                         ['label' => __('navbar.gallery'), 'route' => 'gallery.index'],
-                        // ['label' => __('navbar.news'), 'route' => 'news.index'],
                         ['label' => __('navbar.komotra'), 'route' => 'transport.index'],
                         ['label' => __('navbar.cottage'), 'route' => 'cottage.index'],
                         ['label' => __('navbar.contact'), 'route' => 'contact.index'],

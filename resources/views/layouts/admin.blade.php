@@ -141,12 +141,6 @@
                             <i class="fas fa-images mr-3"></i>
                             Galeri
                         </a>
-
-                        <a href="#"
-                            class="flex items-center px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 rounded-lg group">
-                            <i class="fas fa-users-cog mr-3"></i>
-                            Berita
-                        </a>
                     </nav>
                 </div>
                 <div class="p-4 border-t border-blue-700">
