@@ -39,28 +39,22 @@ class AnalyzeArchitectureMetrics extends Command
             return 1;
         }
 
-        // Create output directory
         if (!File::exists($outputPath)) {
             File::makeDirectory($outputPath, 0755, true);
         }
 
-        // Run analysis based on architecture type
         if ($type === 'modular') {
             $this->analyzeModularMonolith($path);
         } else {
             $this->analyzeMonolith($path);
         }
 
-        // Calculate all metrics
         $this->calculateMetrics();
 
-        // Display results
         $this->displayResults();
 
-        // Save results
         $filename = $this->saveResults($outputPath, $version, $type);
 
-        // Compare with previous version if requested
         if ($compareFile = $this->option('compare')) {
             $this->compareVersions($filename, base_path($compareFile));
         }
@@ -78,20 +72,17 @@ class AnalyzeArchitectureMetrics extends Command
     {
         $this->info('📦 Detecting modules...');
 
-        // Detect modules (directories in base path)
         $moduleDirs = File::directories($basePath);
 
         foreach ($moduleDirs as $moduleDir) {
             $moduleName = basename($moduleDir);
 
-            // Skip ignored directories
             if (in_array($moduleName, $this->ignoredDirs)) {
                 continue;
             }
 
             $this->line("  - Scanning module: {$moduleName}");
 
-            // Check if this is a nested module structure (like TourPackages)
             if ($this->hasNestedStructure($moduleDir)) {
                 $this->line("    ↳ Detected nested Laravel structure");
                 $this->analyzeNestedModule($moduleName, $moduleDir);
@@ -118,7 +109,6 @@ class AnalyzeArchitectureMetrics extends Command
      */
     protected function analyzeNestedModule($parentModule, $parentPath)
     {
-        // Check if has app directory (nested Laravel structure)
         if (File::exists($parentPath . '/app')) {
             $appPath = $parentPath . '/app';
             $subModules = File::directories($appPath);
@@ -129,7 +119,6 @@ class AnalyzeArchitectureMetrics extends Command
                 $this->analyzeModule($subModuleName, $subModuleDir);
             }
         } else {
-            // Regular module analysis
             $this->analyzeModule($parentModule, $parentPath);
         }
     }
@@ -141,7 +130,6 @@ class AnalyzeArchitectureMetrics extends Command
     {
         $this->info('📦 Analyzing monolith structure...');
 
-        // Treat entire app as single "module"
         $this->modules['App'] = [
             'path' => $basePath,
             'controllers' => [],
@@ -174,25 +162,18 @@ class AnalyzeArchitectureMetrics extends Command
             ];
         }
 
-        // Find Controllers
         $this->scanForControllers($moduleName, $modulePath);
 
-        // Find Models/Entities
         $this->scanForModels($moduleName, $modulePath);
 
-        // Find Services
         $this->scanForServices($moduleName, $modulePath);
 
-        // Find Repositories
         $this->scanForRepositories($moduleName, $modulePath);
 
-        // Find Requests (DTOs)
         $this->scanForRequests($moduleName, $modulePath);
 
-        // Find Resources (DTOs)
         $this->scanForResources($moduleName, $modulePath);
 
-        // Detect inter-module connections
         $this->detectConnections($moduleName, $modulePath);
     }
 
@@ -346,7 +327,6 @@ class AnalyzeArchitectureMetrics extends Command
             return;
         }
 
-        // Determine if persistent or transient
         $isPersistent = $this->isPersistentEntity($content);
 
         $entityData = [
@@ -358,7 +338,6 @@ class AnalyzeArchitectureMetrics extends Command
             'fields' => $this->extractFields($content)
         ];
 
-        // Extract relationships
         $relationships = $this->extractRelationships($content, $className, $moduleName);
         $entityData['relationships'] = $relationships;
 
@@ -404,16 +383,13 @@ class AnalyzeArchitectureMetrics extends Command
 
             $content = File::get($file->getPathname());
 
-            // Detect usage of other modules
             foreach ($this->modules as $targetModule => $data) {
                 if ($targetModule === $moduleName) {
                     continue;
                 }
 
-                // Get base namespace for target module
                 $targetModuleBase = str_replace('::', '\\', $targetModule);
 
-                // Check for namespace imports
                 if (preg_match_all('/use\s+App\\\\Modules\\\\[^;]*' . preg_quote(basename($targetModuleBase), '/') . '[^;]*/i', $content, $matches)) {
                     foreach ($matches[0] as $match) {
                         $this->serviceConnections[] = [
@@ -426,7 +402,6 @@ class AnalyzeArchitectureMetrics extends Command
                     }
                 }
 
-                // Check for Facade usage
                 if (preg_match_all('/\\\\?' . preg_quote(basename($targetModuleBase), '/') . '::/i', $content, $matches)) {
                     $this->serviceConnections[] = [
                         'from' => $moduleName,
@@ -444,10 +419,8 @@ class AnalyzeArchitectureMetrics extends Command
      */
     protected function calculateMetrics()
     {
-        // S1: Number of Modules
         $this->metrics['S1'] = count($this->modules);
 
-        // S2: Number of Module Connections
         $uniqueConnections = [];
         foreach ($this->serviceConnections as $conn) {
             $key = $conn['from'] . '->' . $conn['to'];
@@ -455,31 +428,26 @@ class AnalyzeArchitectureMetrics extends Command
         }
         $this->metrics['S2'] = count($uniqueConnections);
 
-        // D1: Number of Persistent Data Entities
         $persistentEntities = array_filter($this->entities, function($entity) {
             return $entity['type'] === 'persistent';
         });
         $this->metrics['D1'] = count($persistentEntities);
 
-        // D2: Number of Transient Data Entities (DTOs)
         $transientEntities = array_filter($this->entities, function($entity) {
             return $entity['type'] === 'transient';
         });
         $this->metrics['D2'] = count($transientEntities);
 
-        // D3: Number of Relationships between Data Entities
         $totalRelationships = 0;
         foreach ($this->entities as $entity) {
             if ($entity['type'] === 'persistent') {
                 $totalRelationships += count($entity['relationships']);
             }
         }
-        $this->metrics['D3'] = (int)($totalRelationships / 2); // Divide by 2 to avoid double counting
+        $this->metrics['D3'] = (int)($totalRelationships / 2);
 
-        // D4: Number of Merge Candidate Data Entities
         $this->metrics['D4'] = $this->findMergeCandidates();
 
-        // D5: Number of Merge Candidate Relationships
         $this->metrics['D5'] = $this->findMergeCandidateRelationships();
     }
 
@@ -501,7 +469,6 @@ class AnalyzeArchitectureMetrics extends Command
 
         foreach ($entityNames as $name => $entities) {
             if (count($entities) > 1) {
-                // Check if they're in different modules
                 $modules = array_unique(array_column($entities, 'module'));
                 if (count($modules) > 1) {
                     $candidates += count($entities) - 1;
@@ -520,7 +487,6 @@ class AnalyzeArchitectureMetrics extends Command
         $candidateRelationships = 0;
         $entityNames = [];
 
-        // Group entities by name
         foreach ($this->entities as $fullName => $entity) {
             if ($entity['type'] !== 'persistent') continue;
 
@@ -531,7 +497,6 @@ class AnalyzeArchitectureMetrics extends Command
             $entityNames[$name][] = $entity;
         }
 
-        // Count relationships for entities that appear in multiple modules
         foreach ($entityNames as $name => $entities) {
             if (count($entities) > 1) {
                 $modules = array_unique(array_column($entities, 'module'));
@@ -582,19 +547,16 @@ class AnalyzeArchitectureMetrics extends Command
     {
         $fields = [];
 
-        // Extract fillable
         if (preg_match('/protected\s+\$fillable\s*=\s*\[(.*?)\]/s', $content, $matches)) {
             $fillable = preg_replace('/[\'"\s]/', '', $matches[1]);
             $fields = array_merge($fields, array_filter(explode(',', $fillable)));
         }
 
-        // Extract guarded
         if (preg_match('/protected\s+\$guarded\s*=\s*\[(.*?)\]/s', $content, $matches)) {
             $guarded = preg_replace('/[\'"\s]/', '', $matches[1]);
             $fields = array_merge($fields, array_filter(explode(',', $guarded)));
         }
 
-        // Extract casts
         if (preg_match('/protected\s+\$casts\s*=\s*\[(.*?)\]/s', $content, $matches)) {
             if (preg_match_all('/[\'"](\w+)[\'"]\s*=>/s', $matches[1], $castMatches)) {
                 $fields = array_merge($fields, $castMatches[1]);
@@ -611,14 +573,12 @@ class AnalyzeArchitectureMetrics extends Command
     {
         $fields = [];
 
-        // Extract from rules method (Request)
         if (preg_match('/public\s+function\s+rules\s*\(\).*?return\s*\[(.*?)\]/s', $content, $matches)) {
             if (preg_match_all('/[\'"](\w+)[\'"]\s*=>/s', $matches[1], $ruleMatches)) {
                 $fields = array_merge($fields, $ruleMatches[1]);
             }
         }
 
-        // Extract from toArray method (Resource)
         if (preg_match('/public\s+function\s+toArray\s*\(.*?\).*?return\s*\[(.*?)\]/s', $content, $matches)) {
             if (preg_match_all('/[\'"](\w+)[\'"]\s*=>/s', $matches[1], $arrayMatches)) {
                 $fields = array_merge($fields, $arrayMatches[1]);
@@ -635,7 +595,6 @@ class AnalyzeArchitectureMetrics extends Command
     {
         $relationships = [];
 
-        // Common Eloquent relationships
         $relationshipTypes = [
             'hasOne', 'hasMany', 'belongsTo', 'belongsToMany',
             'hasOneThrough', 'hasManyThrough', 'morphTo', 'morphOne', 'morphMany',
@@ -650,7 +609,6 @@ class AnalyzeArchitectureMetrics extends Command
                     $relationName = $match[1];
                     $targetClass = isset($match[2]) ? trim($match[2], '\'" ') : 'Unknown';
 
-                    // Extract just the class name
                     if (strpos($targetClass, '::class') !== false) {
                         $targetClass = str_replace('::class', '', $targetClass);
                         $targetClass = basename(str_replace('\\', '/', $targetClass));
@@ -679,7 +637,6 @@ class AnalyzeArchitectureMetrics extends Command
         $this->info('📊 ===== ARCHITECTURE METRICS RESULTS =====');
         $this->newLine();
 
-        // Service View Metrics
         $this->line('<fg=cyan>═══ SERVICE VIEW METRICS ═══</>');
         $this->table(
             ['Metric', 'Code', 'Value', 'Description'],
@@ -691,7 +648,6 @@ class AnalyzeArchitectureMetrics extends Command
 
         $this->newLine();
 
-        // Data View Metrics
         $this->line('<fg=cyan>═══ DATA VIEW METRICS ═══</>');
         $this->table(
             ['Metric', 'Code', 'Value', 'Description'],
@@ -706,7 +662,6 @@ class AnalyzeArchitectureMetrics extends Command
 
         $this->newLine();
 
-        // Module Details
         $this->line('<fg=cyan>═══ MODULE BREAKDOWN ═══</>');
         $moduleData = [];
         foreach ($this->modules as $name => $data) {
@@ -724,7 +679,6 @@ class AnalyzeArchitectureMetrics extends Command
             $moduleData
         );
 
-        // Top Connections
         if (!empty($this->serviceConnections)) {
             $this->newLine();
             $this->line('<fg=yellow>═══ TOP MODULE CONNECTIONS ═══</>');

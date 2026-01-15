@@ -6,9 +6,7 @@ use App\Models\Destination;
 use App\Models\DestinationCategory;
 use App\Models\GalleryCategory;
 use App\Models\TourPackage;
-use App\Models\PackageType;
 use Illuminate\Contracts\View\View;
-use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class HomeController extends Controller
 {

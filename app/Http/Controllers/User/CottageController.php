@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\Cottage;
 use Illuminate\Contracts\View\View;
 
 class CottageController extends Controller
