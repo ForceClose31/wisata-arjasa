@@ -67,7 +67,7 @@
                                     class="text-yellow-500 hover:text-yellow-700 mr-3">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <form action="{{ route('admin.tour-packages.destroy', $package->id) }}" method="POST"
+                                <form action="{{ route('admin.tour-packages.destroy', $package) }}" method="POST"
                                     class="inline">
                                     @csrf
                                     @method('DELETE')
