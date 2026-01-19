@@ -32,15 +32,4 @@ class Admin extends Authenticatable
     {
         return $this->belongsTo(AdminActivity::class);
     }
-
-    public function adminNews()
-    {
-        return $this->belongsTo(News::class);
-    }
-
-    public function adminComments()
-    {
-        return $this->belongsTo(NewsComment::class);
-    }
-
 }

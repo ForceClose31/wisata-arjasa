@@ -63,7 +63,7 @@
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <a href="{{ route('admin.tour-packages.edit', $package->id) }}"
+                                <a href="{{ route('admin.tour-packages.edit', $package) }}"
                                     class="text-yellow-500 hover:text-yellow-700 mr-3">
                                     <i class="fas fa-edit"></i>
                                 </a>
