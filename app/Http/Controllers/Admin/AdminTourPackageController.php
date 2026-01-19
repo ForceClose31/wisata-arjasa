@@ -59,6 +59,8 @@ class AdminTourPackageController extends Controller
             }
         }
 
+        $validated['admin_id'] = auth()->id();
+
         $pdfPath = null;
         if ($request->hasFile('pdf_file')) {
             $pdfPath = $request->file('pdf_file')->store('tour-pdf', 'public');
@@ -87,6 +89,7 @@ class AdminTourPackageController extends Controller
             'pdf_url' => $pdfPath,
             'is_featured' => $validated['is_featured'] ?? false,
             'is_available' => $validated['is_available'] ?? true,
+            'admin_id' => $validated['admin_id'],
         ]);
 
         foreach ($validated['pricings'] as $pricing) {

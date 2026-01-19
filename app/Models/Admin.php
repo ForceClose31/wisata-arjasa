@@ -28,8 +28,23 @@ class Admin extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function adminActivity()
+    public function adminActivities()
     {
-        return $this->belongsTo(AdminActivity::class);
+        return $this->hasMany(AdminActivity::class);
+    }
+
+    public function destination()
+    {
+        return $this->hasMany(Destination::class);
+    }
+
+    public function gallery()
+    {
+        return $this->hasMany(Gallery::class);
+    }
+
+    public function tourPackage()
+    {
+        return $this->hasMany(TourPackage::class);
     }
 }

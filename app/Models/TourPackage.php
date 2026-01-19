@@ -26,7 +26,8 @@ class TourPackage extends Model
         'images',
         'pdf_path',
         'is_featured',
-        'is_available'
+        'is_available',
+        'admin_id'
     ];
 
     protected $casts = [
@@ -38,6 +39,11 @@ class TourPackage extends Model
     public function packageType(): BelongsTo
     {
         return $this->belongsTo(PackageType::class);
+    }
+
+    public function admin(): BelongsTo
+    {
+        return $this->belongsTo(Admin::class);
     }
 
     public function pricings(): HasMany
