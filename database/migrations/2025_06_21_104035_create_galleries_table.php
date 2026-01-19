@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->string('image_path');
             $table->string('location')->nullable();
             $table->foreignId('gallery_category_id')->nullable()->constrained('gallery_categories')->onDelete('set null');
+            $table->foreignId('admin_id')->constrained('admins');
             $table->timestamps();
         });
     }

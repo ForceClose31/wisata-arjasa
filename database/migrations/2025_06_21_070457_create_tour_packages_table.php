@@ -20,6 +20,7 @@ return new class extends Migration
             $table->json('images')->nullable();
             $table->boolean('is_featured')->default(false);
             $table->boolean('is_available')->default(true);
+            $table->foreignId('admin_id')->constrained('admins');
             $table->timestamps();
             $table->softDeletes();
         });
